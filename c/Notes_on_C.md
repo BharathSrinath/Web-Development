@@ -532,7 +532,7 @@ Remember this: *p should be read as "value of the (address which is stored in p)
     If you are defining function before main (), you do not need to declare the function.
     Okay, lets have some clarity between parameters and arguments.
         In function calling (the function which actually calls), it is called as 'arguments'/'actual parameters'
-        In function definitio and eclaration, it is called as 'parameters'/'formal parameters'
+        In function definition and declaration, it is called as 'parameters'/'formal parameters'
     Classification of functions:
         1. No argumnets, no return type
         2. No arguments with return type
@@ -540,10 +540,34 @@ Remember this: *p should be read as "value of the (address which is stored in p)
         4. Arguments with return type
 
 
-# 17. Static variables and functions:
-    What is it to mean that declaring a variable/function as static?
-    A static variable has a fixed memory location throughout the program's execution, unlike regular (automatic) variables, which are created and destroyed each time the function is called.
+# 17. Storage classes:
+They give information of the variable like location, scope and lifetime
+    Here scope means whether they are limited to a block (anything within a curly braces), function or a program (global scope)
+    A variable will have choose a nearest value
+        If you are declaring int a = 5 at the global scope, int a = 10 under main and int a = 15 in a curlybraces1 under main and using printf to print a in another curlybraces2, here a = 10 will be printed as it is the nearest value that it can access   
+They are declared before the data type of a variable
+
+    A. Auto: 
+    When you dont declare anything, it will be considered auto. 
+    Above points are default and they are nothing but auto type
+    You cant declare them before main. Because to declare them above means that they are global scope.
+    They are stored in stack part of RAM
+
+    B. Register:
+    Similar to auto, they cannot be declared at the global level
+    They are stored in CPU register. 
+        Everytime you need a variable to process for some calculation, you to need fetch the from RAM.
+        While processing can be faster, fetching (Process name is 'switching' as it is switching back and forth between CPU register and teh RAM), take time which degrades the efficiency.
+        To overcome this we can store the variables in CPU register. But their memory is very small. So we cant use it for all variables rather should be used only for variables that are frequently in use. 
+            Lets say a for-loop runs for 10,000 times. Here int i will used 10,000 times. This can be very good usage of register
+            Not all types of variables can be declared as register. Usually, simple data types like int or char are candidates for register storage. Pointers and complex data structures are less likely to be stored in registers.
+        Variables declared as register typically do not have a memory address.
+        But but but Keep in mind that in modern C compilers, the use of the register keyword is often unnecessary because compilers are sophisticated enough to optimize variable storage and access automatically. In many cases, manually specifying register may have no effect on the generated code or may even hinder optimization efforts. 
+
+    C. Static:
+    A static variable has a fixed memory location throughout the program's execution, unlike regular (auto) variables, which are created and destroyed each time the function is called.
     The lifetime of a static variable extends over the entire program's execution, making it useful for preserving data across function calls. It retains its value between function calls, unlike automatic variables that are reinitialized each time the function is called.
+        Once you have initialized the static variable to some value (say 1), and if you are going to come back to the same line due to loop or recursion, keep in mind that you are not going reinitialize the values again and again
         By default, static variables are initialized to zero. 
         Example: 
             int incr (int i)
@@ -561,6 +585,81 @@ Remember this: *p should be read as "value of the (address which is stored in p)
                 }
             }
     Static function is only accessible within the file where it is declared. It cannot be accessed from other source files using function prototypes.
+
+    D. Extern:
+    They are stored in RAM and the scope is Global and it can be used to access variables/functions between files too
+    If file 1 has a variable x = 10. In file 2, you can declare 'extern int x'
+        Here in file 2 the memory will not be allocated. Rather it will be just requesting the compiler to refer another file.
+        This can save memory
+    Not just between files, even within files you can use them. Looa at the below example
+        int main ()
+        {
+            extern int a;
+            printf ("%d", a);
+            func1 ();
+            func2 ();
+        }
+        void func1 ()
+        {
+            int a = 2;
+            a++;
+            printf ("a = %d", a);
+        }
+        void func2 ()
+        {
+            printf ("Hello")
+        }
+        int a;
+    See here a is declared at the end. Compiler will throw an error as undeclared int. But extern has instructed the compiler that a is declared somewhere else so please look for it.
+        See even if you have declared x after the extern line in the same block, it will still throw an error. But extern tells the compiler to look outside the block in which extern is declared.
+        We use them for between the files. The above scenario is just to explain the logic behind it.
+    You have to have the files under the same project. Also include the source file at the top as #include "filename.c"
+    The drawback is that, the reference with extern is possible only with global variables.
+        In file lets say that you have int x = 5 under the main function. In file 2 if youy are trying to access x using extern int x, it is not possibel as x's visibility is limited to main function of that file. 
+    Note: You know that by default, a storage class would be auto for any variable. But when you declare a variable above main it cannot take auto as the default value.
+        We have studied that auto is limited only blocks and functions
+        So in this scenario when you declare int x globally, its default storage class will be extern.
+        Also by default all global variable fall under extern storage class category
+
+
+# 18. Dynamic Memory Allocation:
+    SMA - Memory is allocated during compile time based fixed values (like int - 4 bytes, ch - 1 byte)
+    DMA - Memory is allocated during run time based programmers requirements
+        All of the following returns a void pointer
+    1. malloc ():
+        It dynamically allocates a single large block of contiguous memory in the heap according to the size specified
+        When memory is allocation is success, it returns a pointer pointing to the base address (first byte), else it returns NULL. That is on failure (when you are requesting n+1 memory with capacity of n) it will return a NULL pointer.
+            So always use an if condition for printing memory insufficinet error message
+        Syntax: (void *)malloc(size_t size)
+            Here size_t is nothing but an unsigned integer as the size cannot be negative
+            malloc returns a void pointer because it actually doesnt know for what we are asking memory for.
+                Hence we need to type cast the void with whatever that we require such as int* 
+                But modern compiler and other languages doesn't require them
+    2. calloc ():
+        Two difference between malloc and calloc
+            malloc allocates a single large block of memory while calloc allocates multiple blocks of memory in equal size
+            malloc by default will allocate garbage value to this memory, while calloc will initialize them to 0.
+        Syntax: (void *)calloc(size_t n size_t size)
+            Here n represents the number of blocks
+            If you remember in malloc we use (int *)malloc(n*sizeof(int))
+                Here the after multiplying with n one huge block of will be allocated. In calloc 3 individual blocks of equal size will allocated.
+        calloc can make it more convenient to work with structures that have multiple elements of the same size, like arrays, matrices, or other data structures.
+        It simplifies the management of memory because you can treat each block as a distinct unit, whereas allocating individually with malloc may require additional calculations to access specific elements within the allocated memory block.
+    3. realloc ():
+        It is used for resizing previously allocated memory
+        syntax: (void *)realloc(void *ptr, size_t size);
+        Example: int *newArr = (int *)realloc(arr, 10 * sizeof(int));
+            void *ptr is represents previously allocated memory block that you want to resize.
+            The size can be larger/smaller than the previous size 
+                Just know it:
+                    If ptr is NULL, realloc behaves like malloc and simply allocates a new block of memory of the specified size.
+                    If size is mentioned as 0, the realloc behaves like free () which deallocates memory. 
+                        But the issue with mentioning size as 0 is it will lead to dangling pointer. So, it's essential to assign NULL to ptr after calling realloc with size 0.
+                            This is not a goof practice. So use free () for this job which automatically doees everything. 
+        If you increase the size using realloc, additional memory is added immediately to the right of the last existing memory. If that memory is already occupied, the contents are copied to a new block, and the size is increased. This behavior is known as "resizing in place" when possible.
+
+
+         
 
 
 
