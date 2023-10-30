@@ -11,9 +11,12 @@
 </head>
 
 <body>
-    <h1 class="display-5">1. Containers</h1> <!-- There are 4 displays from 1 to 4 -->
+    <h1 class="display-5">1. Containers</h1> <!-- Display-1 to display-6 --> 
+    <!-- After checking, h1 to h6 are vastly different. So you can choose them based on your needs -->
+    <!-- Also,  here "<h1 class="display-5">" h1 will have any effect as class as higher precedence than an element -->
     <!-- Everything should be enclosed in a container -->
-    <div class="container"> <!-- The content will be restricted under a limit -->
+    <div class="container"> 
+        <!-- It sets a max-width at each responsive breakpoint -->
         <h3 class="display-6"> 1a. Container</h3>
         Bootstrap is maintained by a small team of developers on GitHub. We are actively looking to grow this team and
         would love to hear from you if you are excited about CSS at scale, writing and maintaining vanilla JavaScript
@@ -21,7 +24,7 @@
     </div>
     <br>
     <br>
-    <div class="container-fluid"> <!-- The content will span across the entire screen -->
+    <div class="container-fluid"> <!-- .container-fluid, which is width: 100% at all breakpoints. That is 100% of its parent -->
         <h3 class="display-6">1b. Container-fluid</h3>
         Bootstrap is maintained by a small team of developers on GitHub. We are actively looking to grow this team and
         would love to hear from you if you are excited about CSS at scale, writing and maintaining vanilla JavaScript
@@ -29,33 +32,48 @@
     </div>
     <br>
     <br>
+    <h1 class="display-5">2. Containers with breakpoints</h1>
+    <!-- These containers will maintain the width of the parent until they hit a breakpoint -->
+    <!-- Once they hit a breakpoint, they will stop expanding. -->
     <div class="container-sm">
-        <!-- 100% wide (spanning across the screen like the container-fluid) until you hit a small breakpoint -->
-        <h3 class="display-6">1c. Container-sm</h3>
+        <!-- 100% wide until you hit a small breakpoint (540px) -->
+        <h3 class="display-6">2a. Container-sm</h3>
         Bootstrap is maintained by a small team of developers on GitHub. We are actively looking to grow this team and
         would love to hear from you if you are excited about CSS at scale, writing and maintaining vanilla JavaScript
         plugins, and improving build tooling processes for frontend code.
     </div>
     <br>
     <br>
-    <div class="container-md"> <!-- 100% wide until you hit a medium breakpoint -->
-        <h3 class="display-6">1d. Container-md</h3>
+    <div class="container-md"> 
+        <!-- 100% wide until you hit a medium breakpoint (720px) -->
+        <h3 class="display-6">2b. Container-md</h3>
         Bootstrap is maintained by a small team of developers on GitHub. We are actively looking to grow this team and
         would love to hear from you if you are excited about CSS at scale, writing and maintaining vanilla JavaScript
         plugins, and improving build tooling processes for frontend code.
     </div>
     <br>
     <br>
-    <div class="container-lg"> <!-- 100% wide until you hit a large breakpoint -->
-        <h3 class="display-6">1e. Container-lg</h3>
+    <div class="container-lg"> 
+        <!-- 100% wide until you hit a large breakpoint (960px) -->
+        <h3 class="display-6">2c. Container-lg</h3>
         Bootstrap is maintained by a small team of developers on GitHub. We are actively looking to grow this team and
         would love to hear from you if you are excited about CSS at scale, writing and maintaining vanilla JavaScript
         plugins, and improving build tooling processes for frontend code.
     </div>
     <br>
     <br>
-    <div class="container-xl"> <!-- 100% wide until you hit a extra-large breakpoint -->
-        <h3 class="display-6">1f. Container-xl</h3>
+    <div class="container-xl"> 
+        <!-- 100% wide until you hit a extra-large breakpoint (1140px) -->
+        <h3 class="display-6">2d. Container-xl</h3>
+        Bootstrap is maintained by a small team of developers on GitHub. We are actively looking to grow this team and
+        would love to hear from you if you are excited about CSS at scale, writing and maintaining vanilla JavaScript
+        plugins, and improving build tooling processes for frontend code.
+    </div>
+    <br>
+    <br>
+    <div class="container-xxl"> 
+        <!-- 100% wide until you hit a extra-extra-large breakpoint (1320px) -->
+        <h3 class="display-6">2e. Container-xxl</h3>
         Bootstrap is maintained by a small team of developers on GitHub. We are actively looking to grow this team and
         would love to hear from you if you are excited about CSS at scale, writing and maintaining vanilla JavaScript
         plugins, and improving build tooling processes for frontend code.
@@ -105,12 +123,14 @@
         <button type="button" class="btn btn-outline-primary" disabled>Disabled button</button>
         <br>
         <br>
-        <!-- Link functionality caveat: Above method will disable mouse to be clicked but keyboard navigation can still click that. To be sure, we have to disable area istself. tabindex="-1" is used to indicate that an element should be programmatically focusable (just like hover funcion we have something called focus function) but should not be reachable via the keyboard's Tab key. -->
+        <!-- Link functionality caveat: Above method will not work when you define a button within an anchor tag. Above method will disable mouse to be clicked for button inside anchor tags but keyboard navigation can still click that. To be sure, we have to disable area itself. tabindex="-1" is used to indicate that an element should be programmatically focusable (just like hover funcion we have something called focus function) but should not be reachable via the keyboard's Tab key. -->
         <h3 class="display-6">2f. Disabled buttons along with disabled area</h3>
         <a href="#" class="btn btn-secondary disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
+        <!-- When you set aria-disabled="true" on an element, you are conveying to assistive technologies (such as screen readers) that the element is currently non-interactive or disabled. This helps users with disabilities understand that the element cannot be activated or interacted with at the moment. -->
+        <!-- Its default value is false. A blind person will not know that, the button has been disabled. So this helps to let them know -->
         <br>
         <br>
-        <!-- Block buttons: You need a seaparate class and then nest the normal buttons under that class -->
+        <!-- Block buttons: You need a separate class and then nest the normal buttons under that class -->
         <h3 class="display-6">2g. Block buttons</h3>
         <div class="d-grid gap-2">
             <button class="btn btn-primary" type="button">Button</button>

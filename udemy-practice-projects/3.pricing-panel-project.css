@@ -1,47 +1,51 @@
 /* Pricing Panel Project */
 
-.pricingpanelproject{
+body{
     background-color: #739df7;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    width: 100%;
+    height: 100vh;
 }
 
 .pricingpanel {
     background-color: white;
     border-radius: 10px;
     padding: 15px 25px;
-    width: 100%;
-    max-width: 960px;  
+    width: 70%;  
+    height: 90%;
     color: #016ff9;
     display:flex;
-    flex-direction: column;
-    text-align: center;
-    text-transform: uppercase;
-    /* font-weight: 500;
-    justify-content: center;
-    align-content: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    
 }
+
 div.subpricingpanel {
-    border-bottom: 1px solid #e1f1ff;
+   border: 1px solid #739df7;
 }
-div.subpricingpanel:nth-child(3) {
-    border-bottom: none;
-}
+
+div.subpricingpanel:nth-child(2) {
+    border-left: none;
+    border-right: none;
+ }
+
 .pricingimage{
-    margin-bottom: 25px;
+    height: 150px;
     width: 100%;
 }
 h2.productname{
+display: flex;
 color: grey;
 font-weight: 600;
 letter-spacing: 2px;
+justify-content: center;
 }
 
 ul.features{
-margin: 50px 0 25px;
+width: 100%;
+text-align: left;
+display: flex;
+flex-wrap: wrap;
 color: #016ff9;
 }
 
@@ -53,10 +57,9 @@ line-height: 1.5;
 padding: 15px 0;
 border-top: 1px solid #e1f1ff;
 }
-.addfeatures:last-child{
-    border-bottom: 1px solid #e1f1ff;
-}
+
 .productprice{
+    text-align: center;
     font-weight: bolder;
     color: #016ff9;
     font-size: 32px;
@@ -64,10 +67,12 @@ border-top: 1px solid #e1f1ff;
 }
 .pricingbutton{
 border: 1px solid #597daa;
-border-radius: 10%;
+border-radius: 10px;
 color: #016ff9;
-display: inline-block;
-padding: 15px 35px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 15px 15px;
 text-decoration: none;
 margin: 25px 0;
 transition: background-color 200ms ease-in-out;

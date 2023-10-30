@@ -10,7 +10,7 @@ h2.massage {
     margin-left: 50px;
     padding-top: 30px;
     bottom: 1150px
-    /* text-align: center; */
+
 }
 #massage {
     filter: blur(5px);
@@ -34,5 +34,5 @@ img.massage{
 figure.massage{
     position: relative;
     display: inline-block;
-    bottom:1175px;
+    bottom: 1175px;
 }

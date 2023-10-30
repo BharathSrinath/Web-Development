@@ -1,6 +1,7 @@
 # 1. Notations
-Big O notation, Omega notation, and Theta notation are the notations used in computer science to describe the time or space complexity of algorithms. 
+Big O notation, Omega notation, and Theta notation are the notations used in computer science to describe the time of algorithms. 
 They are used to provide different insights into the performance of an algorithm and how it behaves under different conditions.
+When we use "Big O" notation to describe an algorithm's time complexity, we are estimating how the algorithm's execution time grows with the size of the input.
 # Big O notation (O): 
     # It represents the upper bound or worst-case time complexity of an algorithm.
     # It tells us the maximum amount of time an algorithm will take to complete its task as the input size grows. 
@@ -22,7 +23,215 @@ Note: While Big O notation is commonly used to describe the complexity of algori
     Binary Search: O(log n); Ω(1)
     Selection Sort: O(n^2); Ω(n^2)
     Bubble Sort: O(n^2); Ω(n)
-    Merge Sort: O(n log n); Ω(n log n)
+    Merge Sort, Quick Sort and Heap Sort: O(n log n); Ω(n log n)
+
+# Determing time complexity:
+
+#include <stdio.h>
+
+void exampleLoop(int n) {
+    int sum = 0;
+    
+    // Step 1: Identify Loops
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
+            sum += i * j;
+        }
+    }
+
+    // Step 2: Count Operations
+    int product = 1;
+    for (int i = 1; i <= n; i++) {
+        product *= i;
+    }
+
+    // Step 3: Express Complexity
+    int totalOperations = 0;
+    totalOperations += n * n;        // For the nested loops
+    totalOperations += n;            // For the second loop
+
+    // Step 4: Simplify Expressions
+    // We simplify this by dropping constants, leaving us with O(n^2)
+    // Even though we have two loops, we drop the inner loop's contribution because it's smaller
+
+    // Step 5: Determine Dominant Term
+    // In this case, the term "n^2" dominates as "n" grows, so it's the highest power of "n."
+
+    // Step 6: Final Complexity
+    // Express the overall time complexity using Big O notation
+    printf("Overall Time Complexity: O(n^2)\n");
+
+    // Recursive Function Example
+    if (n > 0) {
+        exampleLoop(n - 1);  // Recursion with reduced input
+    }
+}
+
+int main() {
+    int n = 5;  // Input size
+
+    // Analyzing the time complexity of the 'exampleLoop' function
+    exampleLoop(n);
+
+    return 0;
+}
+
+Example1:
+void nestedLoops(int n) {
+    int count = 0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) {
+            count++;
+        }
+    }
+}
+
+Outerloop runs n times
+Inner runs 1 time during first iteration and 2 times in the second and so on upto n times in the nth iteration
+    So 1+2+3+.....+n is the number of times it runs. i.e., n(n+1)/2
+So the time complexity is n^2 after simplification. 
+Here we are arriiving to conclusion that inner forloop will run upto n times which is inherently based on outerloop's i value. Hence we are separatley multiplying the value of outerloop's time complexity with inner loop as we did above
+
+Example 2:
+void reverse(int[] array)
+{
+    for (inti = 0; i < n / 2; i++) {
+        int other = array.length - i - 1; int temp = array[i];
+        array[i] = array[other]; array[other] = temp;
+    }
+}
+
+This algorithm runs in O ( N) time. The fact that it only goes through half of the array (in terms of iterations) does not impact the big O time.
+
+Example 3:
+Suppose we had an algorithm that took in an array of strings, sorted each string, and then sorted the full array. What would the runtime be?
+For sorting characters in a string - O (M log M) * N
+    M - Size of the biggest string; N - Number of strings
+For sorting in an array - O (N log N) * M
+    Here each string will be comapred with every other string. Also, here we are not dealing with numbers or single character Hence we should also be comparing characters in words while comparing two strings
+
+Example 4:
+for (int x = 2; x * x <= n; x++)
+{
+    if (n % x == 0) {
+        printf("Not a Prime Number");
+        return 1;
+    }
+}
+printf("Prime Number");
+
+The for loop will start when x = 2 and end when x*x = n. Or, in other words, it stops when x = √n. Hence this runs in O(√n) time.
+
+Example 4:
+int factorial(int n) {
+    if (n < 0) {
+        return -1;
+    } else if (n == 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+This is just a straight recursion from n to n -1 to n - 2 down to 1. It will take O (n) time. I am pretty sure you might thought has O (n!). But lets use a basic logic. At each level of recursion, number of recursive calls is directly proportional to 'n'. That is for every call, the n decreases. This is as simple as it gets. You have always think about how many times the loop runs or hoe many times the function calls. These are the key.
+
+Example 5:
+int f(int n) {
+    if (n <= 1) { return 1; }
+    return f(n - 1) + f(n - 1);
+}
+
+See these are tricky. Because you havent seen such recursive calls as of now. What happens here picture it like a tree as follows. Both calls happens in parallel. Imagine now you have new copy of the program side by side.
+
+                                        f (4)
+                    f(3)                                          f(3)
+               f(2)      f(2)                                f (2)     f(2)
+             f(1) f(1) f(1) f(1)                           f(1) f(1) f(1) f(1)
+
+Look at the below table
+
+-----------------------------
+|Levels| Nodes | Power of 2 | 
+-----------------------------
+|   0  |   1   |    2^0     |
+-----------------------------
+|   1  |   2   |    2^1     |
+-----------------------------
+|   2  |   4   |    2^2     |
+-----------------------------
+|   3  |   8   |    2^3     |
+-----------------------------
+|   4  |   16  |    2^4     |
+-----------------------------
+Therefore, there will be 2^0 + 2^1 + 2^2 + 2^3 + 2^4 + .... + 2^N (which is 2^(N+1) - 1) nodes
+Try to remember this pattern. When you have a recursive function that makes multiple calls, the runtime will often (but not always) look like O (branches^depth), where branches is the number of times each recursive call branches. In this case, this gives us O (2^N).
+
+Example 6:
+The following code computes the Nth Fibonacci number.
+int fib(int n) {
+    if (n <= 0) return 0;
+    else if (n == 1) return 1;
+    return fib(n - 1) + fib(n - 2);
+}
+
+Even though the second function call has n-2, when the n is too big it is not going make much of a difference with respect to worst case scenario. So just like previous problem, it is also O (2^N)
+
+Example 7:
+The following code prints all Fibonacci numbers from O to n.
+
+void allFib(int n) {
+    for (int i = 0; i < n; i++) {
+        System.out.println(i + ": " + fib(i));
+    }
+}
+    
+    int fib(int n) {
+    if (n <= 0) return 0;
+    else if (n == 1) return 1;
+    return fib(n - 1) + fib(n - 2);
+}
+
+T=You have already seen two fibonacci related problems. This is slightly tricky. 
+Step 1: You are aclling fib (i) and i get incremented. As the i gets incremeted, the exponential order for the fib (int n) also increases. Why? 
+    Just picture this in mind. When i is small (which actually take the value of n in fib (int n)), lesse is the recursion happening. Since there are 2 calls in the return statement we say it as exponential. 
+If the n value that is being passed to fib() has remained constant then the time complexity would have been n*(2^n). But n actually keeps changing. When allFib passeses 0 to n-1, for every n, the time complexity of fib(n) is 2^n. 
+So, when we add all, it should be n*2^n. But we cant do that because, n is not same for every iteration. Hence 2^n is also not same all the time. Hence were are ignoring the changes caused by n and time complexity will be 2^n.  
+
+Example 8:
+The following code prints all Fibonacci numbers from Oto n. However, this time, it stores (i.e., caches) previously computed values in an integer array. If it has already been computed, it just returns the cache. 
+
+void allFib(int n) {
+    int[] memo = new int[n + 1];
+    for (int i = 0; i < n; i++) {
+        System.out.println(i + ": " + fib(i, memo));
+    }
+}
+
+int fib(int n, int[] memo) {
+    if (n <= 0) return 0;
+    else if (n == 1) {
+        return 1;
+    }
+    else if (memo[n] > 0) {
+        return memo[n];
+    }
+    memo[n] = fib(n - 1, memo) + fib(n - 2, memo);
+    return memo[n];
+}
+
+Here what you have to understand is storing the previous values in array eliminates the need to calculate again and again. See when n is 3 your node wil be 
+                    f(3)                                  
+               f(2)      f(2)                                
+             f(1) f(1) f(1) f(1) 
+
+Now when n is 4, it will be 
+                                        f (4)
+                    f(3)                                          f(3)
+               f(2)      f(2)                                f (2)     f(2)
+             f(1) f(1) f(1) f(1)                           f(1) f(1) f(1) f(1)
+
+Now when is 4 and having previous access to when n is 3 being stored in memo array, our load is reduced by log n which is actually is opposite of 2^n. So increase in in corresponds to linear incease in complexity. Hence, the time complexity is O (n)
+I understand that you all these things tricky. But go through every problem and every example. You will eventually get it. Keep your heads high. 
 
 # 2. Algorithms:
 # (a) Linear Search: 

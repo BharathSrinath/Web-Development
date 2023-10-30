@@ -7,20 +7,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">  Here we have added roboto font. Now you can make use of it css file. The procedure is go to "https://fonts.google.com/" and choose and then click on embed and copy or download and include the link in the head of html" -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">  Here we have added roboto font. Now you can make use of it in css file. The procedure is go to "https://fonts.google.com/" and choose and then click on embed and copy or download and include the link in the head of html" -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-    <title>Basics of HTML</title>
-    <link rel="stylesheet" href="2a-css-course.css">
+    <title>HTML</title>
+    <link rel="stylesheet" href="2.css-course.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
     <link rel="stylesheet" href="pricingpanelproject.css">
     <!-- Title is displayed at the tab -->
 </head>
-<!-- In HTML, markup refers to the process of adding specific annotations or 
-        tags to a piece of text to provide structure and meaning to its content. 
-        These annotations or tags are known as markup elements. -->
-<!-- HTML - It is the "what"(content) of the web page -->
-<!-- CSS - It is about what or describes the what -->
-<!-- JS - It is the action that will be taken by the what -->
+<!-- In HTML, markup refers to the process of adding specific annotations or tags to a piece of text to provide structure and meaning to its content. These annotations or tags are known as markup elements. -->
+    <!-- HTML - It is the "what"(content) of the web page -->
+    <!-- CSS - It is about what or describes the what -->
+    <!-- JS - It is the action that will be taken by the what -->
 
 <body>
     <h3>1. Headers and Paragraphs</h3>
@@ -37,11 +35,9 @@
         Pull up your socks and <u>push harder</u>
     </p>
     <!-- P*n will give you n number of paragraphs -->
-    <!-- To have a dummy text you can use the commadn lorem*n where more the value of n greater is the size of the paragraph. It is used to create web pages when you dont have actual content -->
+    <!-- To have a dummy text you can use the command lorem*n where higher the value of n, greater is the size of the paragraph. It is used as a dummy text when you dont have actual content -->
 
-    <hr>
-    <!-- Represents an Horizontal line -->
-
+    <hr> <!-- Represents an Horizontal line -->
 
     <h3>2. Anchor tag, Image tag and Video tag</h3>
     <!-- Using Anchor tags you can place the links (other websites or even files in your system) in your website -->
@@ -49,15 +45,14 @@
     <!-- To link the file in your system, it should be in the same folder as the source code -->
     <a href="https://www.youtube.com/" target="_blank">Click here</a>
     <br>
-
     <img src="https://as1.ftcdn.net/v2/jpg/03/02/22/86/1000_F_302228672_dxcV1RbwOehFgUEvkysugmwx8v9EoW7I.jpg"
         alt="Image of person celebrating success" width="620px">
     <br>
     <!-- Image doesnt have a closing tag -->
-    <!-- alt is used to to provide alternative text if the image doesnt appear due to broken url or due to loading issues or most importantly for accessibility purposes -->
+    <!-- alt is used to provide alternative text if the image doesnt appear due to broken url or due to loading issues or most importantly for accessibility purposes -->
     <!-- Both href and src are known as attributes. They are like special instructions that you can add to the opening tags of HTML elements to modify their behavior or appearance. It has 2 parts - attribute name and its value-->
 
-    <video src="1b-video-1.mp4" width="480px" controls autoplay muted loop></video>
+    <video src="html-css-course-resources\1b-video-1.mp4" width="480px" controls autoplay muted loop></video>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/FojmZndalqY" title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -68,7 +63,8 @@
     <!-- An hyperlink redirects you to the other sites. iframe will bring the content of other websites into ours. -->
     <!-- To link a youtube video, YT video => share => embed => copy and paste. -->
     <!-- Not every site will allow to embed (Ex: Google) -->
-    <!-- clipboard-write: It is used when websites want to provide a convenient way for users to copy specific information associated with the embedded content. Ex: If you're watching a YouTube video embedded on a webpage and the clipboard-write permission is granted, the video player may have a button or an option that allows you to copy the video's URL or share it through the clipboard. -->
+    <!-- clipboard-write: It is used when websites want to provide a convenient way for users to copy specific information associated with the embedded content. 
+        Example: If you're watching a YouTube video embedded on a webpage and the clipboard-write permission is granted, the video player may have a button or an option that allows you to copy the video's URL or share it through the clipboard. -->
     <!-- Encrypted-media: They are video that can be watched only with decryption. Ex: Videos in OTT platforms where only subcribers can watch -->
     <hr>
 
@@ -83,7 +79,9 @@
     <ul type="Square">
         <div>
             <li>Milk</li>
-            <li>Bread</li>
+            <ul>
+                <li>Curd</li>
+            </ul>
             <li>Butter</li>
             <li>Jam</li>
         </div>
@@ -100,20 +98,19 @@
         <li>Jam</li>
     </ol>
 
-    Description terms (dt) and their definitions (dd) are enclosed in description lists (dl)
+    <!-- Description terms (dt) and their definitions (dd) are enclosed in description lists (dl) -->
     <dl> 
-    <dt>HTML</dt>
+    <dt>HTML:</dt>
     <dd>HyperText Markup Language</dd>
     
-    <dt>CSS</dt>
+    <dt>CSS:</dt>
     <dd>Cascading Style Sheets</dd>
     
-    <dt>JavaScript</dt>
+    <dt>JavaScript:</dt>
     <dd>A scripting language used for web development</dd>
     </dl>
 
-
-    <!-- Elements that don’t have any content by design are called void elements. When you need to use a void element, like <br> or <img>, you only use an opening tag. -->
+    <!-- Elements that don’t have any content by design are called void elements. When you need to use a void element, like <br>, <img>, <input>, <link>, <metatdata>, etc., you only use an opening tag. -->
 
     <h3>4. Working with tables</h3>
     <!-- Divide the table into head and body -->
@@ -123,6 +120,7 @@
     <!-- Remember: Row is left/right and Column is up/down -->
     <table>
         <thead>
+            <!-- Here thead is just a semantic structure. It doesnt have any effect on displaying contents. But makes the code readable and can be helpful when you define styling in css -->
             <tr class="tablehead">
                 <th rowspan="2">Class/Details</th>
                 <th rowspan="2">Name</th>
@@ -132,9 +130,9 @@
             <tr class="tablehead">
                 <th>Grade</th>
                 <th>Badge</th>
-
             </tr>
         </thead>
+
         <tr class="tablehead">
             <th>Class I</th>
             <td>Jack</td>
@@ -142,6 +140,7 @@
             <td>A+</td>
             <td>Achiever</td>
         </tr>
+
         <tr class="tablehead">
             <th>Class II</th>
             <td>Ron</td>
@@ -149,6 +148,7 @@
             <td>B</td>
             <td>Talented</td>
         </tr>
+
         <tr class="tablehead">
             <th>Class III</th>
             <td>Sam</td>
@@ -167,24 +167,24 @@
     <hr>
 
     <h3>6. HTML Entities</h3>
-    <!--These are special charaters that you cannot type in the keyboard or when you use them you are possibly confusing the editor/browser (Ex: < symbol. Because, they are used in tags) -->
-    <!-- They start with & and it with ; (Ex: &lt; represents less than) -->
+    <!--These are special characters that you cannot type in the keyboard or when you use them, you are possibly confusing the editor/browser (Ex: < symbol. Because, they are used in tags) -->
+    <!-- To overcome this, entities can be used. They start with '&' and it with ';' (Ex: &lt; represents '<'(less than)) -->
     <!-- https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references -->
     <section class="bold">
-        My mom has fever of 108&deg; Celsius <br>
+        I have fever with temperature rising to 108&deg; Celsius <br>
         I &hearts; my mom
     </section>
     <hr>
 
     <h3>7. Semantic Markups</h3>
-    <!-- They add meaning to a piece of code. It doesnt add any features perse -->
-    <!-- Instead of using a generic <div> element to create a section or division, you can use semantic elements like <header>, <nav>, <main>, <article>, <section>, <aside>, <summary>, <details> and <footer>. They exactly function as div. At the same time they describe the purpose and content of their respective sections, making it easier for both developers and browsers to understand the structure of the page. Instead of using plain text for headings, you can use <h1>, <h2>, <h3>, and so on -->
-    <!-- Main: The content of a <main> element should be unique to the document. Content that is repeated across a set of documents or document sections such as sidebars, navigation links, copyright information, site logos, and search forms shouldn't be included unless the search form is the main function of the page. -->
-    <!-- Nav: It's not necessary for all links to be contained in a <nav> element. <nav> is intended only for a major block of navigation links; typically the <footer> element often has a list of links that don't need to be in a <nav> element -->
-    <!-- Section: As mentioned above, <section> is a generic sectioning element, and should only be used if there isn't a more specific element to represent it -->
-    <!-- Article: Each <article> should be identified, typically by including a heading (<h1> - <h6> element) as a child of the <article> element. -->
-    <!-- Aside: It represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes. -->
-    <!-- Figure: Can be used for diagramatic representations -->
+    <!-- They add meaning to a piece of code. It doesnt add any features per se -->
+    <!-- Instead of using a generic <div> element to create a section or division, you can use semantic elements like <header>, <nav>, <main>, <article>, <section>, <aside>, <summary>, <details> and <footer>. They exactly function as div. At the same time they describe the purpose and content of their respective sections, making it easier for both developers and browsers to understand the structure of the page. -->
+        <!-- Main: The content of a <main> element should be unique to the document. Content that is repeated across a set of documents or document sections such as sidebars, navigation links, copyright information, site logos, and search forms shouldn't be included unless the search form is the main function of the page. -->
+        <!-- Nav: It's not necessary for all links to be contained in a <nav> element. <nav> is intended only for a major block of navigation links; typically the <footer> element often has a list of links that don't need to be in a <nav> element -->
+        <!-- Section: As mentioned above, <section> is a generic sectioning element, and should only be used if there isn't a more specific element to represent it -->
+        <!-- Article: Each <article> should be identified, typically by including a heading (<h1> - <h6> element) as a child of the <article> element. -->
+        <!-- Aside: It represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes. -->
+        <!-- Figure: Can be used for diagramatic representations -->
 
     <hr>
 
@@ -207,23 +207,23 @@
     <h3>9. Forms</h3>
     <!-- They have 2 attributes. Action attribute specifies 'where' the data should be sent and Method attribute specifies which HTTP method should be used. -->
     <!-- Placeholder attribute is used to provide a hint or example text inside an input field.  -->
-    <!-- Value attribute allows you to provide a starting value that can be edited or submitted by the user. -->
+    <!-- Value attribute allows you to provide a starting value that can be edited or submitted by the user. You can leave that empty too -->
     <!-- Label element is used to associate a text label with an input field or form element. The association take place with help of 'for' attribute in label element and 'id' attribute in input element. Those 2 needs to be exactly same. -->
     <!-- There are two ways in which you can do the above -->
 
     <h1 id="firstheader">Student Admission Form</h1>
     <form action="backend.php">
         <div>
-            <!-- Method 1 for label. This is the standard procedure -->
+            <!-- Method 1 for label. This is the best practice -->
             <!-- Here minlength and maxlength defines the total number of digits that needs to be entered -->
             <label for="studentName">Name:</label>
-            <input type="text" name="studentName" value="" placeholder="Enter your name" id="studentName" class=""
+            <input type="text" name="studentName" value="Bharath" placeholder="Enter your name" id="studentName" class=""
                 minlength="5" maxlength="20">
         </div>
         <br>
-        <!-- Name attribute helps in identifying the input when the form is submitted to the server or when working with JavaScript. Simply put, it is a way to label or name the input field. Generally make it same as type attribute or shortform of type attribute for ease of access while working in backend. -->
+        <!-- Name attribute helps in identifying the input when the form is submitted to the server or when working with JavaScript. Simply put, it is a way to label or name the input field. -->
         <div>
-            <!-- Method 2 for label. It used no 'for' or 'id' attreibutes. But nests the entire input element within label element -->
+            <!-- Method 2 for label. It uses no 'for' or 'id' attreibutes. But nests the entire input element within label element -->
             <label>
                 Contact Number: <input type="number" name="contact" id="" placeholder="Enter your contact number">
             </label>
@@ -245,7 +245,7 @@
 
         <div>
             <label for="agree">Do you accept terms and conditions?</label>
-            <input type="checkbox" name="checkbox" id="agree" value="agree">
+            <input type="checkbox" name="checkbox" id="agree" value="agree" required>
         </div>
         <br>
 
@@ -264,21 +264,23 @@
         <div>
             Upload your image <input type="file" name="file" id="" accept="image/*">
         </div>
+        <!-- The asterisk * is a wildcard character that matches any characters that follow image/ -->
         <br>
 
         <!-- textarea is used to enter large amount of details like address, feedback etc. -->
-
+        <!-- Example: It would include image file types like "image/jpeg," "image/png," "image/gif," "image/bmp," and so on, as long as they start with "image/" in their MIME types. -->
+        <!-- If you want only jpeg, you can use image/jpeg -->
+       
         Residential Address: <br> <textarea name="address" id="" cols="30" rows="10"></textarea>
 
         <br>
-        <!-- For a dropdown list box, it is a combination of select and options entity -->
-        <!-- You can use select your role model sentence even before the 'select' entity -->
+        <!-- For a dropdown list box, it is a combination of select and options elements -->
         <!-- Here the term selected is known as 'attribute value' and if used that will be the defualt selection of the drop down list in your web page -->
 
         <select name="Role Model" id="">
-            <option value="" selected>Select your Role model:</option>
+            <option value="" selected>Select your Role model</option>
             <option value="APJ Abdul Kalam">APJ Abdul Kalam</option>
-            <option value="Virat Kholi">Virat Kholi</option>
+            <option value="Virat Kholi">Virat Kohli</option>
             <option value="Ratan Tata">Ratan Tata</option>
         </select>
         <br>
@@ -293,10 +295,11 @@
                 <br>
                 <!-- Different types of buttons -->
                 <!-- Buttons inside a form element will always behave like submit button unless specified otherwise -->
-                <button>Register</button>
+                <button>Register</button> <!-- If you want the button to be customisable, then use <button> element -->
                 <br>
                 <br>
                 <section class="buttontypes">
+                    <!-- For a simple button, use this -->
                     <input type="submit" value="Submit Form">
                     <input type="reset" value="Reset Form">
                     <input type="button" value="Submit2">
@@ -311,6 +314,7 @@
         <input type="text" name="search_query">
         <button id="searchYT">Search Youtube</button>
     </form>
+    <br>
     <form action="https://www.google.com/search">
         <input type="text" name="q">
         <button id="searchGoog">Search Google</button>
@@ -318,9 +322,6 @@
     <!-- Youtube uses the name attribute = 'search_query' and google uses 'q' -->
     <section class="resources">
         <h2> Useful links for HTML and CSS:</h2>
-        <a href="https://htmlcolorcodes.com/">Open Source Projects</a>
-        <br>
-        <br>
         <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML elements</a>
         <br>
         <br>
@@ -339,8 +340,6 @@
         <a href="https://unsplash.com/">Free high resolution images</a>
         <br>
         <br>
-
-        <h2>The Lion</h2>
     </section>
 
     <hr>
@@ -455,17 +454,19 @@
     <!-- Inline Elements = They are displayed as blocks that start on a new line and take up the full available width. They stack vertically, one after another, creating distinct sections. By default, block elements have a display value of block. Ex: <span>, <a>, <strong>, and <em>. -->
     <!-- Block Elements = They are displayed inline within a line of text and do not create line breaks. They take up only as much space as necessary for their content. By default, inline elements have a display value of inline. Ex: <div>, <p>, <h1> to <h6>, <ul>, and <li>. -->
     <!-- There is a property called display property. By changing value of the property, you can change the character of the block -->
-    <!-- Refer 183 to in css file -->
+    <!-- Refer 274 in css file -->
     <h3>cheetah</h3>
     <br>
-    <span class="cheetah">The cheetah is the fastest land animal.</span>
-    <span class="cheetah">It is capable of running at 80 to 98 km/h. </span>
-    <h4 class="cheetah"> The cheetah lives in three main social groups. </h4>
-    <h4 class="cheetah"> The cheetah occurs in a variety of habitats.</h4>
+    <span class="cheetah1">The cheetah is the fastest land animal.</span>
+    <span class="cheetah1">It is capable of running at 80 to 98 km/h. </span>
+
+    <h4 class="cheetah2"> The cheetah lives in three main social groups. </h4>
+    <h4 class="cheetah2"> The cheetah occurs in a variety of habitats.</h4>
+
     <h2>Trees</h2>
-    <p class="tree">Mango tree</p>
-    <p class="tree">Banyan tree</p>
-    <p class="tree">Guava tree</p>
+    <p class="tree">Coconut tree: I am the most common tree in India</p>
+    <p class="tree">Mango tree: Excuse me, what did you say?</p>
+    <p class="tree">Banyan tree: Laughing in the corner</p>
 
     <hr>
 
@@ -572,55 +573,33 @@
 
     <hr>
 
-    <h4>20. Creating a simple HTML with images and a bit of styling to it using CSS</h4>
-    <section class="massage">
-        <h2 class="massage">Kumari's Ayurvedic Massage</h2>
-        <figure class="massage">
-            <img class="massage"
-                src="https://images.unsplash.com/photo-1570174006382-148305ce4972?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fG1hc3NhZ2UlMjB0aGVyYXB5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-                alt=""><img class="massage"
-                src="https://images.unsplash.com/photo-1598901986949-f593ff2a31a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hc3NhZ2UlMjB0aGVyYXB5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-                alt=""><img class="massage"
-                src="https://plus.unsplash.com/premium_photo-1661274145140-5f04566233c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hc3NhZ2UlMjB0aGVyYXB5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-                alt=""><img class="massage"
-                src="https://images.unsplash.com/photo-1598555748505-ccca0d9b9f7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1hc3NhZ2UlMjB0aGVyYXB5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-                alt=""><img class="massage"
-                src="https://images.unsplash.com/photo-1537673156864-5d2c72de7824?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fG1hc3NhZ2UlMjB0aGVyYXB5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-                alt=""><img class="massage"
-                src="https://images.unsplash.com/photo-1620050382792-434b5828873d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fG1hc3NhZ2UlMjB0aGVyYXB5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-                alt=""><img class="massage"
-                src="https://plus.unsplash.com/premium_photo-1661274213751-0ccaaffdecac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fG1hc3NhZ2UlMjB0aGVyYXB5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-                alt=""><img class="massage"
-                src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTd8fG1hc3NhZ2UlMjB0aGVyYXB5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-                alt=""><img class="massage"
-                src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njd8fG1hc3NhZ2UlMjB0aGVyYXB5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-                alt="">
-        </figure>
-    </section>
-
-    <hr>
-
-    <h3>21. Flexbox</h3>
+    <h3>20. Flexbox</h3>
 
     <section class="flexbox">
 
         <h4>Let's Play With Flexbox1</h4>
-        <!-- Shortcut to create many lines of same content: ex => div.items#text-$*n => this will create the class items and id as text 'n' times -->
         <section class="fbcontainer1">
-            <div id="box1" style="background-color: #80ffdb; height: 200px;">H</div>
-            <div id="box2" style="background-color: #64dfdf; height: 300px;">E</div>
-            <div id="box3" style="background-color: #48bfe3; height: 150px;">L</div>
-            <div id="box4" style="background-color: #5390d9; height: 250px; font-size: 8em;">L</div>
-            <div id="box5" style="background-color: #6930c3; height: 275px;">O</div>
+            <div id="box1" style="background-color: #80ffdb; height: 200px;">short</div>
+            <div id="box2" style="background-color: #64dfdf; height: 300px;">short</div>
+            <div id="box3" style="background-color: #48bfe3; height: 150px;">a bit</div>
+            <div id="box4" style="background-color: #5390d9; height: 250px;">a bit</div>
+            <div id="box5" style="background-color: #6930c3; height: 275px;">tallest</div>
         </section>
 
         <h4>Let's Play With Flexbox2</h4>
 
         <section class="fbcontainer2">
-            <div class="sidebar"></div>
-            <div class="centercontent"></div>
-            <div class="sidebar"></div>
+            <div class="sidebar">
+                <div id="ads">ads</div>
+            </div>
+            <div class="centercontent">
+                <div id="content">content</div>
+            </div>
+            <div class="sidebar">
+                <div id="ads">ads</div>
+            </div>
         </section>
+        
     </section>
 
     <hr>
@@ -636,65 +615,26 @@
             </ul>
         </nav>
 
-        <h1>22. Media Queries1</h1>
-        <h2>22. Media Queries2</h2>
-        <h3>22. Media Queries3</h3>
-        <h4>22. Media Queries4</h4>
-        <h5>22. Media Queries5</h5>
-        <h6>22. Media Queries6</h6>
+        <h1>21. Media Queries1</h1>
+        <h2>21. Media Queries2</h2>
+        <h3>21. Media Queries3</h3>
+        <h4>21. Media Queries4</h4>
+        <h5>21. Media Queries5</h5>
+        <h6>21. Media Queries6</h6>
     </section>
 
     <hr>
 
-    <h1>23. Pricing Panel Project</h1>
-    <section class="pricingpanelproject">
-        <div class="pricingpanel">
-            <div class="subpricingpanel">
-                <img src="pricingpanelicon1.png" alt="" class="pricingimage">
-                <h2 class="productname">PERSONAL</h2>
-                <ul class="features">
-                    <li class="addfeatures">CUSTOM DOMAINS</li>
-                    <li class="addfeatures">SLEEPS AFTER 30 MINS OF INACTIVITY</li>
-                </ul>
-                <h2 class="productprice">FREE</h2>
-                <a href="" class="pricingbutton">SIGN UP</a>
-            </div>
-
-            <div class="subpricingpanel">
-                <img src="pricingpanelicon2.png" alt="" class="pricingimage">
-                <h2 class="productname">SMALL TEAM</h2>
-                <ul class="features">
-                    <li class="addfeatures">NEVER SLEEPS</li>
-                    <li class="addfeatures">MULTIPLE WORKERS FOR MORE POWERFUL APPS</li>
-                </ul>
-                <h2 class="productprice">$150</h2>
-                <a href="" class="pricingbutton">FREE TRIAL</a>
-            </div>
-
-            <div class="subpricingpanel">
-                <img src="pricingpanelicon3.png" alt="" class="pricingimage">
-                <h2 class="productname">ENTERPRISE</h2>
-                <ul class="features">
-                    <li class="addfeatures">DEDICATED</li>
-                    <li class="addfeatures">SIMPLE HORIZONTAL SCALABILITY</li>
-                </ul>
-                <h2 class="productprice">$400</h2>
-                <a href="" class="pricingbutton">FREE TRIAL</a>
-            </div>
-        </div>
-    </section>
-    <hr>
-
-    <h3>24. Visibility and Z-index</h3>
+    <h3>22. Visibility and Z-index</h3>
     <section class="zindex">
         <div class="zindexbox" id="redzindexbox"></div>
         <div class="zindexbox" id="greenzindexbox"></div>
-        <div class="zindexbox1" id="bluezindexbox"></div>
+        <div class="zindexbox" id="bluezindexbox"></div>
         <div class="zindexbox" id="yellowzindexbox"></div>
     </section>
     <hr>
 
-    <h3>25. Grids</h3>
+    <h3>23. Grids</h3>
     <!-- div.class{text-$}*n -->
     <div class="understandinggrids1">
         <div class="grids">Box-1</div>
@@ -768,7 +708,7 @@
             the journey towards success and view them as opportunities for growth and learning.
         </div>
         <footer class="grids" id="footer-grids">
-            "<strong>Hardwork never fails</strong>"
+            "<strong>Just Keep Swimming - Dorry</strong>"
         </footer>
     </div>
     <hr>

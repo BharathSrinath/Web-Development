@@ -1,4 +1,4 @@
-// To find whether a given number is prime number or not
+// To find whether a given number is prime number or not - Logic 1
 
 #include <stdio.h>
 #include <math.h>
@@ -34,6 +34,27 @@ int main(void)
     {
         printf("It is a prime number");
     }
+}
+
+// To find whether a given number is prime number or not - Logic 2
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n;
+    printf ("Enter a number: ");
+    scanf ("%d", &n);
+    for (int x = 2; x * x <= n; x++)
+    {
+        if (n % x == 0)
+        {
+            printf("Not a Prime Number");
+            return 1;
+        }
+    }
+    printf("Prime Number");
 }
 
 // Prints the n value of prime numbers
