@@ -48,29 +48,34 @@ color: white;
     padding: 30px 0 50px 0;
 }
 #projects{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     background-color: rgb(7, 7, 63);
     width: 100%;
     text-align: center;
     padding-bottom: 100px;
-    
 }
 .project-tile{
 width: 250px;
 height: 250px;
-padding: 0 20px;
+padding: 20px;
 }   
 a{
     text-decoration: none;
     color: white;
     font-size: 20px;
 }
-#project-link{
-    background-color: rgb(92, 87, 87);
+.project-link{
+    /* background-color: rgb(92, 87, 87); */
+    text-decoration: none;
     margin: 0 64px;
     padding-top: 0;
     align-self: center;    
+}
+.after-transform:hover{
+    transform: scale(1.5);
+    transition: all 1s; 
 }
 #profile{
     background-color: black;
@@ -109,7 +114,7 @@ margin:50px;
         justify-content: center;
         align-items: center;
     }
-    #project-link{
+    .project-link{
         margin-bottom: 50px;
     }
     #navbar ul{

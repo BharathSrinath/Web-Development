@@ -14,7 +14,7 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     box-sizing: border-box;
-
+    width: 100%;
 }
 #title, #description{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -37,8 +37,8 @@ body {
 .survey{
     background-color: rgb(9, 4, 54);
     border-radius: 5px;
-    width: 100%;
-    max-width: 550px;  
+    width: 50%;
+    max-width: 750px;  
     margin-top: 20px;
     line-height: 2;
     padding: 50px 75px 20px 75px;
@@ -94,13 +94,15 @@ body {
     font-size: 20px;
     width: 100%;
     padding: 10px;
-    background-color: green;
+    background: none;
     border-radius: 5px;
-    
+    color: white;
 }
 #submit:hover, #submit:focus{
+    color: white;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 0.5em 0.5em -0.4em #5cff64;
+    box-shadow: 0 0.5em 0.5em -0.4em  rgb(13,110,253);
+    background-color:  rgb(13,110,253);
     transform: translateY(-5px);
 }

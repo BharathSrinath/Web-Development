@@ -1,15 +1,22 @@
+// Asynchronous/async functions
+    // Generally functions are synchronous. That is they are executed in a sequential and blocking manner. When a synchronous function is called, it runs to completion before the program continues to the next line of code.
+    // Asynchronous fucntions on the other hand do not block the execution of other code while they are running. Instead, they allow other parts of the program to continue running concurrently, even if the asynchronous function has not yet completed its task.
+    // This is particularly important for tasks that might take some time to complete, such as fetching data from a remote server, reading a file from disk, or waiting for a user's input.
+        // Example: All callback functions
+        // Specific example: setTimeout()
+
 // call backs
 // It is a function that is passed as an argument to another function and is intended to be executed after the completion of a specific task or at a particular event.
 // Look at the below example.
-// Here 'isRightTriangle()' will be called first.
-// This then calls 'square()'for the first parameter which will call 'multiply()'
-// Now multiply will return the result to sqaure which will return the result to isRightTriangle. This process will now continue for other parameters too. But this is not the point here.
-// See, until multiply fucntion returns a value to the square, it can't perform the action. It is waiting. Same applies to isRightTriangle(). It has to wait until square() returns a value to it.   Thus we can say that they are intended to be executed after the completion of a specific task.
+    // Here 'isRightTriangle()' will be called first.
+    // This then calls 'square()'for the first parameter which will call 'multiply()'
+    // Now multiply will return the result to sqaure which will return the result to isRightTriangle. This process will now continue for other parameters too. But this is not the point here.
+    // See, until multiply function returns a value to the square, it can't perform the action. It is waiting. Same applies to isRightTriangle(). It has to wait until square() returns a value to it.   Thus we can say that they are intended to be executed after the completion of a specific task.
 
 const multiply = (x, y) => x * y;
 
 const square = x => multiply(x, x);
-
+ 
 const isRightTriangle = (a, b, c) => (
     square(a) + square(b) === square(c)
 )
@@ -24,7 +31,7 @@ console.log("DONEEEE!")
 const fakeRequestCallback = (url, success, failure) => {
     const delay = Math.floor(Math.random() * 4500) + 500;
     setTimeout(() => {
-        if (delay > 4000) {
+        if (delay > 2000) {
             failure('Connection Timeout :(')
         } else {
             success(`Here is your fake data from ${url}`)
@@ -33,7 +40,7 @@ const fakeRequestCallback = (url, success, failure) => {
 }
 
 // This might look daunting. But below is the function declaration with 3 arguments and above is the function definition.
-    // fakeRequestCallback('books.com/page1', function (response), function (response))
+    // fakeRequestCallback('books.com/page1', function (response), function (err))
     // first function (response) corresponds to success() while the second corresponds to failure() 
         // This is being repeated for 3 callbacks which are nested inside each other.
 
@@ -151,7 +158,7 @@ const delayedColorChange1 = (newColor, delay, doNext) => {
     setTimeout(() => {
         document.body.style.backgroundColor = newColor;
         doNext && doNext();
-        // This line of code is interesting. So pay attention.
+        // This line of code is interesting. So pay attention. (nothing special though)
         // doNext is the variable that holds the callback function and doNext() is the function itself.
             // This line will return true only when doNext has a variable stored in it and doNext() will be an executable function.
             // Imagine this. Once the code has reached violet color , there is nothing that could be stored in doNext. So when doNext is null, the code exits.
@@ -188,7 +195,7 @@ const delayedColorChange2 = (color, delay) => {
 }
 
 // We are again chaining them and using implicit declaration we are returning one to the next
-delayedColorChange('red', 1000)
+delayedColorChange2('red', 1000)
     .then(() => delayedColorChange2('orange', 1000))
     .then(() => delayedColorChange2('yellow', 1000))
     .then(() => delayedColorChange2('green', 1000))
@@ -199,22 +206,17 @@ delayedColorChange('red', 1000)
 
 // Async functions
 // It is a special type of function that is designed to work with Promises and simplify asynchronous code.
-// Asynchronous functions:
-    // They are those that doesn't necessarily execute in a linear or sequential order from top to bottom. 
-    // Instead, it allows for operations to run in the background and not block the main thread of execution. 
-    // This is particularly important for tasks that might take some time to complete, such as fetching data from a remote server, reading a file from disk, or waiting for a user's input.
-    // Ex: setTimeout()
-// Async functions always return a Promise. If the function returns a value, the promise will be resolved with that value. If the function throws an exception, the promise will be rejected.
+// They always return a Promise. If the function returns a value, the promise will be resolved with that value. If the function throws an exception, the promise will be rejected.
     // Hence, with async we dont need a constructor called new promise()
 
 const login = async (username, password) => {
     if (!username || !password) throw 'Missing Credentials'
     // Throw is used for error handling. When throw is executed, the entire program comes to halt if you dont catch it with catch().
-    if (password === 'corgifeetarecute') return 'WELCOME!'
+    if (password === 'youareawesome') return 'WELCOME!'
     throw 'Invalid Password'
 }
 
-login('todd', 'corgifeetarecute')
+login('todd', 'youareawesome')
     .then(msg => {
         console.log("LOGGED IN!")
         console.log(msg)
@@ -253,7 +255,7 @@ async function rainbow() {
 async function printRainbow() {
    const var1 = await rainbow();
    console.log(var1);
-    console.log("END OF RAINBOW!")
+   console.log("END OF RAINBOW!");
 }
 printRainbow();
 

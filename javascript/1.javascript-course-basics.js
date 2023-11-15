@@ -7,7 +7,7 @@ console.log("Understanding Console");
 console.time("This entire code took....");
 console.log("first file of javascript");
 console.log('Hello world');
-// Whatver in the double quotes (""), single quotes ('') and backtick (``) will be displayed as it is. Generally you will use double and single quotes. But when you want to use any special characters or even double and single quotes in the content, a backtick is preferred.
+// Whatever in the double quotes (""), single quotes ('') and backtick (``) will be displayed as it is. Generally you will use double and single quotes. But when you want to use any special characters or even double and single quotes in the content, a backtick is preferred.
 // Also backtick can preserve the indentsation (lines and tabs between words)
 console.log(`Bharath's world`);
 console.log(100+2);  // This will be displayed as 102

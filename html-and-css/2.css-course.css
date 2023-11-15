@@ -814,6 +814,9 @@ html, body {
 
 .flexbox h4 {
     text-align: center;
+    /* They are  used to align text within an element, but it also has an interesting effect on inline elements*/
+    /*  When text-align: center; is applied to the parent element, it horizontally centers any inline or inline-block elements within it. */
+        /* Example: When you apply to the parent of a button, it not only centeres the text inside button, but also centers are the button itself (buttons are inline elements) */
 }
 
 .fbcontainer1 {
