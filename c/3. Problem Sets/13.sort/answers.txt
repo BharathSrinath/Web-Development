@@ -1,0 +1,35 @@
+sort1 uses: Bubble Sort
+random 5000       |reversed 5000     |sorted 5000
+real    0m0.074s  |real    0m0.081s  |real    0m0.042s
+
+random 10,000     |reversed 10000    |sorted 10000
+real    0m0.340s  |real    0m0.248s  |real    0m0.055s
+
+random 50,000     |reversed 50000    |sorted 50000
+real    0m8.421s  |real    0m5.803s  |real    0m2.097s
+
+How do you know?: Best case scenario is roughly double the time of worst case scenario.
+
+sort2 uses: Merge Sort
+random 5000       |reversed 5000     |sorted 5000
+real    0m0.124s  |real    0m0.026s  |real    0m0.022s
+
+random 10,000     |reversed 10000    |sorted 10000
+real    0m0.076s  |real    0m0.094s  |real    0m0.082s
+
+random 50,000     |reversed 50000    |sorted 50000
+real    0m0.682s  |real    0m1.375s  |real    0m1.490s
+
+How do you know?: Time taken is way lesser than other two sorts
+
+sort3 uses: Selection Sort
+random 5000       |reversed 5000     |sorted 5000
+real    0m0.072s  |real    0m0.069s  |real    0m0.044s
+
+random 10,000     |reversed 10000    |sorted 10000
+real    0m0.219s  |real    0m0.186s  |real    0m0.187s
+
+random 50,000     |reversed 50000    |sorted 50000
+real    0m3.064s  |real    0m4.818s  |real    0m4.773s
+
+How do you know?: Worst and Best case Scenarios are almost identical

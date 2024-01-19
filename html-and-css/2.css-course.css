@@ -35,7 +35,7 @@ p {
     /* It increase the space between lines just like line spacing option in word document */
 }
 
-/* Anchor tags have links and the text will be in blue color with an underline. You can customise them. But this is will apply to all anchor tags. To customise them you can also use class, id, descendant selector which you will learn below */
+/* Anchor tags have links and the text will be in blue color with an underline. You can customise them. But this will apply to all anchor tags. To customise them you can also use class, id, descendant selector which you will learn below */
 a {
     color: black;
 }
@@ -172,7 +172,7 @@ p::after{
 }
 
 /* Cascade and Specificity */
-/* Cascade: The lastet snippet will be take precedence to all the previous ones */
+/* Cascade: The latest snippet will be take precedence to all the previous ones */
 /* Specificity: Id's > Class, attributes and pseudo classes > Elements and pseudo elements */
 /* The more specific you are, the greater is the priority. */
 /* Inline styles are the most specific ever. But since it is not a best practice, we never use inline styles. */
@@ -331,20 +331,16 @@ p.tree {
 /* CSS units: There are two types - Absolute (pixel and inches) and Relative (percentages, em, rem, etc.) */
     /* 1. em: It is relative to the font size of the parent.  Lets say that element 1 (parent) has a font size of 16px, then element 2 (child) will also have 16 px when its font size is set to be 1em. For 2em, it will be 32px and so on */
         /* But with every other property (like padding, margin, etc.), 1em = computed font size of the element itself. When the element's font size is 2em, i.e., 20px (parents is 10px), then specifying padding = 0.25em will result in 5px (0.25 * element's fontsize)*/
-        /* The issue with em is while nesting multiple times (nest under a nest under a nest and goes on), font sizes can grown/shrink with multifold difference */
+        /* The issue with em is while nesting multiple times (nest under a nest under a nest and goes on), font sizes can grow/shrink with multifold difference */
     /* 2. rem: It is similar to em, but it's relative to the root element's (html) font size (16px in most browsers) */
     /* 3. percentage: It is relative to the parent element. If parent's fontsize is 32px, mentioning 50% as the font-size to the child will give it a font-size of 16px. */
         /* Unlike em and rem, % completely depends on parents fontsize including padding, margin, etc. */
-    /* 4. vw (viewport width): The vw unit is relative to the width of the viewport (the visible area of the browser window). For example, 10vw represents 10% of the viewport width. This unit is helpful for creating designs that adapt to different screen sizes. */
-    /* 5. vh (viewport height): The vh unit is similar to vw, but it's relative to the height of the viewport. 10vh is equivalent to 10% of the viewport height. */
+    /* 4a) vw (viewport width): The vw unit is relative to the width of the viewport (the visible area of the browser window). For example, 10vw represents 10% of the viewport width. This unit is helpful for creating designs that adapt to different screen sizes. */
+    /* 4b) vh (viewport height): The vh unit is similar to vw, but it's relative to the height of the viewport. 10vh is equivalent to 10% of the viewport height. */
         /* We will stick with vh and vw as it can do the things same as vmax and vmin */
-    /* 6. vmax: Irrespective of how big the screen size (vertical(height) or horizontal(width)), it will ocupy the screen with sepecified percentage. For an example, height: 50vmax will occupy exactly 50% of the height */
-    /* 7. vmin: Exactly same as vmax */
-    /* Difference between width: 100%; height: 100%; and width: 100vw; height: 100vh; */
-        /* It may seem like both are same. They are almost especially when the parent element is the root element */
-        /* When you use %, you know that it inherits from its parent. When the parent is the root element, we dealing with full screen right?. Almost yes */
-            /* The key difference is that 100vw and 100vh include the width of scrollbars, while 100% does not */
-            /* So with 100vw you will be able to scroll slightly beyond the screen size owing to the addition of scroll abrs space being added here */
+    /* 5a) vmax: It is a relative viewport unit that represents the larger of the viewport's height or width. When you use width: vmax;, it sets the width of the element to be 100% of the smaller of the viewport's width or height. */
+    /* 5b) vmin: Exactly same as vmax (represents the smaller of the viewport's height or width) */
+        /* With respect to Vmax and Vmin,  depending on the aspect ratio of the viewport, the container will adapt and take up the entire width or height accordingly */
 
 /* Transparency and Opacity */
 /* Transparency is how much the element has allowed the light to pass through. */
@@ -455,10 +451,9 @@ p.tree {
     color: #000000;
     animation-name: animation1;
     animation-duration: 10s;
-    animation-delay: 0s; /* animation will start after 2s of loading your web page*/
-     /* How many times the animations should go on */
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse; /* It represents the flow of animation. 
+    animation-delay: 0s; /* animation will start after n seconds of loading our web page*/
+    animation-iteration-count: infinite; /* How many times the animations should go on */
+    animation-direction: alternate-reverse; /* It represents the flow of animation. */
         /* Normal: start-end
         Reverse: end-start
         Alternate: start-end-start
@@ -476,6 +471,7 @@ p.tree {
             /* Example: Let's say that an element is moving from point A to point B with cubic-bezier(0.8, 0.6, 0.7, 0.9) */ 
                 /* x1 and y1 - Animation accelerates slowly for 80% (along x-axis) and 70% (along y-axis) of the total duration */
                 /* x2 and y2 - Animation decelerates slowly for 60% (along x-axis) and 90% (along y-axis) of the total duration  */
+            /* Deceleration starts to take place only after the completion of acceleration (at 80%). For the rest 20%, deceleration of 70% will kick-in */
     /* Shorthand => animation: animation1 (name) 10s (duration) ease (timing-fucntion) 2s (delay) infinite (iteration-count) forwards (fill-mode) */
     position: relative; /* If you want to change the position of the element using the keyframe, you have to use this. Because the default value is static. Here i have offeset 200px from top. 0 in the first and 200 in the last keyframe. */
 }
@@ -634,19 +630,19 @@ p.tree {
 
 /* Giving background colors for all the div blocks */
 
-.transform1 #trans:nth-of-type(2n) {
+.transform1 div:nth-of-type(2n) {
     background-color: rgb(166, 101, 101);
 }
 
-.transform1 #trans:nth-of-type(3n) {
+.transform1 div:nth-of-type(3n) {
     background-color: rgb(149, 149, 106);
 }
 
-.transform2 #trans:nth-of-type(2n) {
+.transform2 div:nth-of-type(2n) {
     background-color: rgb(166, 101, 101);
 }
 
-.transform2 #trans:nth-of-type(3n) {
+.transform2 div:nth-of-type(3n) {
     background-color: rgb(149, 149, 106);
 }
 
@@ -733,7 +729,7 @@ section.transform2 {
 
 /* Difference between animations, transitions and transforms */
     /* 1. CSS Transitions:  */
-        /* Transitions allow you to change property values smoothly over a period of time1. They always need to be triggered, like on hover. Transitions can only move from an initial to a final state, with no intermediate steps.  */
+        /* Transitions allow you to change property values smoothly over a period of time. They always need to be triggered, like on hover. Transitions can only move from an initial to a final state, with no intermediate steps.  */
         /* They run forwards when triggered and in reverse when the trigger is removed.  */
         /* Transitions are generally best for simple from-to movements */
     /* 2. CSS Animations:  */
@@ -776,7 +772,7 @@ section.transform2 {
 
 /* Flexbox: It allows us to distribute space dynamically across elements of an unknown size, hence the term flex */
 /* It is a 1-D layout method for laying out. That is, it focuses on arranging elements either in a horizontal row or a vertical column */
-/* It has 2 axis: Main axis (left to right for x-axis and top to bottom for y-axis) and Cross axis (top to bottom for x-axis and left to right for y-axis). But this can be changed with flex-direction property. When you change th e property to column, you are in cross axis. */
+/* It has 2 axis: Main axis (left to right for x-axis and top to bottom for y-axis) and Cross axis (top to bottom for x-axis and left to right for y-axis). But this can be changed with flex-direction property. When you change the property to column, you are in cross axis. */
     /* flex direction => row, which is the default (left-right for x and top-bottom for y). */
         /* This means that for row, main axis is horizontal and cross axis is vertical */
     /* flex direction => row-reverse (right-left for x and bottom-top for y).  */
@@ -798,9 +794,16 @@ section.transform2 {
     /* align-content: */
         /* It is different from the above 3 properties. */
         /* This property can be used when there are many elements and hence flex wrap property kicks in. flex-wrap can have 3 values: no-wrap (default), wrap and wrap-reverse */
-            /* When you dont wrap, flexbox will try to fit all the elements in a single like and hence it will overlfow */
+            /* When you dont wrap, flexbox will try to fit all the elements in a single line and hence it will overlfow */
             /* When you wrap or wrap-reverse, elements will automatically move to the next line */
-            /* Now, the space between the elements that moves to the next line and the elements above can be taken care witj the help fo align-content */
+        /*  It is applicable only when the flex container has multiple lines, which can happen when the flex-wrap property is set to wrap or wrap-reverse. */
+            /* flex-start: Lines are packed at the start of the container */
+            /* flex-end: Lines are packed at the end of the container. */
+            /* center: Lines are centered in the container. */
+            /* space-between: Lines are evenly distributed in the container, with equal space between them. */
+            /* space-around: Lines are evenly distributed in the container, with equal space around them. */
+            /* stretch: Default value. Lines stretch to take up the remaining space. */
+        /* If the flex container has only one line (no wrapping), the align-content property has no effect. */
 
 
 html, body {
@@ -837,6 +840,7 @@ html, body {
             /* s,o and r will completely go under the baseline */
             /* h and t will be exactly in the middle */
     flex-wrap: wrap; 
+    /* To seet its effect remove it and reduce the screen size. You will see the contents overflowing out of the conatainer */
 }
 
 .fbcontainer1 div {
@@ -849,7 +853,7 @@ html, body {
     align-items: center;
     /* max-width: 300px; */
         /* No matter how large the screen becomes, it will restrict its max-width to 300px */
-    flex-basis: 50px 100px ;
+    flex-basis: 200px 100px ;
         /* It is used to specify the initial size of a flex item */
         /* It depends on flex-direction. When it is row, 200px refers to initial width and if it is column, it refers to initial height. */
         /* You can also specify both values together. */
@@ -867,7 +871,7 @@ html, body {
 }
 /* flex-grow distributes the space among the elements. */
 /* In the above example, all elements in odd position will get 5 times as much as free space available compared to the elements in even postion */
-    /* Mind you we are not talking about space before the existence of elements. You have defined their height and width. They exist in the container. Now they have empty space apart from the space that is already occupies by them. So we are talking about the disribution of this empty space */
+    /* Mind you we are not talking about space before the existence of elements. You have defined their height and width. They exist in the container. Now they have empty space apart from the space that is already occupieb by them. So we are talking about the disribution of this empty space */
 /* Now the same applies to flex-shrink. You can specify both the shrink and grow values to an element */
 
 .fbcontainer2 {
@@ -878,6 +882,7 @@ html, body {
     border: 5px solid black;
     height: 500px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .fbcontainer2 .sidebar {
@@ -886,7 +891,7 @@ html, body {
     align-items: center;
     background-color: #6930c3;
     flex: 1 2 300px;
-    /* short hand syntax using flex (flex-grow, flex-shrink, and flex-basis). Avoid it for now */
+    /* short hand syntax using flex (flex-grow, flex-shrink, and flex-basis) */
 }
 
 .fbcontainer2 .centercontent {
@@ -1076,7 +1081,7 @@ section.mediaqueries {
     /* We have 9 elements in html. We are specifying that First column should take the width of 200px, second column should take the width of 400px and 3rd column will should the remaining space. For a responsive design, leave it as auto. */
     grid-column-gap: 10px;  /* Creates gap between columns*/
     /* grid-template-rows: 100px 200px 300px auto;  */
-    /* We are creating 4 rows with these values. Since we dont have content for 4th row, the specified value of 400px will create an empty 4th row with the height of 400px */ 
+    /* We are creating 4 rows with these values. Since we dont have content for 4th row, if any specified value (say 400px) will create an empty 4th row with the height of 400px */ 
 }
 .understandinggrids2{
     background-color: rgb(61, 175, 175);
@@ -1096,8 +1101,8 @@ section.mediaqueries {
 #grids1{
     /* grid-column: 1/3;  */
         /* In a 3 X 3 setup, you will have 2 vertical lines and 2 horizontal lines. But you have to consider the outer edges too which makes 4 vertical and horizontal lines */
-        /* Now, 1/3 means starting from line 1 till line 3. This mens that the single cell will occupy the space of 2 cells as the 3 line end at cell 2.  */
-            /* If you give 1/2 it means nothing. Because you are saying to occupy the space between line and line 2 which is what it is already occupying */
+        /* Now, 1/3 means starting from line 1 till line 3. This means that the single cell will occupy the space of 2 cells as the 3rd line end at cell 2.  */
+            /* If you give 1/2 it means nothing. Because you are saying to occupy the space between line 1 and line 2 which is what is already occupying */
         /* If you want to avoid that confusion, you can simply use the below syntax */
     grid-column: 1/span 2; 
     /* Here the one cell will span for two cells . Very simple. */

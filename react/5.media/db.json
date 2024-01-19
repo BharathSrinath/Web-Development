@@ -1,0 +1,80 @@
+{
+  "users": [
+    {
+      "name": "Penny Quitzon",
+      "id": 9
+    },
+    {
+      "name": "Emilio Turcotte DVM",
+      "id": 10
+    },
+    {
+      "name": "Jackie Tromp",
+      "id": 11
+    },
+    {
+      "name": "Morris Schaden",
+      "id": 12
+    },
+    {
+      "name": "Dana Mayer",
+      "id": 13
+    },
+    {
+      "name": "Renee Koss",
+      "id": 14
+    },
+    {
+      "name": "Dr. Roland Pollich",
+      "id": 15
+    },
+    {
+      "name": "Dianne Stehr",
+      "id": 16
+    }
+  ],
+  "albums": [
+    {
+      "userId": 9,
+      "title": "Gorgeous Rubber Table",
+      "id": 1
+    },
+    {
+      "userId": 9,
+      "title": "Practical Frozen Tuna",
+      "id": 2
+    },
+    {
+      "userId": 9,
+      "title": "Elegant Rubber Chair",
+      "id": 3
+    },
+    {
+      "userId": 10,
+      "title": "Unbranded Plastic Chips",
+      "id": 4
+    },
+    {
+      "userId": 9,
+      "title": "Practical Fresh Shirt",
+      "id": 5
+    },
+    {
+      "userId": 9,
+      "title": "Oriental Steel Towels",
+      "id": 6
+    }
+  ],
+  "photos": [
+    {
+      "albumId": 1,
+      "url": "https://loremflickr.com/640/480?lock=289750634201088",
+      "id": 1
+    },
+    {
+      "albumId": 1,
+      "url": "https://picsum.photos/seed/wi6nKXc/640/480",
+      "id": 2
+    }
+  ]
+}

@@ -1,5 +1,11 @@
 {
     "files.associations": {
-        "stdio.h": "c"
-    }
+        "stdio.h": "c",
+        "*.ejs": "html"
+    },
+    
+    "emmet.includeLanguages": {
+        "ejs": "html",
+    },
+    "html.format.templating": true
 }

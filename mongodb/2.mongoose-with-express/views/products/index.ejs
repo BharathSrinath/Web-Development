@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products</title>
+</head>
+
+<body>
+    <h1><%= category%> Products!</h1>
+    <ul>
+        <% for(let product of products) { %>
+        <li><a href="/products/<%=product._id%>"><%= product.name %></a> </li>
+        <% }%>
+    </ul>
+    <a href="/products/new">New Product</a>
+    <%if(category !== 'All') {%>
+    <a href="/products">All Products</a>
+    <% } %>
+
+</body>
+
+</html>
+
+<!-- Note -->
+<!-- In many databases, especially those using MongoDB, the default field name for the unique identifier is "_id". This helps distinguish it from other fields in a document or record. The leading underscore is used to avoid potential naming conflicts with other fields that might be named "id" or have similar names. -->
+<!-- Using an underscore before "id" is not mandatory. It's just a convention.  -->

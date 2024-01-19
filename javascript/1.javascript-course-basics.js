@@ -16,6 +16,7 @@ console.log(100*2);
 console.log(100/2);
 console.log(100%2);
 console.log("100%2"); // This will be treated as string and will be displayed as 100%2
+console.log(3 + 0 + 1 + "3" + 2 + 2 + "7") // '43227' - Once you encounter a string, all the subsequent numbers will treate as a string. 2 + 2 will not happen because we have encountered a string named "3"
 console.log([10,20,30,40,50]); // It is an array that can store and display multiple values
 console.log([10,"hello world",30,40,50]);
 console.log({course: 'fullstack', ratings: '5'});
@@ -133,24 +134,43 @@ console.log(test2);
 console.log("The data type is " + (typeof test2));
 
 // Reference (Heap / derived)
+// When you create a variable of a reference type, the variable doesn't directly contain the data; instead, it holds a reference (memory address) to the location where the data is stored. This is in contrast to primitive data types like numbers and strings, which directly store their values in the variable.
 
 // 1. Arrays
 let array = [10,undefined,"jack",false,null];
 console.log(array);
 
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
+console.log ("Functions")
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+
+// 2. Functions
+function myFunction() {
+    console.log('Hello, world!');
+}
+
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
 console.log ("Object Literals")
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
 
-// 2. Object Literals
-// Objects are collections of properties
-    // Every Poperty is a pair. They consists of 'key and value'
+// 3. Objects
+// Object is one of the fundamental data types, along with other types like numbers, strings, and booleans.
+// They are used to structure and organize data 
+// They are collection of properties
+    // Every Poperty is a 'key-value' pair.
+    // Keys are typically strings (or symbols), and values can be of any data type, including other object.
 // Rather than asscessing the data using an index, we use custom keys 
-// Intreview worthu Explanation:  
-    // Object is one of the fundamental data types, along with other types like numbers, strings, and booleans.
-    // They are used to structure and organize data  
-    // Objects are collections of key-value pairs, where keys are typically strings (or symbols), and values can be of any data type, including other object.
-    // On the other hand, "object literals" are a specific way to define and create objects in JavaScript.
+// "Object literals" are a specific way to define and create objects in JavaScript. There are other types which we will study later
+    // Constructor Functions
+        // They are created with a key word 'new' => let x = new car;
+        // Here car is an object created with constructor key word called 'new'. First syntax (below) uses constrcutor function in creating an object
+        // Some of the inbuilt functions
+            // date: let currentDate = new Date();
+            // error: let myError = new Error('This is an error');
+    // Object.create()
+    // Class Syntax
+    // Function Objects
+    // Factory Functions
 
 // Example to describe Syntax 1:
 let user = new Object();
@@ -176,7 +196,7 @@ let person = {
     age: 30,
     hobbies: ["reading", "hiking"],
     address: {
-        // You can use nest them like this. Object literals within object literals
+        // You can nest objects within objects. Object literals within object literals
         street: "123 Main St",
         city: "Anytown",
         zipCode: "12345"
@@ -1347,7 +1367,7 @@ console.log("-------------------------------------------------------------------
 // The map() and filter() functions in JavaScript are similar in that they both operate on arrays and use a callback function to process elements.
 // But the difference is 
     // map() will take each element in an array and apply transformation or computation and pushes the altered element into a new array. So the new array will still have all the element in it but with a modified version
-    // filter() will filter out the elements in the array based on the condition that we provide and pushes the extracted element into new array. If the condition is satisfied by every element, you will see every element in the result. If not only the element that satisfied the condition will be present. Also, they are not modified here. So the original values will be present unlike map() where the modified values will be present
+    // filter() will filter out the elements in the array based on the condition that we provide and pushes the extracted element into new array. If the condition is satisfied by every element, you will see every element in the result. If not, only the element that satisfied the condition will be present. Also, they are not modified here. So the original values will be present unlike map() where the modified values will be present
 // Both functions create new arrays, leaving the original array unchanged.
 // Both can be used in combination.
 
@@ -1550,7 +1570,7 @@ greet2("Bharath");
 
 const nums = [13, 4, 5, 21, 3, 3, 1, 2, 7, 6, 4, 2, 53456];
 
-// When you want to find the maximum value of the give numbers using the below method, it will not work. Because nums is an array.
+// When you want to find the maximum value of the given numbers using the below method, it will not work. Because nums is an array.
 Math.max(nums); 
 console.log (nums); //NaN
 

@@ -23,8 +23,6 @@
     DNS is the phonebook of the Internet. Humans access information online through domain names (gmail.com, google.com)
     The process of DNS resolution involves converting a hostname (such as www.example.com) into a computer-friendly IP address (such as 192.168.1.1)
     
-
-
 # Protocols
     Different computers use different hardware and software. So, to send data across all the computers they need to follow a standard protocol
         Ethernet: Protocols for sending packets between devices on the same network 
