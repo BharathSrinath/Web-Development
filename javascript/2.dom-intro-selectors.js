@@ -15,6 +15,7 @@
             // You are storing the object that you have obtained in a variable named image
     // document.getElementsByTagName - Name of the element
         const allImages = document.getElementsByTagName('img');
+        console.log(allImages)
         for (let img of allImages) {
             img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Silky_bantam.jpg/440px-Silky_bantam.jpg'
         } // This will replace all the images source in the web page with the above source 
@@ -26,21 +27,32 @@
     // query selector
         const link1 = document.querySelector('p');
         // It exactly does the same job as above
-            // Same keyword for everything - queryselector and you pass it #p for id, .p for class 
+            // Same keyword for everything - queryselector and you pass #p for id, .p for class 
             // But only the first match will be selected (even if it has 10 paragraphs, only the first one will be selected)
         const link2 = document.querySelector('p:nth-of-type(2)');
-            // To select a particular image, you can use this
+            // To select a particular p, you can use this
         const link3 = document.querySelector ('a[title="Java"]');
             // Selecting an anchor tag with the title Java
             // Remember this syntax. This is how we access an attribute of an element
     // query selectorAll - It overcomes the above disadvantage 
         const links = document.querySelectorAll('p a');
+        console.log(links)
             // This how we access child element (a) of a parent element (p) = > parent element 'space' child element 
         for (let link of links) {
             console.log(link.href)
-            // We are printing the href attribute of the element link (Here t refers to anchor tags that are inside of the paragraph)
         }
-// All of them (except query selector) returns an array-like structure which are all objects by the way. You can iterate over them but cannot perform operations that you typically perform with array
+// In the case of the first four methods (getElementById, getElementsByTagName, getElementsByClassName, querySelector), they directly return the element(s) or collection of elements that match the specified criteria. querySelectorAll returns a static NodeList of all elements that match the specified CSS selector. It is an array-like structure which are all objects by the way. You can iterate over them but cannot perform operations that you typically perform with array.
+// NodeList vs HTMLCollection:
+    // 1. Live vs. Static:
+        // NodeList: Can be live or static, depending on how it is generated.
+        // HTMLCollection: Always live.
+    // 2. Methods:
+        // NodeList: Offers more generic array methods for versatile manipulation.
+        // HTMLCollection: Has specific methods tailored to working with HTML elements.
+    // 3. Node Types:
+        // NodeList: Can contain various node types.
+        // HTMLCollection: Primarily contains element nodes.
+            // Under everynode we have elements, attributes, text, comments, etc. (pretty much everything comes under node and element node is just one part of it)
 
 // Note: If you want to know what are all the properties does a specific element carry, use the following command after assigning it to a variable
         // const variableName = document.selectionMethodName ('elementName')

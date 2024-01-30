@@ -17,11 +17,18 @@ body{
     height: 90%;
     color: #016ff9;
     display:flex;
-    
+    justify-content: center;
+    align-items: center;
 }
 
 div.subpricingpanel {
+    flex: 0 0 33.33;
+    height: 90%;
    border: 1px solid #739df7;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }
 
 div.subpricingpanel:nth-child(2) {
@@ -30,32 +37,29 @@ div.subpricingpanel:nth-child(2) {
  }
 
 .pricingimage{
-    height: 150px;
+    height: 500px;
     width: 100%;
 }
 h2.productname{
-display: flex;
-color: grey;
-font-weight: 600;
-letter-spacing: 2px;
-justify-content: center;
+    color: grey;
+    font-weight: 600;
+    letter-spacing: 2px;
 }
 
 ul.features{
-width: 100%;
-text-align: left;
-display: flex;
-flex-wrap: wrap;
-color: #016ff9;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    color: #016ff9;
 }
 
 .addfeatures{
-font-weight: 600;
-letter-spacing: 2px;
-font-size: 12px;
-line-height: 1.5;
-padding: 15px 0;
-border-top: 1px solid #e1f1ff;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 15px 0;
+    border-top: 1px solid #e1f1ff;
 }
 
 .productprice{
@@ -66,16 +70,16 @@ border-top: 1px solid #e1f1ff;
     margin: 0.5em;
 }
 .pricingbutton{
-border: 1px solid #597daa;
-border-radius: 10px;
-color: #016ff9;
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 15px 15px;
-text-decoration: none;
-margin: 25px 0;
-transition: background-color 200ms ease-in-out;
+    border: 1px solid #597daa;
+    border-radius: 10px;
+    color: #016ff9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 15px;
+    text-decoration: none;
+    margin: 25px 0;
+    transition: background-color 200ms ease-in-out;
 } 
 
 .pricingbutton:hover, .pricingbutton:focus{ /*focus means lets say when you use tab*/

@@ -44,8 +44,11 @@ app.get('/products/new', (req, res) => {
 
 app.post('/products', async (req, res) => {
     const newProduct = new Product(req.body);
+    // So products/new will allow the user to enter the profuct details in the input field. But it is not going to automatically create the data in the databse right? So we will get the data and pass it to the new instance of our object which is done withe code new Product(req.body)
+    // Ideally we will not do this. Because the body might contain some other detail that we don't want. So we will destructure and pass only the required data. Then We have consider error handling among others.   
     await newProduct.save();
     res.redirect(`/products/${newProduct._id}`)
+    // This line of code is very important. Without this line, our webpage will show the product that we have saved. Now when we reload, a post request will be sent again and again. To avoid this, we will place the newly created product under redirect method so that when the user reloads the page, rather than sending the post request again and again, they will be redirected to the same newly created content. 
 })
 
 app.get('/products/:id', async (req, res) => {

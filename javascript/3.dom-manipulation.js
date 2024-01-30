@@ -52,18 +52,11 @@ console.log ("Styles")
 // Styles
 // Syntax: 
     // const name = document.any_selector('element'); 
-    // element.style.property
+    // name.style.property
 // Example:
         // const topHeader = document.querySelector ('h1');
-        // h1.style.color
-            // This should actually give access to the color of the h1 element and we can change that too. But there is an issue.
-// Unfortunately we cant access the styles that are defined within css sheet. Only the inline elments are accessible here. 
-// But, we can still read them using following command. 
-    // windows.getComputedStyle(document.any_selector('element')).property
-        // No quotes for element by the way
-// We can access them using classes which we will see below
+        // topHeader.style.color
 
-// For study sake, we are defining it inline
 const allLinksPara = document.querySelectorAll('p a');
 for (let link of allLinksPara) {
     console.log(link.innerText) // This line is just to see the texts of the links within paragraph  
@@ -73,7 +66,7 @@ for (let link of allLinksPara) {
 }
 
 // Rainbow Problem
-// Please write a code to make the content rainbow colored in the lines 90 to 98 in HTML! 
+// Please write a code to make the content rainbow colored in the lines 91 to 97 in HTML! 
 const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']; 
 
 const heading = document.querySelectorAll('h1 span');
@@ -106,6 +99,7 @@ for (let list of element6){
     list.classList.remove('list'); // Removing a class
     list.classList.toggle('purple'); // Toggling a class. If it is off, it will turn it on (true) and vice versa (false)
     const hasClass = list.classList.contains('border'); // Checking if a class exists
+    console.log(hasClass);
     // list.classList.replace('oldClass', 'newClass'); // Replacing a class
 }
 // 3. Properties of a classList
@@ -140,13 +134,13 @@ console.log ("Traversing")
 // Before getting into it you have understand the difference between element and node 
 // The tree like structure of DOM is made up of nodes. You get the tree structre using console.dir(document) and for the structure of body you can use console.dir(document.body)
 // Nodes comprises of document, elements, attributes, texts, comments. As you see elements are nodes too. Thay are a part of it.  
-// So when you use selector methods, there can 2 types of return values
-    // 1. Element Objects - We need to use getElementById() and querySelector() to get the elemet object
+// So when you use selector methods, there can be 2 types of return values
+    // 1. Element Objects - We need to use getElementById() and querySelector() to get the element object
         // They return a single element
     // 2. Node Objects - getElementsByClassName(), getElementsByTagName(), querySelectorAll() and getElementsByName()
         // They return a collection of elements
-        // a) NodeList - All nodes are returned
-        // b) HTML collections - Only element nodes are retuned
+            // a) NodeList - All nodes are returned
+            // b) HTML collections - Only element nodes are retuned
 
 // 1. Parent and child:                                                                        
     // It allows you to access the parent of a given element.                                 

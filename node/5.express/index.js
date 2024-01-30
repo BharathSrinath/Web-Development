@@ -11,8 +11,12 @@ const app = express();
 
 // An HTTP request is not an object. It is a text information. Now Express takes that request(req) and parses that into an object and send it as a response(res)
 // The .use() method in Express is used to add middleware functions to our application.
-    // Middleware functions are special functions that have access to the incoming request (req) and outgoing response (res) objects in an Express application.
+    // Middleware functions are special functions that have access to the incoming request (req) and outgoing response (res) objects in an Express application. They are basically processes that occur between request and response. 
     // They are used for tasks like logging, authentication, modifying requests or responses, and more.
+    // built-in middleware functions: 
+        // express.static for serving static files
+        // express.json for parsing JSON in the request body
+        // express.urlencoded for parsing URL-encoded data, etc.
 // .use() method can take 2 arguments. 
     // 1. An optional path or a pattern of paths for which the middleware function should be invoked. If a path is provided, the middleware function will only be executed for requests that match the specified path. If no path is provided, the middleware function will be executed for all requests.
         // Example: app.use('/example', (req, res, next) => {...}

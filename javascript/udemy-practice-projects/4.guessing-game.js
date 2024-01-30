@@ -32,8 +32,8 @@
 // Also you have unecessarily grouped all conditions into while. And made extra 2 while loops for lesser and greater block
 
 let maximum = parseInt(prompt("Enter the maximum number!"));
-// we are trying to covert entered value to string to a number.
-// That is if the user has not enterd number and entered a string, parseInt will return NaN which is falsy in JS and that boolean value will be stored in maximum
+// we are trying to convert entered value from string to a number.
+// That is if the user has not enterad a number and entered a string, parseInt will return NaN which is falsy in JS and that boolean value will be stored in maximum
 // We are using that return value within while. As you know Nan is falsy When you negate false (that is while is true), it will execute the following
 while (!maximum) {
     maximum = parseInt(prompt("Enter a valid number!"));
@@ -49,10 +49,10 @@ while (parseInt(guess1) !== targetNum) {
     if (guess1 === 'q') break;
     guess1 = parseInt(guess1);
     if (guess1 > targetNum) {
-        guess1 = prompt("Too high! Enter a new guess1:");
+        guess1 = prompt("Too high! Enter a new guess:");
         attempts++;
     } else if (guess1 < targetNum) {
-        guess1 = prompt("Too low! Enter a new guess1:");
+        guess1 = prompt("Too low! Enter a new guess:");
         attempts++;
     } else {
         guess1 = prompt("Invalid guess1. Please enter a number or 'q' to quit");
@@ -63,7 +63,7 @@ if (guess1 === 'q') {
     console.log("OK, YOU QUIT!")
 } else {
     console.log("CONGRATS YOU WIN!")
-    console.log(`You got it! It took you ${attempts} guess1es`)
+    console.log(`You got it! It took you ${attempts} guesses`)
 }
 
 

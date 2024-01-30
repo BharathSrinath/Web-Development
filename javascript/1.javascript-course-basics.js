@@ -1,13 +1,13 @@
 // Always include the javascript at the bottom of your body.
 // This is because, when you open a webpage JS will run when you place them at the top and hence other fucntions and styling may not reflect. So it is a best practice to place them at the bottom
-// JS is very linient langauge. Sometimes forgetting the semi-colon will not even throw errors.
+// JS is very lenient langauge. Sometimes forgetting the semi-colon will not even throw errors.
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
 console.log("Understanding Console");
 // When you call console.log() and pass a value or expression as its argument, that value or expression will be printed to the console. This allows you to inspect and debug your code by outputting messages, variable values, or any other information you want to track during the execution of your JavaScript program.
 console.time("This entire code took....");
 console.log("first file of javascript");
 console.log('Hello world');
-// Whatever in the double quotes (""), single quotes ('') and backtick (``) will be displayed as it is. Generally you will use double and single quotes. But when you want to use any special characters or even double and single quotes in the content, a backtick is preferred.
+// Whatever in the double quotes (""), single quotes ('') and backticks (``) will be displayed as it is. Generally you will use double and single quotes. But when you want to use any special characters or even double and single quotes in the content, backticks are preferred.
 // Also backtick can preserve the indentsation (lines and tabs between words)
 console.log(`Bharath's world`);
 console.log(100+2);  // This will be displayed as 102
@@ -111,7 +111,7 @@ console.log("The data type is "+ (typeof mark));
         // Example 3: const result = Number("abc");
             // When you try to convert the string "abc" to a number. (Here if the string was "123", it would have been successful)
             // There is another function called parseInt that could do the same. But there are differences
-                // Number (N is caps) can convert even the decimals and scientific notation which cannot done by parseInt (will ignore the digits after the decimal point).
+                // Number (N is caps) can convert even the decimals and scientific notation which cannot be done by parseInt (will ignore the digits after the decimal point).
                 // But parseInt can take an optional second argument to specify the base (radix) of the number when dealing with non-decimal numeric representations (e.g., binary or hexadecimal).
     // When you look at the typeof (NaN), the answer would be "number"
         // So technically, NaN is a number that represents the result what should have been a number but not a number 
@@ -148,7 +148,7 @@ console.log("-------------------------------------------------------------------
 function myFunction() {
     console.log('Hello, world!');
 }
-
+myFunction()
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
 console.log ("Object Literals")
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
@@ -158,8 +158,8 @@ console.log("-------------------------------------------------------------------
 // They are used to structure and organize data 
 // They are collection of properties
     // Every Poperty is a 'key-value' pair.
-    // Keys are typically strings (or symbols), and values can be of any data type, including other object.
-// Rather than asscessing the data using an index, we use custom keys 
+    // Keys are typically strings (or symbols), and values can be of any data type, including another object.
+// Rather than accessing the data using an index, we use custom keys 
 // "Object literals" are a specific way to define and create objects in JavaScript. There are other types which we will study later
     // Constructor Functions
         // They are created with a key word 'new' => let x = new car;
@@ -209,9 +209,9 @@ person.age = 35; // Modify age property
 person.email = "john@example.com"; // Add a new property
 console.log(person);
 
-// Note: With objects you use square curly braces when declaring them. When you are trying to access them, you shouldcan do it in 2 ways: person ["age"] or person.age
-    // Whats happening is all the valid keys (there are few invalid like if, for, etc. which are basically reserved words which cannot be used as keys; no space is allowed; cannot start with a number or special characters (not even hypen is allowed) buy underscore is allowed) will be converted to strings and the value stored in that string is displayed when you use the above commands.
-    // You can even write the property and value in this format. "firstName": "John"
+// Note: With objects you use curly braces when declaring them. When you are trying to access them, you shouldcan do it in 2 ways: person ["age"] or person.age
+    // Whats happening is all the valid keys (there are few invalid like if, for, etc. which are basically reserved words which cannot be used as keys; no space is allowed; cannot start with a number or special characters (not even hypen is allowed) but underscore is allowed) will be converted to strings and the value stored in that string is displayed when you use the above commands.
+    // You can even write the property and value in this format too. "firstName": "John"
 
 console.table(person);
 console.log("The data type is " + (typeof person));
@@ -255,9 +255,9 @@ const restaurant = {
 const fullAddress = `${restaurant.address}, ${restaurant.city}, ${restaurant.state}, ${restaurant.zipcode}`;
 console.log(fullAddress);
 const fullAddress1 = restaurant.address + restaurant.city + restaurant.state + restaurant.zipcode;
-console.log(fullAddress);
+console.log(fullAddress1);
 
-// Output will be 45 Johnson Ave, Brooklyn, NY, 11206
+// Output will be 45 Johnson Ave, Brooklyn, NY, 11206 vs 45 Johnson AveBrooklynNY11206
 
 console.log("Truthy and Falsy");
 // There are no technical words as such but widely accepted terms - Just know it
@@ -330,7 +330,7 @@ console.log(Math.floor(Math.random() * 100) + 50);
     // Here n is based on total numbers between the range.
         // Example: If you want to get random numbers between 1 to 10, you can multiply with 10. If between 1 to 20, you can multiply with 20
     // Here m also plays a crucial role. When the range starts at 1, m will be 1. But when the range starts at 20, m will be 20
-        // Example: If you want to to get random numbers between 20 to 25, m will be 20 and n will 6 (there are 6 numbers from 2o to 25) 
+        // Example: If you want to get random numbers between 20 to 25, m will be 20 and n will 6 (there are 6 numbers from 20 to 25) 
     // Lets get a syntax for ourselves
         // Math.floor(Math.random() * n) + m
 // There are plenty of math related functions including trigonomerty related. So just look over it when you need
@@ -379,13 +379,13 @@ console.log(html.indexOf('H'));
 // This will tell you the position of the character 
 // Only tells you the first character that it finds. 
 console.log(html.charAt(6));
-// This will tell you the character the respective position
+// This will tell you the character in the respective position
 console.log(html.endsWith('nejwj'));
 // Searches the end of the variables value whether the text 'nejwj' exists or not. Returns a boolean value
 console.log(html.includes('nejwj'));
 // Same as above but searches the entire string
 console.log(html.substring(1, 6));
-// Provides the characters from index 1 (inclusive) to 6 (exclusive)
+// Provides the characters from index 1 (included) to 6 (excluded)
 console.log(html.slice(0, 10));
 // Same as substring
     // Difference: If the start index is greater than the end index, substring swaps the two indices and return an answer but slice will return an empty string as an answer.
@@ -393,6 +393,7 @@ console.log(html.slice(0, 10));
 // There is another function called splice that works only on arrays which you will find under arrays
 console.log(html.split('>'));
 // It splits the string based on > by using it as a divider. 
+// It returns an array of substrings based on a specified delimiter.
 console.log(html.replace('Heading', 'Course'));
 // But it will replace only once even if you had the heading multiple times
 
@@ -405,9 +406,9 @@ let item3 = 'Swimming'
 
 let html2 = `<h3> When ${item1} hits you hard, do as ${item2} says </h3> <h1> Just keep ${item3} </h1>`;
 console.log(html2);
-// With $ you can include the expressions between your strings. These are called as template literals. But for template literals you can use only backticks (not single quotes). Why? Because single quotes and double quote will just make everything a string.
+// With $ you can include the expressions between your strings. These are called as template literals. But for template literals you can use only backticks (not single quotes). Why? Because single quotes and double quotes will just make everything a string.
     // You can pretty much use anything within $ sign. Like all the methods we have discussed above, arithmetic operations, etc.
-    // Also note that within backticks even h4 and h1 are not treated as texts. Rather they are treated as elements and their properties are applied to the text.
+    // Also note that within backticks even h4 and h1 are not treated as texts. Rather they are treated as elements and their properties are applied to the text (not in the console. Loos at the web page).
 
 document.body.innerHTML = html2;
 // Using this syntax you can directly modfiy the contents of a web page without going to an html document.
@@ -429,7 +430,10 @@ console.log(arrays1);
 console.log(arrays1.splice(1, 2, 6, 7));
 // syntax: array.splice(startIndex, deleteCount, item1, item2, ...);
     // Here 1 stands for starting position, 2 stands for number of elements to be deleted that are located after 1 (2 and 3 in this case)
-    // Whatver that is followed is the elements that you want to include (6 and 7 in this case)
+    // Whatever that is followed is the elements that you want to include (6 and 7 in this case)
+    // splice() returns the removed elements from the array
+    // If the starting index provided to the splice method is negative, it is treated as an offset from the end of the array. In other words, -1 refers to the last element, -2 refers to the second-to-last element, and so on.
+    // Unlike slice(), splice() alters the original array.
 console.log(arrays1);
 
 // Note: Something interesting
@@ -440,7 +444,7 @@ console.log(arrays1);
 // See now this what the output will be
     // ['lion', 'cheetah', 'tiger', empty × 7, Array(1)]
     // Since you have stored leopard in the 10th position
-    // This isn't new to you. But JS displaying it as empty x 7 in the output is somewhat interesting
+    // This isn't new to you. But JS displaying it as empty x 7 in the output is something that you haven't see previously.
 
 let arrays2 = ['1st elem','2nd elem','3rd elem'];
 console.log(arrays2[0]);
@@ -473,13 +477,13 @@ age2.sort(function(a, b) { return b - a;});
 // sorts in a descending order
 // I know this is tricky. But hear me out. It is not as difficult as you think
 // In JS, the sort() function sorts elements in ascending order by default when used without any arguments. To sort elements in descending order, you can provide a custom comparison function to the sort() method.
-    // Here custom comparison function is nothing but an anoymous function with two arguments
+    // Here custom comparison function is nothing but an anonymous function with two arguments
         // You need two arguments at the very least to sort - So dont think two much on that
     // The comparison logic inside this function is 'return b - a;' compares b and a to achieve descending order. When b - a is positive, it means b should come before a, which results in descending sorting.
         // If b - a is negative, it indicates that b is less than a, so a should come before b. This results in ascending order.
             // In other words if you specify a - b, it will sort in ascending order
         // If b - a is 0, it means a and b are considered equal, so their relative order remains unchanged.
-// Look carefully, the function closes after the return statement.
+
 console.log(age2);
 
 // reverse()
@@ -487,6 +491,14 @@ let age3 = [65, 56, 78, 87,19];
 age3.reverse();
 // Just reverses the elements in array
 console.log(age3);
+// reverse() with strings works somewhat differently. To reverse them, frst we have to breakdown the string into individual characters (can use split('')). Basically the string will be converted to array and then use reverse() on that array.
+//  IMPORTANT CONCEPT THAT YOU KEEP FORGETTING
+    // When you copy an array from one variable to another, remember that the other variable doesn't contain the new copy of an array rather it has only the reference of the address. So when you alter the copy, even the oroginal changes. 
+    // So then how to make a copy? Here are some of the ways.
+        // var copiedArray = originalArray.slice();
+        // var copiedArray = [...originalArray];
+        // var copiedArray = Array.from(originalArray);
+        // var copiedArray = [].concat(originalArray);
 
 // concat()
 let alphabets = ['a','b','c'];
@@ -516,10 +528,12 @@ console.log(cities);
 cities.shift();
 // removes from the beginning of the array
 // Remember these things dont work on a string just because strings are character arrays (Dont use that logic here)
-// JS treats arrays and shifts differently
+// JS treats arrays and individual characters of a word differently
 console.log(cities);
+cities.push();
 
 // When you dont provide arguments for adding an element (push and unshift), it will return the length of the array
+    // console.log(cities.push()); Outputs 3
 
 // Nested arrays
 // Example:
@@ -554,8 +568,8 @@ console.log("-------------------------------------------------------------------
 // a <= b a is greater than or equal to b
 // a===b a and b has same value and same data type (This is known as strict equality)
 // a!==b a and b dont have same value and dont even have same data type (This is known as strict inequality) 
-    // See in JS 1 == '1' will return true. I know this might be a surprise. This is because, JS does type coercion (converts one or both of the values to a common type before making the comparison). So if yor are comapring a value and the data type, then you have to use '==='. 
-        // Anothe Example: 0 == false will return true but 0 === false will return false 
+    // See in JS 1 == '1' will return true. I know this might be a surprise. This is because, JS does type coercion (converts one or both of the values to a common type before making the comparison). So if we are comparing a data with respect to both 'value and the data type', then we have to use '==='. So basically type coercion doesn't happen with '==='.
+        // Another Example: 0 == false will return true but 0 === false will return false 
 
 // If statement
 if (5>0) {
@@ -601,7 +615,7 @@ switch (age4) {
         break;
         
     default:
-        console.log("W still thinking about giving you the voting rights");
+        console.log("Still thinking about giving you the voting rights");
         break;
 }
 
@@ -624,19 +638,19 @@ for (let i = 1; i <= 5; i++) {
 // forward
 for (let i = 0; i <= animals.length; i++)
 {
-    console.log (i, animals [i])
+    console.log (`${i} : ${animals [i]}`)
 }
 
 // backward
 for (let i = animals.length; i >= 0; i--)
 {
-    console.log (i, animals [i])
+    console.log (`${i} : ${animals [i]}`)
 }
 
 // for-in
 // Syntax: for (datatype key in iterableObject)
-// For-in is primarily used iterate ofobject literals where it can access both and key and theor value
-
+// For-in is primarily used iterate object literals where it can access both and key and its value
+    
 var persons = {name: 'Sam', language: 'JavaScript', age: 19};
 
 for (var c in persons) {
@@ -676,7 +690,7 @@ var schoolStudents = {
   // Iterate over the students object using a for...in loop
   for (var iterate in schoolStudents) {
     var student = schoolStudents[iterate]; 
-    // This step not necessary but makes it much more easy to write
+    // This step is not necessary but makes it much more easy to write
     console.log("Name: " + student.name);
     console.log("Roll Number: " + student.rollNumber);
     console.log("Marks: " + student.marks);
@@ -735,7 +749,7 @@ console.log("-------------------------------------------------------------------
 // const password = prompt("Enter your password");
     // Commenting out every code with prompt because everytime you save the file, it keeps prompting
 // if (password.length >= 6 && password.indexOf(' ') === -1) {
-    // password.indexOf (' ') === -1 means that, no space in password
+    // password.indexOf (' ') === -1 means that, no space as the first character in the password. If it found a space it will will return the index number, if not returns -1. 
 //     console.log("VALID PASSWORD!")
 // } else {
 //     console.log("INCORRECT FORMAT FOR PASSWORD!")
@@ -823,7 +837,6 @@ function sumArray (e){
     });
     console.log (sum3);
     return sum3;
-    // You cant add the return with for - Hope you know that as it will terminate the loop after the very first iteration
 }
 sumArray([-10,-5,5,10]);
 
@@ -847,15 +860,14 @@ returnDay(2);
 
 // 2. Function Expression
 let add = function(a,b) {
-    // You can't put semi-colon (;) at the end of the funciton expression as that will terminate the function and the definition of the function will not be executable
     return a+b;
 }
 console.log(add(4,3));
 
 // Here you are defining the function inside a variable (as an anonymous function). Why it it called anonymous?
-    // Technically, here add is name of the variable and not of the function. If you had used function declaration, add would have been the name of the function. But here function doesn't have a name hence called anonymous
+    // Technically, here add is name of the variable (that refers to the function) and not of the function. If you had used function declaration, add would have been the name of the function. But here function doesn't have a name hence called anonymous.
 
-// Lets undertand the significant difference between both which wasn't mention previously - Hoisting
+// Lets understand the significant difference between both which wasn't mention previously - Hoisting
 // See in function declaration, when you call the function before defining it, it is acceptable and that is not the case with function expression.
 // Lets look at the same example as above
 
@@ -895,8 +907,7 @@ function bankRobbery() {
 }
 
 bankRobbery();
-// Calling thus function is alone not sufficient. Every function needs to be called inside. Remember that
-// inner functions has access to outer functions. This is known as lexical scope.
+// Calling this function is alone not sufficient. Every function needs to be called inside. Remember that inner functions has access to outer functions. This is known as lexical scope.
 
 let square1 = function (a){
     return a*a;
@@ -956,7 +967,7 @@ console.log (msytery());
 function makeBetweenFunc (min, max){
     return function (num){
         return num >= min && num < max;
-        // Here true/false will be returned. We geenrally do this with an if condition
+        // Here true/false will be returned. We generally do this with an if condition
     }
 }
 
@@ -988,8 +999,8 @@ console.log (isSenior(60));
 
 // Difference between functions and methods:
     // Function is a block of code that can be defined and called independently to perform a specific task or return a value. Functions can be standalone or associated with objects. When we talk about functions, we usually mean standalone functions that can be invoked like this: functionName(). Functions can take parameters (input) and return a value (output).
-    // A method is a function that is associated with an object. It's a property of an object, and it represents the behavior or actions that the object can perform. When you invoke a method, you are essentially asking the object to perform a specific action.
-// This is why it is said that every 'method is a function' but 'not every function is a method'
+    // A method is a function that is associated with an object. It's a property of an object, and it represents the behavior or actions that the object can perform. When you invoke a method, you are essentially asking the object to perform a specific action. To put it simply, "when you add a function as a property to an object, it becomes a method"
+// This is why it is said that 'every method is a function' but 'not every function is a method'
 
 // Functions can also be used as property in object literals
 // Example: 
@@ -1002,7 +1013,7 @@ let square2 = {
     }
 }
 for (let i in square2){
-    console.log(`${a}: ${square2[i](5)}`);
+    console.log(`${i}: ${square2[i](5)}`);
 }
 
 // Recent update in JS makes it even more easier. You dont even need the term function. You can just write area (a) and perimeter (a). It canbe rewritten as,
@@ -1015,89 +1026,9 @@ for (let i in square2){
     //     }
     // }
 
-
-console.log("------------------------------------------------------------------------------------------------------------------------------------");
-console.log ("'this' Keword")
-console.log("------------------------------------------------------------------------------------------------------------------------------------");
-
-// 'this' keyword in JS - Most trickiest thing in JS. Lets take it slowly. You have got this. Don't worry
-// Example 1:
-
-const cat = {
-    name: 'Puchy',
-    color: 'Black & White',
-    breed: 'Street Smart',
-    meow() {
-    // Here we have used the new notation
-        // console.log (color); 
-            // This will throw an error. See when this process takes place outdie an object literal, you wont any have issues. Because variables outside a function that has a global scope, can be accessed within the function. But that is not the case within objects. You cannot access a property that is outside the function in object lietrals. Color property has scope under the object cat but not under the function meow.   
-        return `${this.name} says MEOWWWW`;
-        // To access a property under the object cat, you have to use the keyword 'this' which refers to the current object.
-        // When called from a function, it refers to the object from under which the function is present. (Like above) 
-            // If the function is called as a standalone function outside the object, 'this' keyword may refer to the global object
-        // In event handler functions for DOM elements, this often refers to the element that triggered the event.
-    }
-}
-
-// Calling the function outside of object literal. It is simple and straight-forward. You do it just like you access any other property.
-console.log(cat.meow());
-
-// Example 2:
-
-const hen = {
-    name: 'Helen',
-    eggCount: 0,
-    layAnEgg (){
-        this.eggCount +=1;
-        return "EGG";
-    }
-}
-
-// Global object and 'this'
-// In Object lietrals, we define a property right? Technically everything that we do in Js browser environment (there are other environments like Node.js) is a property. Property of what? To define a property we need an object right?
-    // Yes there exists a default object called 'windows' (in Node.js 'windows' is called as 'global') which is in-built. When you define a fucntion, a variable, use a loop - everything is turned into a property of that object.
-// Hence, when you use this in the global scope, it refers to the windows object.
-
-console.log("------------------------------------------------------------------------------------------------------------------------------------");
-console.log ("Try and Cacth")
-console.log("------------------------------------------------------------------------------------------------------------------------------------");
-
-// Try/Catch
-// You see when you encounter an error in a single line of code, the entire porgram stops.
-// You can come over that with the help of try and catch mechanism
-// When you have a code which you believe might throw an error you can put that under try block and can you place anything in the catch block like "ERROR!!!"
-// This becomes extremely useful in AJAX and API
-
-// Example 1:
-
-try {
-    hello.toUpperCase();
-    // usually this will throw an error called 'hello' undefined
-    // But now the code will run with a below message 
-} catch {
-    console.log("ERROR!!!!")
-}
-
-console.log ("AFTER!")
-// This line will cannot be exected without try/catch
-
-// Example 2;
-
-function yell(msg) {
-    try {
-        console.log(msg.toUpperCase().repeat(3));
-    } catch (e) {
-        console.log (e);
-        // What this will do is, capture the actual error that would have been displayed and prints to the console. While below is the customised error message.
-        // Catch can have any arguments like e, error, etc.
-        console.log("Please pass a string next time!")
-    }
-}
-yell ()
-// Here we are deliberately not passing an argument to catch the error
-
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
 console.log ("Callbacks and Array Methods")
+console.log ("ForEach")
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
 
 // Callbacks and Arrays Methods
@@ -1113,13 +1044,13 @@ console.log("-------------------------------------------------------------------
 
 const arrays3 = [1,2,3,4,5,6,7,8,9,10];
 let sum = 0;
-arrays3.forEach(function(element) {
+arrays3.forEach(function(element, index, arrays3) {
     sum += element;
-    console.log(sum);
+    console.log(`${arrays3} - ${index}: ${sum}`);
 });
 
 // forEach can accept 3 values. They are current value, index and array. current value by default represents the first value and the index will be array [0] and the array will be name of the array which holds the elements. 
-    // But you don't need to specify the last 2. Just use element as above that would sufficient. Infact you can write any word. (element is not a key word)
+// This array is same as the array over which we are iterating. Sometimes we may need access to other elements apart from the current element that we are currently accessing. In that case we can make use of that. But remember accessing of an element (reading) is okay, but modiying the element during the forEach cylce is  not a recommended practice as it will modify the existing array.
 
 // for-of simplifies this even more. It doesnt even require a function 
 // Syntax:
@@ -1160,7 +1091,6 @@ for (let z of naturalNumbers)
 // Example 4:
 
 const movies = [
-    // This is an array mind you. Dont think it as an object literal
     {
         title: 'Amadeus',
         score: 99
@@ -1181,7 +1111,7 @@ const movies = [
 
 movies.forEach(function (element) {
     console.log(`${element.title} - ${element.score}/100`);
-    // When you put the 100 inside, it will actually divide it asboth will be integers. 
+    // When you put the 100 inside, it will actually divide it as both will be integers. 
 })
 
 // Same with for-of loop 
@@ -1197,7 +1127,6 @@ console.log("-------------------------------------------------------------------
 // When you use for loops or other traditional loops, you can iterate over array elements and perform operations on those elements. However, these operations typically modify the elements in-place or perform some actions.
 // On the other hand, the map() function allows you to transform the elements of the original array into a new set of values, and the result is a new array where each element corresponds to the transformed value of the original array element.
 // Syntax: const newArray = originalArray.map(callbackFunction(currentValue[, index[, array]])[, thisArg]);
-    // Ignore the last 3 as of now. simplified syntax is const newArray = originalArray.map(callbackFunction(currentValue))
 
 // Example 1 - Lets use the movies array to extract only the title and create a new array with it
 
@@ -1207,156 +1136,22 @@ const titles = movies.map (function(element){
 
 console.log (titles);
 
-console.log("------------------------------------------------------------------------------------------------------------------------------------");
-console.log ("Arrow Functions")
-console.log("------------------------------------------------------------------------------------------------------------------------------------");
+// optional 'thisArg' parameter (an object) allows us to specify a value that will be used as 'this' when executing the callback function. Lets look at the below example.
 
-// Arrow functions - Newer syntax for function expressions
-// They are just a syntaxial change where instead of writing the keyword 'function'  followed by arguments in paranthesis, we will be using '=>' after paranthesis by removing the function keyword.
-    // const add = (x, y) => {
-        // return x+y;  
-    // }
-// If you have just one line of code to be executed after the arrow, you can ignore the curly braces and include it in the same line of code
-// You can further more simplify the code of that one line if it is a return statement by removing the word return and enclosing the one line of code in paranthesis
-    // const add = (x, y) => (
-        // x+y;  
-    // ); or
-    // const add = (x, y) => x+y;
-// Also if you are just dealing with one argument you do not need paranthesis when you are using arrows
-    // const isEVen = num => num % 2 === 0;
-    
-
-// Example:
-    const newMovies = movies.map (element =>{
-        return `${element.title} - ${element.score/10}`
-    })
-    console.log (newMovies)
-
-// Keyword 'this' and arrow functions
-// 'this' behaves differently within arrow functions
-// Under a normal function, 'this' keyword will refer to the closest object under which it will be executed (not necessarily the closest object under which it is located). Because property of an object can have a function that refers to another property in another object. So, the 'this' keyword under the function of object 1 might be executed after referring to a property in object 2 which might hold the value as object 1. Confusing? Look at the example below. You will understand.
-const obj1 = {
-    name: 'Object 1',
-    greet: function () {
-      console.log(`Hello from ${this.name}`);
-    },
-  };    
+let employees = [
+    { id: 1, name: 'Alice', salary: 50000 },
+    { id: 2, name: 'Bob', salary: 60000 },
+    { id: 3, name: 'Charlie', salary: 75000 }
+];
   
-  const obj2 = {
-    name: 'Object 2',
-  };
-  console.log (obj1.greet)
-  obj2.sayHello = obj1.greet; 
-    // Creating a new property in object name sayHello and assigning it the greet function
+function calculateBonus(employee, index, array) {
+    // Just know that index and array paramneters can be accessed here
+    return employee.salary * this.bonusPercentage;
+}
   
-  obj1.greet();      // Output: Hello from Object 1
-    // See here we are execiting the function in obj1 directly
-  obj2.sayHello();   // Output: Hello from Object 2 (this refers to obj2)
-    // Here, sayHello is a function UNDER OBJECT 2 which has the following executable after the assignment step (obj2.sayHello = obj1.greet; )
-        // ƒ () {
-        //     console.log(`Hello from ${this.name}`);
-        //   }
-    // When this line of code is gettung executed, 'this' keyword refers to object 2.
-
-// So this is how 'this' keyword works with regular functions. Now lets see how it works under arrow functions.
-// In arrow functions, it always inherits its value from the surrounding lexical (enclosing) scope where the arrow function is defined (not the closest object).
-// Arrow functions do not have their own 'this' context; they capture 'this' from the context in which they are created.
-    // So, lets say you have defined a normal function under an object literal and an arrow function under that normal function.
-    // You know that if you use the keyword 'this' under a normal function, it will refer to the object. Now this property of the normal function will be inherited by the arrow function too. So 'this' keyword in the arrow function which is nested under a normal function will refer to the object too.
-// If you are directly using arrow functions under an object literal, it will refer to the window object. Keep this in mind. Inheritance with respect to 'this' keyword is happening only within functions for arrow functions and not under objects. 
-// Why would anyone build something this? To create confusion? No. Lets look at the practical purposes with few examples.
-
-// Example 1: This program will not work with 'this' keyword under persona2
-    // See for 'this' keyword to work under arrow functions, it should be DEFINED under a normal function. Just calling it under a function and defining it oustide the scope of normal function or under a different object (as below) will not work. 
-    // In this code, when 'persona.setTime' is executed, it will move to the this.fullName() function under persona2
-    // But 'this' keyword here refers to 'window' object and not persona1 from which the function has been actually called.   
-
-const persona1 = {
-    firstName: 'Aravind',
-    lastName: 'Sundaresan',
-    fullName: function () {
-        console.log (`${this.firstName} ${this.lastName}`)
-    },
-    shoutName: function () {
-        persona2.setTime();
-    }
-}
-
-const persona2 = {
-    firstName: 'Bharath',
-    lastName: 'Srinath',
-    setTime: () => {
-        // console.log(this.fullName());
-        console.log(persona1.fullName());
-            // If you dont change this line, it will throw an error
-    },
-}
-persona1.shoutName();
-
-// Example 2: This will work as expected because we have defined arrow function under a normal function and both are under the same object
-
-const persona3 = {
-    firstName: 'BadriNarayanan',
-    lastName: ' Balaji',
-    fullName: function () {
-        console.log (`${this.firstName} ${this.lastName}`)
-    },
-    shoutName: function () {
-        const setTime = () => {
-            console.log(this.fullName());
-        }
-        setTime();
-    }
-}
-persona3.shoutName();
-
-// Example:
-
-// Commenting out this because of the timeout function which is pushing the output of this code to the very last in console
-    // const persona = {
-    //     firstName: 'Viggo',
-    //     lastName: 'Mortensen',
-    //     fullName: function () {
-    //         console.log (`${this.firstName} ${this.lastName}`)
-    //     }, // See this is a normal function and it will work as expected. 
-    //     shoutName: function () {
-    //         setTimeout(() => {
-    //             console.log(this);
-    //             console.log(this.fullName());
-    //         },3000)
-    //     }
-    // }
-    // persona.shoutName();
-
-// This code is quite tricky due to setTimeout()
-// shoutName() sets a timeout of 3000 milliseconds (3 seconds) to execute an arrow function. By the time the arrow function executes, the shoutName function has already completed, and its execution context is no longer available. As a result, the 'this' context within the arrow function does not refer to the persona object. 
-
-
-console.log("------------------------------------------------------------------------------------------------------------------------------------");
-console.log ("SetTimeout and SetInterval")
-console.log("------------------------------------------------------------------------------------------------------------------------------------");
-
-// setTimeout
-// This function will run with a delay of x milliseconds where the programmer determines the x
-console.log("HELLO!!!...")
-
-// setTimeout(() => {
-//     console.log("...are you still there?")
-// }, 3000)
-
-console.log("GOODBYE!!")
-
-// setTimeout
-// This function will be called every x seconds repeatedly
-// It will not stop default
-
-// const id = setInterval(() => {
-//     console.log(Math.random())
-// }, 2000);
-
-// clearInterval(id);
-    // SetInterval will return a value called id which we have stored in a variable called 'id'
-    // When you call the function clearInterval with that id, it will stop.
+let annualBonuses = employees.map(calculateBonus, { bonusPercentage: 0.1 }); // 10% bonus
+  
+console.log(annualBonuses);
 
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
 console.log ("Filter")
@@ -1441,43 +1236,19 @@ const goodMovieTitles = movies1.filter(m => m.score > 80).map(m => m.title);
 console.log (goodMovieTitles);    
 
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
-console.log ("Every and Some Methods")
-console.log("------------------------------------------------------------------------------------------------------------------------------------");
-
-// Every and Some Methods
-    // Every - When used, it checks whether every element in an array satifies the specified condition. If so it returns true.
-    // Some - When used, it checks whether atleast any one element in an array satisfied the specified condition
-// They are something which does the same function as 'if condition' in comination 'logical operators' but very concise
-
-// Example 1:
-console.log (movies1.every(m => m.score > 70))
-// false
-console.log (movies1.some(m => m.score > 70))
-// true
-
-// Example 2:
-// Define a function called allEvens that accepts a single array of numbers.  If the array contains all even numbers, return true.
-// 
-function allEvens (numbers){
-    const arrays5 = numbers.every(function (even){
-        return even % 2 === 0;
-    })
-    console.log(arrays5) // returns false
-}
-allEvens([1,2,3,4,5,6,7,8,9,10]);
-// You can simplify this as following
-console.log (numbers.every (even => even % 2 === 0)); // returns false
-
-console.log("------------------------------------------------------------------------------------------------------------------------------------");
 console.log ("Reduce Method")
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
 
 // Reduce Method - Somewhat complex. Pay attention
 // Gives a single value from an array depending up on the computation 
-// Syntax: array.reduce ((accumulator, current value)=> {
-    // return "Your computation goes here")
+// Syntax: array.reduce(callback(accumulator, currentValue, index, array) => {
+            // Your computation goes here
+                // return /* the result of your computation */;
+            // }, initialValue);
+
 // }
     // accumulator will be index [0] and current value will index [1] in the first iteration
+    // initial value is optional value whcih will be the first value of accumulator. If not provided the first value of the array will be the initial value.
     // See here return will keep returning the value to the reduce method until it reached the last element
 
 // Example 1: We are just adding everything just like we do it in for of loop.
@@ -1523,6 +1294,304 @@ const evensSum2 = evens.reduce(function (sum, num) {
 console.log (evensSum1);
 console.log (evensSum2);
 
+// Summary of when to what type of loops
+/*
+1. Traditional For Loop
+Ideal Use Case: When you know how many times you want to loop. Great for iterating over arrays when you need to track the index, or when you want to modify the original array.
+Not Ideal When: You're working with properties of an object or iterable objects like arrays, strings, maps, etc. 
+
+2. For...In Loop
+Ideal Use Case: When you need to work with the properties of an object.
+Not Ideal When: Iterating over arrays because there's no guarantee on the order of properties and it may return inherited enumerable properties.
+
+3. For...Of Loop
+Ideal Use Case: When you want to iterate over iterable objects like arrays, strings, maps, etc. It's great for cases where you don't need to track the index.
+Not Ideal When: You need to track the index or modify the original array because it does not provide access to the index of the array.
+
+4. ForEach Method
+Ideal Use Case: When you want to perform an operation for each element in an array and you don't need to create a new array. Great for performing side effects, like updating the DOM or logging to the console.
+Not Ideal When: You're trying to transform an array into a new array because it always returns undefined and is not chainable, meaning you can't use it in a chain of method calls like you can with methods that return a new array (like map).
+
+5. Map Method
+Ideal Use Case: When you want to transform an array into a new array. It's great for cases where you want to apply the same operation to each element of an array and put the results into a new array. It doesn't modify the original array.
+Not Ideal When: You want to modify the original array or perform side effects. 
+
+6. Filter Method
+Ideal Use Case: When you want to create a new array containing only elements that satisfy a certain condition. Useful for filtering out unwanted elements from an array without modifying the original array.
+Not Ideal When: You need to transform the elements or if you want to perform a complex operation that involves combining elements in the array. In such cases, consider using map or reduce.
+
+7. Reduce Method
+Ideal Use Case: When you need to accumulate values from an array into a single result. Useful for summing up numbers, finding the maximum or minimum value, or any other scenario where you need to compute a single value from an array.
+Not Ideal When: You don't need to accumulate values or performing doesn't involve reducing the array to a single value.
+*/
+
+// My notes of comparison:
+// Traditional For Loop and For…Of Loop: They are similar in that they are both used to iterate over iterable objects like arrays, strings, maps, etc. The traditional for loop offers more control because you can specify the initialization, condition, and increment expressions. The for...of loop is simpler and automatically iterates over the elements of the iterable.
+// For…In Loop: It is used to iterate over the properties of an object. It’s not quite similar to the for...of loop in terms of control, because the for...in loop is specifically designed for objects, while the for...of loop is designed for iterable objects.
+// ForEach Method, Map Method and Filter Method: Neither forEach or map or filter modifies the original array. The forEach method executes a provided function once for each array element but does not return a result, while the map method creates a new array with the results of calling a provided function on every element in the array and filter method also creates a new arrat with the elements that satisfy the provided condition but there will no change in the individual elements unlike map.
+
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+console.log ("'this' Keword")
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+
+// 'this' keyword in JS
+// Example 1:
+
+const cat = {
+    name: 'Puchy',
+    color: 'Black & White',
+    breed: 'Street Smart',
+    meow() {
+    // Here we have used the new notation
+        // console.log (color); 
+            // This will throw an error. See when this process takes place outside an object literal, you wont any have issues.  Lets look at the scenarios.
+            // 1. Variables (property name) and function within the object but variables outside the function: The variable cannot be accessed inside the function as shown above. So to access it we have to use 'this' keyword
+            // 2. Variables (property name) insisde the object but function is defined outside the object: The variable can be accessed within the function using the name of the object like 'cat.color'. 
+        // This is because color property has a scope under the object cat but not under the function meow.  
+        return `${this.name} says MEOWWWW`;
+        // When called from a function, it refers to the object from under which the function is present. (Like above) 
+            // If the function is called as a standalone function outside the object, 'this' keyword may refer to the global object
+        // In event handler functions for DOM elements, this often refers to the element that triggered the event.
+    }
+}
+
+// Calling the function outside of object literal. It is simple and straight-forward. You do it just like you access any other property.
+console.log(cat.meow());
+
+// Example 2:
+
+const hen = {
+    name: 'Helen',
+    eggCount: 0,
+    layAnEgg (){
+        this.eggCount +=1;
+        return "EGG";
+    }
+}
+console.log(hen.layAnEgg())
+
+// Global object and 'this'
+// In Object lietrals, we define a property right? Technically everything that we do in Js browser environment (there are other environments like Node.js) is a property. Property of what? To define a property we need an object right?
+    // Yes there exists a default object called 'windows' (in Node.js 'windows' is called as 'global') which is in-built. When you define a fucntion, a variable, use a loop - everything is turned into a property of that object.
+// Hence, when you use this in the global scope, it refers to the windows object.
+
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+console.log ("Try and Catch")
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+
+// Try/Catch
+// You see when you encounter an error in a single line of code, the entire porgram stops.
+// You can over come that with the help of try and catch mechanism
+
+// Example 1:
+
+try {
+    hello.toUpperCase();
+    // usually this will throw an error called 'hello' undefined
+    // But now the code will run with a below message 
+} catch {
+    console.log("ERROR!!!!")
+}
+
+console.log ("AFTER!")
+// This line will cannot be exected without try/catch
+
+// Example 2;
+
+function yell(msg) {
+    try {
+        console.log(msg.toUpperCase().repeat(3));
+    } catch (e) {
+        console.log (e);
+        // What this will do is, capture the actual error that would have been displayed and prints to the console. While below is the customised error message.
+        console.log("Please pass a string next time!")
+    }
+}
+yell ()
+// Here we are deliberately not passing an argument to catch the error
+
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+console.log ("Arrow Functions")
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+
+// Arrow functions - Newer syntax for function expressions
+// They are just a syntaxial change where instead of writing the keyword 'function'  followed by arguments in paranthesis, we will be using '=>' after paranthesis by removing the function keyword.
+    // const add = (x, y) => {
+        // return x+y;  
+    // }
+// If you have just one line of code to be executed after the arrow, you can ignore the curly braces and include it in the same line of code
+// You can further more simplify the code of that one line if it is a return statement by removing the word return and enclosing the one line of code in paranthesis
+    // const add = (x, y) => (
+        // x+y;  
+    // ); or
+    // const add = (x, y) => x+y;
+// Also if you are just dealing with one argument you do not need paranthesis when you are using arrows
+    // const isEVen = num => num % 2 === 0;
+    
+
+// Example:
+    const newMovies = movies.map (element =>{
+        return `${element.title} - ${element.score/10}`
+    })
+    console.log (newMovies)
+
+// Keyword 'this' and arrow functions
+// 'this' behaves differently within arrow functions
+// Under a normal function, 'this' keyword will refer to the closest object under which it will be executed (not necessarily the closest object under which it is located). Because property of an object can have a function that refers to another property in another object. So, the 'this' keyword under the function of object 1 might be executed after referring to a property in object 2 which might hold the value as object 1. Confusing? Look at the example below. You will understand.
+
+const obj1 = {
+    name: 'Object 1',
+    greet: function () {
+      console.log(`Hello from ${this.name}`);
+    },
+  };    
+  
+  const obj2 = {
+    name: 'Object 2',
+  };
+  console.log (obj1.greet)
+  obj2.sayHello = obj1.greet; 
+    // Creating a new property in object name sayHello and assigning it the greet function
+  
+  obj1.greet();      // Output: Hello from Object 1
+    // See here we are executing the function in obj1 directly
+  obj2.sayHello();   // Output: Hello from Object 2 (this refers to obj2)
+    // Here, sayHello is a function UNDER OBJECT 2 which has the following executable after the assignment step (obj2.sayHello = obj1.greet; )
+        // ƒ () {
+        //     console.log(`Hello from ${this.name}`);
+        //   }
+    // When this line of code is gettung executed, 'this' keyword refers to object 2.
+
+// So this is how 'this' keyword works with regular functions. Now lets see how it works under arrow functions.
+// In arrow functions, it always inherits its value from the surrounding lexical (enclosing) scope where the arrow function is defined (not the closest object).
+// Arrow functions do not have their own 'this' context; they capture 'this' from the context in which they are created.
+    // So, lets say you have defined a normal function under an object literal and an arrow function under that normal function.
+    // You know that if you use the keyword 'this' under a normal function, it will refer to the object. Now this property of the normal function will be inherited by the arrow function too. So 'this' keyword in the arrow function which is nested under a normal function will refer to the object too.
+// If you are directly using arrow functions under an object literal, it will refer to the window object. Keep this in mind. Inheritance with respect to 'this' keyword is happening only within functions for arrow functions and not under objects. 
+// Why would anyone build something this? To create confusion? No. Lets look at the practical purposes with few examples.
+
+// Example 1: This program will not work with 'this' keyword under persona2
+    // See for 'this' keyword to work under arrow functions, it should be DEFINED under a normal function. Just calling it under a function and defining it oustide the scope of normal function or under a different object (as below) will not work. 
+    // In this code, when 'persona.setTime' is executed, it will move to the this.fullName() function under persona2
+    // But 'this' keyword here refers to 'window' object and not persona1 from which the function has been actually called.   
+
+const persona1 = {
+    firstName: 'Aravind',
+    lastName: 'Sundaresan',
+    fullName: function () {
+        console.log (`${this.firstName} ${this.lastName}`)
+    },
+    shoutName: function () {
+        persona2.setTime();
+    }
+}
+
+const persona2 = {
+    firstName: 'Bharath',
+    lastName: 'Srinath',
+    setTime: () => {
+        console.log(persona1.fullName());
+        // Output will be undefined here. Why? The arrow function 'setTime' is defined within the context of persona2. However, since arrow functions do not have their own this context and inherit it from the enclosing scope, this in the arrow function setTime does not refer to the instance of persona2. Instead, it inherits the global this value, which is often the window object in a browser environment.
+    },
+}
+persona1.shoutName();
+
+// Example 2: This will work as expected because we have defined arrow function under a normal function and both are under the same object
+
+const persona3 = {
+    firstName: 'BadriNarayanan',
+    lastName: ' Balaji',
+    fullName: function () {
+        console.log (`${this.firstName} ${this.lastName}`)
+    },
+    shoutName: function () {
+        const setTime = () => {
+            console.log(this.fullName());
+        }
+        setTime();
+    }
+}
+persona3.shoutName();
+
+// Example:
+
+// Commenting out this because of the timeout function which is pushing the output of this code to the very last in console
+    // const persona = {
+    //     firstName: 'Viggo',
+    //     lastName: 'Mortensen',
+    //     fullName: function () {
+    //         console.log (`${this.firstName} ${this.lastName}`)
+    //     }, // See this is a normal function and it will work as expected. 
+    //     shoutName: function () {
+    //         setTimeout(() => {
+    //             console.log(this);
+    //             console.log(this.fullName());
+    //         },3000)
+    //     }
+    // }
+    // persona.shoutName();
+
+// This code is quite tricky due to setTimeout()
+// shoutName() sets a timeout of 3000 milliseconds (3 seconds) to execute an arrow function. By the time the arrow function executes, the shoutName function has already completed, and its execution context is no longer available. As a result, the 'this' context within the arrow function does not refer to the persona object. 
+// So using 'this' keyword within setTimeout() that is defined as an arrow function is not adivsable.
+
+
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+console.log ("SetTimeout and SetInterval")
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+
+// setTimeout
+// This function will run with a delay of x milliseconds where the programmer determines the x
+console.log("HELLO!!!...")
+
+// setTimeout(() => {
+//     console.log("...are you still there?")
+// }, 3000)
+
+console.log("GOODBYE!!")
+
+// setInterval
+// This function will be called every x seconds repeatedly
+// It will not stop by default
+
+// const id = setInterval(() => {
+//     console.log(Math.random())
+// }, 2000);
+
+// clearInterval(id);
+    // SetInterval will return a value called id which we have stored in a variable called 'id'
+    // When you call the function clearInterval with that id, it will stop.
+
+
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+console.log ("Every and Some Methods")
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+
+// Every and Some Methods
+    // Every - When used, it checks whether every element in an array satifies the specified condition. If so it returns true.
+    // Some - When used, it checks whether atleast any one element in an array satisfied the specified condition
+// They are similar to 'if condition' in combination 'logical operators' but very concise.
+
+// Example 1:
+console.log (movies1.every(m => m.score > 70))
+// false
+console.log (movies1.some(m => m.score > 70))
+// true
+
+// Example 2:
+// Define a function called allEvens that accepts a single array of numbers.  If the array contains all even numbers, return true.
+// 
+function allEvens (numbers){
+    const arrays5 = numbers.every(function (even){
+        return even % 2 === 0;
+    })
+    console.log(arrays5) // returns false
+}
+allEvens([1,2,3,4,5,6,7,8,9,10]);
+// You can simplify this as following
+console.log (numbers.every (even => even % 2 === 0)); // returns false
+
+
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
 console.log ("New Features in JS")
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
@@ -1530,13 +1599,13 @@ console.log("-------------------------------------------------------------------
 // New Features in JS
 // 1. Parameters/Params
 // If the user doesn't provide an input to the argument, output will be undefined.
-    // Example: When calling the below function, we should call it as rollDie(6). If you dont specify the number, output will be undefined.  
+    // Example: When calling the below function, we should call it as rollDie1(6). If you dont specify the number, output will be undefined.  
 // To counter this we can do 2 things. 
     // Provide a error message to make them give an argument
     // Declare a default value if the user hasn't provided the input - This is what we are going to do
 
 // Older Way
-function rollDie(numSides) {
+function rollDie1(numSides) {
     if (numSides === undefined) {
         numSides = 6
         // By default, input will be 6
@@ -1547,7 +1616,7 @@ function rollDie(numSides) {
 // Newer way
 // Example 1:
 function rollDie(numSides = 6) {
-    // Now rather than making it as a separate condition, you can mention the the default values within the paranthesis
+    // Now rather than making it as a separate condition, you can mention the default value within the paranthesis
     return Math.floor(Math.random() * numSides) + 1
 }
 
@@ -1596,7 +1665,7 @@ const feline = { legs: 4, family: 'Felidae' };
 const canine = { isFurry: true, family: 'Caninae' };
 
 const catDog = { ...feline, ...canine };
-// Here family is common to both. So whatever that comes last will override the previous
+// Here family property is common to both. So whatever that comes last will override the previous
 console.log (catDog) 
 
 // Example 2:
@@ -1622,13 +1691,8 @@ const newUser = { ...dataFromForm, school, id: 2345, isAdmin: false }
 console.log (newUser);
 
 // 3. Rest - Rest of the parameters 
-// When you call a function with arguments but your function definition doesnt expect any arguments and if you want perform computation of those arguments, you can't do it.
-    // function sum() {
-    //     return arguments.reduce((total, el) => total + el)
-    // }
-        // This will result in an error.This is where rest comes into picture
-// rest will convert those arguments to a single array by specifying ...name where name is the name of the argument that you want to specify. You can use this array for computation. Look at the example below.
-// By the way you may wonder why someone will call a function with argument where the function definition doesn't expect an argument? There are plent of reasons like API Compatibility, flexibility in general which you will learn later 
+// Opposite to Spread operator where it collects the elements into a single array-like (Explained later)
+// Lets say that you want to pass multiple arguments. While receiving you need not specify all the arguments again. Rather just use ...argsName. But mind you, now this becomes an array. So you may again want to use a spread operator if you are not going to use that array as it is.
 
 // Example 1:
 
@@ -1636,7 +1700,7 @@ function sum2(...nums) {
     return nums.reduce((total, el) => total + el)
 }
 console.log(sum2(1,2,3,4,5,6,7,8,9))
-// See you are passing 9 arguments to sum() where num will convert them into a single array
+// See you are passing 9 arguments to sum() where ...num will convert them into a single array
 
 // Example 2:
 
@@ -1645,12 +1709,13 @@ function raceResults(gold, silver, ...everyoneElse) {
     console.log(`SILVER MEDAL GOES TO: ${silver}`)
     console.log(`AND THANKS TO EVERYONE ELSE: ${everyoneElse}`)
 }
-console.log(raceResults('Bharath', 'Aravind', 'Margrave', 'Badri', 'Karthick'));
+raceResults('Bharath', 'Aravind', 'Margrave', 'Badri', 'Karthick');
 // Here Margrave, Badri and Karthick are considered to be rest of the parameters and hence clubbed into the array names everyoneElse
 
 // Note:
-    // Eventhough though we say they are converted into array, they are not an array. They are array-like object
+    // Eventhough though we say they are converted into array, they are not an array. They are array-like. When we look at the typeOf(restParams), the output is actually object.
     // It has a length property like an array has but push and pop doesn't work on them
+    // You can convert them to array if you want =>  'Array.from(restParams)'
     // It is not available under arrow functions
 
 // 4. Destructuring
@@ -1707,7 +1772,7 @@ const { email, firstName, lastName, cityName, bio } = user1;
 
     // Destructuring user2
         // const { email: email2, firstName: firstName2, lastName: lastName2, cityName: cityName2, bio: bio2 } = user2;
-
+// To simply put, you should have different variable names for the different objects within the same scope.
 // const { born: birthYear, died: deathYear = 'N/A' } = user2;
 // Look at the above line carefully. You are bascially modifiying the property name 'born' and 'died'. Also, you are specifying a default value of deathYear (The default value will kick in only when there are no values assigned). If no property in the name 'died' has been found, a newproperty called 'deathYear' will be created and the default value will be assigned to it
 
@@ -1726,11 +1791,11 @@ const { email, firstName, lastName, cityName, bio } = user1;
 
 
 function fullName({ firstName, lastName }) {
-    return `${firstName} ${lastName}`
+    return console.log(`${firstName} ${lastName}`)
 }
 
 movies1.map(({ title, score, year}) => {
-    return `${title} (${year}) is rated ${score}`
+    return console.log(`${title} (${year}) is rated ${score}`)
 })
 // {title, score, year} - This part is significant. Look the arguments are enclosed in curly braces unlike nomral parameters. 
 // That is we are directly destructuring within the parameter itself 
