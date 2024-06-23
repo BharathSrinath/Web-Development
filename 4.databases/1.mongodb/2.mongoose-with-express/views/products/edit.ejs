@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+</head>
+
+<body>
+    <h1>Edit Product</h1>
+    <form action="/products/<%=product._id%>?_method=PUT" method="POST">
+        <!-- ?_method=PUT will help us to trick the HTML that the request is POST method but underneath it is a PUT method. -->
+        <label for="name">Product Name</label>
+        <input type="text" name="name" id="name" placeholder="product name" value="<%=product.name%>">
+        <!-- We are using value attribute here so that it will be pre-populated for us to edit -->
+        <label for="price">Price (Unit)</label>
+        <input type="number" id="price" name="price" placeholder="price" value="<%= product.price %>">
+        <label for="category">Select Category</label>
+        <select name="category" id="category">
+            <% for(let category of categories){ %>
+            <option value="<%=category%>" <%= product.category === category ? 'selected': '' 
+            %>><%=category%></option>
+            <% } %>
+            // You know that when we have selected attributes with options, that will be selected by default. So what we are doing here is whenever we go to the edit route of a particular product we will have access the product.category and compare it with category of the all th products in the loop. Once we get a match, the selected attribute will be added.
+            // Why are we doing this? we have prepopulated the values above quite easily. But with a dropdown list, we cannot assign a value, we can only select a value.  
+        </select>
+        <button>Submit</button>
+    </form>
+
+    <a href="/products/<%=product._id%>">Cancel</a>
+
+</body>
+
+</html>
+
+<!-- Initially we didnot use for-loop. Rather we had our typical list of options. But as you can you see that becomes a lot complicated. So we defined categories as an array directly in the index.js and passed that value whenever we make a get or post request to the respective .ejs file. -->
