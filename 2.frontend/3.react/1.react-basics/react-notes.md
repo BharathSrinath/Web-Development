@@ -2,6 +2,13 @@
     # React helps us to build components.
     # Components combine HTML/CSS and logic into a single reusable function
     # A component is nothing but a function that returns JSX
+    # It is an open-source JavaScript library developed by Facebook for building user interfaces, especially for single-page applications.
+    # React builds UIs using components, which are reusable and independent pieces of code that describe a part of the UI.
+
+# Components:
+    # Function Components: These are JavaScript functions that return React elements.
+    # Class Components: These are ES6 classes that extend React.Component and include a render method that returns React elements.
+    # Reusability: Components can be reused across different parts of an application or even in different projects.
 
 # JSX
     # JSX/JavaScript XML, is a syntax extension for JS

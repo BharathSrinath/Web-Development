@@ -14,6 +14,10 @@
 
 //Lambda expressions in Java are a shorthand way of writing anonymous classes that implement a 
 //functional interface. A functional interface is an interface with exactly one abstract method. 
+//Many of Java's classes use FI's in their method signatures which allows us to pass lambdas as
+//arguments to them.
+//Just like a local and anonymous classes, LE can use the enclosing code's LE or method parameters
+//if they are final or effectively final.
 //Java infers the type and context of the lambda expression based on the target type, which is 
 //the type of the variable or parameter that the lambda is being assigned to or used with.
 	//	people.sort((o1, o2) -> o1.lastName().compareTo(o2.lastName()));
@@ -82,7 +86,7 @@ public class Lambda_expressions_intro {
             int secondLevel(T o1, T o2);
         }
 
-//        Anonymous class implementing two asbtract of the interface methods.
+//        Anonymous class implementing two abstract methods of the interface.
         var comparatorMixed = new EnhancedComparator<Person>() {
 
             @Override
@@ -100,6 +104,64 @@ public class Lambda_expressions_intro {
 //        So here LE is not possible
         people.sort(comparatorMixed);
         System.out.println(people);
+        
+//        Usage of forEach
+        List<String> list = new ArrayList<>(List.of(
+                "alpha", "bravo", "charlie", "delta"));
 
+        for (String s : list) {
+            System.out.println(s);
+        }
+
+        System.out.println("-------");
+        list.forEach((myString) -> System.out.println(myString));
+//        Specifying the return type is not mandatory
+//        forEach(String myString) or forEach(myString) both are right as Java can infer the type
+
+        
+        System.out.println("-------");
+        String prefix = "nato";
+        list.forEach((var myString) -> {
+            char first = myString.charAt(0);
+            System.out.println(prefix + " " + myString + " means " + first);
+        });
+
+//        int result = calculator((var a, var b) -> System.out.println(a + b), 5, 2);
+//        int result = calculator((var a, var b) -> return System.out.println(a + b), 5, 2);
+//        Both the above statements are wrong. When the block has only one line, we need not use a 
+//        return statement. It is implicit. But that one statement should return a value based
+//        on the return type of the function that we are overriding. But here SOP is a statement
+//        that actually prints a value (not return a value). So whether you use/don't use a 
+//        return statement, it is not right. 
+        int result = calculator((var a, var b) -> a + b,5, 2);
+//        int result = calculator((Integer a, var b) -> a + b, 5, 2);
+//        Above statement is wrong because you cannot mix explicit types with var in LE
+        var result2 = calculator((a, b) -> a / b, 10.0, 2.5);
+//        We know that for generics we don't explicitly mention the return type. I mean that is 
+//        why they are called as generics in the first place. Also we know that for LE, parameters
+//        type and the return type of the function are obtained through the interface. But when 
+//        interface's SAM is generic in nature there is nothing can be inferred. But even the
+//        Java can infer based on the values we pass. When we pass 2, then it is Integer (generics)
+//        cannot have primitives but LE can have 2.5 means float and so on. When two integers are
+//        added then the return type is obviously an Integer. This is how it Java infers the type.
+        var result3 = calculator(
+                (a, b) -> a.toUpperCase() + " " + b.toUpperCase(),
+                "Ralph", "Kramden");
+
+    }
+	
+	@FunctionalInterface
+	public interface Operation<T> {
+
+	    T operate(T value1, T value2);
+	}
+
+//	calculator() takes 3 arguments. First is an interface, 2 and 3 are values.
+//	This interface is an FI with SAM which will be over-ridden by the LE that has been pased 
+	public static <T> T calculator(Operation<T> function, T value1, T value2) {
+
+        T result = function.operate(value1, value2);
+        System.out.println("Result of operation: " + result);
+        return result;
     }
 }

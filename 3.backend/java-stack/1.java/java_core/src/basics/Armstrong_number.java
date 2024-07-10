@@ -14,28 +14,27 @@ public class Armstrong_number {
 		
 		input.close();
 		
-		int divisor = 1, count = 0;
-		while (n1/divisor > 0) {
-			divisor *= 10;
-			count++;
-		}
-		
-		divisor /=10;
-		
-		int digit = 0, sum = 0, cube_digit = 1;
-		int base_value = 0, exp_value = count;
-		int n2 = n1;
-		while(divisor > 0) {
-			digit = n2 / divisor;
-			base_value = digit;
-			for (int i = 0; i < exp_value; i++) {
-				cube_digit *= base_value;
-			}
+		int sum = 0;
+        int digit = 0;
+        int m = n1;
+        int digitCount = 0;
+        
+        while(m > 0){
+            m /= 10;
+            digitCount++;    
+        }
+        
+        m = n1;
+        int cube_digit = 1;
+        while(m > 0){
+            digit = m % 10;
+            for (int i = 0; i < digitCount; i++){
+                cube_digit *= digit;     
+            }
             sum += cube_digit;
             cube_digit = 1;
-            n2 %= divisor;
-            divisor /= 10;
-		}
+            m /= 10;
+        }
 		
 		System.out.println(n1 == sum ? "Armstrong Number" : "Not an Armstrong Number");
 

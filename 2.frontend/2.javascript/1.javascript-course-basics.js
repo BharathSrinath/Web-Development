@@ -905,7 +905,7 @@ let add = function(a,b) {
 }
 console.log(add(4,3));
 
-// Here you are defining the function inside a variable (as an anonymous function). Why it it called anonymous?
+// Here you are defining an anonymous function and assigning it to a variable. Why it it called anonymous?
     // Technically, here add is name of the variable (that refers to the function) and not of the function. If you had used function declaration, add would have been the name of the function. But here function doesn't have a name hence called anonymous.
 
 // Lets understand the significant difference between both which wasn't mentioned previously - Hoisting
