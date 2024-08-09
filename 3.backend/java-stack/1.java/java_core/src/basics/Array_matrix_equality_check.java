@@ -36,6 +36,9 @@ public class Array_matrix_equality_check {
             for (int j = 0; j < columns; j++) {
                 if (matrix1[i][j] == matrix2[i][j]) {
                 	count++;
+                } else {
+                	System.out.println("Matrices are NOT equal");
+                	return;
                 }
             }
         }

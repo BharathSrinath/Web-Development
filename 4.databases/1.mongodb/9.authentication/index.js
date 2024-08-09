@@ -24,7 +24,7 @@ app.use(session({ secret: 'notagoodsecret' }))
 // So whenever we want a user autherntication to view a particular content, we can add this requireLogin to the route 
 const requireLogin = (req, res, next) => {
     if (!req.session.user_id) {
-        // We will check of there is a session with user_id
+        // We will check if there is a session with user_id
         return res.redirect('/login')
     }
     next();
@@ -67,8 +67,11 @@ app.post('/login', async (req, res) => {
 })
 
 app.post('/logout', (req, res) => {
-    req.session.user_id = null; // This will just remove the user_id
-    // req.session.destroy(); - This will completely remove all the details assocuated with the user
+    req.session.user_id = null; 
+        // It effectively "logs out" the user by clearing their user_id but keeps the session and all other session data intact. This means other session variables are preserved and the session is still active.
+        // Example: If you have items added into a cart, those details are preserved evem after you have logged out. 
+    // req.session.destroy(); 
+        // This method completely destroys the session. It removes all session data and terminates the session itself. After calling this method, a new session will be created for the user on their next request.
     res.redirect('/login');
 })
 

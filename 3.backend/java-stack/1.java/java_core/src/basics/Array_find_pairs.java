@@ -25,7 +25,8 @@ public class Array_find_pairs {
 		System.out.println("Pairs:");
 		for (int i = 0; i < size; i++) {
 			for (int j = i+1; j < size; j++) {
-				//	To find repetitive pairs, you can start j from 0 and add this condition to if (i!=j)
+				//	To find repetitive pairs, you can start j from 0 
+				//	and add this condition to if (i!=j)
 				if (inputSum == n[i]+n[j]) {
 					System.out.println(n[i]+","+n[j]);
 					pair++;

@@ -19,19 +19,17 @@
         <label for="category">Select Category</label>
         <select name="category" id="category">
             <% for(let category of categories){ %>
-            <option value="<%=category%>" <%= product.category === category ? 'selected': '' 
-            %>><%=category%></option>
+            <option value="<%=category%>" <%= product.category === category ? 'selected': ''%>><%=category%></option>
             <% } %>
-            // You know that when we have selected attributes with options, that will be selected by default. So what we are doing here is whenever we go to the edit route of a particular product we will have access the product.category and compare it with category of the all th products in the loop. Once we get a match, the selected attribute will be added.
-            // Why are we doing this? we have prepopulated the values above quite easily. But with a dropdown list, we cannot assign a value, we can only select a value.  
+            <!-- product.category === category ? 'selected': '' This entire piece of code deals with only thing. Whether selected attribute should be added or not. -->
+            <!-- Editing a form should have prefilled values for better user experience based on what the user has already entered. So that they can just go ahead and edit only those part in which they might have entered wrong data -->
+            <!-- Prefilling values can be tricky for some form elements like dropdown lists. We have prepopulated the values above quite easily. But with a dropdown list, we cannot assign a value, we can only select a value. -->
+            <!-- So what we are doing here is whenever we go to the edit route of a particular product we will compare the prefilled category by the user (which is obtained by product object for which this file have access to - product.category) with category of the all the products via for-loop (we have passed both product object and categories array from index.js). Once we get a match, the selected attribute will be added.  -->
         </select>
         <button>Submit</button>
     </form>
-
     <a href="/products/<%=product._id%>">Cancel</a>
 
 </body>
 
 </html>
-
-<!-- Initially we didnot use for-loop. Rather we had our typical list of options. But as you can you see that becomes a lot complicated. So we defined categories as an array directly in the index.js and passed that value whenever we make a get or post request to the respective .ejs file. -->

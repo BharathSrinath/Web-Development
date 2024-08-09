@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            width: 50%;
+            margin: auto;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .form_element {
+            width: 100%;
+        }
+
+        #firstname,
+        #lastname,
+        #password,
+        #cpassword {
+            width: 200px;
+        }
+
+        #email {
+            width: 450px;
+        }
+        
+        #welcome {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 40px;
+        }
+
+        #welcome h2,#welcome h4{
+            padding: 5px;
+        }
+        #submit{
+            background-color: rgb(0, 166, 221);
+            font-weight: bolder;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(0, 166, 221);
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="JJ4_Part2_Gmail_Signup" method="POST">
+        <div id="welcome">
+            <h2>Google</h2>
+            <h2>SignUp</h2>
+            <h4>to Continue to application</h4>
+        </div>
+
+        <div class="form_element">
+            <input type="text" name="firstname" id="firstname" placeholder="First Name">
+            <input type="text" name="lastname" id="lastname" placeholder="Last Name">
+        </div>
+        <div class="form_element">
+            <input type="email" name="email" id="email" placeholder="Email">
+        </div>
+        <div class="form_element">
+            <input type="password" name="password" id="password" placeholder="Password">
+            <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password">
+        </div>
+        <div class="form_element">
+            <p id="login">I have an account. <a href="Bharath Srinath - JJ4_Part2_Gmail_Signin.html">Login Now</a></p>
+        </div>
+        <div class="form_element">
+            <input type="submit" value="Register" id="submit">
+        </div>
+    </form>
+</body>
+
+</html>

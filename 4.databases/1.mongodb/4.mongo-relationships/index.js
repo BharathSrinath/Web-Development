@@ -48,17 +48,18 @@ app.post('/farms', async (req, res) => {
 // When you click a particular farm, this will list all the products under it
 app.get('/farms/:id', async (req, res) => {
     const farm = await Farm.findById(req.params.id).populate('products');
-    // This will populate all the properties of products. If we don't populate we nothing will show in under farms even when it has list of products.
+    // This will populate all the properties of products. If we don't populate nothing will be shown under farms even when it has list of products.
     res.render('farms/show', { farm })
 })
 
-// Deleting a farm. But its assciated products are not yet deleted. That is done under farm.js
+// Deleting a farm. But its associated products are not yet deleted. That is done under farm.js
 app.delete('/farms/:id', async (req, res) => {
     const farm = await Farm.findByIdAndDelete(req.params.id);
     res.redirect('/farms');
 })
 
-// Below two routes has the same functionality as the product routes (creation and updation of products). But this is going through farm routes.
+// Here we are creating a new product by going through farm. Under product routes we have tried to create a product directly without going through farm which will not work. 
+// This is because the show.ejs (which will be rendered after clicing new product) needs information about farm also. Directly creating a new product means we wont able to retrieve and pass the farm information from the parameter.
 app.get('/farms/:id/products/new', async (req, res) => {
     const { id } = req.params;
     const farm = await Farm.findById(id);
@@ -79,8 +80,6 @@ app.post('/farms/:id/products', async (req, res) => {
     res.redirect(`/farms/${id}`)
 })
 
-
-
 // PRODUCT ROUTES
 
 app.get('/products', async (req, res) => {
@@ -94,6 +93,7 @@ app.get('/products', async (req, res) => {
     }
 })
 
+// This will not work
 app.get('/products/new', (req, res) => {
     res.render('products/new', { categories })
 })
@@ -104,10 +104,12 @@ app.post('/products', async (req, res) => {
     res.redirect(`/products/${newProduct._id}`)
 })
 
+// NOTE: Only when you create a new product we need to go through farms. Because we need the details of (farm name) to associate the product with that farm. But to perform updation or deletion we can directly perform the operations. 
 app.get('/products/:id', async (req, res) => {
     const { id } = req.params;
     const product = await Product.findById(id).populate('farm', 'name');
     // This will populate only name property of farm
+    // Even under farms, you could have exactly done this
     res.render('products/show', { product })
 })
 
@@ -128,7 +130,6 @@ app.delete('/products/:id', async (req, res) => {
     const deletedProduct = await Product.findByIdAndDelete(id);
     res.redirect('/products');
 })
-
 
 app.listen(3000, () => {
     console.log("APP IS LISTENING ON PORT 3000!")

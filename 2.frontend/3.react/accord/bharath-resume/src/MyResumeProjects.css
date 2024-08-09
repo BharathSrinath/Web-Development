@@ -1,0 +1,13 @@
+.MyResumeProjects{
+    padding: 5px;
+}
+#header, #sub_header{
+    font-weight: bold;
+}
+hr{
+    border: 1px solid black;
+}
+ul li{
+    list-style-type: decimal;
+    padding: 0;
+}

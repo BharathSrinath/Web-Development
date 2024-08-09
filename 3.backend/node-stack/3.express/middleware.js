@@ -52,7 +52,7 @@ app.get('/dogs', (req, res) => {
     res.send('WOOF WOOF!')
 })
 
-// This is where the we pass the middleware. That is the next() will redirect here.
+// This is where the we pass the middleware. That is the next() will redirected here.
 app.get('/secret', verifyPassword, (req, res) => {
     res.send('MY SECRET IS: Sometimes I wear headphones in public so I dont have to talk to anyone')
 })

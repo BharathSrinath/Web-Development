@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd" >
+<taglib>
+  <tlib-version>1.2</tlib-version>
+  <jsp-version>2.3</jsp-version>
+  <short-name>accordtasktags</short-name>
+  <tag>
+    <name>connection</name>
+    <tag-class>servlets.ConnectionTagHandler</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>var</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <name>date</name>
+    <tag-class>servlets.JJ8_Part1i_DateTagHandler</tag-class>
+    <body-content>Empty</body-content>
+    <attribute>
+       <name>dateFormat</name>
+       <required>true</required>
+       <rtexprvalue>true</rtexprvalue>
+     </attribute>
+  </tag>
+  <tag>
+    <name>student</name>
+    <tag-class>servlets.JJ8_Part1ii_StudentTagHandler</tag-class>
+    <body-content>Empty</body-content>
+    <attribute>
+       <name>studentId</name>
+       <required>true</required>
+       <rtexprvalue>true</rtexprvalue>
+     </attribute>
+     <attribute>
+      <name>connection</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+  
+  
+  
+  <tag>
+    <name>welcome</name>
+    <tag-class>servlets.JJ10_Part1_TagHandler</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>username</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>sum</name>
+    <tag-class>servlets.JJ10_Part1_TagHandler</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>num1</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>num2</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>marks</name>
+    <tag-class>servlets.JJ10_Part1_TagHandler</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>subject1</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>subject2</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>subject3</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>subject4</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>subject5</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+  
+  
+  
+  
+  
+  
+  <tag>
+    <name>area</name>
+    <tag-class>servlets.JJ10_Part2_TagHandler</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>radius</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>netpay</name>
+    <tag-class>servlets.JJ10_Part2_TagHandler</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>basicpay</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>pf</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>bonus</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>deductions</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>amount</name>
+    <tag-class>servlets.JJ10_Part2_TagHandler</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>price</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>quantity</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+</taglib>

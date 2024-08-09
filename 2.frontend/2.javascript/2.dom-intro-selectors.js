@@ -25,7 +25,7 @@
         for (let img of squareImages) {
             img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Silky_bantam.jpg/440px-Silky_bantam.jpg';
         }
-    // document.getElementsByTagName - "name" attribute of the element. It returns a NodeList.
+    // document.getElementsByName - "name" attribute of the element. It returns a NodeList.
         const elements = document.getElementsByName('exampleName');
         console.log(elements); 
     
@@ -47,7 +47,7 @@
         for (let link of links) {
             console.log(link.href)
         }
-// In the case of the first four methods (getElementById, getElementsByTagName, getElementsByClassName, querySelector), they directly return the element(s) or collection of elements that match the specified criteria. querySelectorAll and getElementsByTagName returns a static NodeList of all elements that match the specified CSS selector. It is an array-like structure which are all objects by the way. You can iterate over them but cannot perform operations that you typically perform with array.
+// In the case of the first four methods (getElementById, getElementsByTagName, getElementsByClassName, querySelector), they directly return the element(s) or collection of elements that match the specified criteria. querySelectorAll and getElementsByName returns a static NodeList of all elements that match the specified CSS selector. It is an array-like structure which are all objects by the way. You can iterate over them but cannot perform operations that you typically perform with array.
 // NodeList vs HTMLCollection:
     // 1. Live vs. Static:
         // NodeList: Can be live or static, depending on how it is generated.

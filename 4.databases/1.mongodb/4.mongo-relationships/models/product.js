@@ -21,6 +21,8 @@ const productSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Farm'
     }
+    // This represents many to one relationship
+    // We are referring to a farm because, a product can be added only after entering into a farm page.  
 });
 
 

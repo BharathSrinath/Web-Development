@@ -4,14 +4,18 @@ const app = express();
 const cookieParser = require('cookie-parser');
 // npm i cookie-parser
 // Syntax: cookieParser (secret, options)
-// Now this gives to a new property in the request called req.cookies
-// cookie paresr is used to get the cookie data from the browser. You can just execute it without any arguments. But if it is a signed cookie we need a secret key.
-// At the production level, the secret will be environment variable
+// Now this gives us a new property in the request object called req.cookies
+// cookie parser is used to get the cookie data from the browser. You can just execute it without any arguments. But if it is a signed cookie we need a secret key.
+// At the production level, the secret will be an environment variable
 app.use(cookieParser('thisismysecret'));
+// Here cookieParser() is a function call.
+// It returns a function with express's expected signature (req,res,next)
+// Now this function becomes the callback function that will be called for the respective route if route is defined.
+// This callback function inherently takes care of retrieving/creating cookies and pass it to the next middleware. So unlike Java we need not worry about those things.
 
 app.get('/greet', (req, res) => {
     const { name = 'No-name' } = req.cookies;
-    // If there is no name property within that cookie, we are just giving it a defualt value called 'No-name'
+    // If there is no value in the name property within that cookie, we are just giving it a default value called 'No-name'
     res.send(`Hey there, ${name}`)
 })
 
@@ -22,8 +26,8 @@ app.get('/setname', (req, res) => {
     res.cookie('name', 'henrietta');
     res.cookie('animal', 'harlequin shrimp')
     // cookies are not the actual response but they are part of the response
-    // Now they will stored in the user's browser
-    // Cookies can not just be sent. But whatever the cookies that are present in the browser can also be obtained for that respective domain using cookie parser.
+    // They will bestored in the user's browser
+    // Cookies can be sent/retrieved from the browser using cookie parser.
     res.send('OK SENT YOU A COOKIE!!!')
 })
 
@@ -55,7 +59,7 @@ app.listen(3000, () => {
             // Examples: Remembering user preferences (dark theme) or tracking user sessions.
     // 2. Signed cookies:
         // These are similar to normal cookies but include a cryptographic signature, making them more secure.
-        // The signature ensures that the cookie has not been tampered with since it was created.
+        // The signature ensures that the cookie has not been tampered with.
         // They are often used for sensitive data like user authentication tokens.
 // cookie-parser: 
     // It is a middleware for Express.js that parses cookies attached to the client's request and makes them available in the req.cookies object for easier access and manipulation.

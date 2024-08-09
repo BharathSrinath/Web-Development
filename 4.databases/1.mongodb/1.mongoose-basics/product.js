@@ -19,12 +19,12 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true,
         min: [0, 'Price must be positive ya dodo!']
-        // This is custom validator message. 
+        // This is a custom validator message. 
     },
     onSale: {
         type: Boolean,
         default: false
-        // When we make give a default value, we dont need to include this property (onSale) while creating an instance as long we want the property to be false. 
+        // When we give a default value, we dont need to include this property (onSale) while creating an instance as long we want the property to be false. 
     },
     categories: [String],
     // We can use this for tags. For an example consider a laptop, it can have tags like, windows, electronics, etc.
@@ -66,7 +66,7 @@ productSchema.methods.addCategory = function (newCat) {
 }
 
 // 'Static/Class methods' - These methods are available to the model itself, not to any specific instance. They typically perform operations that don't depend on instance-specific data. They are used when we need to perform an operation that involves the data of the entire model (that is, all instances of a model).
-// Syntax: schemName.statics.methodName = function(callback){....}
+// Syntax: schemaName.statics.methodName = function(callback){....}
 
 productSchema.statics.fireSale = function () {
     return this.updateMany({}, { onSale: true, price: 0 })
@@ -74,7 +74,7 @@ productSchema.statics.fireSale = function () {
     // here 'this' refers to the actual model itself (not the instance of a model like a instance methods)
 }
 
-// Above example may not make much sense to you. Because, you could simply the define them as properties within schema. So why need a spearate method? Because, 
+// Above example may not make much sense to you. Because, you could simply define them as properties within schema. So why need a spearate method? Because, 
     // Schemas are primarily concerned with data validation, default values, and constraints. They don’t directly handle business logic or dynamic behavior.
     // Business logic refers to the rules, calculations, and operations specific to your application domain. While properties (fields) are essential for storing data, sometimes you need more than just data storage.
     // Separating properties (schema fields) from methods (business logic) adheres to the separation of concerns principle. It keeps your codebase modular, maintainable, and easier to reason about.

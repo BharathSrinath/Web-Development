@@ -1,0 +1,13 @@
+.MyResumeEdu{
+    padding: 5px;
+}
+#header, #college_name{
+    font-weight: bold;
+}
+hr{
+    border: 1px solid black;
+}
+#college{
+    display: flex;
+    justify-content: space-between;
+}

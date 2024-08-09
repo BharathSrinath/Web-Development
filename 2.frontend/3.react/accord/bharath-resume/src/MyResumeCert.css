@@ -1,0 +1,13 @@
+.MyResumeCert{
+    padding: 5px;
+}
+#header, #certificates{
+    font-weight: bold;
+}
+hr{
+    border: 1px solid black;
+}
+.certificates{
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,7 +1,7 @@
 # Database
     # They can store large amounts of data efficiently and store it compactly.
     # They provide tools for easy insertion, querying and updating the data.
-    # They geenrally offer security features and control overall access to data.
+    # They generally offer security features and control over data.
     # They scale well (generally).
 
 # Broad categories: SQL vs NoSQL
@@ -12,6 +12,7 @@
             # Examples: MySQL, Postgres, SQLite, Oracle, Microsoft SQL Server
     2. No Structured Query Language (NoSQL):
         # They are primarily called non-relational or distributed databases where they have a dynamic schema for unstructured data.
+            # Unlike SQL that requires a predefined schema for tables (which specifies the types of data and constraints on those data types), NoSQL databases can store data without enforcing a fixed structure
         # They are horizontally scalable, meaning you handle more traffic by sharding, or adding more servers in our NoSQL database.
         # They can be document-oriented, column-oriented, graph-based, or organized as a key-value store.
         # They follow the Brewers CAP theorem (Consistency, Availability, and Partition tolerance).
@@ -20,7 +21,6 @@
 # MongoDB:
     # Document-Oriented: Data is stored as documents, and documents are grouped in collections. Documents are self-contained and can be treated as objects.
         # Self contained here is opposite to the table format where the data is spread across multiple tables and are linked through relationships. Here just imagine an object with properties. Each property by itslef can be an object and any property within that object can also be an object  and this nesting can go on. But all the data is at one place.
-    # The documents in a single collection don’t necessarily need to have exactly the same set of fields. (That is the objects can have different properties)
     # Documents are stored in the BSON format, which is a binary-encoded JSON format. This means that the data is stored in a binary format, which is much faster than JSON.
     # In the MongoDB server, you are allowed to run multiple databases. 
 
@@ -34,13 +34,23 @@
     # 'db' will show in which database we are in
     # 'show collections' will show the list of collections that we have within the database.
         # Example: Lets say we have a database names 'animal'. Within that collections can be cats, dogs, etc. Within cats we can have multiple documents
+    # Operations on db:
+        # To delete a collection, db.collectionName.drop()
+        # To delete a db, go to that db, db.dropDatabase()
+        # To change the db name, you cannot directlt do that.
+            # Create a New Database
+            # Copy Data from Old Database to New Database: 
+                # Export Data from Old Database: mongodump --db oldDatabaseName --out /path/to/backup
+                I# mport Data to New Database: mongorestore --nsFrom="oldDatabaseName.*" --nsTo="newDatabaseName.*" /path/to/backup
+        # Switch to the New Database and Verify
+        # Delete the Old Database
 
 # CRUD operations
     1. INSERT:
         # db.dogs.insertOne({name: "Mac", age: 7}) = Inserts one document to the database
         # db.dogs.insertMany({name: "Ronaldo", age: 7}, {name: "Tarren", age: 3})
     2. FIND:
-        # db.dogs.find({}) = Lists out all the dogs
+        # db.dogs.find({})/db.dogs.find() = Lists out all the dogs
         # db.dogs.find({age: 7}) = Lists out dogs with age 7
     3. UPDATE:
         # db.dogs.updateOne({name: "Mac"}, {$set: {age: 8}, $currentDate: {lastModeified: true}})
@@ -73,8 +83,13 @@
     # db.inventory.find( { tags: { $all: ["red", "blank"] } } ) => looks for array that contains "red" and "blank" not necessarily in the same order and it may contain additional tags too.
 There are many more. Please look at https://www.mongodb.com/docs/manual/crud/
 
-# Mongoose ODM:
-    # An ODM is a tool that maps your objects in the application to documents in the database. ODM library provides us a way to write a programming language that can interact with our database. 
+# Mongoose Object Data Modelling(ODM):
+    # An ODM is a library that maps your objects in the application to documents in the database. It provides us a way to write a programming language that can interact with our database. 
+    # It is similar to JDBC with Java. Both ODMs and JDBC facilitate communication between an application and a database.  While JDBC is an API, ODM is a library.
+        # API: A set of defined methods and protocols for communication. It is a contract for how software components interact. APIs can be part of libraries, frameworks, or packages.
+        # Library: Provides reusable code and functions, and it exposes an API.
+        # Framework: A larger structure that dictates the architecture of applications and provides an API for developers to use within that structure.
+        # Package: A collection of related code components that can contain libraries, which, in turn, provide APIs.
     # Functioning:
         1. Define a schema (a blueprint) for your documents.
         2. Create a model based on that schema.
@@ -118,8 +133,10 @@ There are many more. Please look at https://www.mongodb.com/docs/manual/crud/
 3. Model.find(filter, projection, options, callback): Returns all documents that match the given filter. 
     Examples: 
         await MyModel.find({}); // find all documents
-        await MyModel.find({ name: 'john', age: { $gte: 18 } }).exec(); // find all documents named john and at least 18
-        await MyModel.find({ name: /john/i }, 'name friends').exec(); //  case-insensitive matching for the string "john" and next is the projection parameter (name and friends) will make sure that the query returns only the document with name and length parameters..
+        await MyModel.find({ name: 'john', age: { $gte: 18 } }).exec(); // find all documents
+         <!-- More about exec() at the bottom  -->
+        named john and at least 18
+        await MyModel.find({ name: /john/i }, 'name friends').exec(); //  case-insensitive matching for the string "john" and next is the projection parameter (name and friends) will make sure that the query returns only the document with name and friends parameters.
 
 4. Model.findById(id, projection, options, callback): Returns the document with the provided id. 
     Examples: 
@@ -129,7 +146,7 @@ There are many more. Please look at https://www.mongodb.com/docs/manual/crud/
 5. Model.findByIdAndDelete(id, options, callback): Deletes the document with the provided id and returns the deleted document. 
     Example: let deletedDoc = await YourModel.findByIdAndDelete('document_id');
 
-6. Model.findByIdAndRemove(id, options, callback): Similar to findByIdAndDelete(), it deletes the document with the provided id but doesn't return the deleted document. 
+6. Model.findByIdAndRemove(id, options, callback): Same as findByIdAndDelete() - We dont use this anymore as it is a legacy code.
     Example: let removedDoc = await YourModel.findByIdAndRemove('document_id');
 
 7. Model.findByIdAndUpdate(id, update, options, callback): Updates the document with the provided id and returns the updated document. 
@@ -147,9 +164,7 @@ There are many more. Please look at https://www.mongodb.com/docs/manual/crud/
 
 9. Model.findOneAndDelete(filter, options, callback): Deletes the first document that matches the given filter and returns the deleted document.     
     Example:
-        const doc = await Model.findById(id)
-        doc.name = 'jason bourne';
-        await doc.save(); 
+        const doc = await Model.findOneAndDelete({ name: 'Alice' })
 
 10. Model.findOneAndReplace(filter, replacement, options, callback): Replaces the first document that matches the given filter with the provided replacement document. 
     Example: let replacedDoc = await YourModel.findOneAndReplace({ name: 'John Doe' }, { name: 'Jane Doe' }, { new: true });
@@ -164,6 +179,7 @@ There are many more. Please look at https://www.mongodb.com/docs/manual/crud/
 
 13. Model.updateMany(filter, update, options, callback): Updates all documents that match the given filter. 
     Example: const res = await Person.updateMany({ name: /Stark$/ }, { isDeleted: true });
+    <!-- isDeleted: true is not a standard feature or option provided by Mongoose itself. Instead, it is typically used as a custom field or flag that developers might add to their schema to indicate that a document has been logically deleted, rather than physically removed from the database. -->
 
 14. Model.updateOne(filter, update, options, callback): Updates the first document that matches the given filter. 
     Example: const res = await Person.updateOne({ name: 'Jean-Luc Picard' }, { ship: 'USS Enterprise' });
@@ -175,8 +191,8 @@ Note:
     # update is the update operations to be applied to the document.
     # replacement is the replacement document that replaces the matching document.
     # id is the _id of the document to find.
-                    
-# MVC Architecture: 
-Just know it. It is considered best practice but it is not part our course. So try to learn it later.
-![Alt text](mvc-architectture.png)
-![Alt text](app-vs-bussiness-logic.png)
+
+# About exec()
+// The exec() method is used to execute a Mongoose query. It returns a promise that resolves with the result of the query.
+// When you use Mongoose queries, they return a query object that can be executed in a few different ways. Calling exec() on this query object executes the query and returns a promise.
+// Returning a promise makes it compatible with async/await syntax, and also try/catch can be used along with async/await which makes it easier for error handling.

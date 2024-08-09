@@ -6,7 +6,7 @@ public class Array_largest_number {
 		
 		int[] a = {7,9,4,2,1};
 		int length = a.length;
-		int largest = 0;
+		int largest = Integer.MIN_VALUE;
 		
 		for (int i = 0; i < length; i++) {
 			if (a[i] > largest) {

@@ -1,11 +1,28 @@
 // Prototypes
+// Prototypes in JavaScript serve a similar purpose to classes in Java. Both concepts are used to create objects and define their properties and behaviors, but they do so in different ways.
+// Inheritance in Java is called classical inheritance where classes define the structure and behavior of objects. Objects (instances) are created from these classes, and classes can inherit from other classes.
+// Inheritance in JS is called Prototypal Inheritance where objects inherit directly from other objects without the need for classes.
+// ------------------------------------------------------------------------------------------------------
+// | Feature             | Prototypal Inheritance (JavaScript)  | Classical Inheritance (Java)          |
+// |---------------------|--------------------------------------|---------------------------------------|
+// | Inheritance Model   | Objects inherit from other objects   | Classes inherit from other classes    |
+// | Object Creation     | Directly from other objects          | From class definitions using          |
+// |                     | (`Object.create`, constructor)       | the `new` keyword                     |
+// | Method Addition     | Methods can be added to objects or   | Methods are defined in classes,       |
+// |                     | their prototypes dynamically         | static at runtime                     |
+// | Inheritance Chain   | Prototype chain, objects can inherit | Inheritance hierarchy, classes        |
+// |                     | from multiple levels                 | extend other classes                  |
+// | Flexibility         | Highly flexible, prototypes can      | Less flexible, inheritance            |
+// |                     | be changed at runtime                | is defined at compile-time            |
+// | Encapsulation       | Encapsulation through closures       | Encapsulation through access modifiers|
+// |                     | or object properties                 |  (`private`, `protected`, `public`)   |
+// | Multiple Inheritance| Achieved through mixins              | Not supported directly, interfaces    |
+// |                     | and prototype chains                 | are used instead                      |
+// | Runtime Behavior    | Can modify prototypes and            | Inheritance structure                 |
+// |                     | inheritance chains at runtime        | is fixed at compile-time              |
+// ------------------------------------------------------------------------------------------------------
 
-// Simple Explanation:
-    // Imagine you have a toy car, and you want to make more cars that look and behave just like your toy car. So, instead of making each new car from scratch, you decide to make a mold of your toy car. This mold is like a blueprint or a template that you can use to create new cars easily.
-    // Now, think of JavaScript (JS) as a language that helps us create things on the computer, like websites and games. In JS, a prototype is like that mold for creating new things. When we create an object in JS, we can give it a prototype, which is like giving it a blueprint to follow. This prototype defines what the object can do and what it looks like.
-    // So, just like using the mold to make more toy cars, we use prototypes in JS to make more objects that act and look similar to each other. It helps us save time and keep things organized when we're building stuff with JavaScript!
-
-// Technical Explanation 
+// Explanation 
 // You know that JS is an OOP language. But it can also be called as prototype-based language. Prototype is a property which itself is an object associated with every function and every other object.
     // When you use console.dir (functionName or objectName) you can find this property.
     // You can use any of the commands to access the prototype property. let obj = {};
@@ -39,7 +56,7 @@
         Persons.prototype.calculateAge= function() {
             // we are adding 'calculateAge' method to the object 'Persons'
             // This method will sit under the prototype property.
-            console.log ('The current age is: '+ (2023- this.yearOfBirth));
+            console.log ('The current age is: '+ (2024 - this.yearOfBirth));
         }
         const person1 = new Persons("Bharath", "Full Stack Developer", 1994); 
         person1.calculateAge();
@@ -53,7 +70,7 @@
     // On the other hand, when you use prototypes to define methods, those methods are shared among all instances created from the same constructor. The method exists only once in memory, and each instance has a reference to that shared method. This results in more memory-efficient code because you avoid duplicating the method for each instance.
 // Prototypes can be used with both factory functions and constructor functions. But with factory functions we need a small work around. Hence they are commonly used with constructor functions. 
 
-// One more example understand behind the scenes. 
+// One more example to understand behind the scenes. 
 
 let test = [1,2,3,4,5]
 test.pop();
@@ -61,13 +78,9 @@ test.pop();
 // When you call a.pop(), JavaScript does indeed first look for the pop method on the a object itself. If it doesn’t find it there (which is usually the case unless you’ve added a pop method directly to a), it then looks up the prototype chain.
 // Since a is an array, its prototype is Array.prototype, which does have a pop method. This pop method is what gets called, and it removes the last element from the array and returns it. 
 
-// OOPS
-// You have already studied about objects and the ways of defining an object. Here we will study about other ways of defining objects.
-// 1. Factory functions:
-    // Here key-value pair will be defined under a function with arguments value being same as property value. 
-    // So you can call the function with respective arguments and create different objects each time. They are extremely useful when the 'key' remains same but the values will be different.  
+// IMPORTANT NOTE: KINDLY IGNORE THE FOLLOWING. LIKE DONT DEEP DIVE. JUST KNOW THAT THEY EXIST BY GOING THROUGH ONCE. SINCE ES6 WE ONLY USE CLASS BASED APPROACH (Starts from Number 4).
 
-// Factory functions without prototypes
+// 1. Factory functions without prototypes
 // Example 1:
 function createPerson(name, age) {
     let person = {
@@ -120,9 +133,8 @@ black.rgb(); //"rgb(0, 0, 0)"
 black.hex(); //"#000000"
 black.rgba(); //"rgba(0, 0, 0, 1)"
 
-// Factory functions with prototypes
-// Example 1:
-// Define prototype with methods
+// 2. Factory functions with prototypes
+// Example 1: Define prototype with methods
 const personProto = {
     sayHello: function () {
       console.log('Hello, my name is ' + this.name);
@@ -140,7 +152,7 @@ let person5 = createPerson1('John', 25);
 // Now all objects created by the createPerson factory function share the same sayHello method from the prototype
   
 
-// 2. Constructor functions with prototype
+// 3. Constructor functions with prototype
 // Syntactical differences from factory functions:
     // First letter of function name is capitalized
     // Here object is created with a keyword 'new'
@@ -196,18 +208,19 @@ let person5 = createPerson1('John', 25);
 // In the first example (factory function), we have functions - hex, rgb and rgba under the created instance itself. It means for every instance that we create, it will have a copy of those functions.
 // In second example (constructor function), these functions are under prototype. It means only the actual object has these functions and the instances created from it. And all the instances that we create will inherit from the object itself.  
 
-// 3. Constructor functions with class syntax:
-// Before the introduction of class syntax in ES6, constructor functions were the primary mechanism for creating objects with shared methods.
+// 4. Constructor functions with class syntax:
+// Before the introduction of class syntax in ES6, constructor functions with prototype were the primary mechanism for creating objects with shared methods.
 // There is no difference between constructor function with class and constructor function with prototype except syntactical. Under the hood, class also uses prototypes.
     // Major difference is the use of keyword 'constructor'. 
     // Also we are defining all the functions/methods under the class itself
-    // Whenever you create a new isnstance, the constructor function will be called immediately. 
+    // Whenever you create a new instance, the constructor function will be called immediately. 
     class Col {
         constructor(r, g, b) {
         this.r = r;
         this.g = g;
         this.b = b;
         }
+        // IMPORTANT NOTE: In Java, when you initialize instance variables in the constructor, you can directly use them within any method of the class without needing a special keyword like this (although this can also be used for clarity). In JavaScript, this is necessary to distinguish between instance properties and local variables.
         rgb() {
         const { r, g, b } = this;
         return `rgb(${r}, ${g}, ${b})`;
@@ -221,12 +234,12 @@ let person5 = createPerson1('John', 25);
         return `rgba(${r}, ${g}, ${b}, ${a})`;
         };
     }
-    const color3 = new Color(40, 255, 60);
+    const color3 = new Col(40, 255, 60);
     color3.rgb();
     color3.hex();
     color3.rgba();
 
-    const color4 = new Color(0, 0, 0);
+    const color4 = new Col(0, 0, 0);
     color4.rgb();
     color4.hex();
     color4.rgba()
@@ -288,6 +301,7 @@ class Dog2 extends Pet2 {
 const animal3 = new Cat2 ('Puchy', 11);
 console.log(animal3.eat2());
 console.log(animal3.meow2());
+
 const animal4 = new Dog2 ('Mac', 7);
 console.log(animal4.eat2());
 console.log(animal4.bark2());
@@ -325,11 +339,7 @@ class Dog3 extends Pet3 {
 const animal5 = new Cat3 ('Puchy', 11);
 console.log(animal5.eat3());
 console.log(animal5.meow3());
+
 const animal6 = new Dog3 ('Mac', 7);
 console.log(animal6.eat3());
 console.log(animal6.bark3());
-
-// 'extends' vs 'super'
-    // When you use extends in JavaScript, it sets up a prototype-based inheritance from the parent class to the subclass. This means that the subclass has access to the parent class’s methods and properties through the prototype chain.
-    // However, if you want to initialize or modify those inherited properties in the subclass, or add new properties to instances of the subclass, you typically do this in the subclass’s constructor. And in order to do that, you need to call super() to run the parent class’s constructor first.
-    // Here’s why: In JavaScript, this in a constructor always refers to the newly created instance. But in a subclass, this cannot be used until super() is called, because super() is responsible for initializing this in the context of the subclass by calling the parent class’s constructor.

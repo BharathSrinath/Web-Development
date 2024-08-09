@@ -27,4 +27,3 @@ Denormalization only makes sense when you have a high read-to-write ratio.
 1. What is the cardinality of the relationship? Is it “one-to-few,” “one-to-many,” or “one-to-squillions”?
 2. Do you need to access the object on the “N” side separately, or only in the context of the parent object?
 3. What is the ratio of updates-to-reads for a particular field?
-

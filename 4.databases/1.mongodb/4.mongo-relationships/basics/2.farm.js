@@ -25,6 +25,7 @@ const farmSchema = new Schema({
     city: String,
     products: [{ type: Schema.Types.ObjectId, ref: 'Product' }]
     // Adding a child (productSchema) reference to the parent (farmSchema)
+    // This represents one to many relationship  
 })
 
 const Product = mongoose.model('Product', productSchema);

@@ -94,7 +94,7 @@ const element6 = document.querySelectorAll('h1');
 for (let list of element6){
     list.classList.add('purple'); // Adding a class
     // The class name 'purple' will be created and added to the element if it doesn't already exist.
-    // You can also add multiple classes as a single can have multiple classes
+    // You can also add multiple classes as a single element can have multiple classes
         // element.classList.add('class1', 'class2', 'class3');
     list.classList.remove('list'); // Removing a class
     list.classList.toggle('purple'); // Toggling a class. If it is off, it will turn it on (true) and vice versa (false)
@@ -192,7 +192,7 @@ newHead.classList.add('myclass');
 const parentElement = document.querySelectorAll('h1'); 
 
 // I had a mis-understanding about append, so documenting this. 
-// See appending means creating and adding a new element to a parent or moving a child from other parent to new parent.
+// See appending means adding a new element to a parent or moving a child from other parent to new parent.
 // So the child we are dealing with (new/existing) can have only one parent. I thought the following code will append the child to multiple parents (there are scenarios where me may need that. Same kind of child under many parents to exhibit a similar behaviour). So this code will not throw error. But in the first iteration, it will move the newhead to first 'h1' and then in second iteration it will move the same child to next h1 and so on finally ending up in the last h1.   
 for (let appendAll of parentElement){
     appendAll.appendChild(newHead);
@@ -204,7 +204,6 @@ for (let appendAll of parentElement){
     newHead.classList.add('myclass');
     appendAll.appendChild(newHead);;
 }
-
 document.body.appendChild(newHead);
     // You can use the above command if you want to directly append to the end
 // const append1 = document.querySelector('p');

@@ -1,6 +1,8 @@
 # What is Node?
     # Until recently we could run JS code only in a web-browser (client side). Node is JS runtime that executes code outside of the browser.
-    # For server side we relied on python/ruby/php. Now JS can be used in server side too with the help of NodeJs.
+    # JS was designed to run within web browsers, executed by the browser's JS engine (like V8 in Chrome). There was no standalone JS runtime environment for server-side execution.
+    # Also, JS in the browser lacked the necessary APIs and libraries required for server-side operations such as file I/O, networking, and process management.
+    # For server side, languages used are Java/Python/Ruby/Php, etc. But now JS can be used in server side too with the help of NodeJs.
     # Even before node we had Netscape's 'Livewire Pro Web' which can do the same but only for linux and macos.
 
 # What can we build with Node?
@@ -10,14 +12,14 @@
     4. Video games
     5. Drone Software, etc.
 
-# We will using JS in CLI rather than in browser.
+# We will be using JS in CLI rather than in browser.
     # Window, document, DOM API's (browser specific concepts) are not a thing in node
     # But we can interact with OS and files/folders
 
 Note: Native apps are software applications developed specifically for a particular platform or operating system. Unlike cross-platform or web apps, native apps are designed to run on a specific device or operating system, taking advantage of the platform's features and capabilities. These apps are written in languages that are compatible with the target platform, such as Swift or Objective-C for iOS, and Java or Kotlin for Android.
 
 # Starting node:
-    # Just node and hit enter in CLI. This environment is called as node REPL.
+    # Just type node and hit enter in CLI. This environment is called as node REPL.
     # Node REPL (Read-Eval-Print Loop) is an interactive CLI that comes with Node.js. It allows you to interactively execute JavaScript code, line by line, and see the results immediately. The REPL environment is useful for testing out code snippets, exploring JavaScript features, and debugging.
     > .help
         # .break   -  Sometimes you get stuck, this gets you out
@@ -38,7 +40,7 @@ Note: Native apps are software applications developed specifically for a particu
     # It allows us to perform various file-related operations such as reading from and writing to files, creating directories, and managing file permissions. 
     # This module is part of the Node.js core, so we don't need to install any additional packages to use it. Just use this at the top of the file "const fs = require('fs');".
     # They can be sync/async. 
-    # There are extremely large number of commands. We will lokk at some of them.
+    # There are extremely large number of commands. We will look at some of them.
 1. Reading Files: fs.readFile() and fs.readFileSync()
         fs.readFile('example.txt', 'utf8', (err, data) => {
             if (err) {
@@ -105,19 +107,8 @@ Command-line arguments: [ 'arg1', 'arg2', 'arg3' ]
 
 # NPM (node package manager)
     # They are basically a library of thousands of packages published by other devlopers that can be used by us in our project.
-    # Just type 'npm' and hit enter in CLI to see the install of commands that you can use with npm.
+    # Just type 'npm' and hit enter in CLI to see the list of commands that we can use with npm.
         # Example: npm install packageName, npm unistall packageName
-    # All commands:
-        access, adduser, audit, bugs, cache, ci, completion,
-        config, dedupe, deprecate, diff, dist-tag, docs, doctor,
-        edit, exec, explain, explore, find-dupes, fund, get, help,
-        help-search, hook, init, install, install-ci-test,
-        install-test, link, ll, login, logout, ls, org, outdated,
-        owner, pack, ping, pkg, prefix, profile, prune, publish,
-        query, rebuild, repo, restart, root, run-script, search,
-        set, shrinkwrap, star, stars, start, stop, team, test,
-        token, uninstall, unpublish, unstar, update, version, view,
-        whoami
     # package.json is a metadata file that provides information about a Node.js project. It includes details about the project, such as its name, version, entry point, scripts, and dependencies. We can create package.json with a command 'npm init'. But when you install node.js, it is automatically created (latest update).
 
 # Local vs Global installation of packages:
@@ -126,10 +117,10 @@ Command-line arguments: [ 'arg1', 'arg2', 'arg3' ]
         # Example: npm install -g packageName 
 
 # Express
-    # It is a framework for creating server side application using Node.js
-        # Libary: We are in control of the flow of the application code and we decide when to use the library.
-        # Framework: Here the control is inverted. The framework is incharge and we are merely a participant. It tells you where to plug in the code. 
-    # At its core, it is also a package that we install and make use of.
+    # Express is a Node.js Web Framework for creating server side application.
+        # Libary: It is a collection of pre-written code that developers can use to optimize tasks. It provides specific functionality that you can call from your code. We are in control of the flow of the application code and we decide when to use the library.
+        # Framework: It is a larger collection of code that provides a structure for your application. It dictates the architecture of your application and comes with a set of rules and guidelines. Here the control is inverted. The framework is incharge and we are merely a participant. It tells you where to plug in the code. 
+        # Package: It is a bundled collection of code that can be reused and distributed. It can be a library, a framework, or even a small utility or module. 
     # Uses:
         1. Starts a server to listen for request
         2. Parse incoming requests
@@ -146,7 +137,7 @@ Command-line arguments: [ 'arg1', 'arg2', 'arg3' ]
     # We will be using EJS(Embedded JS). Others are Pug, Handlebars, Mustache.
     # In React, we use {} to embed JS expressions within JSX (we say that it escapes JSX). Similarly we use the tag <%= %> in EJS to embed JS expressions (HTML escaped). But there are other tags too.
         # <% %> : Used to enclose JS code but doesn't render the code. See in an html file we cannot add a JS logic like if (n%2 == 0) print("Even"). But when you enlcose the logic with this tag, we can add it.
-Note: Install ejs extensio =n in vscode for formatiing purpose
+Note: Install ejs extension in vscode for formatting purpose
 
 # Partials
     # They are just reusbale html codes. For an example, in every html/ejs file we see the head is generally the same. We can import this into other html/ejs files rather than duplicating it everytime.
@@ -186,9 +177,13 @@ Note: Install ejs extensio =n in vscode for formatiing purpose
     # It is an architectural style to a separate protocol like HTTP. To understand this we have to know what existed before REST => SOAP (Simple Object Access Protocol)
     # In a SOAP-based web service, you would typically send different SOAP messages (in an XML document) to the same endpoint (same URL like www.example.com) to perform different operations or interact with different resources. The specific operation or resource is determined by the content of the SOAP message, not the URL.
     # In a RESTful web service, each resource has its own unique URL (like www.example.com/books/1 for the first book, www.example.com/books/2 for the second book, etc.). The operation you want to perform (like getting information about a book, updating a book, deleting a book, etc.) is determined by the HTTP method (like GET, POST, PUT, DELETE) you use when you make the request.
-    # So the simple understandin for REST is using specific URLs (also known as “endpoints”) to represent resources, and different HTTP methods (like GET, POST, PUT, DELETE) to represent operations you can perform on those resources. Look at the below example. Here we are using comments as a resource
+    # So the simple understanding for REST is using specific URLs (also known as “endpoints”) to represent resources, and different HTTP methods (like GET, POST, PUT, DELETE) to represent operations you can perform on those resources. Look at the below example. Here we are using comments as a resource
         # GET /comments - display all comments
         # POST /comments - Create a new comment 
         # GET /comments/:id - Get one comment (using ID)
         # PATCH /comments/:id - Update one comment
         # DELETE /comments/:id - Destroy one comment
+
+# REST over SOAP - Why?
+    # REST Uses standard HTTP methods (GET, POST, PUT, DELETE) which makes it stateless and hence highly scalable whereas SOAP can maintain stateful operations via sessions, which can complicate scalability and load balancing.
+    # REST Can use multiple data formats (JSON, XML, plain text, HTML) while SOAP strictly uses XML.

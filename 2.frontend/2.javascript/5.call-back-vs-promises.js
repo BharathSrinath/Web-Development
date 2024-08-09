@@ -10,7 +10,7 @@
 // Look at the below example.
     // Here 'isRightTriangle()' will be called first.
     // This then calls 'square()'for the first parameter which will call 'multiply()'
-    // Now multiply will return the result to sqaure which will return the result to isRightTriangle. This process will now continue for other parameters too. But this is not the point here.
+    // Now multiply will return the result to square which will return the result to isRightTriangle. This process will now continue for other parameters too. But this is not the point here.
     // See, until multiply function returns a value to the square, it can't perform the action. It is waiting. Same applies to isRightTriangle(). It has to wait until square() returns a value to it.   Thus we can say that they are intended to be executed after the completion of a specific task.
 
 const multiply = (x, y) => x * y;
@@ -71,6 +71,15 @@ fakeRequestCallback('books.com/page1',
 
 // Promise
 // It represents the eventual completion or failure of an asynchronous operation and its resulting value. It provides a way to handle asynchronous code in a more structured manner, allowing you to chain callbacks using .then() for successful outcomes and .catch() for error handling.
+// How Promises Work?
+    // Promise Constructor: The Promise constructor takes a single function argument called the executor function, which itself takes two arguments: resolve and reject. These are callback functions provided by the JavaScript engine.
+    // Resolve and Reject: resolve is called when the asynchronous operation completes successfully, passing the result. reject is called when the operation fails, passing the error.
+// Promise in JS are objects. 
+// They can be in one of the 3 states - 
+    // Pending - It doesn't yet have a value
+    // Resolved - It has successfully obtained a value
+    // Rejected - It failed obtain a value for some reason
+// The only way to access the resolved/rejected value is to chain a method on the end of the promise(or await it).
 // Syntax:
     // const variableName = new Promise((resolve, reject) => {
     //     if (operationIsSuccessful) {
@@ -163,7 +172,7 @@ const delayedColorChange1 = (newColor, delay, doNext) => {
         doNext && doNext();
         // This line of code is interesting. So pay attention. (nothing special though)
         // doNext is the variable that holds the callback function and doNext() is the function itself.
-            // This line will return true only when doNext has a variable stored in it and doNext() will be an executable function.
+            // This line will return true only when doNext has a truthy value stored in it and doNext() will be an executable function.
             // Imagine this. Once the code has reached violet color , there is nothing that could be stored in doNext. So when doNext is null, the code exits.
             // Also, lets say there exists another line which is not a function, you dont want that to be stored in doNext and gets executed. To avoid this, we also check for 'if there exists a next line and that line is a function'. Only then both conditions will satisfy and the program will carry on. If not, it indicates that there are no more functions that needs to be executed.   
     }, delay)
@@ -209,8 +218,9 @@ delayedColorChange2('red', 1000)
 
 // Async functions
 // It is a special type of function that is designed to work with Promises and simplify asynchronous code.
-// They always return a Promise. If the function returns a value, the promise will be resolved with that value. If the function throws an exception, the promise will be rejected.
+// Async functions always return a Promise. If the function returns a value, the promise will be resolved with that value. If the function throws an exception, the promise will be rejected.
     // Hence, with async we dont need a constructor called new promise()
+// Any function in JS can be declared as async
 
 const login = async (username, password) => {
     if (!username || !password) throw 'Missing Credentials'
@@ -240,9 +250,10 @@ const delayedColorChange = (color, delay) => {
     })
 }
 
-// Here we are neither using nesting nor using chaining. Rather we are using a special function called await that works hand-in-hand with promises.
-// It is used to pause the execution of an async function until the Promise being awaited is resolved. 
-
+// Here we are neither using nesting nor using chaining. Rather we are using a special function called await
+// await cannot be used separately without async. 
+// Most importantly async and await are built on top of promises which by itself is built on the concept of callbacks but providing a cleaner, more structured approach. 
+// async-await are mere sure syntactic sugar that makes the code more readable.
 async function rainbow() {
     await delayedColorChange('red', 1000)
     // See the line below will run only after the completion of the line above 
@@ -294,6 +305,83 @@ async function makeTwoRequests() {
     }
 }
 makeTwoRequests();
+
+//promise.all() method
+// It takes an array of promises and returns a single promise. 
+// This returned promise fulfills when all the promises in the array have fulfilled, or it rejects if any of the promises reject. 
+// It is a powerful tool for managing multiple asynchronous operations concurrently.
+// Disadvantage: If any of the input promises is rejected, the returned promise immediately rejects with the reason of the first promise that rejects. This means that if multiple promises fail, you only get information about the first one that fails, making it difficult to determine which specific operation(s) failed.
+    // To overcome this, we can use Promise.allSettled, which was introduced in ECMAScript 2020. This method returns a promise that resolves after all of the given promises have either resolved or rejected, and it provides an array of objects describing the outcome of each promise.
+
+// Example:
+const lotsOfFetchCalls = [
+    fetch(`${BASE_URL}/1`),
+    fetch(`${BASE_URL}/2`),
+    fetch(`${BASE_URL}/3`),
+    fetch(`${BASE_URL}/4`),
+    fetch(`${BASE_URL}/5`),
+    fetch(`${BASE_URL}/6`),
+];
+
+async function getLotsOfPokemon() {
+    try {
+      const results = await Promise.all(lotsOfFetchCalls);
+      console.log("Promise.all() is done and resolved!");
+      console.log(results);
+    } catch (e) {
+      console.log("ONE of the promises was rejected");
+      console.log(e);
+    }
+}
+  
+//promise.allSettled() method
+// Example: 
+
+async function allSettledDemo() {
+    
+    const GITHUB_BASE_URL = "https://api.github.com"; //base URL
+    let elieP = fetch(`${GITHUB_BASE_URL}/users/elie`); 
+    let joelP = fetch(`${GITHUB_BASE_URL}/users/joelburton`);
+    let badUrl = fetch("http://definitelynotarealsite.com"); //incorrect URL
+    let coltP = fetch(`${GITHUB_BASE_URL}/users/colt`);
+    let anotherbadUrl = fetch("http://definitelynotarealsite.com"); //incorrect URL
+
+    let results = await Promise.allSettled([
+      elieP,
+      joelP,
+      badUrl,
+      coltP,
+      anotherbadUrl,
+    ]);
+  
+    console.log(results);
+    const fulfilled = results.filter((r) => r.status === "fulfilled");
+    const rejected = results.filter((r) => r.status === "rejected");
+    console.log(fulfilled);
+    console.log(rejected);
+  }
+  
+//promise.race method
+// It also accepts array of promises and returns a new promise
+// The returned promise will resolve/reject as soon as any one promise in the arary is resolved/rejected.
+
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon";
+
+const lotsOfFetchCalls2 = [
+  fetch(`http://nope.nope`), //incorrect URL
+  fetch(`${BASE_URL}/2`),
+  fetch(`${BASE_URL}/3`),
+  fetch(`${BASE_URL}/4`),
+  fetch(`${BASE_URL}/5`),
+  fetch(`${BASE_URL}/6`),
+];
+
+Promise.race(lotsOfFetchCalls2)
+  .then((winner) => {
+    console.log(winner);
+  })
+  .catch((err) => console.log(err));
+
 
 // So you understand that async functions returns a promise. But can you tell me what are the situations where need to create a instance of a promise like "new promise((res, rej) => {.....})? 
     // 1. All modern day codes are async. So we need a new instance when we want synchronous code to return a promise. We can achieve that as above (initial examples of promise).

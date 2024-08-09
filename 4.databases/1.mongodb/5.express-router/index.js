@@ -19,4 +19,4 @@ app.listen(3000, () => {
     // www.example.com/mobiles/name/features/
     // www.example.com/laptops/name/features/
     // www.example.com/PC/name/features/
-// See in all these routes we see a common pattern. So name/features can be written in a single file provided that we are rednering a same file with just different variables passed to them.
+// See in all these routes we see a common pattern. So name/features can be written in a single file provided that we are rendering a same file with just different variables passed to them.

@@ -27,14 +27,28 @@ app.use(methodOverride('_method'))
 const categories = ['fruit', 'vegetable', 'dairy'];
 
 // 2. Error handling for asynchronous functions
-// Why do we need this separate type of error handling? Why can't use the same approach that we use for synchronous error handling be used here?
-    // When you have an asynchronous function that you’re using as a route handler, you can’t just throw an error in the traditional way because the error won’t be caught by your error-handling middleware.
-    // See async returns a promise. So we should be definitely handling the rejection of the promise. To handle a promise we can use try and block and that is exactly what we have done here with a touch of customisation.
-    // See before the error is passed the function  
-// We can wrap the asnyc function with try and catch. Infact that is what we have done. But rather than wrapping every function with try and catch we have created a custom function called wrapAsync() and passed the entire aysnc() to it. 
-// If an error is thrown inside the asynchronous function, it gets passed to the next function, which then passes it to your error-handling middleware. 
-// We are accepting a function and returning a function. I hope you remember name of the funciton when it can accept/return a functional argument. Yes you got it right! It is know as higher order functions.  
-
+// For async function, we handle error using try-catch block. So under every route where we have used async call backs we can simply use try-catch.
+// But when you look at the separation of concerns principle, that code will look a lot messier. The job of a particular route should be to render/send a response based on which route is accessed rather than handling an error. 
+// To overcome this we wrap the async() into another function (Conventionally called as wrapAsync).
+// So when you reach a particular middleware, the first execution happens in wrapAsync. Think of it like a BODMAS principle. The function call within the paranthesis gets executed first. Now wrapAsync will return a normal function which wraps the asycn function call. 
+// Now when a route is accessed, the normal function will called. 
+    // Mind you async function is a function call and not a function declaration. 
+    // When normal function is called, the async function is executed.
+    // For better clarity, this is the order of operation
+        // 1. wrapAsync is called, which returns a function
+        // 2. A route is accessed
+        // 3. The returned function is called
+        // 4. async function is executed
+// We know that async returns a promise. Here we dont care about resolving the promise. Because If the async function executes successfully, it sends a response or renders a page, ending the middleware execution. But when the promise is rejected, we catch that using a catch block and send it to the error handling middlware.   
+// WrapAsync is an higher order function as we are accepting a function and returning a function.  
+// IMPORTANT QUESTION: Why the wrapAsync need to return a function rather than directly returning the async call as below?
+                        // function wrapAsync(fn) {
+                        //     return fn(req, res, next).catch(e => next(e))
+                        // }
+    // Because Express middleware functions are expected to have the signature (req, res, next).
+    // When you return a function from wrapAsync, you ensure that this returned function conforms to the middleware signature (req, res, next):
+    // The above code attempts to execute fn immediately, which is not what we want. fn should be executed only when the route is accessed, not when wrapAsync is defined.
+    // So when you simply return fn(req, res, next), the resultant value will be a promise that is certainly not going to match the signature. But on the other hand when you place it under a function(req, res, next), it matches the signature.
 function wrapAsync(fn) {
     return function (req, res, next) {
         fn(req, res, next).catch(e => next(e))
@@ -105,6 +119,8 @@ app.use((err, req, res, next) => {
     if (err.name === 'ValidationError') err = handleValidationErr(err)
     next(err);
 })
+// Following is the error message on the web page for submitting with empty fields
+// Validation Failed...Product validation failed: name: name cannot be blank, price: Path `price` is required.
 
 app.use((err, req, res, next) => {
     const { status = 500, message = 'Something went wrong' } = err;

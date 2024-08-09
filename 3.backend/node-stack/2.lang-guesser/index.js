@@ -8,7 +8,7 @@ const colors = require("colors")
 const input = process.argv[2];
 const langCode = franc(input);
 if (langCode === 'und') {
-    // If it can't find the language, it returns und(undetermined)
+    // If it can't find the language, it returns und(undetermined/undefined)
     console.log("SORRY, COULDN'T FIGURE IT OUT! TRY WITH MORE SAMPLE TEXT!".red)
 } else {
     const language = langs.where("3", langCode);

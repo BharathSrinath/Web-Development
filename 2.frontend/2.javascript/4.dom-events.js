@@ -77,8 +77,8 @@ const tasButton = document.querySelector('#tas');
         // See when the above code is executed, shout will over-ride the twist and you wont see the twist output. You can assign only any one of the function to tasbutton variable with respect to onclick property. 
 // Syntax: element.addEventListener(event, function, useCapture);
     // The type of event you want to listen for, such as "click," "mouseover," "keydown," etc.
-    // useCapture (optional): A Boolean value that specifies whether the event should be captured during the capturing phase (true) or the bubbling phase (false). It's often set to false and is optional. You will see about bubbling later. Still an example might help
-        // Example: tasButton.addEventListener('click', twist {once: true}) Now this will execute only once and the event will not go for further execution.
+    // useCapture (optional): A Boolean value that specifies whether the event should be captured during the capturing phase (true) or the bubbling phase (false - default value). 
+        // Example: tasButton.addEventListener('click', twist, true);
 
 
 tasButton.addEventListener('click', twist)
@@ -90,7 +90,7 @@ tasButton.addEventListener('click', shout)
 tasButton.addEventListener('mouseenter', function warn(){
     console.log ("Don't come near me!")
 })
-// Just understand how the syntax works. Here when 'mouseneter' argument is passed, it will perform whatever that is within function. That is mousenter will pass the arguments that is necessary for the function to perform even though function arguments is empty. If you want to know what arguments does the mouseenter event pass to warn(), you can give a name to the argument and console.log as below
+// Just understand how the syntax works. Here when 'mouseneter' argument is passed, it will execute the lines within function. That is mousenter will pass the arguments that is necessary for the function to perform even though function arguments is empty. If you want to know what arguments does the mouseenter event pass to warn(), you can give a name to the argument and console.log as below
     // tasButton.addEventListener('mouseenter', function warn(evt){
     //     console.log (evt)
     // })
@@ -196,11 +196,9 @@ tweetForm.addEventListener('submit', function (e) {
         // In our code, it is from these elements we need data from. So we are selecting these two using the above method. 
         // Can you see the issue here? Eventhough it does the job, it is difficult without knowing their index position. We can't keep refering to console. This is where the following method come into picture.  
     const usernameInput = tweetForm.elements.username; // 'elements' is a keyword here
-    const tweetInput = tweetForm.elements.tweet;
+    const tweetInput = tweetForm.elements.tweet; // 'username' and 'tweet' are name attributes
     console.log(tweetForm.elements)
-        // In this method we are using the 'name attribute' of that element. 
-    // When you console.log(tweetForm), you will see child of form elements. This is followed many other objectEvents. One such objectEvent is called as 'elements'. Dont get confused by the name. Under 'elements' you will have a collection of other attributes among which we have a 'name attribute'. We have to look for 'name attribute' that corresponds to the the input element from which need to collect the data.
-        // This is the reason for most of the time we use same value for name attribute and type attribute in HTML
+    // When you console.log(tweetForm), you will see child of form elements. This is followed many other objectEvents. One such objectEvent is called as 'elements'. Dont get confused by the name. Under 'elements' you will have a collection of other attributes among which we have a 'name attribute'. We have to look for 'name attribute' that corresponds to the input element from which we need to get the data.
     addTweet(usernameInput.value, tweetInput.value)
     // Now this step combines two things
         // One is quite obvious where we are just passing the arguments to the below function
@@ -221,9 +219,9 @@ const addTweet = (username, tweet) => {
     newTweet.append(bTag);
     // Now the entire bTag will appended to list
     // <li><b>Bharath</b></li>
-    newTweet.append(`- ${tweet}`)
+    newTweet.append(` - ${tweet}`)
     // Now the - followed by tweet will appended to li
-    // <li><b>Bharath</b>- Hey</li>
+    // <li><b>Bharath</b> - Hey</li>
     tweetsContainer.append(newTweet);
     // tweets container is the ul. So the above the content will be appended to <ul></ul>
     // <ul><li><b>Bharath</b>- Hey</li></ul>
@@ -262,8 +260,8 @@ input2.addEventListener('input', function (e) {
         h1.innerText = 'Enter Your Username';
     }  
 })
-// Input event just displays whatever that you are typing in real time.
-// Here we are storing that in h1, so h1 will be changing in real as we modify the text in input element.
+// Input event just displays whatever that you are typing in real-time.
+// Here we are storing that in h1, so h1 will be changing in real-time as we modify the text in input element.
 
 console.log("----------------------------------------------------------------------------------------------------------------------------------------");
 
@@ -272,8 +270,8 @@ console.log("Event Bubbling");
 // It refers to the order in which events are triggered and propagated through the DOM hierarchy
 // When you look at the HTML, you sill see that button in nested under paragraph which is nested under section.
 // All three has onclick attribute. 
-    // A click event on the button will trigger the event on the button first, then on the div, and finally on the section, in that order.
-    // To avoid propogation of events, you could use e.stopPropagation();
+    // A click event on the button will trigger the event on the button first, then on the div, and finally on the section, in that order. That is bubbling happens from inside to outside.
+    // To avoid propogation of events, you could use "e.stopPropagation()." If e.stopPropagation() is used on the button , then it will be contained to the button alone and will not propagate to paragraph and section elements. 
 // You cant use them for inline elements
 
 // Example 1:

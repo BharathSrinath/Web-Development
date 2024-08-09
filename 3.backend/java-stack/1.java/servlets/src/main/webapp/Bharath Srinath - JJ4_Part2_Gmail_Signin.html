@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            width: 30%;
+            margin: auto;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+        }
+        .form_element {
+            width: 100%;
+        }
+        input{
+            width: 70%;
+        }
+        #submit{
+            text-align: center;
+            width: 50%;
+            background-color: rgb(43, 233, 43);
+            font-weight: bolder;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(43, 233, 43);
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <form action="JJ4_Part2_Gmail_ProfileDetails">
+        <div class="form_element">
+            <input type="email" name="email" id="email" placeholder="Email">
+        </div>
+        <div class="form_element">
+            <input type="password" name="password" id="password" placeholder="Password">
+        </div>
+        <div class="form_element">
+            <input type="submit" value="Login" id="submit">
+        </div>
+        <div class="form_element">
+            <p id="signup">Not Registered? <a href="Bharath Srinath - JJ4_Part2_Gmail_Signup.html">Create an account</a></p>
+        </div>
+    </form>
+</body>
+</html>

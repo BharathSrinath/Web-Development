@@ -21,6 +21,7 @@ app.use(session(sessionOptions));
     // 5. The server then uses this session data to maintain the user's state and track their interactions with the website. This may include storing user preferences, authentication status, shopping cart contents, etc.
 
 app.get('/viewcount', (req, res) => {
+    console.log(req.session)
     if (req.session.count) {
         req.session.count += 1;
     } else {
@@ -96,3 +97,4 @@ app.listen(3000, () => {
     // 3. Databases: This approach allows persistence and scalability.
     // 4. Cache Systems: Some use cache systems (e.g., Redis) to store session data efficiently.
    
+// CONCLUSION: In terms of functionality, both cookies and sessions are used to store user-specific data to maintain state across HTTP requests. The primary difference lies in how they are stored, where they are stored, size of data that they can hold and security aspect due to the combinaiton of first two. 
