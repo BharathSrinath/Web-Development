@@ -6,9 +6,7 @@ export default function ShoppingListItem({ item, quantity, completed }) {
     textDecoration: completed ? "line-through" : "none",
   };
   return (
-    <li style={styles}>
-      {item} - {quantity}
-    </li>
+    <li style={styles}>{item} - {quantity}</li>
   );
 }
   

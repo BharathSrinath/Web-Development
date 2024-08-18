@@ -1,0 +1,18 @@
+.MyResumeSkills{
+    padding: 5px;
+}
+#header, #sub_header{
+    font-weight: bold;
+}
+#side_header{
+    font-weight: bold;
+    padding-right: 10px;
+}
+ul li{    
+    padding-left: 20px;
+    list-style-position: inside;
+}
+.MyResumeSkills div {
+    width: 80%;
+    margin: 20px auto;
+}

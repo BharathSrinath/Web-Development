@@ -1,0 +1,12 @@
+.MyResumeExp{
+    width: 80%;
+    margin: auto;
+}
+#header, #org_name{
+    font-weight: bold;
+}
+
+#work{
+    display: flex;
+    justify-content: space-between;
+}

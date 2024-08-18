@@ -9,7 +9,7 @@ export default function DoubleDice() {
     <div style={styles}>
       <h2>Double Dice</h2>
       {isWinner && <h3>You win!</h3>}
-      {/* You know how the && works right? If the first condition, second condition will not even be checked. We are doing this to avoid adding empty h3 element when we loose the game.*/}
+      {/* You know how the && works right? If the first condition is false, second condition will not even be checked. We are doing this to avoid adding empty h3 element when we loose the game.*/}
       <p>Num1: {num1}</p>
       <p>Num2: {num2}</p>
     </div>

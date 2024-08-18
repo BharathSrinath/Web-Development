@@ -1,3 +1,7 @@
+import beach1 from './pictures/img1.avif';
+import beach2 from './pictures/img2.avif';
+import beach3 from './pictures/img3.avif';
+
 export function UserData1(){
     const name = "Bharath";
     const age = 29;
@@ -27,4 +31,14 @@ export function UserData2(){
         </div>
     )
         
+}
+
+export function ImageData(){
+    return(
+        <div>
+            <img src={beach1} alt="" />
+            <img src={beach2} alt="" />
+            <img src={beach3} alt="" />
+        </div>
+    )
 }

@@ -1,7 +1,8 @@
 import './App.css';
 import { MyForm } from './MyForm';
-import { UserData1, UserData2 } from './Userdata'; 
+import { UserData1, UserData2, ImageData } from './Userdata'; 
 import './MyForm.css'
+import BootStrapExample from './BootStrapExample';
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
       <MyForm/>
       <UserData1/>
       <UserData2/>
+      <ImageData/>
+      <BootStrapExample/>
     </div>
   );
 }

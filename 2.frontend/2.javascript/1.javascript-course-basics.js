@@ -2025,6 +2025,24 @@ allEvens([1,2,3,4,5,6,7,8,9,10]);
 // You can simplify this as following
 console.log (numbers.every (even => even % 2 === 0)); // returns false
 
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+console.log ("Optional Chaining")
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+// Optional chaining is used to safely access nested properties in an object without having to manually check if each reference in the chain is valid (i.e., not null or undefined).
+const rest = {
+    info: {
+      name: "The Great Bistro",
+      type
+    },
+};
+console.log(rest.info?.name); // Output: "The Great Bistro"
+// rest: This is an object.
+// info: This is a nested property within the restaurant object. However, info might be null or undefined.
+// ?.: The ?. is the optional chaining operator. It allows you to attempt to access a property of an object without causing an error if the object is null or undefined.
+// name: This is the property you want to access within info.
+
+// Without Optional Chaining: If you tried to access restaurant.info.name directly and info was undefined or null, it would cause a runtime error: TypeError: Cannot read property 'name' of undefined.
+// With Optional Chaining (?.): If restaurant.info is null or undefined, the expression restaurant.info?.name will simply return undefined instead of throwing an error.
 
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
 console.log ("New Features in JS")

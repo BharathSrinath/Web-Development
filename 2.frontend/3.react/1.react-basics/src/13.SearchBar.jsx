@@ -52,7 +52,7 @@ export default function SearchBar({ onSubmit }) {
 
 // Explanation for this project
 // 1. SearchBar.jsx: Create an input element and wrap it under form
-// 2. When the user types something, we have to recognise that (virtual DOM) and update that (real DOM). 
+// 2. When the user types something, we have to recognise that (virtual DOM) and update the (real DOM). 
     // To recognise that we use 'onChange' attribute in input element. 
     // To update that we use 'useState' (const [term, setTerm] = useState('');)
         // handleChange() is the reference to the event handler which will hold all the event related details. Using this function we can extract the value (e.target.value) and update that value as the new value with setTerm.

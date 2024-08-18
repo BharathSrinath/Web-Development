@@ -261,7 +261,8 @@ loadStarWarsPeople();
 // ---------------------------------------------------------------------------------------------------------------
 
 // axios syntax:
-// axios.HTTPmethod(url, config){....}
+  // axios.get(url, config){....}
+  // axios.post(url, data, config){....}
 // config is an object that can include - headers, params, data, timeout, auth, responseType, validateStatus, etc.
 
 // Example 1:
