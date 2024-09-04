@@ -1,5 +1,3 @@
-import { shimmer_card_unit } from "../../public/common/constants";
-
 // Shimmer card to display with animation
 const CardShimmer = () => {
   return (
@@ -15,7 +13,7 @@ const CardShimmer = () => {
 const Shimmer = () => {
   return (
     <div className="shimmer-container">
-      {new Array(shimmer_card_unit).fill(0).map((element, index) => {
+      {new Array(20).fill(0).map((element, index) => {
         // Creating a new array and we are iterating over it
         return <CardShimmer key={index.toString() + 1} />;
       })}

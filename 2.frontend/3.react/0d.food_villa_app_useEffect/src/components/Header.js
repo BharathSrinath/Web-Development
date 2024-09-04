@@ -1,4 +1,4 @@
-import foodFireLogo from "../../public/images/foodfireFavicon.png";
+import foodFireLogo from "../../public/images/foodFireLogo.png";
 import { useState } from "react";
 
 const Title = () => (

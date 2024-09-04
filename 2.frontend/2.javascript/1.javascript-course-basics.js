@@ -111,6 +111,8 @@ console.log("Data-types");
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
 
 // Data types
+// JS is a loosely typed language. That is, it doesn't tie a variable to a particular data-type.
+    // A variable can hold a number at one line and the same variable can hold a string in another line (string value replaces the number value).
 // Types - Primitives (string, number, boolean, undefined, null, symbol, bigint) and Non-primitives (object) 
 // 1. Strings
 let name = "full stack2";
@@ -161,6 +163,10 @@ let test2;
 console.log(test2);
 console.log("The data type is " + (typeof test2));
 // typeof(undefined) is undefined itself
+// undefined vs not defined
+    // undefined: Memory allocated (declared but not initialised)
+    // not defined: No memory allocated (Not even declared) 
+// IMPORTANT: Do not assign undefined as a value manually. Not a good practice.
 
 // Reference (Heap / derived)
 // When you create a variable of a reference type, the variable doesn't directly contain the data; instead, it holds a reference (memory address) to the location where the data is stored. This is in contrast to primitive data types like numbers and strings, which directly store their values in the variable.
@@ -862,7 +868,7 @@ console.log("Functions");
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
 
 // Functions
-// 1. Function Declaration
+// 1. Function Declaration/Function Statement
 // Example 1:
 
 function display_message(msg) {
@@ -962,11 +968,11 @@ console.log(add(4,3));
     // Technically, here add is name of the variable (that refers to the function) and not the name of the function. If you had used function declaration, add would have been the name of the function. But here function doesn't have a name hence called anonymous.
 
 // Lets understand the significant difference between both which wasn't mentioned previously - Hoisting
-// See in function declaration, when you call the function before defining it, it is acceptable and that is not the case with function expression.
-// Lets look at the same example as above
+    // See in function declaration, when you call the function before defining it, it is acceptable and that is not the case with function expression.
+    // Lets look at the same example as above
 
     // Function declaration
-    display_message("Hello world");
+    // display_message("Hello world");
 
         // function display_message(msg) {
         //     console.log(msg);
@@ -983,6 +989,25 @@ console.log(add(4,3));
         //     return a+b;
         // }
 
+// 3. Named Function Expression
+let add4 = function xyz(a,b) {
+    return a+b;
+}
+add4(4,3);
+// This is completely possible in JS
+// You cannot call this funciton as xyz(4,3). You will get the error as "Reference error: xyz is not defined"
+// This is because the xyz is not created in the outer scope. add4 is in outer scope (global scope in our case). xyz is actually within the scope of add4. So xyz can be accesses within add4 as follows. (I know its weird - Welcome to JS)
+    // let add4 = function xyz(a,b) {
+    //     console.log(xyz);
+    //     return a + b;
+    // }
+    // add4(4,3);
+// Output for the line console.log(xyz); 
+    // ƒ xyz(a,b) {
+    //     console.log(xyz);
+    //     return a + b;
+    // }
+
 // variable hoisting in JS
     // 1. var data-type: Variable declarations similar to function declarations are moved to top of their containing scope during the compile phase, before the code has been executed. These variables are initialized to undefined.
             // var x; 
@@ -997,7 +1022,7 @@ console.log(add(4,3));
                     // y = 10;
         // You see if it is a C language, it will throw an error.  Why? We need to declare 'x' before using that. But JS will move the 'var x' declaration to the top. (not the initialisation but only the declaration).   
     // 2. let and const data-type: They are also hoisted but not initialised. But unlike 'var' they cannot be used before declaration (JS prevents it). Okay then why hoist them when let and const variables cannot be used before declaration? Infact even with respect to var data-type what is the point of hoisting them when variable is going to initialised to undefined. There is a tricky and advanced concept called Temporal Dead Zone (TDZ).
-        // The period from the start of the block until the declaration of a variable is known as the Temporal Dead Zone (TDZ).  
+        // The Temporal Dead Zone (TDZ) refers to the phase in which a let or const variable is hoisted but uninitialized, making it inaccessible and throwing a ReferenceError if accessed.  
         // If we try to access a let or const variable in its TDZ, we will get a ReferenceError.
         // The TDZ has an important role in catching errors. If JS didn’t have the TDZ and we mistyped a variable name or tried to use a variable before declaring it, JS would just assume we meant to use a global variable or undefined. With the TDZ, JavaScript lets you know that something’s wrong.
 // While this might seem unnecessary or confusing, it’s simply a part of JS’s behavior. It’s simpler and more intuitive to use variables only after they’ve been defined. But, this is the approach taken by many programming languages.
@@ -1063,7 +1088,7 @@ console.log("-------------------------------------------------------------------
 
 // Closures are powerful constructs that allow functions to retain access to variables from their containing scope, even after the parent function has finished executing. Simply, it gives you access to an outer function’s scope from an inner function.
 // They are useful for maintaining private data, creating modular code, and implementing callback functions with persistent state (refers to data that remains accessible even after the original context (such as a function call) has completed.)
-
+// Simple Definition: A function along with its lexical environment bundled together is called closure. 
 // Example 1:
 function init() {
     var name = "Mozilla"; // 'name' is a local variable created by 'init'
@@ -1074,19 +1099,37 @@ function init() {
 }
 init(); // Output: "Mozilla"
 
-// Example 2:
+// Example 2i:
 function idGenerator(){
     let count = 1;
-    return function generate(){
+    function generate(){
         count++;
+        console.log(count);
     };
+    return generate;
 }
-const nextId = idGenerator();
+const nextId1 = idGenerator();
+nextId1(); // Output will be 2
+                    // NOTE regarding funnction execution. To execute both inner (that is returned by the outer function) and the outer function in one go you can write it as "idGenerator()()". 
 // Above functionality can be simply achieved by below function too. But we are polluting the global scope by adding another variable called count. To avoid this we can go for closures.
 // let count = 1;
 // function nextId(){
 //     return count++;
 // }
+
+// Example 2i:
+function idGenerator(){
+    let count = 1;
+    function generate(){
+        count++;
+        console.log(count);
+    };
+    count = 100;
+    return generate;
+}
+const nextId2 = idGenerator();
+nextId1(); // Output will be 101
+// IMPORTANT TO UNDERSTAND: count variable inside the function generate() doesnt hold the value of 1. Rather it refers to a memeory place with the name count. So the count value got update to 100. Hence it will have a value 100 when you call the function generate().
 
 //Example 3: Closures with objects
 function createCounter(){
@@ -1126,7 +1169,53 @@ function uniqueIdGenerator(){
 const getBookId = uniqueIdGenerator("book-");
 const getUserId = uniqueIdGenerator("user_");
 
-//Example 5i: Closures with event listeners
+//Example 5i:
+function x(){
+    for (var i = 1; i <= 5; i++){
+        setTimeout(()=>{
+            console.log(i);
+        }, i*1000)
+    }
+    console.log("Hello world!")
+}
+x();
+// Output will be
+    // Hello World
+    // 6
+    // 6
+    // 6
+    // 6
+    // 6
+// But how?
+    // As we have already studied, inner function doesn't have the value of 'i' here. Rather only the reference.
+    // So what happens is everytime the setTimeout is run, a new copy is created for it to be executed after 1,2,3,4,5 seconds in every iteration. In the last iteration when i becomes 6, condition fails.
+    // Now it moves to next line and prints "Hello world" 
+    // Then eaech copy of the setTimeout executes. But all of them refers to the last updated value of 6.
+// But then again by changing the data-type of 'i' from var to let, we can fix this.
+    // That is because let has local scope but var has function scope. So all closures created inside the loop share the same reference to i. So when we use let, each iteration of the loop creates a new instance of 'i'. Any change to that 'i' will not affect the others.
+
+// Example 5ii: Without changing the var to let, we can still achieve the result by enclosing the setTimeout() with in aother that can accept the value of i. 
+function x(){
+    for (var i = 1; i <= 5; i++){
+        function close(i){
+            setTimeout(()=>{
+                console.log(i);
+            }, i*1000)
+        }
+       close(i);
+    }
+    console.log("Hello world!")
+}
+x();
+// It works because, with each iteration, the function close() is called with the current value of 'i'.
+// When close(i) is invoked, it creates a new function scope, capturing the current value of 'i' as an argument.
+// The setTimeout() function inside close() retains access to this captured value of 'i' through closure.
+// As a result, the setTimeout() callback will have access to the correct value of 'i' for each iteration when it eventually executes.
+ 
+// Issues with closures: 
+    // Since inner function has access to lexical scope, the memory created for the variable exists even after the outer function has executed. This may accumulate over-time as the variable is not eligible for garbage collection. 
+
+//Example 6i: Closures with event listeners
 // Without closures - Here we polluting the globals scope with a variable names count 
 let count = 0;
 document.querySelector("button").addEventListener("click", () => {
@@ -1145,7 +1234,7 @@ document.querySelector("button").addEventListener("click",
     })()
 );
 
-// Example 5ii: 3 buttons - clicking each of them will increment the values based on the number of times it is being clicked.
+// Example 6ii: 3 buttons - clicking each of them will increment the values based on the number of times it is being clicked.
 function createButtonCounter(){
     const button = document.getElementById(id);
     let count = 0;
@@ -1159,10 +1248,28 @@ createButtonCounter("button2");
 createButtonCounter("button3");
 
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
+console.log ("First Class Functions")
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+
+// First Class Functions
+    // Functions are treated as first-class citizens
+    // This concept implies that functions can be,
+        // Assigned to variables
+        // Passed as arguments to other functions
+        // Returned from other functions
+        // Stored in data structures 
+    // It refers to the capability of functions to be used like any other value (like numbers, strings, etc.)
+    // This capability is what enables functional programming patterns in JS, such as map, filter, and reduce.
+        // Not just in JS, many other languages makes use of first class functions.  
+
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
 console.log ("Higher Order Functions")
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
 
-// Higher Order Functions - Functions that are working with other functions like taking it as an argument or a function returning a function
+// Higher Order Functions
+    // It either Takes one or more functions as arguments or Returns a function as a result.
+    // They are specific types of functions that leverage the concept of first-class functions.
+    // Examples: map, filter, reduce, etc.
 // Example 1: Function as an argument
 
 function callTwice (a){
@@ -1264,19 +1371,47 @@ for (let i in square2){
     //     }
     // }
 
+
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
-console.log ("Callbacks and Array Methods")
+console.log ("Function Currying")
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+
+// Function Currying
+// It is a concept in JS (and other functional programming languages) that involves transforming a function with multiple arguments into a sequence of functions, each with a single argument. 
+// Essentially, instead of passing all arguments to the function at once, you pass them one at a time, and each time you pass an argument, the function returns a new function that takes the next argument.
+// Example: 
+// Function without currying
+function add5(a, b, c) {
+    return a + b + c;
+}
+add5(1, 2, 3)
+// Curried Version
+function add(a) {
+    return function(b) {
+        return function(c) {
+            return a + b + c;
+        };
+    };
+}
+let firstCallResult = add(1);
+let secodnCallResult = firstCallResult(2);
+let thirdCallResult = secodnCallResult(3);
+// add(1)(2)(3) shorthand to call all 3 functions rather than following the above approach. (Just know it) 
+// But curried functions are not called as a whole (like above).
+// Their major purpose is reusability. When you break the functions into very small and very specific, that particular function can be reused in many places.
+
+console.log("------------------------------------------------------------------------------------------------------------------------------------");
+console.log ("Array Methods")
 console.log ("ForEach")
 console.log("------------------------------------------------------------------------------------------------------------------------------------");
 
-// Callbacks and Arrays Methods
+// Arrays Methods
 
 // for-each
 // Syntax: 
     // array.forEach(function(currentValue, index, array) {
         // your code here
     //   }, thisArg);  
-        // Callback function refers to a function that is passed as an argument to another function and is intended to be called later
         // Current value refers to the the value in the array from which you want the loop to begin.
         // thisArg Value to use as 'this' when executing callback.
 // The forEach method doesn't return a new array like map or filter. It returns undefined.
@@ -1726,10 +1861,11 @@ console.log(hen.layAnEgg())
         // }
         // const student = new Student('Bharath');
         // student.sayHello(); -> output is "Hello, my name is Bharath"
-    // 5. Explicit Binding: Using call, apply, or bind, you can explicitly set the value of this. All three of them involves a concept called function borrowing and all three methods allow you to control what the 'this' keyword refers to when invoking a function. They basically bind the function and the object with small differences between each of them. They are called on the function with which we are going to bind the object. First argument to all of them refers to that object. 
+    // 5. Explicit Binding: Using call, apply, or bind, you can explicitly set the value of this. All three of them involves a concept called function borrowing and all three methods allow you to control what the 'this' keyword refers to when invoking a function. They basically bind the function and the object with small differences between each of them. They are called on the function with which we are going to bind the object. 
+        // First argument to all of them is the object to be bound. 
         // For call, 2nd, 3rd, etc. are the arguments that we are passing to the function.
         // For apply, exactly same as call but there will be only one argument and that will be an array within which we can pass as many elements as we want.
-        // For bind, it is similar to the call method in terms of passing an argument. But it differs from one aspect compared to the above two. While all of them are invoked/called directly (we dont need to separately call them like a normal function. Just like an inbuilt setTimeout function), bind method alone returns a copy of a function while other two just returns the rersult of the function.  
+        // For bind, it is similar to the call method in terms of passing an argument. But it differs from one aspect compared to the above two. While all of them are invoked/called directly (we dont need to separately call them like a normal function. Just like an inbuilt setTimeout function), bind method alone returns a copy of a function while other two just returns the result of the function.  
         // This function copy(known as bound function) is permanently bound to a particular object. It can be stored in a variable and invoked later. This is what we are doing when we pass them to an event handler. So rather than creating a new function everytime (like call/apply), we are just invoking this copy created by bind function. (so no new functions are created). 
             // Neither call() nor apply() creates a new function. They directly execute the original function.
             // So we use bind() when we want to create a reusable function with a specific context.

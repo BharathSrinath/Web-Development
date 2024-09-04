@@ -264,13 +264,28 @@ input2.addEventListener('input', function (e) {
 // Here we are storing that in h1, so h1 will be changing in real-time as we modify the text in input element.
 
 console.log("----------------------------------------------------------------------------------------------------------------------------------------");
+console.log("Event Propogation");
+console.log("----------------------------------------------------------------------------------------------------------------------------------------");
 
-console.log("Event Bubbling");
-// Event Bubbling
-// It refers to the order in which events are triggered and propagated through the DOM hierarchy
-// When you look at the HTML, you sill see that button in nested under paragraph which is nested under section.
+// Event Propogation has two phase - Event bubbling and event capturing
+// They determine the order in which event handlers are triggered when an event occurs on an element that is nested within other elements.
+// When an event is triggered, it goes through three phases.
+    // 1. Capturing Phase: The event moves from the root to the target element.
+    // 2. Target Phase: The event reaches the target element.
+    // 3. Bubbling Phase: The event bubbles up from the target element back to the root.
+// VERY IMPORTANT NOTE: Event handlers in the capturing phase are triggered before those in the bubbling phase.
+// By default, event handlers are invoked during the bubbling phase. However, you can specify that an event handler should be invoked during the capturing phase by passing true as the third argument to addEventListener. 
+    // The third is known as useCapture which accepts a boolean value
+
+console.log("----------------------------------------------------------------------------------------------------------------------------------------");
+console.log("1. Event Bubbling");
+console.log("----------------------------------------------------------------------------------------------------------------------------------------");
+
+// Event Bubbling:
+// Event bubbling is the process where an event starts from the target element (the element that was actually clicked or interacted with) and then bubbles up through the ancestors of that element (parent, grandparent, etc.) in the DOM tree, triggeringevent handlers along the way.
+// When you look at the HTML, you sill see that button (child) in nested under paragraph (parent) which is nested under section (grand-parent).
 // All three has onclick attribute. 
-    // A click event on the button will trigger the event on the button first, then on the div, and finally on the section, in that order. That is bubbling happens from inside to outside.
+    // A click event on the button will trigger the event on the button first (child), then on the div (parent), and finally on the section (grand parent), in that order. That is bubbling happens from inside to outside.
     // To avoid propogation of events, you could use "e.stopPropagation()." If e.stopPropagation() is used on the button , then it will be contained to the button alone and will not propagate to paragraph and section elements. 
 // You cant use them for inline elements
 
@@ -282,12 +297,12 @@ const clicks3 = document.querySelector('#click3');
 clicks1.addEventListener('click', function(e){
     alert('button clicked');
     e.stopPropagation();
-    // When you click the button, you will see 3 alerts, But e-stopPropagation stops bubbling the event
+    // When you click the button, you will see 3 alerts, But e.stopPropagation stops bubbling the event
 })
 clicks2.addEventListener('click', function(e){
     alert('paragraph clicked')
     e.stopPropagation();
-    // When you click the paragraph, you will see 2 alerts, But e-stopPropagation stops bublling event and contains within #click2
+    // When you click the paragraph, you will see 2 alerts, But e.stopPropagation stops bublling event and contains within #click2
 })
 clicks3.addEventListener('click', function(e){
     alert('section clicked')
@@ -296,7 +311,7 @@ clicks3.addEventListener('click', function(e){
 // Example 2:
 // Here the code is in such a way where a button is inside of div element. 
     // onclick on the div has been set to hide with the help of 'display: none' in css
-    // So when you click the button (Which has been customised to change the bg color everytime it is clicked), which is inside the div everything gets disappeared after the colore change (but you cant actually see the color being changed as it happens quickly).
+    // So when you click the button (Which has been customised to change the bg color everytime it is clicked), which is inside the div everything gets disappeared after the color change (but you cant actually see the color being changed as it happens quickly).
     // To stop this event from bubbling, we are use e.stopPropagation(); under button element. Now when you click the button the color will change but the button will not disappear. So only clicking on div will actually make them hide.  
 const button = document.querySelector('#changeColor');
 const container = document.querySelector('#container');
@@ -317,10 +332,22 @@ const makeRandColor2 = () => {
 }
 
 console.log("----------------------------------------------------------------------------------------------------------------------------------------");
+console.log("2. Event Capturing/Trickling");
+console.log("----------------------------------------------------------------------------------------------------------------------------------------");
+
+// 2. Event Capturing/Trickling:
+// It is the opposite of event bubbling. It describes the process where an event starts from the root of the DOM and propagates down through the ancestors to the target element.
+
+console.log("----------------------------------------------------------------------------------------------------------------------------------------");
 
 console.log("Event delegation");
 // Event delegation
-// Event delegation involves attaching a single event listener to a common ancestor element (In our case in ul i.e., tweetsContainer) that contains the target elements (li elements in our case) you want to watch.
+// Event delegation is a pattern in JS where you take advantage of event propagation (typically event bubbling) to manage events more efficiently. Instead of attaching event listeners to every individual element, you attach a single event listener to a common ancestor (or parent) of those elements. This single event listener can then handle events for all of the target elements due to event bubbling.
+// Inside the event listener, use the event.target property to determine which specific element triggered the event. This allows you to handle the event accordingly.
+// Advantages: Memory efficient due to lesser number of event handlers required.
+// Disadvantage: Not all events like blur, scroll bubble up.
+
+// Example: 
 // To understand delegation, you can look at the below explanation of to-do app. I am stressing on this because it is one of the most important topics but looks like teachers are rushing through. 
     // This to-do app has a list of tasks (represented as <li> elements) that users can add and remove.
     // Each task has a delete button

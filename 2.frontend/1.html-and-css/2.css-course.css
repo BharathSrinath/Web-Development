@@ -1,11 +1,74 @@
-/* In the html you need to link this css file. All the stylings will be done in this page */
-/* link rel = "stylesheet" href = filename.css */
-/*  The rel attribute specifies the relationship between the current document and the linked resource. In this case, the value "stylesheet" indicates that the linked resource is a CSS file used for styling. */
-/* Standard format in css is as follows */
-/* selector { 
-property: value; 
-} */
-/* You can have multiple selectors too like h1, h2 */
+/* Different ways of writing CSS: */
+    /* 1. Normal native CSS: */
+    /* 2. SCSS */
+    /* 3. Inline CSS */
+    /* 4. Component libraries - Material UI, Base UI, Ant, Chakra, etc. */
+    /* 5. Styled Components */
+    /* 6. CSS Farmeworks - Tailwind, Bootstrap, etc. */
+
+/* 1. Normal native/External CSS:
+    Pros:
+        * Simple and Standardized: CSS is widely understood and supported across all web browsers.
+        * Separation of Concerns: Keeps your styles separate from your HTML and JavaScript.
+        * No Dependencies: No need for additional libraries or preprocessing tools/
+    Cons:
+        * Global Scope: All styles are applied globally, which can lead to conflicts and overrides unless you manage class names carefully.
+        * Limited by Features: Native CSS doesn't support variables, nesting, or advanced logic, making it less powerful for complex projects. */
+/* 2. SCSS (Sassy CSS): A preprocessor that extends CSS with additional features like variables, nesting, mixins, and functions. SCSS files are compiled into regular CSS files.
+    Pros:
+        * Variables and Mixins: Allows for more dynamic and reusable styles.
+        * Nesting: Makes the CSS structure more readable and mirrors the HTML structure.
+        * Partial Files: Breaks CSS into smaller, manageable chunks that can be imported as needed.
+    Cons:
+        * Requires Compilation: Needs a build step to convert SCSS to CSS, which can add complexity.
+        * Learning Curve: Slightly more complex than plain CSS, especially for beginners.
+        * Overuse: Over-nesting or overusing features can lead to bloated CSS. */
+/* 3. Inline CSS:
+    Pros:
+        * Immediate and Specific: Styles are applied directly and only affect the specific element.
+        * No External Dependencies: No need for external files or classes.
+        * Easier for Dynamic Styles: Can be easily manipulated via JavaScript.
+    Cons:
+        * No Reusability: Styles cannot be reused across different elements.
+        * Hard to Maintain: Inline styles can clutter HTML and make maintenance difficult.
+        * Overrides Styles: Inline styles have the highest specificity, which can lead to unexpected behavior if not carefully managed. */
+/* 4. Component Libraries (e.g., Material UI, Base UI, Ant Design, Chakra UI):
+    Pros:
+        * Consistency: Ensures a consistent look and feel across the application.
+        * Productivity: Speeds up development by providing ready-to-use components.
+        * Customization: Components can be customized to match your branding.
+    Cons:
+        * Dependency on the Library: Ties your project to a specific library, which can be a challenge if you want to switch later.
+        * Learning Curve: Requires learning the library’s API and customization methods.
+        * Overhead: Including an entire library can add to the bundle size, affecting performance. */
+/* 5. Styled Components: A library for styling React components using tagged template literals. It allows you to write actual CSS in your JavaScript.
+    Pros:
+        * Scoped Styles: Styles are scoped to the component, preventing conflicts.
+        * Dynamic Styling: Can use props to dynamically adjust styles based on component state.
+        * Integration: Allows seamless integration with JavaScript logic.
+    Cons:
+        * Learning Curve: Can be challenging to grasp for those unfamiliar with tagged template literals.
+        * Performance: In some cases, the runtime generation of styles can impact performance.
+        * Overhead: Adds additional dependencies and can increase the bundle size. */
+/* 6. CSS Frameworks (e.g., Tailwind CSS, Bootstrap):
+    Pros:
+        * Rapid Development: Provides a wide range of utility classes and components to speed up development.
+        * Consistency: Helps maintain a consistent design system throughout the project.
+        * Responsive Design: Most frameworks are built with responsiveness in mind, making it easier to create mobile-friendly designs.
+    Cons:
+        * Overhead: Including the entire framework can add unnecessary code to your project if you're only using a small portion of it.
+        * Learning Curve: Requires learning the framework's class names and structure.
+        * Customization: Customizing the default styles can be difficult, especially if the framework's styles are too opinionated. */
+
+/* We will be dealing with External CSS in this file */
+    /* In the html you need to link this css file. All the stylings will be done in this page */
+    /* link rel = "stylesheet" href = filename.css */
+    /*  The rel attribute specifies the relationship between the current document and the linked resource. In this case, the value "stylesheet" indicates that the linked resource is a CSS file used for styling. */
+    /* Standard format in css is as follows */
+    /* selector { 
+    property: value; 
+    } */
+    /* You can have multiple selectors too like h1, h2 */
 
 /* colors */
 /* Majority of the time you wont be using the direct names of colors. We will be relying on RGB colors or hexadecimal colors */

@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @tailwind base:
+    * This directive imports Tailwind's base styles, which resets CSS default styles applied to various HTML elements.
+    * It ensures consistent styling across different browsers by resetting the default styles and setting up a clean slate for your project.
+    * For example, it sets consistent margins, paddings, and font sizes for HTML elements, overrides browser-specific styles, and applies a minimal set of default styles. */
+
+/* @tailwind components: (copy and paste the code)
+    * This directive imports Tailwind's pre-designed component styles.
+    * It includes utility classes that you can use to create commonly used UI components like buttons, forms, modals, etc., without writing custom CSS from scratch.
+    * These are styled components but still use utility-first principles, meaning you can customize them with Tailwind's utility classes. */
+
+/* @tailwind utilities: (just include the classes in your elements)
+    * This directive imports all of Tailwind's utility classes.
+    * These classes are the core of Tailwind and provide low-level utility functions for styling your application. Examples include classes like p-4 for padding, bg-blue-500 for background color, and text-center for text alignment.
+    * By placing @tailwind utilities; at the end, you ensure that the utility classes can override any conflicting styles defined in the base or components layers. */
+
+/* .postcssrc file:
+    * This file is the configuration for PostCSS, a tool for transforming CSS with JavaScript plugins.
+    * PostCSS is a powerful tool that parses CSS and applies various transformations through plugins. Tailwind CSS is integrated as a plugin in the PostCSS ecosystem.
+    * PostCSS will process your index.css file and apply the Tailwind directives to generate the final CSS that includes all the necessary styles. */
+
+/* tailwind.config.js file
+    * content: Tailwind scans the files specified in the content array for any utility classes and removes any unused classes from the final CSS build. This process is called purging. It makes our final CSS file smaller and more efficient.
+    * theme: The theme section allows you to customize the default design system that Tailwind provides. We can add our own styles that will be become part of the tailwind. 
+        Example: theme: {
+                        extend: {
+                            colors: {
+                                customGreen: '#10B981',
+                            },
+                        },
+                    }
+                Now we can use like bg-customGreen or text-customGreen, etc.
+    * plugins: This array is for adding additional Tailwind plugins that provide extra utilities or components. Tailwind has a rich ecosystem of plugins, such as forms, typography, and aspect-ratio plugins, which you can add here to extend the functionality. */

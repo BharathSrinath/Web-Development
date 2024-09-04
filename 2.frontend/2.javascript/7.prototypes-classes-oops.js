@@ -23,12 +23,16 @@
 // ------------------------------------------------------------------------------------------------------
 
 // Explanation 
-// You know that JS is an OOP language. But it can also be called as prototype-based language. Prototype is a property which itself is an object associated with every function and every other object.
-    // When you use console.dir (functionName or objectName) you can find this property.
+// JS is a prototype-based language, meaning that it doesn't have "classes" in the traditional sense that you might find in languages like Java or C++. Instead, it relies on prototypes for inheritance. 
+// In JS, every object has a prototype, which is also an object. This prototype object can have its own prototype, and so on, forming what's known as a prototype chain. When you try to access a property or method on an object, JS will first look for that property directly on the object. If it doesn't find it, it will look up the prototype chain until it finds the property or reaches the end of the chain (where the prototype is null).
+    // When you use console.dir (functionName or objectName) you can find this prototype property.
     // You can use any of the commands to access the prototype property. let obj = {};
         // Object.getPrototypeOf(obj); (or)
         // obj.__proto__; (or)
         // Array.prototype.pop = function () {...}
+    // __proto__ (Dunder proto) vs prototype: 
+        // __proto__ is what links an instance to its prototype. 
+        // prototype is what provides the blueprint for instances created by a constructor function.
     // So what does this prototype hold? 
         // The prototype is either null or a reference to another object. 
         // Prototype property under console.dir (Array) will have all the methods like slice, pop, unshift, etc.
@@ -56,6 +60,7 @@
         Persons.prototype.calculateAge= function() {
             // we are adding 'calculateAge' method to the object 'Persons'
             // This method will sit under the prototype property.
+            // So every instance of Persons object can access the calculateAge() from now.
             console.log ('The current age is: '+ (2024 - this.yearOfBirth));
         }
         const person1 = new Persons("Bharath", "Full Stack Developer", 1994); 
@@ -63,8 +68,7 @@
         const person2 = new Persons("Aravind", "Software Engineer", 1995); 
         person2.calculateAge();
 // When you try to access a property or method on an object, and it's not found in the object itself, JavaScript looks for it in the object's prototype.
-    // Look at the above example. 'calculateAge()' is not directly defined under the object itself. So JS will look under prototype property.  
-// You can access an object's prototype using the 'Object.getPrototypeOf()' method or the '__proto__' property.
+    // Look at the above example. 'calculateAge()' is not directly defined under the person1 itself. So JS will look under prototype property.  
 // So why? Why are we not defining calculateAge directly under an object? For memory efficiency. 
     // When you define a method/function directly under an object, it becomes a part of every instance of that object. Each time you create a new instance (a new variable on which the object is assigned), a new copy of that method is created for each instance. This can lead to increased memory usage, especially when you have many instances of the object
     // On the other hand, when you use prototypes to define methods, those methods are shared among all instances created from the same constructor. The method exists only once in memory, and each instance has a reference to that shared method. This results in more memory-efficient code because you avoid duplicating the method for each instance.
@@ -75,8 +79,8 @@
 let test = [1,2,3,4,5]
 test.pop();
 
-// When you call a.pop(), JavaScript does indeed first look for the pop method on the a object itself. If it doesn’t find it there (which is usually the case unless you’ve added a pop method directly to a), it then looks up the prototype chain.
-// Since a is an array, its prototype is Array.prototype, which does have a pop method. This pop method is what gets called, and it removes the last element from the array and returns it. 
+// When you call a.pop(), JavaScript does indeed first look for the pop method on the 'a' object itself. If it doesn’t find it there, it then looks up the prototype chain.
+// Since 'a' is an array, its prototype is Array.prototype, which does have a pop method. This pop method is what gets called, and it removes the last element from the array and returns it. 
 
 // IMPORTANT NOTE: KINDLY IGNORE THE FOLLOWING. LIKE DONT DEEP DIVE. JUST KNOW THAT THEY EXIST BY GOING THROUGH ONCE. SINCE ES6 WE ONLY USE CLASS BASED APPROACH (Starts from Number 4).
 

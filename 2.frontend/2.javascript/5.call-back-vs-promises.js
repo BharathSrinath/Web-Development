@@ -25,7 +25,7 @@ isRightTriangle(3, 4, 5)
 
 console.log("DONEEEE!")
 
-// call back hell
+// call back hell/Pyramid of doom
 // With above examples, we have assumed that everything will go as expected with each call back. But that may not be the case. Hence, We will always write a code for "what if a particular function doesn't work as expected during a call back?". This will result into an unavoidable nesting that may look like below. We have no of way of eliminating but there are ways where we can simplify it.
 
 const fakeRequestCallback = (url, success, failure) => {
@@ -70,15 +70,15 @@ fakeRequestCallback('books.com/page1',
 
 
 // Promise
-// It represents the eventual completion or failure of an asynchronous operation and its resulting value. It provides a way to handle asynchronous code in a more structured manner, allowing you to chain callbacks using .then() for successful outcomes and .catch() for error handling.
+// It is an object that represents an eventual completion/failure of an asynchronous operation. It provides a way to handle asynchronous code in a more structured manner, allowing you to chain callbacks using .then() for successful outcomes and .catch() for error handling.
 // How Promises Work?
     // Promise Constructor: The Promise constructor takes a single function argument called the executor function, which itself takes two arguments: resolve and reject. These are callback functions provided by the JavaScript engine.
     // Resolve and Reject: resolve is called when the asynchronous operation completes successfully, passing the result. reject is called when the operation fails, passing the error.
-// Promise in JS are objects. 
+// Promise in JS are immutable objects. 
 // They can be in one of the 3 states - 
     // Pending - It doesn't yet have a value
     // Resolved - It has successfully obtained a value
-    // Rejected - It failed obtain a value for some reason
+    // Rejected - It failed to obtain a value for some reason
 // The only way to access the resolved/rejected value is to chain a method on the end of the promise(or await it).
 // Syntax:
     // const variableName = new Promise((resolve, reject) => {
@@ -220,6 +220,7 @@ delayedColorChange2('red', 1000)
 // It is a special type of function that is designed to work with Promises and simplify asynchronous code.
 // Async functions always return a Promise. If the function returns a value, the promise will be resolved with that value. If the function throws an exception, the promise will be rejected.
     // Hence, with async we dont need a constructor called new promise()
+    // Even if you manually return a string or a number, the value will be returned after wrapping it with a promise. 
 // Any function in JS can be declared as async
 
 const login = async (username, password) => {
@@ -251,7 +252,7 @@ const delayedColorChange = (color, delay) => {
 }
 
 // Here we are neither using nesting nor using chaining. Rather we are using a special function called await
-// await cannot be used separately without async. 
+// IMPORTANT NOTE: await cannot be used separately without async. 
 // Most importantly async and await are built on top of promises which by itself is built on the concept of callbacks but providing a cleaner, more structured approach. 
 // async-await are mere sure syntactic sugar that makes the code more readable.
 async function rainbow() {
@@ -306,9 +307,87 @@ async function makeTwoRequests() {
 }
 makeTwoRequests();
 
-//promise.all() method
-// It takes an array of promises and returns a single promise. 
-// This returned promise fulfills when all the promises in the array have fulfilled, or it rejects if any of the promises reject. 
+// promise with .then vs async-await
+// Example:
+
+const p = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log("Promise resolved value");
+    },10000)
+});
+
+// using async-await
+async function handlePromise(){
+    const val = await p;
+    // Here we are awaiting promise. Without resolving the above line, the control will not move to the next line.
+    // Hence both "Namaste JS" and  "Promise resolved value" will be printed at the same time after 10s.
+    console.log("Namaste JS!");
+    console.log(val);
+}
+handlePromise();
+
+// using promise with .then
+function getData(){
+    p.then(res => console.log(res));
+    // Here "Namaste JS!" will be printed immediate;y without waiting for the promise to resolve.
+    // After 10 seconds "Promise resolved value" will be printed.
+    // That is JS Engine doesn't wait for the promise to be resolved
+    console.log("Namaste JS!")
+}
+
+// async-await - behind the scenes
+// Example 1:
+
+    const p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Promise resolved value 1");
+        },10000)
+    });
+
+    const p2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Promise resolved value 2");
+        },5000)
+    });
+
+    async function handlePromise(){
+        const val1 = await p1;
+        console.log("Namaste JS 1!");
+        console.log(val1);
+
+        const val2 = await p2;
+        console.log("Namaste JS 2!");
+        console.log(val2);
+    }
+    handlePromise();
+// Here we have 2 await with in a single function. We haven't learned this before. So pay attention!
+// Execution cotext is created
+// variables and functions are assigned a value in the Variable Environment
+// Now under code component, 
+    // Two promises p1 and p2 are created
+        // At this point, both p1 and p2 are in the "pending" state, and the setTimeout callbacks are registered in the browser's Web API environment.
+    // The handlePromise() function is called and pushed onto the call stack with a newly created execution context.
+    // When await is encountered, JS Engine checks whether the promise is resolved or not.
+    // Since p1 is pending, handlePromise() is suspended and removed from the call stack.
+    // The engine continues executing other tasks in the event loop (if available).
+    // After 5,000ms, the setTimeout for p2 triggers first and the callback inside setTimeout for p2 moves to the task queue.
+    // The call stack is empty, so the event loop picks up this callback and pushes it onto the call stack.
+    // The callback executes, resolving p2 with "Promise resolved value 2" and now p2 is resolved.
+    // After 10,000ms, the setTimeout for p1 triggers.
+    // The callback inside setTimeout for p1 moves to the task queue. Again, the event loop picks this callback and pushes it onto the call stack.
+    // The callback executes, resolving p1 with "Promise resolved value 1" and now p1 is resolved.
+    // Once p1 is resolved, the promise returned by await p1 is fulfilled, and handlePromise will again be pushed back to the call-stack and continues its execution (from where it left previously).
+    // "Namaste JS 1!" is logged to the console.
+    // The value of val1, which is "Promise resolved value 1", is logged to the console.
+    // Now, it again encounters await. Now when it checks for the promise, it sees that the promise is resolved already. Hence no suspension takes place.
+    // "Namaste JS 2!" is logged to the console.
+    // The value of val2, which is "Promise resolved value 2", is logged to the console.
+    // handlePromise finishes execution and is removed from the call stack.
+
+// Promise.all() method
+// It takes an iterable (mostly array) of promises and returns a single promise. 
+// This returned promise fulfills when all the promises in the array have fulfilled, or it rejects if any of the promises reject. Remember this, as soon as any one of the promise got rejected, it will not even wait for the result of others. promise.all will immediately throw a rejection error.
+    // Lets say you have different promises making different API requests. Now one has failed and hence promise.all() is rejected. Now what happens to the API calls made by the other promises? Will they be cancelled? No. Those promises still complete their execution in the background. But Promise.all() just stops caring about their results after the first rejection. 
 // It is a powerful tool for managing multiple asynchronous operations concurrently.
 // Disadvantage: If any of the input promises is rejected, the returned promise immediately rejects with the reason of the first promise that rejects. This means that if multiple promises fail, you only get information about the first one that fails, making it difficult to determine which specific operation(s) failed.
     // To overcome this, we can use Promise.allSettled, which was introduced in ECMAScript 2020. This method returns a promise that resolves after all of the given promises have either resolved or rejected, and it provides an array of objects describing the outcome of each promise.
@@ -334,7 +413,7 @@ async function getLotsOfPokemon() {
     }
 }
   
-//promise.allSettled() method
+// Promise.allSettled() method
 // Example: 
 
 async function allSettledDemo() {
@@ -361,9 +440,10 @@ async function allSettledDemo() {
     console.log(rejected);
   }
   
-//promise.race method
+// Promise.race method
 // It also accepts array of promises and returns a new promise
 // The returned promise will resolve/reject as soon as any one promise in the arary is resolved/rejected.
+// That is the fastest promise which will be settled (resolved/rejected) will be the result. 
 
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon";
 
@@ -382,8 +462,11 @@ Promise.race(lotsOfFetchCalls2)
   })
   .catch((err) => console.log(err));
 
+// Promise.any method:
+// Similar to race. The only difference is it will return the first promise that is resolved (unlike race with returns the first promise that is settled)
+// If all of them fails, it will return an aggregated error. (Error of all the promises)
 
-// So you understand that async functions returns a promise. But can you tell me what are the situations where need to create a instance of a promise like "new promise((res, rej) => {.....})? 
+// So you understand that async functions returns a promise. But can you tell me what are the situations where you need to create a instance of a promise like "new promise((res, rej) => {.....})? 
     // 1. All modern day codes are async. So we need a new instance when we want synchronous code to return a promise. We can achieve that as above (initial examples of promise).
     // Example: 
         function synchronousFunction() {
