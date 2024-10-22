@@ -279,7 +279,7 @@ printRainbow();
 // Before that lets try and understand the difference between 'try and catch' vs '.then and .catch'
     // try and catch: They are used with regular functions and blocks of code. It can be used in any function, whether synchronous or asynchronous, to capture and handle exceptions.
     // .then and .catch: They are methods provided by Promises. They are used with functions that return Promises, typically in asynchronous operations.
-// To put it simply, try and catch can be used with any block of code whereas .them and .catch can be used only with functions that return promises. 
+// To put it simply, try and catch can be used with any block of code whereas .then and .catch can be used only with functions that return promises. 
 
 const fakeRequest = (url) => {
     return new Promise((resolve, reject) => {
@@ -514,3 +514,17 @@ Promise.race(lotsOfFetchCalls2)
         promiseWrapper();
 // Conclusion? In general, using new Promise is more common when you need to integrate non-promise-based code into a promise-based environment or when dealing with legacy APIs. In most cases, you can use the async keyword and create asynchronous functions that implicitly return promises, which simplifies the syntax and improves code readability.
     
+// Debouncing
+// Debouncing is a technique used in programming to limit the rate at which a function is executed. In React.js, debouncing is commonly applied to events such as user input, scrolling, or resizing to improve performance and avoid unnecessary re-renders or API calls.
+// Debouncing ensures that a function is executed only after a specified delay period has passed since the last time it was invoked. This is useful for events that may fire frequently in a short amount of time, such as typing in a search bar or resizing a window.
+// Example: (youtube-clone)
+    // useEffect(() => {
+    //     const timer = setTimeout(() => getSearchSuggestions(), 200);
+    //          return () => clearTimeout(timer);
+    //   }, [searchQuery]);
+
+    //   const getSearchSuggestions = async () => {
+    //     const suggestionData = await fetch(YOUTUBE_SUGGESTIONS_API + searchQuery);
+    //     const jsonSuggestionData = await suggestionData.json();
+    //     setSuggestions(jsonSuggestionData[1]);
+    //   };

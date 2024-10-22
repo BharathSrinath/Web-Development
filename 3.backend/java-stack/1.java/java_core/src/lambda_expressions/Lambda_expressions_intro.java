@@ -140,10 +140,9 @@ public class Lambda_expressions_intro {
 //        We know that for generics we don't explicitly mention the return type. I mean that is 
 //        why they are called as generics in the first place. Also we know that for LE, parameters
 //        type and the return type of the function are obtained through the interface. But when 
-//        interface's SAM is generic in nature there is nothing can be inferred. But even the
-//        Java can infer based on the values we pass. When we pass 2, then it is Integer (generics)
-//        cannot have primitives but LE can have 2.5 means float and so on. When two integers are
-//        added then the return type is obviously an Integer. This is how it Java infers the type.
+//        interface's SAM is generic in nature there is nothing that can be inferred. But even 
+//        then Java can infer based on the values we pass. When two integers are added then the 
+//        return type is obviously an Integer. This is how Java infers the type.
         var result3 = calculator(
                 (a, b) -> a.toUpperCase() + " " + b.toUpperCase(),
                 "Ralph", "Kramden");
@@ -157,7 +156,7 @@ public class Lambda_expressions_intro {
 	}
 
 //	calculator() takes 3 arguments. First is an interface, 2 and 3 are values.
-//	This interface is an FI with SAM which will be over-ridden by the LE that has been pased 
+//	This interface is a FI with SAM which will be over-ridden by the LE that has been passed 
 	public static <T> T calculator(Operation<T> function, T value1, T value2) {
 
         T result = function.operate(value1, value2);

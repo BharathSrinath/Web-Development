@@ -3,7 +3,7 @@ package basics;
 public class Data_types {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		byte class_attendance_num = 21;
 		long exam_roll_num = 34641654135L;
 		String name = "Bharath";

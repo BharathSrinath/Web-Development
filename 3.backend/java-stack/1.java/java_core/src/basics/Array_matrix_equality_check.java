@@ -31,23 +31,17 @@ public class Array_matrix_equality_check {
         
         input.close();
         
-        int count = 0;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 if (matrix1[i][j] == matrix2[i][j]) {
-                	count++;
+                    continue;
                 } else {
                 	System.out.println("Matrices are NOT equal");
                 	return;
                 }
             }
         }
-        if (count == rows*columns) {
-        	System.out.println("Matrices ae equal");
-        } else {
-        	System.out.println("Matrices are NOT equal");
-        }
-
+        System.out.println("Matrices ae equal");
 	}
 
 }

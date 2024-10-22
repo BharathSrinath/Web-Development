@@ -30,8 +30,8 @@ app.get('/error', (req, res, next) => {
     chicken.fly();
     // We dont have anything called chicken in our page. So we get a message in the web page as "chicken is not defined"
     // This is because of the error handler middleware at the last. But even if we didn't have that error handler we will get that message + stack trace due to the default error handling mechanism of the Express.js which catches the unhandled errors and sends a response with the error message.
-    // Now we wont get the stack trace printed because we have of the error handler which displays the error message alone.
-    // Not only the unpexcted errors, you can even use this for expected errors like invalid login credentials. But to have a customised error message like that, we will make use of a class (we called it AppError) that extends 'Error'.
+    // Now we wont get the stack trace printed because we have the error handler which displays the error message alone.
+    // Not only the unexpected errors, you can even use this for expected errors like invalid login credentials. But to have a customised error message like that, we will make use of a class (we called it AppError) that extends 'Error'.
     // This class is used to set the values to the properties like message and status and then the control moves to the error handling middleware. 
 })
 
@@ -59,6 +59,7 @@ app.use((req, res) => {
 
 // Error-handling middleware
 app.use((err, req, res, next) => {
+    console.log(err);
     const { status = 500, message = 'Something Went Wrong' } = err;
     res.status(status).send(message)
 })

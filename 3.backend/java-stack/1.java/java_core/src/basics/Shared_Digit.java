@@ -28,7 +28,7 @@ public class Shared_Digit {
         for (int i = 0; i < arrayA.length; i++){
             for (int j = 0; j < arrayB.length; j++){
                 if (arrayA[i] == arrayB[j]){
-                	System.out.println(arrayA[i] +" has a shared digit");
+                	System.out.println("They have a shared digit: "+arrayA[i]);
                     return true;
                 }
             }
@@ -52,9 +52,6 @@ public class Shared_Digit {
             number /= 10;
         }
         
-        for (int i = 0; i < array_size; i++) {
-        	System.out.print(array[i]);
-        }
         return array;
     }
 

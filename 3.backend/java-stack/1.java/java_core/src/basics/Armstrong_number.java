@@ -25,14 +25,15 @@ public class Armstrong_number {
         }
         
         m = n1;
-        int cube_digit = 1;
+//        int cube_digit = 1;
         while(m > 0){
             digit = m % 10;
-            for (int i = 0; i < digitCount; i++){
-                cube_digit *= digit;     
-            }
-            sum += cube_digit;
-            cube_digit = 1;
+//            for (int i = 0; i < digitCount; i++){
+//                cube_digit *= digit;     
+//            }
+//            sum += cube_digit;
+//            cube_digit = 1;
+            sum += Math.pow(digit, digitCount);
             m /= 10;
         }
 		

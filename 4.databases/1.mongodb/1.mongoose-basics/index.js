@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-// Hope You know what the above love line does.
+// Hope You know what the above line does.
 
 mongoose.connect('mongodb://localhost:27017/movieApp')
 // Here we are setting up a connection to a MongoDB database.
 // movieApp is the name of the database we are connecting to.
-// .connect() returns a promise. Hence we are using that to our advantage. If connection is successful we will display the message with .then(), if not we will display error message with .catch()
+// .connect() returns a promise.
     .then(() => {
         console.log("CONNECTION OPEN!!!")
     })
@@ -22,7 +22,7 @@ const movieSchema = new mongoose.Schema({
     rating: String
 });
 
-// The permitted SchemaTypes:
+// Permitted SchemaTypes:
 // ---------------------------------------------------------
 // | Property     | Values                                 |
 // |--------------|----------------------------------------|

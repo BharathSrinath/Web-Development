@@ -2,14 +2,13 @@ package oops;
 
 import java.util.Scanner;
 
-public class Polymorphism_employee_marketting 
-extends Polymorphism_employee_Employee {
-	
-	Polymorphism_employee_marketting(Scanner input) {
-		super(input);
-	}
+public class Polymorphism_employee_marketting extends Polymorphism_employee_Employee {
 
-	double salesIncentives;
+    Polymorphism_employee_marketting(Scanner input) {
+        super(input);
+    }
+
+    double salesIncentives;
 
     @Override
     void inputDetails() {
@@ -20,14 +19,14 @@ extends Polymorphism_employee_Employee {
 
     @Override
     double calculateNetPay() {
-        return super.calculateNetPay() + 
-        		salesIncentives;
+        return super.calculateNetPay() +
+                salesIncentives;
     }
 
     @Override
     void displayDetails() {
         super.displayDetails();
-        System.out.println("Sales Incentives: " + 
-        salesIncentives);
+        System.out.println("Sales Incentives: " +
+                salesIncentives);
     }
 }

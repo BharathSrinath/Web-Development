@@ -49,9 +49,9 @@ public class Array_Remove_duplicates {
 }
 
 // Simple code for finding duplicates. Above method will remove all the occurrences of a duplicate. 	
-	// For an example, int[] a = {1,2,2,1,5}, output will just be 3. 
+	// For an example, int[] a = {1,2,2,1,5}, output will just be 5. 
 // for (int i = 0; i < size; i++) {
-//int c = 1;
+//	int c = 1;
 //	for (int j = i + 1; j < size; j++) {
 //		if (array[i] == array[j]) {
 //			c++;

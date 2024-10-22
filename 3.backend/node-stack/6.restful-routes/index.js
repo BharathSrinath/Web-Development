@@ -10,25 +10,6 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-// For every post request that we send, we need to specify how do we need to parse the data. 
-// Remember that, data that we send are just treated as mere text. When we console.log(req.body), we will just see 'undefined' by default. 
-// In order to use this data effectively, we need to parse it into a format that our application can understand.
-    // 1. JSON: To parse JSON data from the request body. 
-        // express.json()
-    // 2. URL-encoded: To parse data from the request body when the Content-Type is application/x-www-form-urlencoded. 
-        // express.urlencoded()
-    // 3. Text: To parse text data from the request body. 
-        // bodyParser.text()
-    // 4. Raw: To parse data from the request body without any specific encoding.  
-        // bodyParser.raw()
-    // 5. Multipart/Form-data: To parse multipart/form-data from the request body, which is primarily used for uploading files. We can use multer middleware for this.
-
-
-// To 'fake' put/patch/delete requests: 
-// HTML forms allows only GET and POST request. So to trick that we have to install and import a libray called method-override (npm install method-override).
-// Now in HTML form will still use method = POST (Don't forget that put/patch/delete always uses POST)
-// But action attribute will be appended as a query string - "?_method=PUT" or "?_method=PATCH" or "?_method=DELETE"
-// Example: <form method="POST" action="/comments/<%=comment.id%>?_method=PATCH">
 app.use(methodOverride('_method'))
 
 // Views folder and EJS setup:
@@ -60,14 +41,17 @@ let comments = [
 ]
 
 // Based on the logic in index.ejs, all the comments will be obtained from the database (our fake database) 
+
+// ********************************************
+// READ - List of Existing comments
+// ********************************************
 app.get('/comments', (req, res) => {
     res.render('comments/index', { comments });
 })
+
 // ********************************************
 // READ - Read the new data entered by the user
 // ********************************************
-
-// When a user wants to make new comment,  they have to enter those details in some input field right? (we are using a form rather than a single input field in new.ejs). It is from this new.ejs file, we will get the data that the user has entered and send it to the server using a post request. 
 app.get('/comments/new', (req, res) => {
     res.render('comments/new');
 })
@@ -75,7 +59,6 @@ app.get('/comments/new', (req, res) => {
 // *******************************************
 // CREATE - Post the new data to the server
 // *******************************************
-
 // Creating the the data on the server which is obtained from above get request
 app.post('/comments', (req, res) => {
     const { username, comment } = req.body;
@@ -97,6 +80,7 @@ app.get('/comments/:id', (req, res) => {
     const comment = comments.find(c => c.id === id);
     res.render('comments/show', { comment })
 })
+
 // *******************************************
 // EDIT - renders a form to edit a comment
 // *******************************************
@@ -105,6 +89,7 @@ app.get('/comments/:id/edit', (req, res) => {
     const comment = comments.find(c => c.id === id);
     res.render('comments/edit', { comment })
 })
+
 // *******************************************
 // UPDATE - updates a particular comment
 // *******************************************
@@ -143,7 +128,6 @@ app.post('/tacos', (req, res) => {
 app.listen(3000, () => {
     console.log("ON PORT 3000!")
 })
-
 
 // Note: Many requests here that renders the form element will not be required in real use case scenario. We will be using axios/postman/fetch from where the request will arrive rather the from form submission. 
 

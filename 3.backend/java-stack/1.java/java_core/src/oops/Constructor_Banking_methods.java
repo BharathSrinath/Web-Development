@@ -7,7 +7,6 @@ public class Constructor_Banking_methods {
 	public Constructor_Banking_methods (int balance) {
 		this.balance = balance;
 	}
-
 	
 	int deposit (int add) {
 		balance += add;

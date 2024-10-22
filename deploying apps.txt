@@ -1,0 +1,17 @@
+# Firebase:
+1. Create your project
+2. Select web option from your console
+3. Setup your app by giving it a name and copy the config details to your vscode
+4. Install the following from your project folder using vscode
+	a) npm i -g firebase-tools (only once in a system)
+	b) firebase login
+	c) firebase init
+		i) configure files for firebase hosting and (optionally) setup github action deploys
+		ii) use an existing project and select the project from the list shown
+		iii) what do you want to use as your public directory? build
+(answer depends on bundler - For create-react-app it is "build")
+		iv) configure as a single-page app (rewrite all urls to /index.html)? yes (for single page applications)
+		v) set up automatic build and deploys with github? no (if you select yes it will automatically deploy the changes once have pushed your code to github. no means we have to deploy manually everytime after we make changes and push to the git using the command "firebase deploy")
+		vi) npm build 
+		vii) firebase deploy
+5. For authentication whenever you are copy pasting the code from docs make sure to move getAuth() to firebaseConfig file and import it from there. For some reason only this works. When you directly use it as given in the docs it is not working.

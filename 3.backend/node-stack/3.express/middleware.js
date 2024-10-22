@@ -47,6 +47,11 @@ app.get('/', (req, res) => {
     res.send('HOME PAGE!')
 })
 
+// app.get('/donothing', (req, res) => {
+//     console.log("Server will not respond")
+// })
+    // When you dont send any response back, the request will be in sending process until it hits a timeout. 
+
 app.get('/dogs', (req, res) => {
     console.log(`REQUEST DATE: ${req.requestTime}`)
     res.send('WOOF WOOF!')

@@ -4,7 +4,7 @@ public class Sum_of_prime_numbers {
 
 	public static void main(String[] args) {
 		
-        int count, input = 20;
+        int count, input = 10, sum = 0;
         
         System.out.println("Prime Numbers from 1 to "+input+":");
         
@@ -20,11 +20,10 @@ public class Sum_of_prime_numbers {
             }
             
             if (count == 0 && n != 1) {
-            	 System.out.println(n);
+                sum += n;
             }
         }
-        
-       
+        System.out.println(sum);
 	}
 	
 }

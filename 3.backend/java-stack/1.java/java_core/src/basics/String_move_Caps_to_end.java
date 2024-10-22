@@ -24,7 +24,7 @@ public class String_move_Caps_to_end {
 				lower += word.charAt(i);
 			}
 		}
-// Note: We will hardly use the predefined functions in  interview.
+// Note: We will hardly use the predefined functions in interview.
 		String result = lower + upper;
 		System.out.print("Final output is: " + result);
 

@@ -15,8 +15,7 @@ public class Palindrome_Number {
 		long divisor = 1;
 		//	Changed from int to long (You forgot that divisor value is also getting multiplied 
 		//	by 10 within the loop). Hence an integer cannot hold such a big number.
-		//	error faced: Exception in thread "main" java.lang.ArithmeticException: / by zero at 
-		//	basics.Palindrome_Number.main(Palindrome_Number.java:26)
+		//	error faced: Exception in thread "main" java.lang.ArithmeticException: / by zero
 			//	This error has occurred because, memory that is beyond the size of an integer 
 			//	had some garbage values which resulted in the value of divisor = 0 at some point of time.
 		int count = 0;;

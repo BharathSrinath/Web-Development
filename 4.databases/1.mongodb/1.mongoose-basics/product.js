@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 mongoose.connect('mongodb://localhost:27017/shopApp')
     .then(() => {
         console.log("CONNECTION OPEN!!!")
@@ -82,7 +83,6 @@ productSchema.statics.fireSale = function () {
 
 const Product = mongoose.model('Product', productSchema);
 
-
 const findProduct = async () => {
     const foundProduct = await Product.findOne({ name: 'Mountain Bike' });
     console.log(foundProduct)
@@ -121,5 +121,5 @@ const findProduct = async () => {
 
 // { new: true, runValidators: true }
     // 'new: true' means that once we update, the new updated value will be returned.
-    // 'runValidators: true': When we create a new instance, validation is automatic. But when it is being updated we need to tell it explcitly.  
+    // 'runValidators: true': When we create a new instance, validation is automatic. But when it is being updated we need to tell it explicitly.  
 

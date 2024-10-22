@@ -48,19 +48,3 @@ app.get('/verifyfruit', (req, res) => {
 app.listen(3000, () => {
     console.log("SERVING!")
 })
-
-// cookies
-    // They are small pieces of data that websites store on a user's browser. 
-    // They are used to remember information about the user, such as login credentials, site preferences, or shopping cart items.
-// Types of cookies:
-    // 1. Normal cookies: 
-        // These are standard cookies that are sent back and forth between the browser and the server with every HTTP request.
-        // They are not encrypted or signed, making them susceptible to tampering.
-            // Examples: Remembering user preferences (dark theme) or tracking user sessions.
-    // 2. Signed cookies:
-        // These are similar to normal cookies but include a cryptographic signature, making them more secure.
-        // The signature ensures that the cookie has not been tampered with.
-        // They are often used for sensitive data like user authentication tokens.
-// cookie-parser: 
-    // It is a middleware for Express.js that parses cookies attached to the client's request and makes them available in the req.cookies object for easier access and manipulation.
-    // We have to use app.use(cookieParser()) before defining your routes, so that cookies are parsed before reaching your route handlers.

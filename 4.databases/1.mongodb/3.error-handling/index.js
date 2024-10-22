@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override')
 const AppError = require('./AppError');
 
-
 const Product = require('./models/product');
 
 mongoose.connect('mongodb://localhost:27017/farmStand2')
@@ -27,11 +26,11 @@ app.use(methodOverride('_method'))
 const categories = ['fruit', 'vegetable', 'dairy'];
 
 // 2. Error handling for asynchronous functions
-// For async function, we handle error using try-catch block. So under every route where we have used async call backs we can simply use try-catch.
+// For async function, we handle error using try-catch block.
 // But when you look at the separation of concerns principle, that code will look a lot messier. The job of a particular route should be to render/send a response based on which route is accessed rather than handling an error. 
 // To overcome this we wrap the async() into another function (Conventionally called as wrapAsync).
 // So when you reach a particular middleware, the first execution happens in wrapAsync. Think of it like a BODMAS principle. The function call within the paranthesis gets executed first. Now wrapAsync will return a normal function which wraps the asycn function call. 
-// Now when a route is accessed, the normal function will called. 
+// Now when a route is accessed, the normal function will be called. 
     // Mind you async function is a function call and not a function declaration. 
     // When normal function is called, the async function is executed.
     // For better clarity, this is the order of operation
@@ -49,6 +48,9 @@ const categories = ['fruit', 'vegetable', 'dairy'];
     // When you return a function from wrapAsync, you ensure that this returned function conforms to the middleware signature (req, res, next):
     // The above code attempts to execute fn immediately, which is not what we want. fn should be executed only when the route is accessed, not when wrapAsync is defined.
     // So when you simply return fn(req, res, next), the resultant value will be a promise that is certainly not going to match the signature. But on the other hand when you place it under a function(req, res, next), it matches the signature.
+// The wrapAsync function is typically used to streamline error handling for asynchronous operations in MongoDB API development. It allows you to avoid repeating try-catch blocks by catching any errors that occur in async functions and passing them to a centralized error handler (like next(err) in Express).
+// However, if you need to handle errors for specific use cases (e.g., handling a specific database error or validation failure differently), you can still include individual catch blocks to address those cases before passing the error along to the general handler. This approach gives you flexibility for both general and specific error handling.
+
 function wrapAsync(fn) {
     return function (req, res, next) {
         fn(req, res, next).catch(e => next(e))

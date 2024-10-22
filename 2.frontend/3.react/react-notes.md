@@ -745,14 +745,27 @@ Kindly refer - https://reactrouter.com/en/main
             # It returns an instance called 'RemixRouter' which is passed as prop to RouterProvider.   
         # RouterProvider:
             # It accepts the 'RemixRouter' instance and based on that it returns a router instance to our react application. 
-            # At the backend, RouterProvider uses React’s Context API to pass routing information down the component tree.
+            # Internally, RouterProvider uses React’s Context API to pass routing information down the component tree.
                 # You have studied about useContext hook right? It also uses Context API under the hood. So RouterProvider acts similar to useConext hook. 
                     # useContext: This hook is used within a component to access the value from a context that has been provided higher up in the component tree. It allows any child component to consume the context value directly.
                     # RouterProvider: This component sets up the routing context for your application. It makes the router instance available to all child components, enabling them to access routing information and perform navigation.
         # Link: The Link component is used to create navigational links in your application. It works similarly to the HTML <a> tag but prevents the page from reloading, enabling client-side navigation. Instead of href in anchor tag we have 'to' in Link.
         # Outlet: An <Outlet> should be used in parent route elements to render their child route elements. This allows nested UI to show up when child routes are rendered. If the parent route matched exactly, it will render a child index route or nothing if there is no index route.
         # Important hooks: useParams, useNavigate, useRouteError, etc.
-            # useParams: It returns an object of key/value pairs of the dynamic params from the current URL that were matched by the <Route path>. Child routes inherit all params from their parent routes.
+            # useParams:   
+                # It extracts dynamic route parameters from the URL path.
+                # It returns an object where the keys are the names of the parameters and the values are the actual values from the URL.
+                # Example: When your route includes path variables, such as /user/:id, useParams helps retrieve the value of id.
+                    #  const { id } = useParams();
+            # useSearchParams:
+                # It works with the query string (the part of the URL after the ?), and helps in reading and updating URL search parameters.
+                # It returns an array of of 2 elements.
+                    # First element: A URLSearchParams object that allows you to read the current query string values.
+                    # Second element: A function to update the search params.
+                # Example: When you need to manage URL query parameters, such as /search?query=react, useSearchParams allows you to read and manipulate them.
+                    # const [searchParams, setSearchParams] = useSearchParams();
+                      const query = searchParams.get('q');
+                    # The string that is used inside get method differents from website to website.
             # useNavigate: It returns the current type of navigation or how the user came to the current page; either via a pop, push, or replace action on the history stack.
             # useRouteError: Inside of an errorElement, this hook returns anything thrown during an action, loader, or rendering. 
     # NOTE: You have to pass the RouterProvider to the render method from now on and not the App component.
@@ -965,12 +978,47 @@ Kindly refer - https://reactrouter.com/en/main
     # Example: 
         prepare(title, content) {
             return {
-            payload: {
-                id: nanoid(), 
-                title: title,
-                content: content
-            }
-        };
+                payload: {
+                    id: nanoid(), 
+                    title: title,
+                    content: content
+                }
+            };
+        }
+# Redux persist:
+    # redux-persist is a package that saves the Redux state to a storage engine (like localStorage or sessionStorage) and restores that state when the app reloads.
+    # This ensures that the Redux store data remains available even after a page refresh or a browser close/reopen cycle.
+    # Why do we need this? Normally, the Redux store is ephemeral, meaning that its state is reset when the browser is refreshed or closed. In scenarios where we need the app state to persist across sessions redux-persist provides a convenient and automatic solution.
+        # Examples:
+            1. User authentication state
+            2. Application settings (theme preference)
+            3. Form data or partial inputs
+    # Installation: npm i redux-persist
+    # Working: 
+        #  When a change occurs in the Redux store, redux-persist automatically saves the state to the chosen storage engine (localStorage, sessionStorage, etc.)
+        # When the application reloads, redux-persist will automatically load (rehydrate) the saved state from storage back into the Redux store. This process occurs before the app renders, ensuring the state is restored before any UI interaction.
+    # Core Concepts of redux-persist:
+        # Storage Engine: It supports various storage engines, but typically localStorage or sessionStorage are used for web apps.
+            # localStorage: Data persists even after the browser is closed and reopened.
+            # sessionStorage: Data persists only for the duration of the browser session. Once the browser is closed, the data is cleared.
+        # Configuration (persistConfig): It is an object that defines how the store should be persisted. It contains properties like,
+            # key: A unique key that identifies the persisted data in storage.
+            # storage: The storage engine 
+            # whitelist (optional): List of reducers that should be persisted.
+            # blacklist (optional): List of reducers that should not be persisted.
+        # persistReducer: A function that wraps your root reducer, allowing it to interact with redux-persist. This modified reducer knows how to persist and rehydrate its state.
+            const persistedReducer = persistReducer(persistConfig, rootReducer);
+        # PersistGate: A React component from redux-persist that ensures our app waits for the persisted state to rehydrate before rendering. Without this, the UI might flash an incorrect state before the rehydration completes. Persistagate will wrap the App/Body and the Provider will wrap all of them. 
+            <PersistGate loading={null} persistor={persistor}>
+                <App />
+            </PersistGate>
+        # persistStore: This function creates the persistor object, which manages the persistence and rehydration process.
+            const persistor = persistStore(store);
+        # persistor.purge(); 
+            # When we want to clear the data from the storage we have to call this function.
+            # But it wipes out everything. But just know that there are ways for selective removal. 
+            # One common methodology is using blacklist or whitelist with redux-persist. It doesnt involve in removal. Rather we decide which parts of our state are persisted using blacklist (to exclude slices) or whitelist (to include only specific slices) in the persistConfig.
+    # Refer Netflix clone project to know how it is implemented.
 # Redux Middleware:
     # Middleware in Redux is essentially a way to enhance or modify the behavior of Redux's dispatch function. When an action is dispatched, it travels through the middleware chain before reaching the reducers. Middleware can inspect, modify, delay, or even halt the action.
     # Redux store doesn't know anything about async logic. It only knows how to synchronously dispatch actions, update the state and notify the UI that something has changed. Any asynchronicity has to happen outside the store.
@@ -1161,7 +1209,6 @@ It takes a single configuration object as its argument and generates a set of Re
     7. refetchOnFocus and refetchOnReconnect (Optional)
         # Type: boolean
         # Purpose: Controls whether queries should be refetched when the browser window regains focus or when the device reconnects to the network. Default value is false.
-        
 When you call createApi, it returns an object that includes various properties and methods you can use to interact with your API service.
     # 1. reducerPath: The key where the API’s reducer will be stored in the Redux state.
     # 2. reducer: It is generated by createApi that we need to add to your Redux store. This reducer manages the state of all queries and mutations defined in the API service.
@@ -1254,7 +1301,6 @@ Syntax:
     });
 
     export default api;
-
 Export all of the automatically generated hooks. Now that we have defined our Api, this needs to be connected to the store. We also know that slice is automatically created and slice will have a combined reducer. This combined reducer is used to connect to the reducers under configurstore. 
 # Custom middlware property:
     # Unlike redux-thunk (default middleware) that is automatically created and inherently part of the store, custom middleware is automatically generated by the RTK Query based on the configuration of createApi but must be manually added to the store.

@@ -3,6 +3,7 @@ import { MyForm } from './MyForm';
 import { UserData1, UserData2, ImageData } from './Userdata'; 
 import './MyForm.css'
 import BootStrapExample from './BootStrapExample';
+import ReactHookForm from './ReactHookForm';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <UserData2/>
       <ImageData/>
       <BootStrapExample/>
+      <ReactHookForm/>
     </div>
   );
 }

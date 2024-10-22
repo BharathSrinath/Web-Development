@@ -10,10 +10,5 @@ public class Swap_variables_methods {
 		swapped_b = temp;
 		System.out.print("Swapped variables\na: " +swapped_a+ " "
 				+ "and b: "+swapped_b);
-	//	limitations faced as of now:
-		// 1. Don't know how to return 2 values from a method. So not able to print the updated values in main method.
-		// 2. Even if you find a way to do that, i am not sure whether the values will be updated due to the concept called
-			// pass by value vs pass by reference
 	}
-
 }

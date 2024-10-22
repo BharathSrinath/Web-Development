@@ -19,10 +19,7 @@ public class Polymorphism_movies_Main {
           }
           System.out.print("Enter Movie Title: ");
           String title = s.nextLine();
-//          We are not creating an object here. Because getMovie is a static method.
-//          Hence we can directly call that. We are storing the result in a variable
-//          which is of type "Polymorphism_movies_Movie". Because switch case returns
-//          an object in our code.
+
           Polymorphism_movies_Movie movie = 
         		  Polymorphism_movies_Movie.getMovie(type, title);
           movie.watchMovie();

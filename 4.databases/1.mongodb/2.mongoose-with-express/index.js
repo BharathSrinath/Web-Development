@@ -4,10 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
 
-
 const Product = require('./models/product');
-// So far we have had models defined in index.js file. But lets be practical. In any project that we will be working in the future, it won't be the case. So we are defining it in a separate file placed under a folder named 'models' and importing it to index.js.
-// Also, we have another file called seeds.js that contains the initial data with which we will be working. 
 
 mongoose.connect('mongodb://localhost:27017/farmStand')
     .then(() => {
@@ -45,15 +42,15 @@ app.get('/products', async (req, res) => {
 // We are rendering the product page in both occassions. 
     // When the category is All, '/products' is rendered 
     // When the category is fruit, '/products?category=fruit' will be rendered 
-// You can think is as a filter. So which condition will be executed will depend on from where the request comes.
-    // When teh request from the anchor tag of category type under show.ejs, then the information regarding category will be available. So the if condition will be satisfied.
-    // If it comes from anywhere else (directly typing '/products' in the url or clicking all products anchor under show,ejs), category will be null/undefined. 
+// You can think of it like a filter. So which condition will be executed will depend on from where the request comes.
+    // When the request from the anchor tag of category type under show.ejs, then the information regarding category will be available. So the if condition will be satisfied.
+    // If it comes from anywhere else (directly typing '/products' in the url or clicking all products anchor under show.ejs), category will be null/undefined. 
  
 
 app.get('/products/new', (req, res) => {
     res.render('products/new', { categories })
 })
-// For some of the routes, the order really matters. '/products/new' cannot come after '/products/:id'. Becuase from '/products/:id' when a new request is made, express matches the pattern and it will treat whatever that comes after products/ as id. Hence you will see an error that there is no id called 'new'.
+// For some of the routes, the order really matters. '/products/new' cannot come after '/products/:id'. Becuase from '/products/:id' when a new request is made, express matches the pattern and it will treat whatever that comes after 'products/' as id. Hence you will see an error that there is no id called 'new'.
 
 app.post('/products', async (req, res) => {
     const {name, price, category} = req.body;
@@ -63,7 +60,7 @@ app.post('/products', async (req, res) => {
     res.redirect(`/products/${newProduct._id}`)
     // This line of code is very important. Why res.redirect or why not res.render?
     // res.render mean you are still in the same url (/products). Now whenever you reload the page you new post request will be sent which will add the products again and again. 
-    // To overcome this, after submitting we have redirect to a different url.
+    // To overcome this, after submitting we have to redirect to a different url.
         // Examples that you might have seen in real life: form submission - redirects to a page with message, "thanks for submitting the form"   
     // For all the post requests (put, patch, delete, etc.), we will redirect
 })

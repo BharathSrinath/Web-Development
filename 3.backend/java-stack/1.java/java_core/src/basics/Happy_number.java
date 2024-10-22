@@ -3,6 +3,7 @@ package basics;
 import java.util.Scanner;
 
 public class Happy_number {
+// Happy number is a number whose sum of the square of the digits = 1 where the summation is carried out until the number is reduced to a single digit.
 
 	public static void main(String[] args) {
 		

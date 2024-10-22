@@ -1073,6 +1073,7 @@ console.log("-------------------------------------------------------------------
     // IIFE code block
     var localVar = 'This is a local variable';
     console.log(localVar); // Output: This is a local variable
+    // That is we can create a variable name called var localVar outside the IIFE and it is completely independent of the variables that is inside IIFE.
 })();
 
 // Example 2:

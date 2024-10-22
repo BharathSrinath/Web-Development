@@ -3,7 +3,7 @@ package basics;
 public class Simple_interest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		int p = 1000;
 		int n= 5;
 		int r = 10;

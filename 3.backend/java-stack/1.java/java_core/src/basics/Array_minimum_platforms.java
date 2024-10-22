@@ -19,7 +19,7 @@ public class Array_minimum_platforms {
 
         int n = arrivalTime.length;
         int platformsNeeded = 0;
-        int maxPlatforms = 0;
+        int minPlatforms = 0;
 
         int i = 0, j = 0;
 
@@ -30,9 +30,9 @@ public class Array_minimum_platforms {
             		arrivalTime[i].equals(departureTime[j])) {
                 platformsNeeded++;
                 i++;
-                // Update maxPlatforms if needed
-                if (platformsNeeded > maxPlatforms) {
-                    maxPlatforms = platformsNeeded;
+                // Update minPlatforms if needed
+                if (platformsNeeded > minPlatforms) {
+                    minPlatforms = platformsNeeded;
                 }
             } else { // If next event is departure, decrement count of platforms needed
                 platformsNeeded--;
@@ -40,7 +40,7 @@ public class Array_minimum_platforms {
             }
         }
 
-        return maxPlatforms;
+        return minPlatforms;
     }
 
     public static void main(String[] args) {

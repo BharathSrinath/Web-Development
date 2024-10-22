@@ -10,7 +10,7 @@ const bcrypt = require('bcrypt');
     //     });
     // });
 
-// saltRounds: Think of it as a difficulty for the hash. Recommend number is 12. Higher you go, greater the time it will take to hash the password. Up to 14 our system was realtively quick. But then number seconds to hash the password increased drastically. 
+// saltRounds: Think of it as a difficulty level for the hash. Recommended number is 12. Higher you go, greater the time it will take to hash the password. Up to 14 our system was realtively quick. But then number sof econds to hash the password increased drastically. 
 // saltRounds that is passed to genSalt() is not going to take time. It is almost instant. But the salt value (that is created with higher saltRounds value) when passed to the hash() function will take a significant amount of time to complete the hashing process. 
     // Example: In our test case, a value of 15 took 5.7 seconds, 16 took 10.5 seconds, 17 took 20 seconds and 18 took 40 seconds.
 // Official data on rounds

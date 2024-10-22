@@ -17,7 +17,6 @@ function DropdownPage() {
   return (
     <div className="flex">
       <Dropdown options={options} value={selection} onChange={handleSelect} />
-      {/* Naming conventions: From now on we will call it value as the prop name for the varible that holds the state's value. 'onChange' (in this application) will hold the function to update the value  */}
     </div>
   );
 }
