@@ -333,7 +333,7 @@ It can two arguments.
         # Example: We have app.use((req,res,next){next()}), app.use('/dogs', (req,res,next){next()}), app.use('/cats', (req,res,next){next()}), at the top. Also we have get and put methods with the above routes and finally we have app.use((req,res)){res.send('NOT FOUND')}. Now when we search for route '/tiger', first app.use will be executed, and it will skip all since the route doesn't match and execute the lost with the message 'NOT FOUND'. So by placing them at the correct position, we can create these types of features.
 (You can see the sample codes in 3.express/middleware.js file)
     # Next(): The way Next() works depends on the method, route and the parameters of the callback function.
-        # A middlware with 'use' method will pass the 'next' to the subsequent middlware 'use' method
+        # A middleware with 'use' method will pass the 'next' to the subsequent middlware 'use' method
         # If the route is '/secret' and method is 'use', then 'next' will pass it to the subsequent middleware with 'use' method and '/secret' route.
         # If you get an error by performing any logic inside a middleware or when the user is trying to access an inavlid route, express will look for an 'error handling middleware' or you should handle that with a try catch block. If you haven't done any, express will implement the default error handling.
             # An error handling middleware doesn't have a route. So Whenever there is an error in a middleware, Express automatically forwards it to the error-handling middleware and display the message based on our customisation. 

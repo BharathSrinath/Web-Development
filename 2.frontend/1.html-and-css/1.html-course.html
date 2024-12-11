@@ -1,19 +1,33 @@
 <!-- Type ! and hit tab = Gives you the Boilerplate template  -->
 <!DOCTYPE html>
 <html lang="en">
-<!-- DOCTYPE in Boilerplate template indicate this code is HTML5 compatible to the browser -->
+<!-- DOCTYPE declaration signals to the browser to render the page using the latest HTML standards available at the time. -->
+<!-- So if we don't include <!DOCTYPE html> at the beginning of your HTML document, the browser will not know which version of HTML you are using. -->
+<!-- This can lead to 'quirks mode' rendering in older browsers, where they attempt to emulate non-standard behavior to display pages made before web standards were established. --> 
+<!-- This can lead to Inconsistent CSS and JavaScript Behavior -->
 
 <head>
     <meta charset="UTF-8">
+    <!-- The <meta> tag provides metadata, which is information about the webpage rather than visible content on the page. -->
+    <!-- charset: Specifies the character encoding used to display the webpage. -->
+    <!-- UTF-8: Unicode Transformation Format encoding can represent almost any character from any language, making it highly compatible with international text. It's the most widely used encoding for web pages, covering a vast array of symbols and characters. -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- X-UA-Compatible: Specifies that the page should be rendered using the latest rendering engine available to the browser. IE=edge: Tells Internet Explorer to use the latest version of its rendering engine rather than falling back to older compatibility modes. This ensures the page looks as intended without outdated interpretations by older IE versions. This attribute specifically applies to Internet Explorer (IE) which is based trident engines. This setting does not affect modern browsers like Chrome, Firefox, Safari, or Edge based on Chromium.-->
+    <!-- tags (like name="description") provides search engines with information about the page, helping them better understand and rank it. -->
+    <!-- <meta> tags (like og:title and og:image for Open Graph) help control how links to the page appear on social media, influencing what titles, descriptions, or images are shown when someone shares the link.<meta> tags (like og:title and og:image for Open Graph) help control how links to the page appear on social media, influencing what titles, descriptions, or images are shown when someone shares the link. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- initial-scale=1.0 sets the initial zoom level when the page is first loaded. A value of 1.0 means the page loads at 100% zoom, -->
     <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">  Here we have added roboto font. Now you can make use of it in css file. The procedure is go to "https://fonts.google.com/" and choose and then click on embed and copy or download and include the link in the head of html" -->
+    <!-- Without a viewport meta tag, mobile browsers scale webpages to fit a typical desktop width (often 980px), making pages look smaller and harder to read on mobile screens. The viewport tag lets you control this behavior. -->
+    <!-- The width=device-width part tells the browser to set the viewport width equal to the device’s actual width, allowing the layout to adapt naturally to the device’s screen size. -->
+    <!-- While @media queries define the styles that respond to specific screen sizes, the viewport tag is a prerequisite for proper responsiveness on mobile. Without the viewport meta tag, even well-designed responsive layouts may display incorrectly because the browser may scale down the page as if it’s intended for a desktop screen size. -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <title>HTML</title>
     <link rel="stylesheet" href="2.css-course.css">
+    <!-- rel: Relationship -->
+    <!-- href: Hypertext Reference -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
     <link rel="stylesheet" href="pricingpanelproject.css">
-    <!-- Title is displayed at the tab -->
 </head>
 <!-- In HTML, markup refers to the process of adding specific annotations or tags to a piece of text to provide structure and meaning to its content. These annotations or tags are known as markup elements. -->
 <!-- HTML - It is the "what"(content) of the web page -->
@@ -58,7 +72,7 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
 
-    <!--Video doesnt have a closing tag -->
+    <!-- Video doesnt have a closing tag -->
     <!-- contorls attribute enables controls and autoplay automatically plays the video up on opening -->
     <!-- An hyperlink redirects you to the other sites. iframe will bring the content of other websites into ours. -->
     <!-- To link a youtube video, YT video => share => embed => copy and paste. -->
@@ -110,21 +124,20 @@
         <dd>A scripting language used for web development</dd>
     </dl>
 
-    <!-- Elements that don’t have any content by design are called void elements. When you need to use a void element, like <br>, <img>, <input>, <link>, <metatdata>, etc., you only use an opening tag. -->
+    <!-- Elements that don’t have any content by design are called void elements. When we need to use a void element, like <br>, <img>, <input>, <link>, <metatdata>, etc., we only use an opening tag. -->
 
     <h3>4. Working with tables</h3>
     <!-- Divide the table into head and body -->
-    <!-- Use 'th' for table head and 'td' for table body -->
-    <!-- 'th' which is used for table head can be wrapped only under tr. There is nothing called tc for column. Hence, to make columns as header you have to use 'th' in the first cell of every column -->
+    <!-- Use 'th' to represent header and 'td' to represent data -->
+    <!-- There is nothing called 'tc' for column. -->
     <!-- Rowspan: To spread into more rows; Colspan: more columns -->
-    <!-- Remember: Row is left/right and Column is up/down -->
     <table>
         <thead>
             <!-- Here thead is just a semantic structure. It doesnt have any effect on displaying contents. But makes the code readable and can be helpful when you define styling in css -->
             <tr class="tablehead">
-                <th rowspan="2">Class/Details</th>
-                <th rowspan="2">Name</th>
-                <th rowspan="2">Roll no</th>
+                <th rowspan="3">Class/Details</th>
+                <th rowspan="3">Name</th>
+                <th rowspan="3">Roll no</th>
                 <th colspan="2">Result</th>
             </tr>
             <tr class="tablehead">
@@ -133,29 +146,31 @@
             </tr>
         </thead>
 
-        <tr class="tablehead">
-            <th>Class I</th>
-            <td>Jack</td>
-            <td>1</td>
-            <td>A+</td>
-            <td>Achiever</td>
-        </tr>
+        <tbody>
+            <tr class="tablehead">
+                <th>Class I</th>
+                <td>Jack</td>
+                <td>1</td>
+                <td>A+</td>
+                <td>Achiever</td>
+            </tr>
 
-        <tr class="tablehead">
-            <th>Class II</th>
-            <td>Ron</td>
-            <td>2</td>
-            <td>B</td>
-            <td>Talented</td>
-        </tr>
+            <tr class="tablehead">
+                <th>Class II</th>
+                <td>Ron</td>
+                <td>2</td>
+                <td>B</td>
+                <td>Talented</td>
+            </tr>
 
-        <tr class="tablehead">
-            <th>Class III</th>
-            <td>Sam</td>
-            <td>3</td>
-            <td>C</td>
-            <td>Hard Worker</td>
-        </tr>
+            <tr class="tablehead">
+                <th>Class III</th>
+                <td>Sam</td>
+                <td>3</td>
+                <td>C</td>
+                <td>Hard Worker</td>
+            </tr>
+        </tbody>
     </table>
 
     <hr>
@@ -207,7 +222,7 @@
     <h3>9. Forms</h3>
     <!-- They have 2 attributes. Action attribute specifies 'where' the data should be sent and Method attribute specifies which HTTP method should be used. -->
     <!-- Placeholder attribute is used to provide a hint or example text inside an input field.  -->
-    <!-- Value attribute allows you to provide a starting value that can be edited or submitted by the user. You can leave that empty too -->
+    <!-- Value attribute allows you to provide a starting value that can be edited or submitted by the user. -->
     <!-- Label element is used to associate a text label with an input field or form element. The association take place with help of 'for' attribute in label element and 'id' attribute in input element. Those 2 needs to be exactly same. -->
     <!-- There are two ways in which you can do the above -->
 
@@ -304,6 +319,9 @@
                     <input type="reset" value="Reset Form">
                     <input type="button" value="Submit2">
                 </section>
+
+                <!-- <button> vs <input type="button"> -->
+                <!-- <button> element is a standalone HTML button. It can contain any HTML content, such as text, images, or other inline elements, allowing for more customization. But <input type="button"> is an input element with a button type. The text displayed on the button is set by the value attribute, so it can only contain text, not additional HTML elements. -->
             </div>
     </form>
 

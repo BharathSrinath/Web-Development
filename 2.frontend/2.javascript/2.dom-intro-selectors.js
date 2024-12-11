@@ -6,7 +6,7 @@
         // Model - Tree
     // This tree of objects can be manipulated through scripting languages like JavaScript to interact with and modify the content and structure of a web page.
     // The DOM is dynamic, which means that it can be updated in real time. When a web page loads, the browser creates the initial DOM structure based on the HTML content. However, you can use JavaScript to dynamically add, modify, or remove elements and attributes, and these changes will be reflected in the DOM and on the web page.
-    // Browsers use a process called parsing to convert HTML or XML documents into a DOM tree. This process involves reading the document's source code, interpreting the tags and their attributes, and creating corresponding DOM objects.
+    // Browsers use a process called parsing to convert HTML/XML documents into a DOM tree. This process involves reading the document's source code, interpreting the tags and their attributes, and creating corresponding DOM objects.
     // In web - development parsing refers to the examination and interpretation of code or data in a structured format.
 // DOM selection:
     // document.getElementById - Name of the id. 

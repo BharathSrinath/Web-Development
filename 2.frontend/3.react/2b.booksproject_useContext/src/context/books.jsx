@@ -8,9 +8,7 @@ function Provider({ children }) {
   const [books, setBooks] = useState([]);
 
   const fetchBooks = useCallback(async () => {
-    // Look at EOP to learn about useCallback()
     const response = await axios.get('http://localhost:3001/books');
-
     setBooks(response.data);
   }, []);
 
@@ -66,7 +64,3 @@ function Provider({ children }) {
 
 export { Provider };
 export default BooksContext;
-
-// Why there are two exports?
-  // The Provider component is specifically exported as a named export. This is useful when you want to use the Provider component in another file but not necessarily the entire BooksContext object.
-  // The BooksContext object, which includes both the Provider and Consumer, is exported as the default export. This is useful when you want to import the entire context object, including both the Provider and Consumer, in another file. 

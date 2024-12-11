@@ -25,7 +25,7 @@ class About1 extends React.Component {
     }, 1000);
   }
   // It is similar to useEffect hook with empty dependency array. It is invoked once after the component renders.
-  // Unlike useEffect there is no dependency management in 'componentDidMount' and it runs only once after mounting. It doesn not re-run on state or prop changes
+  // Unlike useEffect there is no dependency management in 'componentDidMount' and it runs only once after mounting. It does not re-run on state or prop changes
   // UseEffect has inbuilt(optional) cleanup function. But Cleanup is handled in 'componentWillUnmount'.
   // Also only one componentDidMount method per component can be used. But we can have multiple useEffects.
   componentDidUpdate() {

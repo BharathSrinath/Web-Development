@@ -14,7 +14,7 @@
     Cons:
         * Global Scope: All styles are applied globally, which can lead to conflicts and overrides unless you manage class names carefully.
         * Limited by Features: Native CSS doesn't support variables, nesting, or advanced logic, making it less powerful for complex projects. */
-/* 2. SCSS (Sassy CSS): A preprocessor that extends CSS with additional features like variables, nesting, mixins, and functions. SCSS files are compiled into regular CSS files.
+/* 2. SCSS (Sassy CSS): A preprocessor (A preprocessor, in programming and web development, is a tool that processes input code to produce output in a different form, making it easier to write, manage, and maintain.) that extends CSS with additional features like variables, nesting, mixins, and functions. SCSS files are compiled into regular CSS files.
     Pros:
         * Variables and Mixins: Allows for more dynamic and reusable styles.
         * Nesting: Makes the CSS structure more readable and mirrors the HTML structure.
@@ -108,7 +108,7 @@ button {
     background-color: black;
 }
 
-/* As you can see by using a selctor you can style the entire selector in one go. But if, if you want to have different style format specifically for one button and one particular heading? This is where 'id' comes into picture. Assign an id for the element in html and use the same id as selector prefixed with hash in css to customise that */
+/* As you can see by using a selctor you can style the entire selector in one go. But if you want to have different style format specifically for one button and one particular heading? This is where 'id' comes into picture. Assign an id for the element in html and use the same id as selector prefixed with hash in css to customise that */
 
 #searchYT,
 #searchGoog {
@@ -132,13 +132,13 @@ li a {
 
 /* Semantic markups which are used to differentiate different sections of a page can be used in conjunction with classes, IDs, and other attributes to customize everything with specificity. */
 
-/* Adjacent selector or combinator: In order to use them they should be next to each other  */
-/* This will not change the color as of now because you have used another code in the lines 45-48. */
+/* Adjacent selector/combinator: In order to use them they should be next to each other  */
+/* So everywhere input and button elemenst are next to each other, color of the text will change to yellow */
 input+button {
     color: yellow;
 }
 
-/* Direct child. That is immediate child. */
+/* Direct child. */
 /* Here list element that comes immediately after the div will change its colors */
 /* I have inserted div from 80 to 85 in HTML file */
 div>li {
@@ -234,12 +234,12 @@ p::after{
     color: blue;
 }
 
-/* Cascade and Specificity */
-/* Cascade: The latest snippet will be take precedence to all the previous ones */
-/* Specificity: Id's > Class, attributes and pseudo classes > Elements and pseudo elements */
-/* The more specific you are, the greater is the priority. */
-/* Inline styles are the most specific ever. But since it is not a best practice, we never use inline styles. */
-/* '!important': When you use this declaration, it overrides every other specificity. Look at the below example */
+/* Cascading Style Sheets */
+/* "Cascading" refers to how CSS applies styles to elements based on priority and specificity rules. The “cascade” determines which styles take precedence when multiple rules apply to the same element. This process considers three main factors: */
+    /* Specificity: Id's > Class, attributes and pseudo classes > Elements and pseudo elements. */
+    /* Importance: Rules marked with !important take priority. */
+    /* Source Order: When specificity and importance are equal, the last declared rule is applied. */
+
 #firstheader {
     color: black;
 }
@@ -249,6 +249,7 @@ p::after{
 
 /* Inheritance: Lets say the you gave a color for body in html, all the text under the paragraph inisde body will inherit them. On the other hand not everything will inherit the color - buttons, borders, etc. To do that you have to specify color: inherit; */
 /* Again not a best practice. */
+/* Just remember that color and font are inherited for most elements while other properties are not */
 
 /* Box Model: Everything in a web page will be treated as a box by the browser. */
 /* +--------------------------+
@@ -279,7 +280,7 @@ section.boxmodel1 p {
     font-size: 20px;
     width: 1000px;
     height: 400px;
-    /* When there are more height than required, the reaming space will be filled with bg color. Default color is white hence you wont be able to differentiate */
+    /* When there are more height than required, the remaining space will be filled with bg color. Default color is white hence you wont be able to differentiate */
 }
 
 section.boxmodel2 p {
@@ -309,7 +310,7 @@ section.boxmodel3 p {
     /* Even after mentioning as dashed above, you can specify left side as solid => Cascading rule will kick in */
     padding: 20px;
     /* Adds space between content and the border. You can apply individually to different sides too or use the format just like below - order: top right bottom left (like a clock) */
-    margin: 50px 10px 10px 10px;
+    margin: 50px 10px 10px 10px; /* T, R, B, L*/
     /* Adds space between different elements */
     /* Best practice for margin is set to 0 while developing web page. Then add the sapces as and when necessary. */
     box-sizing: border-box; /* When you add this property padding, border, margin and the content everything will be forced to fit within the mentioned width and height. That is, the total space available for the content will be dimensions (widhth and height) minus (padding, border and margin values) */
@@ -393,17 +394,17 @@ p.tree {
 
 /* CSS units: There are two types - Absolute (pixel and inches) and Relative (percentages, em, rem, etc.) */
     /* 1. em: It is relative to the font size of the parent.  Lets say that element 1 (parent) has a font size of 16px, then element 2 (child) will also have 16 px when its font size is set to be 1em. For 2em, it will be 32px and so on */
-        /* But with every other property (like padding, margin, etc.), 1em = computed font size of the element itself. When the element's font size is 2em, i.e., 20px (parents is 10px), then specifying padding = 0.25em will result in 5px (0.25 * element's fontsize)*/
-        /* The issue with em is while nesting multiple times (nest under a nest under a nest and goes on), font sizes can grow/shrink with multifold difference */
+        /* But with every other property (like width, padding, margin, etc.), 1em = computed font size of the element itself. When the element's font size is 2em, i.e., 20px (parents is 10px), then specifying padding = 0.25em will result in 5px (0.25 * element's fontsize)*/
+        /* The issue with em is while nesting multiple times (nest under a nest under a nest and goes on), font sizes can grow/shrink with multifold difference. This is called compounding. */
     /* 2. rem: It is similar to em, but it's relative to the root element's (html) font size (16px in most browsers) */
     /* 3. percentage: It is relative to the parent element. If parent's fontsize is 32px, mentioning 50% as the font-size to the child will give it a font-size of 16px. */
         /* Unlike em and rem, % completely depends on parents fontsize including padding, margin, etc. */
+        /* Since they are completely dependednt only on parents, there is no compounding. */
     /* 4a) vw (viewport width): The vw unit is relative to the width of the viewport (the visible area of the browser window). For example, 10vw represents 10% of the viewport width. This unit is helpful for creating designs that adapt to different screen sizes. */
     /* 4b) vh (viewport height): The vh unit is similar to vw, but it's relative to the height of the viewport. 10vh is equivalent to 10% of the viewport height. */
         /* We will stick with vh and vw as it can do the things same as vmax and vmin */
-    /* 5a) vmax: It is a relative viewport unit that represents the larger of the viewport's height or width. When you use width: vmax;, it sets the width of the element to be 100% of the smaller of the viewport's width or height. */
-    /* 5b) vmin: Exactly same as vmax (represents the smaller of the viewport's height or width) */
-        /* With respect to Vmax and Vmin,  depending on the aspect ratio of the viewport, the container will adapt and take up the entire width or height accordingly */
+    /* 5a) vmax (Viewport Maximum): vmax is the larger value between vh and vw. */
+    /* 5b) vmin (Viewport Minimum): vmin is the smaller value between vh and vw. */
 
 /* Transparency and Opacity */
 /* Transparency is how much the element has allowed the light to pass through. */
@@ -429,7 +430,8 @@ p.tree {
     width: 50%;
     height: 50%;
     background-color: rgba(255, 255, 255, 0.5);
-    /* Here 0.7 is the transparency property */
+    /* Here 0.5 is the opacity/transparency property */
+    /* a stands for alpha */
 }
 
 /* Positions: It sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements.. */
@@ -463,7 +465,7 @@ p.tree {
     left: 30px;
 }
 
-/* Absolute position: Other elements will occupy the space left by the element whose position is set to be absolute. It positions itself based on the position of its root parent (html) when none of its parents are set to any positions except static. If any of its parents has been given a position (technically known as "positioned ancestor"), then the it positions itself within the parent element */
+/* Absolute position: Other elements will occupy the space left by the element whose position is set to be absolute. It positions itself based on the position of its root parent (html) when none of its parents are set to any positions except static. If any of its parents has been given a position (technically known as "positioned ancestor"), then it positions itself within the parent element */
 /* If you want that element to be within the container, you declare its immediate parent's position as relative. */
 
 /* So you will be using this property only with parent's position as relative */
@@ -482,7 +484,7 @@ p.tree {
     /* If you have just given this without a parent, you will see that the box as moved to top of the web page*/
 }
 
-/* Fixed is exactly same as absolute. But it doesn't take any space in the actual flow of the document. When you scroll the web page they move along with the page and remains in that position always. */
+/* An element with position: fixed is positioned relative to the viewport, meaning it stays in the same position on the screen even as you scroll. It is detached from the normal document flow, and its position does not change regardless of the scrolling of the page. */
 /* Think of navigation bars and menu bars.  */
 
 #fixed #middle {
@@ -493,13 +495,13 @@ p.tree {
     left: 0;
 }
 
-/* Sticky is exactly same as fixed. Fixed position is always fixed. But for sticky lets say that you have placed the element in botton of your page. Now as you scroll, sticky elements become fixed or "stick" to a specific location on the page when they reach a defined point. If they are defined under a parent, it will stop at the top of the parent.  */
+/* An element with position: sticky toggles between relative and fixed positioning, depending on the user's scroll position. It behaves like a relatively positioned element until the viewport scrolls to a specific point (usually defined by top, bottom, left, or right), at which point it becomes fixed and stays in that position until the containing block is out of view.  */
 
 
 #sticky #middle {
     position: sticky;
     bottom: 0;
-    /* This will make sticky to stick at the bottom and will move up when you scoll up until it hits the parent */
+    /* This will make sticky to stick at the bottom and will move up when you scoll up until it hits the parent's top */
 }
 
 /* Animations  */
@@ -526,6 +528,7 @@ p.tree {
         /* ease-in: This timing function starts slow and accelerates as it progresses through the animation. ease-out does the exact opposite */
         /* ease-in-out: Exactly same as ease. Starts slow, accelerates in the middle and decelerates at the end. Only difference is ease-in-out may have a slightly more pronounced acceleration and deceleration phase, making it appear more symmetrical. */
         /* cubic-bezier(x1, y1, x2, y2): */
+            /* They can be uses as a value for animation/transition-timing-function property */
             /* If x1 is close to 0, the animation accelerates quickly and if it is close to 1, animation accelerates slowly */
             /* If x2 is close to 0, the animation decelerates quickly and if it is close to 1, animation decelerates slowly */
             /* y1 and y2 are similar to x1 and x2 but with respect to y coordinate */
@@ -598,10 +601,11 @@ p.tree {
     /* transition-property: background-color, color, letter-spacing; */ 
     /* transition-duration: 0.3s, 2s, 0.3s; */
     /* transition-timing-function: ease-out, ease-in, ease-out; */
+    /* transition delay: 0.5s, 2s, 0.3s */
 /* Syntax2 */
     /* transition: background-color 0.3s ease-out, color 2s ease-in, letter-spacing 0.3s ease-out; */
 /* Syntax3 */
-    /* transition: all 0.2s ease-in-out; */
+    /* transition: property-name duration timing-function delay; */
 
 .circle1:hover {
     border-radius: 50%;
@@ -805,7 +809,7 @@ section.transform2 {
     width: 1000px;
     height: 800px;
     background-image: url("https://images.unsplash.com/photo-1604012165243-55a916281469?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=705&q=80");
-    background-size: cover;
+    background-size: cover; 
     background-position: top; 
     background-repeat: no-repeat;  /* (Images will not repeat) */
     /* background-repeat: repeat-x;  (Reapeat only on x-axis) */
@@ -814,8 +818,8 @@ section.transform2 {
     background-attachment: fixed;  /* (Can be fixed or scroll) */
         /* fixed: Image will be fixed and any overlaying text will moveup/down when you scroll */
         /* scroll: Image will move up/down just like any other object on the screen when you move you scroll */
-    /* background: center/cover url("https://images.unsplash.com/photo-1604012165243-55a916281469?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=705&q=80"); */
-        /* This is an alternative syntax to above. Just remeber bg position should always come after bg size preceded with a slash */
+    /* background: url("https://images.unsplash.com/photo-1604012165243-55a916281469?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=705&q=80") center/cover; */
+        /* This is an alternative syntax to above. Just remember bg position should always come after bg size preceded with a slash */
             /* Center indicates (background position) that the background image should be centered within the element. */
             /* Cover specifies (background size) that the background image should be scaled and cropped to cover the entire element, which might result in some parts of the image being clipped to maintain the aspect ratio. */ 
     margin: 0 auto;
@@ -880,7 +884,7 @@ html, body {
     text-align: center;
     /* They are  used to align text within an element, but it also has an interesting effect on inline elements*/
     /*  When text-align: center; is applied to the parent element, it horizontally centers any inline or inline-block elements within it. */
-        /* Example: When you apply to the parent of a button, it not only centeres the text inside button, but also centers are the button itself (buttons are inline elements) */
+        /* Example: When you apply to the parent of a button, it not only centers the text inside button, but also centers the button itself (buttons are inline elements) */
 }
 
 .fbcontainer1 {
@@ -934,6 +938,8 @@ html, body {
 /* In the above example, all elements in odd position will get 5 times as much as free space available compared to the elements in even postion */
     /* Mind you we are not talking about space before the existence of elements. You have defined their height and width. They exist in the container. Now they have empty space apart from the space that is already occupieb by them. So we are talking about the disribution of this empty space */
 /* Now the same applies to flex-shrink. You can specify both the shrink and grow values to an element */
+/* So flex-basis is used in tandem with flex-grow/shrink */
+/* Without flex-grow or flex-shrink, there is no practical difference between using width/height and flex-basis in a Flexbox layout. */
 
 .fbcontainer2 {
     width: 80%;
@@ -1017,6 +1023,9 @@ section.mediaqueries {
     justify-content: space-evenly;
 }
 
+/* min-width means >= */
+/* max-width means <= */
+
 @media (min-width: 600px) and (max-width: 800px) {
     .mediaqueries h3 {
         color: purple;
@@ -1084,7 +1093,7 @@ section.mediaqueries {
 
 /* Visibility and Z-index */
 /* 'Visibility: none' will hide the element and will leave the white space; Display:none will remove the element and hence other elements will come and occupy that space. */
-/* Z-index: Z-axis in the graph is height (that is space above the ground). Z-index will decide which element can stack up on another. Child will be stacked on parent by default due to the order of the snippet where child comes only after the parent. But if you want to stack differently, specifiy Z-index value (top stack element should have the highest value)   */
+/* Z-index: Z-axis in the graph is height (that is space above the ground). Z-index will decide which element can stack up on another. Child will be stacked on parent by default due to the order of the snippet where child comes only after the parent. But if you want to stack differently, specify Z-index value (top stack element should have the highest value)   */
 
 .zindex{
     width: 600px;
@@ -1135,9 +1144,9 @@ section.mediaqueries {
     background-color: rgb(189, 41, 41);
     display: grid;
     grid-row-gap: 10px; /* Creates gap between rows*/
+    grid-column-gap: 10px;  /* Creates gap between columns*/
     grid-template-columns: 200px 400px auto;  
     /* We have 9 elements in html. We are specifying that First column should take the width of 200px, second column should take the width of 400px and 3rd column will take the remaining space. For a responsive design, leave it as auto. */
-    grid-column-gap: 10px;  /* Creates gap between columns*/
     /* grid-template-rows: 100px 200px 300px auto;  */
     /* We are creating 4 rows with these values. Since we dont have content for 4th row, if any specified value (say 400px) will create an empty 4th row with the height of 400px */ 
 }

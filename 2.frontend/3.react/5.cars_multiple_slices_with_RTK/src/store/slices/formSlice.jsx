@@ -17,7 +17,7 @@ const formSlice = createSlice({
   },
   extraReducers(builder) {
     builder.addCase(addCar, (state) => {
-      // When addCard() is triggered by submitting the form, we will execute this extraReducer()
+      // When addCar() is triggered by submitting the form, we will execute this extraReducer()
       state.name = '';
       state.cost = 0;
     });

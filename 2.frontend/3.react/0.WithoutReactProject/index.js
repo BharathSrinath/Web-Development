@@ -44,6 +44,8 @@ const heading = React.createElement(
   const root = ReactDOM.createRoot(document.getElementById("root"));
   // The root element is typically a <div> in your index.html file, where your entire React application will be rendered.
   // This is the mounting point for the React component tree, meaning all your React components will be rendered inside this root element.
+  // It returns an object called 'ReactDOMRoot'
+  console.log(root);
   root.render(container);
 
   // Note:

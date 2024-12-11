@@ -312,7 +312,7 @@ const getDadJoke = async () => {
       headers: { 
           Accept: "application/json" 
       } 
-  };
+    };
     // API can return data in many formats like HTML/text format, json format, etc. You can change the format under headers. This information can be obtained from API documentation. This means that the key-value pair that is used above will vary from API to API.   
     const res = await axios.get("https://icanhazdadjoke.com/", config);
     return res.data.joke;
@@ -352,7 +352,7 @@ const makeImages = (shows) => {
   }
 }
 
-// Config Options for axios.get
+// Config Options for axios
   // 1. url: The URL to send the request to.
   // 2. method: The request method, e.g., 'get', 'post'.
   // 3. baseURL: A base URL that will be prepended to url unless url is absolute.

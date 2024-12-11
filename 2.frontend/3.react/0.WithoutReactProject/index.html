@@ -31,6 +31,13 @@
   <!-- By serving content from servers closer to the user, CDNs reduce the time it takes to load web pages and other content. -->
   <!-- CDNs provide redundancy, so if one server goes down, another can take over, ensuring content is always available. -->
   <!-- CDNs handle large amounts of traffic, which can be especially useful during high-demand periods. -->
+   <!-- Working of a CDN: -->
+      <!-- When we request a resource (e.g., the React script) from a CDN URL, our request first goes to a DNS server. -->
+      <!-- The DNS server then determines our location based on your IP address. -->
+      <!-- Based on your location, the DNS server directs your request to the nearest server in the CDN network.  -->
+      <!-- While original content, such as the React files, is created and managed by React developers in one central location, CDNs replicate and cache this content across multiple servers around the world. -->
+      <!-- These servers are called edge servers. When a user makes a request, the content is delivered from the closest edge server rather than the original location. -->
+      <!-- The CDN provider (like Cloudflare, Akamai, or Amazon CloudFront) periodically syncs content from the origin server (where the original React files are hosted) to all of its edge servers. -->
 <!-- In essence, when you include React via a CDN, you're pulling the React code from a remote server optimized for fast delivery, rather than hosting the library files locally on your own server. -->
 
 <!-- React without jsx -->

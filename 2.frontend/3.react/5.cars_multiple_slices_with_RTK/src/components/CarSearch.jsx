@@ -3,9 +3,7 @@ import { changeSearchTerm } from '../store';
 
 function CarSearch() {
   const dispatch = useDispatch();
-  const searchTerm = useSelector((state) => {
-    return state.cars.searchTerm;
-  });
+  const searchTerm = useSelector((state) => state.cars.searchTerm);
 
   const handleSearchTermChange = (event) => {
     dispatch(changeSearchTerm(event.target.value));

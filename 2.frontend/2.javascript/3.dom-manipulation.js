@@ -113,7 +113,7 @@ console.log (sum);
 for (let list of element5){
     console.log(list.classList.value)
 }
-// // We have printed the value of the class (read it as name) using value property 
+// We have printed the value of the class (read it as name) using value property 
 
 // Very important - There is something called as className which also adds class attribute to the element. But there is a difference and it is huge.
 // pokemon.classList.add('pokemon'):
@@ -136,11 +136,11 @@ console.log ("Traversing")
 // Nodes comprises of document, elements, attributes, texts, comments. As you see elements are nodes too. Thay are a part of it.  
 // So when you use selector methods, there can be 2 types of return values
     // 1. Element Objects - We need to use getElementById() and querySelector() to get the element object
-        // They return a single element
+        // They return a single element if it exists and null if they don't
     // 2. Node Objects - getElementsByClassName(), getElementsByTagName(), querySelectorAll() and getElementsByName()
         // They return a collection of elements
-            // a) NodeList - All nodes are returned
-            // b) HTML collections - Only element nodes are retuned
+            // a) NodeList - All nodes are returned (querySelectorAll())
+            // b) HTML collections - Only element nodes are retuned (other 3)
 
 // 1. Parent and child:                                                                        
     // It allows you to access the parent of a given element.                                 
@@ -182,7 +182,7 @@ console.log("-------------------------------------------------------------------
 console.log ("Create and Appending")
 // Create and Appending
 // There are 2 ways by which we can append - 'append' and 'appendChild'
-// 1. Appending using 'appendChild': Append a node as the last child of a specified parent node. It takes a single argument, which is the node to be appended.
+// 1. Appending using 'appendChild': Append a node as the last child of a specified parent node. It takes a single argument, which is the node to be appended. It is more restrictive; can append only one node and cannot directly append text.
 //  Example:
 const newHead = document.createElement('span'); // Creating new element
 // Defining their attributes
@@ -208,7 +208,8 @@ document.body.appendChild(newHead);
     // You can use the above command if you want to directly append to the end
 // const append1 = document.querySelector('p');
 
-// 2. Appending using 'append': It is more versatile and allows you to append multiple nodes and strings to a parent element. It can take multiple arguments, and it appends each argument in the order they are passed.
+// 2. Appending using 'append': It is more versatile and allows you to append multiple nodes and strings to a parent element. It can take multiple arguments, and it appends each argument in the order they are passed. It is more flexible as it can directly append text content.
+// Syntax: parentElement.append(...nodes or strings)
 // Example1:
 const newImg = document.createElement('img');
 newImg.src = 'https://images.unsplash.com/photo-1683009686716-ac2096a5a73b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'

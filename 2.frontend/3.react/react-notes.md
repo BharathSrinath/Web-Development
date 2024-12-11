@@ -11,7 +11,7 @@
     # Function Components (New way): These are just a normal JS functions that return React element/jsx. 
     # Class Components (Old way): These are ES6 classes that extend React.Component and include a render method that returns React elements.
     # NOTE: 
-        # We can write “rafce” in VSCode to get a boiler plate react component, but always try to avoid it to practice.
+        # We can write “rafce” in VSCode to get a boiler plate react component, but try to avoid it to practice.
         # Components can be reused across different parts of an application or even in different projects.
     # Component Rendering: 
         # On the first render, the component function is executed, and local variables are created within the function's scope.
@@ -40,7 +40,7 @@
     # JSX/JavaScript XML, is a syntax extension for JS. It is also developed by facebook.
     # It allows us to write HTML-like code in your JS files, making it easier to describe what the UI should look like. 
         # Read it again. JSX is not an HTML. It is an HTML-like code
-    # JSX code is not standalone JS; it needs to be transformed into regular JS before it can be understood by browsers. So when we copy paste the jsx in browsers, it will not work. The conversion is done by 'babel' which is a JS Compiler.
+    # JSX code is not standalone JS; it needs to be transformed into regular JS before it can be understood by browsers. So when we copy paste the jsx in browsers, it will not work. The conversion is done by 'babel' which is a JS Transpiler/Compiler.
     # Technically, JSX allows us to define React components using a syntax that looks similar to HTML tags.
     # It supports standard HTML attributes as well as custom attributes that are passed as 'props' to React components.
     # It allows us to use JS logic, including conditional statements and loops, to conditionally render elements or repeat them.
@@ -48,10 +48,10 @@
         # All prop names should follow camelCase
         # There are some differences, such as using 'className' instead of 'class' and 'htmlFor' instead of 'for' due to JS reserved words.
         # We must explicitly close self-closing elements like <br/>, <input/>, <img/>, etc.
-        # Only a single element cab be returned (It can have multiple child though).
+        # Only a single element can be returned (It can have multiple child though).
             # So, sometimes we may be in a position to include unnecessary div/section elements to enclose the child. When we think they are not required we can enlcose the elements in <React.Fragment>...</React.Fragment> or the short-cut is <>....</>
             # This will not create any new element but helps to provide a dummy parent to the elements 
-            # We can evn nest React fragments inside another React fragment. Technically they are essentially invisible wrappers that allow us to group multiple elements without adding extra nodes to the DOM.
+            # We can even nest React fragments inside another React fragment. Technically they are essentially invisible wrappers that allow us to group multiple elements without adding extra nodes to the DOM.
                 # Example:  <>
                                 <h1>Main Title</h1>
                                 <>
@@ -133,11 +133,15 @@
             # Media Optimization: Bundlers can optimize media files, such as compressing images, but this usually requires additional configuration or plugins.
             # Caching During Development: Bundlers facilitate caching to improve performance during development, ensuring that only changed files are recompiled.
                 # Example: Webpack, Parcel, Vite, etc. 
-        # Transpiler convert modern JavaScript (ES6+) and JSX (JavaScript XML) code into older versions of JavaScript that can run in all browsers, especially those that don’t support the latest features.
+        # A Transpiler is compiler that convert modern JavaScript (ES6+) and JSX (JavaScript XML) code into older versions of JavaScript that can run in all browsers, especially those that don’t support the latest features.
             # Example: Babel
+            # Transpiler vs Compiler:
+                # A compiler generally translates code from a high-level programming language (like Java or C++) into a lower-level language (like machine code or bytecode).
+                # A transpiler, on the other hand, is a type of compiler that transforms code from one high-level language to another high-level language.
+                    # In JavaScript development, a transpiler takes modern JavaScript (ES6+ or JSX) and translates it into an older version of JavaScript (like ES5), which ensures compatibility with older browsers or environments.
         # Linter: Linting tools analyze your code for potential errors, bad practices, and adherence to coding standards. They help maintain consistent code quality and style.
             # Example ESLint
-        # Tester: They esnures that your code behaves as expected. They help catch bugs early by allowing us to write and run various types of tests.
+        # Tester: They ensure that your code behaves as expected. They help catch bugs early by allowing us to write and run various types of tests.
             # Example: Jest, React Testing Library, etc.
     # Now all these build tools are packed together and it is known as 'build toolchain'.
         # Example: Create React App, Vite, Gatsby, Parcel, etc.
@@ -241,8 +245,8 @@
             # Example: ESLint
 
 # Props
-    # It is short form for properties and can be passed data from one component to another just like a function parameter. 
-    # Props allow us to make your React components dynamic and reusable by passing values or functions as arguments. 
+    # In React, props (short for "properties") are a mechanism for passing data from a parent component to a child component. 
+    # They allow us to make components dynamic and reusable by providing them with different values based on where they are used.
     # It might remind us of HTML attributes, but with props we can pass any JavaScript value through them, including objects, arrays, functions, and even JSX! 
     # How the argument is passed? 
         # <functionName argName={value}/> in the App.js file 
@@ -257,6 +261,7 @@
         # destrcuturing will help us achieve that. 
         # argument name in App.js and the component.js should be same when we are destructuring which is not the case when we simply pass an argument without the consideration for default values
     # Prop-types:
+        # PropTypes are a way to validate the types of props passed to a React component. They help ensure that the correct data type is passed to a component and can provide warnings in the development environment if the props do not match the expected types.
         # They are no longer required as tools like vite by default will add prop-types. 
         # You remember how in 'C/Java langauge' we mention the data-types while passing argument like int, char, etc. Similarly we were specifying the data-types for the props.
         # When will you require this?
@@ -309,7 +314,7 @@
         # Example: Typing into the form should update the input field, clicking “next” on an image carousel should change which image is displayed, clicking “buy” puts a product in the shopping cart. 
         # Components need to “remember” things: the current input value, the current image, the shopping cart. In React, this kind of component-specific memory is called state.
     # State is a JavaScript object that represents the dynamic data of a component. It is used to manage and track changes to the component over time. State allows a component to update and re-render based on user interactions, asynchronous data fetching, or any other event that triggers a change in the component's data.
-    # Initially states were assoicated with class components only. Now with the  advent of 'hooks' (special functions that let your components use React features) they can be used with functional components as well and the entire syntax is much more simplified.
+    # Initially states were associated with class components only. Now with the  advent of 'hooks' (special functions that let your components use React features) they can be used with functional components as well and the entire syntax is much more simplified.
         # Just remember that we can only call a Hook immediately inside a React component (not inside loops or conditions)
 
 # Difference between State and Props:
@@ -347,13 +352,13 @@
     # In React, every time a user does something that changes what’s on the screen, there should be a piece of state in React that manages that change.
     # Certain elements like <input>, <select>, and <textarea> automatically update their appearance based on user input. This behavior is due to their default DOM behavior when they are not controlled by React.
     # This default behavior occurs because these elements manage their own state directly in the DOM, without involving React.
+        # By controlling tha value attribute, we can make these elements as controlled.
     # In React, we want to avoid this because React relies on comparing the previous and current virtual DOMs to determine what needs to be updated in the actual DOM.
     # If an element's state is not managed by React, it could lead to inconsistencies between React's virtual DOM and the actual DOM, making the application harder to predict and manage.
     # The bottom line is: If a user interaction changes anything on the screen, we should control that change using React state to ensure consistency and predictability.
 
 # Data binding:
-    # Binding refers to how data in your application is connected or "bound" to the user interface (UI). 
-    # It determines how changes in the application data are reflected in the UI and how user actions on the UI update the application data.
+    # It refers to the process of connecting the UI with the data or state of an application. It ensures that any changes in the data are automatically reflected in the UI, and vice versa.
     # React follows one-way binding which means data flows in a single direction i.e., from the application state (data) to the UI.
     # In React, we typically update the UI by changing the state of a component. When the state changes, React automatically re-renders the component to reflect those changes in the UI.
 
@@ -379,7 +384,7 @@
     export default MyClassComponent;
 
 # Hooks:
-1. useState(): It is used create local variables inside a functional component. So never create them outside a functional component. Also, Never create them inside conditional statements or loops.
+1. useState(): It is used create local variables inside a functional component.
     import { useState } from 'react';
     function MyFunctionalComponent() {
         const [myState, setMyState] = useState('initialValue');
@@ -429,6 +434,7 @@
                     colorToAdd,
                     ...colors.slice(index),
                 ];
+                // Here slice happens first and then the spread operator kicks-in
                 setColors(updatedColors);
             };
     4. Elements can be removed from an array by using the filter method.
@@ -534,7 +540,7 @@
             # This clean-up function is optional and is used to cancel subscriptions, clear intervals, or perform other clean-up tasks to avoid memory leaks.
             # Also in general we dont give name for the cleanUp(). Whatever function that follows the 'return' will be a cleanUp().
         # How the useEffect() works with cleanUp()?
-            # In first render (upon loading for the first time), useEffect() will be called. The optional cleanup function will returned (which will be held by react). It will not be executed at this point.
+            # In first render (upon loading for the first time), useEffect() will be called. The optional cleanup function will be returned (which will be held by react). It will not be executed at this point.
             # In second render (assuming that we have an element inside the array), the cleanup function will be executed (which was held by react). Now useEffect() will be executed the second time and a new cleanup function will be returned (which will be held by react). This continues for every render.
             # What we have to understand here is, when the component renders and react has any cleanup() held with it, react will execute the cleanup function first and then call the useEffect().
             # What if react has a cleanup() but there is not need for the useEffect() to be called? Then the cleanup() will not be executed by the react.
@@ -647,13 +653,13 @@
             # A list of dependencies including every value within your component that’s used inside your function.
     # Working:
         # On the initial render, useCallback returns the function (not call!) we have passed.
-        # During subsequent renders, it will either return an already stored fn  function from the last render (if the dependencies haven’t changed), or return the function we have passed during this render.
+        # During subsequent renders, it will either return an already stored function from the last render (if the dependencies haven’t changed), or return the function we have passed during this render.
 
 6. useRef:
     # Usage: 
         # It allows us to reference a value that persists across renders but does not trigger re-renders when it changes.
         # In react when we update a state variable, it triggers a re-render of the component. However, there are cases where we need a mutable value that can be updated without causing the component to re-render. This is where useRef comes into play. useRef provides a way to store a value that persists across renders, but updating this value doesn’t cause the component to re-render.
-        # When we use a normal variable in react(without state), it will reset to its initial value everytime the component renders. Because it doesnt have a state persist its values. But with useRef we can achieve this. 
+        # When we use a normal variable in react(without state), it will reset to its initial value everytime the component renders. Because it doesnt have a state persisting its values. But with useRef we can achieve this. 
         # This means refs are perfect for storing information that doesn’t affect the visual output of your component.
     # Syntax:
         # const ref = useRef(initialValue)
@@ -713,7 +719,7 @@
     # Syntax:
         # const [state, dispatch] = useReducer(reducer, initialArg, init?)
             # It returns an array with exactly two values:
-                # state: During the first render, it’s set to init(initialArg) or initialArg (if there’s no init).
+                # state: During the first render, it’s set to init or initialArg (if there’s no init).
                 # dispatch: A function that lets you update the state to a different value and trigger a re-render.
             # reducer: It is a function that takes the current state and an action, and returns the new state.
             # initialArg: It is The initial value for the state. It can be a simple value (like a number or string), an object, or even something more complex like an array.
@@ -766,7 +772,7 @@ Kindly refer - https://reactrouter.com/en/main
                     # const [searchParams, setSearchParams] = useSearchParams();
                       const query = searchParams.get('q');
                     # The string that is used inside get method differents from website to website.
-            # useNavigate: It returns the current type of navigation or how the user came to the current page; either via a pop, push, or replace action on the history stack.
+            # useNavigate: Provides a function to programmatically navigate to different routes, either by pushing or replacing entries in the history stack.
             # useRouteError: Inside of an errorElement, this hook returns anything thrown during an action, loader, or rendering. 
     # NOTE: You have to pass the RouterProvider to the render method from now on and not the App component.
 
@@ -813,8 +819,8 @@ Kindly refer - https://reactrouter.com/en/main
             # Both 'lazy' and 'suspense' are provided by the react package.
         # What is suspense? React generally renders much faster even before the scripts can be loaded. So it is trying to access something that has not yet loaded. Hence it will suspend the loading and will throw an error as "A component was suspended while responding to `synchronous input`". To overcome this we wrap it under 'suspense' which can take an attribute called 'fallback' where we can mention what to appear until the script is loaded. (Generally we mention shimmer).
     # Syntax: const LazyComponent = React.lazy(() => import('./MyComponent'));
-        # React.lazy() returns a React component that we can use in your JSX, just like any other component.
-        # The import() function inside React.lazy() returns a Promise that resolves to a module with a default export, which is your component.
+        # React.lazy() returns a React component that we can use in our JSX, just like any other component.
+        # The import() function inside React.lazy() returns a Promise that resolves to a module with a default export, which is our component.
         # <Suspense fallback={<Shimmer/>}>
             <LazyComponent />
           </Suspense>
@@ -844,25 +850,20 @@ Kindly refer - https://reactrouter.com/en/main
     # One of the principles of Redux is that there should only be one store instance for an entire application.
     # Syntax: const store = configureStore({ reducer: counterReducer })
               console.log(store.getState())
-# Dispatch:
-    # The only way to update the state is to call store.dispatch() and pass in an action object. 
-    # The store will run its reducer function and save the new state value inside, and we can call getState() to retrieve the updated value
-    # Example: 
-        const increment = () => {
-            return {
-                type: 'counter/increment'
-            }
-        }
-        store.dispatch(increment())
 # Slice:
     # A "slice" is a collection of Redux reducer logic and actions for a single feature in your app, typically defined together in a single file.
     # They automatically create reducers and action types. See with useReducers we manually create them right? Here they are created automatically. 
     # createSlice is the function that accepts 4 arguments - name, initialState, reducers and an optional property called extraReducers. 
     # It returns an object.
         # name: The name of the slice, as specified
-        # reducer: The reducer function for the slice. This is the reducer that you will pass to the Redux store. It combines all the slice's reducers into a single reducer function.
-        # actions: An object containing the action creators for each reducer. Each key corresponds to an action defined in the reducers property, and the value is a function that creates an action with that type. This property is responsible for automatic action creation.
-        # caseReducers: An object that contains the actual reducer functions defined in the reducers property. This can be useful if you need direct access to the reducer functions for some reason. This is the actual logic that we have written under mini-reducers. We dont dont directly interact with it. Once written, it is part of the slice's internal implementation.
+        # reducer: A reducer is a function that takes the current state and an action, and returns the new state. It combines all the slice's reducers into a single reducer function. It contains the logic for how state should change based on the action type.
+        # action creators: A function that returns an action object with a type field (and optionally, a payload). They are automatically created. They have the same name as the reducer functions.
+            # Example: export const { addSong, removeSong } = songsSlice.actions; Here addSong and removeSong are not reducer functions, rather they are automatically created action creators. We are passing these action creators while dispatching them using dispatch function. 
+            # What it returns? An object known as action - { type: "song(sliceName)/addSong(reducerFunctionName)", payload: "Song A" }
+        # action: An action is a plain JavaScript object that describes what happened in your application. It must have a type property and can include additional data (e.g., payload).
+        # dispatch: A function provided by Redux that sends an action to the reducer, triggering a state update. Simply put, dispatch is used to send actions.
+            # Example: dispatch(addSong(song));
+        # caseReducers: An object that contains the actual reducer functions defined in the reducers property. This can be useful if you need direct access to the reducer functions for some reason. This is the actual logic that we have written under mini-reducers. We dont directly interact with it. Once written, it is part of the slice's internal implementation.
     # There are 3 functions fo slices:
       1. Defines initial state - We have an empty array. It could be anything (an array, an object, strings, etc.) 
       2. Combines mini-reducers into a big reducer. 
@@ -883,7 +884,7 @@ Kindly refer - https://reactrouter.com/en/main
       # Example: state.push (action.payload)
     # Export the action creator that the slice automatically creates
     # Find the component from where we want to dispatch (that is from where the state should be updated)
-    # In that component, we have import to 'useDispatch' hook and also the action creators that we have exported in step 2.
+    # In that component, we have to import 'useDispatch' hook and also the action creators that we have exported
     # Call the 'useDispatch' hook to get access to the dispatch function
       # This hook actually makes use of the context system to reach up our component heirarchy and get access to the dispatch function from the Redux store.
     # Finally, whenever the user does something (like click, hover, etc.) we call the action creator function (in the eventHandler obviously) to get an action and the dispatch it. This action object will be sent to reducers. They will run and update our states. 
@@ -919,7 +920,9 @@ Kindly refer - https://reactrouter.com/en/main
         # Generally updated state is implicitly returned (taken care by Immer). But whenever you are completely reassign the state, we have to use 'return' (return [])  
         # So basically we can return an empty value in mini-states whenever we want to reset and then dispatch two separate actions whenever the reset button is clicked. But there are better ways. We use something called extraReducers.
     # extraReducers:
-        # It allows you to define additional reducers that don't directly correspond to actions generated by the slice. They dont improve performance or efficiency. They are primarily used for readability and separation concerns.
+        # When you define extraReducers as a function, Redux Toolkit calls this function with the builder object which is a part of the builder API.
+        # The builder API replaces the traditional object notation, providing more flexibility and clarity when working with external or dynamic actions. 
+        # extraReducers allows you to define additional reducers that don't directly correspond to actions generated by the slice. They dont improve performance or efficiency. They are primarily used for readability and separation of concerns.
             # The reducers defined within a slice (reducers field) are responsible for handling actions that are specific to that slice. They only respond to the actions that are created by that slice itself (like those defined in the reducers field).
             # extraReducers allows a slice to respond to actions that originate outside of its own reducers field. These could be actions from,
                 # Other slices
@@ -945,8 +948,31 @@ Kindly refer - https://reactrouter.com/en/main
                         // Handle another action
                     });
                 }
+                # Here someAction is an 'action' and the callback function is a 'reducer function'.
               Use this when you need to handle more complex scenarios, such as chaining multiple actions, handling async thunks, or when your logic requires more control.
-        # builder is a parameter provided to the callback function. It is an object that exposes methods like addCase, addDefaultCase and addMatcher to define additional reducers. The builder object helps organize and add extra reducers in a clean and readable way. Lets focus only on 'addCase' and not worry about others.
+        # Normal reducers vs extraReducers with builder API:
+            # With respect to functionality, there is absolutely no difference between normal reducers and extraReducers. Then what is the need for builder API?
+            # Normal reducers:
+                # The very purpose of builder API is to incorporate 'actions' that are not related to the slice. The reducers field inside createSlice is where you define slice-specific reducers. These are tightly coupled to the slice and only respond to the actions generated by this slice itself. 
+                # Each key in the reducers object corresponds to an action creator generated automatically by Redux Toolkit. These reducers are straightforward and only handle slice-specific logic.
+                    # Example: addSong and removeSong are slice-specific reducers. They directly modify the songs slice of the state.
+                # That is, When you define a key in reducers (e.g., addSong) RTK automatically generates an action creator with the same name and creates a unique type string for the action (e.g., "songs/addSong").
+                # The reducer logic is tied to this specific action 'type' and RTK creates an object to map action type strings to their corresponding reducer functions.
+                # During dispatch, Redux Toolkit checks the type of the dispatched action and executes the appropriate reducer.
+            # extraReducers with Builder API:
+                # In contrast to normal reducer, extraReducers must handle actions that are not tied to the slice itself, which makes the situation more complex.
+                # The reducers field only works with actions generated by the slice itself (e.g., addSong, removeSong). It can’t respond to external actions like 'reset' because those actions aren’t part of the slice's internal actionMapping.
+                # Instead of hardcoding an object for action-to-reducer mappings (as with reducers), it uses the builder API to dynamically define mappings.
+                # The builder object provides a flexible interface for mapping external actions (like reset) to reducers. Unlike the reducers field, where mappings are static, the builder API allows dynamic and extensible configurations.
+                # The builder.addCase method registers external action types with reducers. Internally, Redux Toolkit adds these mappings to the slice’s reducer logic.
+                # VERY IMPORTANT: Unlike normal reducers, for extraReducers, actions are not automatically created. These actions could come from another slice, global actions, or manually created actions. (we have created them manually under action.jsx) using createAction. 
+                    # Example: export const reset = createAction ('app/reset');
+                    Here you could have simply used reset instead of app/reset too. But Namespacing actions with a prefix like app/ helps avoid collisions in large applications where many features may have similarly named actions (e.g., multiple slices with reset actions). Instead of app you could have named anything too. But we try to keep the naming appropriate for our action. Clicking on reset, resets the entire application in our case. So we have named it as 'app/reset'
+                        # Takeaway? Naming conventions like feature/action are a common best practice in Redux to avoid confusion and conflicts in large applications.
+Note: I haven't fully understood the mechanism of builder API as of now. But understood its purpose. 
+        # Why is it called an API? 
+            # API here means Application Programming Interface, which is just a fancy way of saying a set of functions/methods exposed for a specific purpose.
+            # The builder object provides an interface (e.g., addCase) that allows you to define how actions should modify the state.
         # When you console.log(builder), you can see the following.
             # {addCase: ƒ, addMatcher: ƒ, addDefaultCase: ƒ}
                 # addCase: ƒ addCase(typeOrActionCreator, reducer)
@@ -958,7 +984,7 @@ Kindly refer - https://reactrouter.com/en/main
             # The action type (reset in this case).
             # A callback function that specifies how the state should be updated in response to the action.
                 # The callback is simply a mini-reducer function like addSong/removeSong 
-                # Whenver reset is triggered (first argument), execute the reducer (second argument) 
+                # Whenever reset is triggered (first argument), execute the reducer (second argument) 
         # Note: Even though action creators are automatically created by createSlice in Redux Toolkit, you need to explicitly export them if you want to use them elsewhere in your application.
     # Exporting
         # Files in our component folder need specific imports from store/slices/files.js. However, we should try to avoid directly importing from slices, especially action creators. Instead we should use the file store/index.js for centralized state management. The directive is to import there and then re-export. Why?
@@ -1040,12 +1066,13 @@ Kindly refer - https://reactrouter.com/en/main
             # action: The action being dispatched.
 # Async Thunk Functions:   
     # What is a "Thunk"? The word "thunk" is a programming term that means "a piece of code that does some delayed work".
+    # Definition for a redux-thunk: It is a middleware for Redux that allows you to write action creators that return a function instead of an action object. This function can then be used to perform asynchronous operations, like making API requests or delaying dispatches, and it can dispatch multiple actions as needed.
     # 'createAsyncThunk' is a utility function provided by RTK that simplifies the process of handling asynchronous logic.
     # It is designed to handle three key aspects of an asynchronous operation
         # 1. It automatically dispatches actions corresponding to the different states of the asynchronous operation (pending, fulfilled, and rejected).
         # 2. It allows you to define and execute side effects like API calls, fetching data, etc.
         # 3. It works seamlessly with RTK’s createSlice to handle state changes based on the outcome of the async operation.
-    # createAsyncThunk returns a thunk function that has to be dispatched manually by us. That is to initiate the asynchronous operation, we need to dispatch this thunk function. Once dispatched, this thunk function will be intercepted by the redux-thunk middleware which automatically executes this thunk function and during this executuion it during this execution, the middleware automatically manages and dispatches three actions corresponding to the different stages of the promise lifecycle.
+    # createAsyncThunk returns a thunk function that has to be dispatched manually by us. That is to initiate the asynchronous operation, we need to dispatch this thunk function. Once dispatched, this thunk function will be intercepted by the redux-thunk middleware which automatically executes this thunk function and during this executuion the middleware automatically manages and dispatches three actions corresponding to the different stages of the promise lifecycle.
     # Syntax: 
         const fetchUserById = createAsyncThunk(
             'users/fetchById',  // Action type prefix
@@ -1055,13 +1082,13 @@ Kindly refer - https://reactrouter.com/en/main
             }
         );
     # Parameters:
-        # Action type prefix can be literally any string. But by convention we name it in such a way that defines the action.
+        # Action type prefix can be literally be any string. But by convention we name it in such a way that defines the action.
             # But based on what you have named, action type for each of the stage will named.
             # fetchUserById/pending fetchUserById/fulfilled and fetchUserById/rejected
         # Payload Creator: 
             # The second argument is an async function that contains the side-effect logic (e.g., fetching data from an API). 
             # This function returns a promise that resolves with the data to be added to the state or rejects with an error.
-    # Making of use of promise's lifecycle:
+    # Making use of promise's lifecycle:
         # When the request is made, promise's state will be 'pending'. We can use 'pending' to say that "if the type is pending, then change the state of "isLoading: true"
         # When it successfully fetches the data, it will dispatch another action with type called 'fulfilled'. Based on this we can say that the state changes and will update "isLoading:false". We will also udpate the data with new values.
         # If failed, exactly same process where isLoading will be true. Here the dispatched action with type is called 'rejected' But data will be not changed (since no data is received). Hence data will still have the old value. But error will be updated from null to error object.

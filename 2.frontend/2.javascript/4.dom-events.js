@@ -97,7 +97,6 @@ tasButton.addEventListener('mouseenter', function warn(){
 // So those information that are being passed here as arguments are called as eventObjects (Just like we have elementObject and NodeObject)
     // An event object contains information about an event, such as a user's interaction with a web page. 
     // It provides details about the event, including the type of event, the target element, and any additional information related to the event.
-// Note: Name of the element/class/id and the funcion name of the eventlistener cannot be same.
 
 console.log("----------------------------------------------------------------------------------------------------------------------------------------");
 
@@ -185,7 +184,7 @@ console.log('###########')
 console.log(tweetForm)
 const tweetsContainer = document.querySelector('#tweets'); // ul
 tweetForm.addEventListener('submit', function (e) {
-// Don't use click. Because in forms buttons are not the only clickable element. You can click the input text element too. So click here is not suitbale. Hence going with submit. 
+
     e.preventDefault();
 
     // const usernameInput = document.querySelectorAll('input')[0];
@@ -251,7 +250,7 @@ input2.addEventListener('change', function (e) {
 })
 // Change event triggers when there's a change detected in an input element's value and the element loses focus. This means the 'change' event doesn't trigger when you initially type something into an empty input field; it triggers when you make a change to the existing value and then move out of the input field (by pressing the Tab key or clicking elsewhere).
 // For an example, if you have typed "Bharath" for the first time and clicked outside text area element or moved to the next element (Just imagine a form) and noticed that you mispelled your name and cameback to change that, 'change' event will log that
-// But change event with respect text input field is different in modern browsers. Some browsers optimize the user experience by triggering the change event more promptly, especially for text input fields. This means that when you type into the field and stop typing, the change event may be fired immediately, even before you move the focus away.
+// But change event with respect to text input field is different in modern browsers. Some browsers optimize the user experience by triggering the change event more promptly, especially for text input fields. This means that when you type into the field and stop typing, the change event may be fired immediately, even before you move the focus away.
 
 input2.addEventListener('input', function (e) {
     if (input2.value !== ''){
@@ -282,7 +281,7 @@ console.log("1. Event Bubbling");
 console.log("----------------------------------------------------------------------------------------------------------------------------------------");
 
 // Event Bubbling:
-// Event bubbling is the process where an event starts from the target element (the element that was actually clicked or interacted with) and then bubbles up through the ancestors of that element (parent, grandparent, etc.) in the DOM tree, triggeringevent handlers along the way.
+// Event bubbling is the process where an event starts from the target element (the element that was actually clicked or interacted with) and then bubbles up through the ancestors of that element (parent, grandparent, etc.) in the DOM tree, triggering event handlers along the way.
 // When you look at the HTML, you sill see that button (child) in nested under paragraph (parent) which is nested under section (grand-parent).
 // All three has onclick attribute. 
     // A click event on the button will trigger the event on the button first (child), then on the div (parent), and finally on the section (grand parent), in that order. That is bubbling happens from inside to outside.
@@ -297,12 +296,12 @@ const clicks3 = document.querySelector('#click3');
 clicks1.addEventListener('click', function(e){
     alert('button clicked');
     e.stopPropagation();
-    // When you click the button, you will see 3 alerts, But e.stopPropagation stops bubbling the event
+    // without e.stopPropagation(); when you click the button, you will see 3 alerts, But e.stopPropagation stops bubbling the event and you will just see one alert.
 })
 clicks2.addEventListener('click', function(e){
     alert('paragraph clicked')
     e.stopPropagation();
-    // When you click the paragraph, you will see 2 alerts, But e.stopPropagation stops bublling event and contains within #click2
+    // without e.stopPropagation(); when you click the paragraph, you will see 2 alerts, But e.stopPropagation stops bublling event and contains within #click2.
 })
 clicks3.addEventListener('click', function(e){
     alert('section clicked')

@@ -3,18 +3,13 @@ import { removeCar } from '../store';
 
 function CarList() {
   const dispatch = useDispatch();
-  const { cars, name } = useSelector(({ form, cars: { data, searchTerm } }) => {
-    // Generally we access the entire state (entire redux store) and then use method operator to access the corresponding property/reducer in that state. Here we are directly destructuring the required properties.
+  
+  const { data, searchTerm } = useSelector((state) => state.cars);
+  const { name } = useSelector((state) => state.form);
 
-    const filteredCars = data.filter((car) =>
-      car.name.toLowerCase().includes(searchTerm.toLowerCase())
-    ); 
-
-    return {
-      cars: filteredCars,
-      name: form.name,
-    };
-  });
+  const cars = data.filter((car) =>
+    car.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handleCarDelete = (car) => {
     dispatch(removeCar(car.id));

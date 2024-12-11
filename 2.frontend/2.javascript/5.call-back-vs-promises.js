@@ -169,12 +169,7 @@ fakeRequestPromise('yelp.com/api/coffee/page1')
 const delayedColorChange1 = (newColor, delay, doNext) => {
     setTimeout(() => {
         document.body.style.backgroundColor = newColor;
-        doNext && doNext();
-        // This line of code is interesting. So pay attention. (nothing special though)
-        // doNext is the variable that holds the callback function and doNext() is the function itself.
-            // This line will return true only when doNext has a truthy value stored in it and doNext() will be an executable function.
-            // Imagine this. Once the code has reached violet color , there is nothing that could be stored in doNext. So when doNext is null, the code exits.
-            // Also, lets say there exists another line which is not a function, you dont want that to be stored in doNext and gets executed. To avoid this, we also check for 'if there exists a next line and that line is a function'. Only then both conditions will satisfy and the program will carry on. If not, it indicates that there are no more functions that needs to be executed.   
+        doNext && doNext();   
     }, delay)
 }
 
@@ -329,7 +324,7 @@ handlePromise();
 // using promise with .then
 function getData(){
     p.then(res => console.log(res));
-    // Here "Namaste JS!" will be printed immediate;y without waiting for the promise to resolve.
+    // Here "Namaste JS!" will be printed immediately without waiting for the promise to resolve.
     // After 10 seconds "Promise resolved value" will be printed.
     // That is JS Engine doesn't wait for the promise to be resolved
     console.log("Namaste JS!")
@@ -390,7 +385,7 @@ function getData(){
     // Lets say you have different promises making different API requests. Now one has failed and hence promise.all() is rejected. Now what happens to the API calls made by the other promises? Will they be cancelled? No. Those promises still complete their execution in the background. But Promise.all() just stops caring about their results after the first rejection. 
 // It is a powerful tool for managing multiple asynchronous operations concurrently.
 // Disadvantage: If any of the input promises is rejected, the returned promise immediately rejects with the reason of the first promise that rejects. This means that if multiple promises fail, you only get information about the first one that fails, making it difficult to determine which specific operation(s) failed.
-    // To overcome this, we can use Promise.allSettled, which was introduced in ECMAScript 2020. This method returns a promise that resolves after all of the given promises have either resolved or rejected, and it provides an array of objects describing the outcome of each promise.
+    // To overcome this, we can use Promise.allSettled, which was introduced in ECMAScript 2020. This method also takes a array of promises and returns a single promise that resolves after all of the given promises have either resolved or rejected, and it provides an array of objects describing the outcome of each promise.
 
 // Example:
 const lotsOfFetchCalls = [

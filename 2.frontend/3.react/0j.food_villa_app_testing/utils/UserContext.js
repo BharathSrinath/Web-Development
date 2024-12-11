@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-// Here we haven't used the provider component to wrap them over the components to which they can have access to. Any component can import this and use by passing the variable name to the useContex() hook. 
+// Here we haven't used the provider component to wrap them over the components to which they can have access to. Any component can import this and use by passing the variable name to the useContext() hook. 
 const UserContext = createContext({
   user: {
     name: "Dummy Name",
