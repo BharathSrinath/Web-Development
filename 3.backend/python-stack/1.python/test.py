@@ -2,8 +2,8 @@
 first_name = "Bharath"
 last_name = "Srinath"
 full_name = first_name + " " + last_name
-age = 29
-height = 175.5
+age = 30
+height = 175
 print (type(age)) # It gives you the data-type
 #print("Hello" + " " + full_name + age) You can't combine str and int. To achieve this you have to use typecasting (converting one data type to another). This is because you can concatenate only similar data types.
 print("Hello" + " " + full_name + ". Your age is " + str(age))
@@ -31,9 +31,13 @@ print(name*3) #multiplies the string
 name = input ("What is your name?: ")
 age = int(input ("What is your age?: "))
 height = float (input ("How tall are you?: "))
+# Just like in JS, everything user input will be considered string.
+# But here we are converting them to int and float respectively
+# Then while printing them, we are converting back to string 
 
 print("Hello "+name)
 print("You are "+str(age)+" years old")
+# In Java we dont need to convert age/height to string as it happens automatically
 print("You are "+str(height)+" cm tall")
 
 # Mathematical functions
@@ -53,7 +57,7 @@ print(min(x,y,z)) #Finds the minimum of given numbers
 # 1. Indexing: It can accept 3 arguments
     # first - starting index (inclusive)
     # second - ending index (exclusive)
-    # thirs - step (if it is 2, every second character will be printed)
+    # third - step (if it is 2, every second character will be printed)
 name = "Aravind Sharma" 
 first_name = name [0:7] #shorthand is name [:7] => meaning name[start:end]
 last_name = name [8:14] #shorthand is name [8:] => meaning name[8:end]
