@@ -110,6 +110,9 @@ y = np.array([3, 8, 1, 10])
 plt.subplot(2, 3, 3)
 plt.plot(x,y)
 
+plt.suptitle("Testing")
+# Title for the entire image
+
 plt.show()
 
 # Scatter plots

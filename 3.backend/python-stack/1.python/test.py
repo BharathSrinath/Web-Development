@@ -74,9 +74,9 @@ print(reversed_name)
 # 2. Slice()
 website1 = "http://google.com"
 website2 = "http://edX.com"
-
+# Syntax: sequence[start:stop:step]
 print(website1[slice(7, -4)]) #In JS we used method operator (like website1.slice(7, -4))
-print(website2[slice(7, -4)])
+print(website2[slice(7, -4)]) #-4 means from the end 
 
 # Conditionals
 age = int(input ("What is your age?: "))
@@ -107,6 +107,9 @@ print("Hello "+name)
 import time
 for i in range (10): # range keyword is mandatory for integers but not for strings
     print(i)
+# range syntax:
+    # range(start, stop, step)
+    # if step is negative, we can reverse the range 
 for i in range (50, 100, 2): #starts from 50 and end at 98 and counts every second number
     print (i)
 for i in "Bharath Srinath": #prints every character line by line
@@ -138,7 +141,7 @@ while True:
 phone_number = "123-456-7890"
 for i in phone_number:
     if i == "-":
-        continue #Whenever i = -, it will skip that, Hence the phone number will be printed with -
+        continue #Whenever i = -, it will skip that, Hence the phone number will be printed without -
     print (i, end="")
 
 for i in range (1, 21): #Say that i dont want to print 10
@@ -146,6 +149,7 @@ for i in range (1, 21): #Say that i dont want to print 10
         pass
     else:
         print (i)
+# continue vs pass: Use continue when you want to skip certain iterations in a loop based on a condition and use pass pass when a statement is syntactically required, but no code needs to be executed. 
 
 # Lists (in C and JS we call them arrays)
 food = ["idli", "dosa", "sambar", "red chutney", "green chutney"]
@@ -156,7 +160,7 @@ food.append ("rasam") #adds to the list in the last position
 print(food)
 food.remove("idli")
 print(food)
-food.pop()  # removes the value in 0th position
+food.pop()  # removes the the element at the last position
 print(food)
 food.insert(0, "cake")  # inserts at the 0th position
 print(food)
@@ -174,22 +178,47 @@ food  = [drinks, dinner, dessert]
 print (food)
 for i in food:
     print(i)
+    i.sort()
+    print(i)
+# We are printing the inner list - both unsorted an sorted
+# Why not print(i.sort())? Because sort() doesnt return anything. Rather it modifies the original list
+# That is why we need to use print(i) to print the sorted list 
+# If we don't want to modify the original list and instead create a new sorted list, we can use the built-in sorted() function, which returns a new sorted list.
 
 # tuple
-# They are similar to lists but the orders are unchangeable and we use () not []
+# Tuples are Ordered, immutable collection of elements.
+# We use () not []
+# List v Tuple
+    # |----------------------|---------------------------------|--------------------------------|
+    # |Feature               |List                             |Tuple                           |
+    # |----------------------|---------------------------------|--------------------------------|
+    # |Definition            |Ordered, mutable collection of   |Ordered, immutable collection of|
+    # |                      |elements.                        |elements.                       |
+    # |----------------------|---------------------------------|--------------------------------|
+    # |Methods               |Has methods like append(),       |Limited methods, e.g., count(), |
+    # |                      |remove().                        |index().                        |
+    # |----------------------|---------------------------------|--------------------------------|
+    # |Hashable              |Not hashable; cannot be used as a|Hashable (if elements are       |
+    # |                      |key in dictionaries.             |hashable), usable as dictionary |
+    # |                      |                                 |keys.                           |
+    # |----------------------|---------------------------------|--------------------------------|
 
 student = ("Bharath", 21, "male")
-print(student.count("Bharath"))
+print(student.count("Bharath")) # Number of times a specified value appears in the tuple. Here "Bharath" appears only once but "Srinath" doesnt appear (so returns 0).
 print(student.count("Srinath"))
-print(student.index("male"))
+print(student.index("male")) # Gives the index value
 
 for i in student:
     print (i)
 if "Bharath" in student:
     print("Bharath is here")
 
-# Set - Encloses in {}
-# They are a collection which in unordered and un-indexed
+# Set - Enclosed in {}
+# It is an unordered (no indices - means no defined position or order) collection of unique elements
+    # So when we try to access an element from the set, it may not be same as the order in which they were added.
+    # So it means unlike lists and tuples, we cannot access elements in a set using an index (e.g., set[0]) or perform slicing (set[1:3]).  
+# They are useful when you need to store distinct values and perform operations like union, intersection, and difference.
+# They are mutable and heterogeneous
 # No duplicate values
 
 utensils = {"fork", "spoon", "knife"}
@@ -199,12 +228,12 @@ utensils.add("napkin")
 print(utensils)
 utensils.remove("fork")
 print(utensils)  # utensils.clear() This doesn't print an empty {}. Rather it prints set()
-dishes.update(utensils)  # knife is repeating 2 times. Hence, its repetition will be removed.
+dishes.update(utensils)  # update() is used to update dictionaries or sets. Adds from one dictionary/set to another 
 print(dishes)
-dinner_table = utensils.union(dishes)
+dinner_table = utensils.union(dishes) # removes duplicates and returns everything else
 print(dinner_table)
-dishes.difference(utensils)
-print(dishes)  # finds the uncommon elements
+dishes.difference(utensils) # finds the uncommon elements
+print(dishes)  
 common = utensils.intersection(dishes)  # finds the common elements
 print(common)
 
