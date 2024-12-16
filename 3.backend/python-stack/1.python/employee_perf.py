@@ -6,7 +6,7 @@ performance = np.array([98, 91, 79, 63, 51, 92, 87, 73, 45, 66])
 leaves_taken = np.array([9, 10, 20, 17, 20, 6, 16, 16, 1, 19])
 age = np.array([21, 24, 24, 60, 30, 40, 42, 57, 44, 27])
 extra_curricular = np.array([0, 0, 4, 2, 1, 0, 1, 5, 1, 5])
-team_size = np.array([6, 3, 4, 6, 8, 6, 6, 9, 10, 3])
+team_size = np.array([6, 3, 4, 6, 8, 6, 6, 9, 10, 3])z
 
 plt.suptitle("Employee Performance Assessment")
 
