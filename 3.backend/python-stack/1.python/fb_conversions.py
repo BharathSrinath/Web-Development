@@ -124,7 +124,7 @@ try:
     plt.tight_layout()
     plt.show()
 
-##### Most visites pages in tamil-t-shirts (events)
+##### Most visited pages in tamil-t-shirts (events)
     query = """
     SELECT 
         e.event,

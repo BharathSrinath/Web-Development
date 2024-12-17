@@ -5,13 +5,16 @@
     # It is an open-source JavaScript library developed by Facebook for building user interfaces, especially for Single Page Applications (SPA).
     # React builds UIs using components, which are reusable and independent pieces of code that describe a part of the UI.
     # Why is React known as React?
-        React is named for its "reactive" nature in building user interfaces. The library is designed to react to changes in data and automatically update the UI. It implements a virtual DOM, which allows it to efficiently re-render components when the underlying data changes, ensuring that the user interface is always in sync with the application state.
+        # React is named for its "reactive" nature in building user interfaces. The library is designed to react to changes in data and automatically update the UI. It implements a virtual DOM, which allows it to efficiently re-render components when the underlying data changes, ensuring that the user interface is always in sync with the application state.
+        # Most modern frameworks like Vue, Angular, Svelte are also built they same way. But React was at the fore-front of introducing reactive frameworks.
+        # Before React, jquery was the most popular way of updating DOM. But here if the data had changed, we need to write more code to ensure that the UI reflected those changes (Unlike modern frameworks which updates the UI automatically based on the changes in data).
+        # Even before Angular did this. But Angular followed two-way data binding and dirty checking which required scanning all data and bindings repeatedly that led to performance issue in large applications.
 
 # Components:
     # Function Components (New way): These are just a normal JS functions that return React element/jsx. 
     # Class Components (Old way): These are ES6 classes that extend React.Component and include a render method that returns React elements.
     # NOTE: 
-        # We can write “rafce” in VSCode to get a boiler plate react component, but try to avoid it to practice.
+        # We can write “rafce” in VSCode to get a boiler plate react component.
         # Components can be reused across different parts of an application or even in different projects.
     # Component Rendering: 
         # On the first render, the component function is executed, and local variables are created within the function's scope.
@@ -20,7 +23,7 @@
         # The JavaScript engine, through its garbage collection, automatically identifies and removes resources associated with the old instance.
 
 # Diffing algorithm: 
-    # It is used to efficiently update the UI by comparing the new version of the UI ( represented as a virtual DOM) with the previous version and determining the minimal set of changes needed to update the actual DOM. 
+    # It is used to efficiently update the UI by comparing the new version of the UI (represented as a virtual DOM) with the previous version and determining the minimal set of changes needed to update the actual DOM. 
     # Directly updating the DOM is often slow and can lead to performance issues. So the diffing algorithm optimizes this process by minimizing the number of operations performed on the DOM.
     # Re-rendering vs. DOM Manipulation: 
         # Re-rendering refers to React calling the render method of a component to generate a new virtual DOM. This virtual DOM is then compared to the previous one using the diffing algorithm. 
