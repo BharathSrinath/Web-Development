@@ -1,0 +1,232 @@
+{
+  "users": [
+    {
+      "name": "Penny Quitzon",
+      "id": 9
+    },
+    {
+      "name": "Jackie Tromp",
+      "id": 11
+    },
+    {
+      "name": "Morris Schaden",
+      "id": 12
+    },
+    {
+      "name": "Renee Koss",
+      "id": 14
+    },
+    {
+      "name": "Dianne Stehr",
+      "id": 16
+    },
+    {
+      "name": "Elisa Stiedemann",
+      "id": 17
+    }
+  ],
+  "albums": [
+    {
+      "userId": 9,
+      "title": "Gorgeous Rubber Table",
+      "id": 1
+    },
+    {
+      "userId": 9,
+      "title": "Practical Frozen Tuna",
+      "id": 2
+    },
+    {
+      "userId": 16,
+      "title": "Handmade Rubber Fish",
+      "id": 10
+    },
+    {
+      "userId": 11,
+      "title": "Recycled Wooden Soap",
+      "id": 11
+    }
+  ],
+  "photos": [
+    {
+      "albumId": 1,
+      "url": "https://loremflickr.com/640/480?lock=289750634201088",
+      "id": 1
+    },
+    {
+      "albumId": 1,
+      "url": "https://picsum.photos/seed/wi6nKXc/640/480",
+      "id": 2
+    },
+    {
+      "albumId": 2,
+      "url": "https://loremflickr.com/640/480?lock=4522382836367360",
+      "id": 3
+    },
+    {
+      "albumId": 2,
+      "url": "https://picsum.photos/seed/hCzWdr/640/480",
+      "id": 4
+    },
+    {
+      "albumId": 2,
+      "url": "https://loremflickr.com/640/480?lock=7374842164674560",
+      "id": 5
+    },
+    {
+      "albumId": 2,
+      "url": "https://picsum.photos/seed/WpZEmzVA/640/480",
+      "id": 6
+    },
+    {
+      "albumId": 2,
+      "url": "https://picsum.photos/seed/WP6lj/640/480",
+      "id": 7
+    },
+    {
+      "albumId": 1,
+      "url": "https://loremflickr.com/640/480?lock=3870522335035392",
+      "id": 8
+    },
+    {
+      "albumId": 1,
+      "url": "https://picsum.photos/seed/rQZx15g/640/480",
+      "id": 9
+    },
+    {
+      "albumId": 1,
+      "url": "https://picsum.photos/seed/qrXrt3s/640/480",
+      "id": 10
+    },
+    {
+      "albumId": 1,
+      "url": "https://picsum.photos/seed/lzHi4S2upN/640/480",
+      "id": 11
+    },
+    {
+      "albumId": 1,
+      "url": "https://loremflickr.com/640/480?lock=8145227323801600",
+      "id": 12
+    },
+    {
+      "albumId": 1,
+      "url": "https://picsum.photos/seed/esc9Kg/640/480",
+      "id": 13
+    },
+    {
+      "albumId": 1,
+      "url": "https://picsum.photos/seed/oHqP8EowW/640/480",
+      "id": 14
+    },
+    {
+      "albumId": 1,
+      "url": "https://picsum.photos/seed/cJfqyO0M/640/480",
+      "id": 15
+    },
+    {
+      "albumId": 1,
+      "url": "https://loremflickr.com/640/480?lock=8313413474189312",
+      "id": 16
+    },
+    {
+      "albumId": 1,
+      "url": "https://loremflickr.com/640/480?lock=6334202909818880",
+      "id": 17
+    },
+    {
+      "albumId": 1,
+      "url": "https://loremflickr.com/640/480?lock=2698347158700032",
+      "id": 18
+    },
+    {
+      "albumId": 11,
+      "url": "https://picsum.photos/seed/QW8FEY9To/640/480",
+      "id": 19
+    },
+    {
+      "albumId": 11,
+      "url": "https://loremflickr.com/640/480?lock=8073007150923776",
+      "id": 20
+    },
+    {
+      "albumId": 11,
+      "url": "https://picsum.photos/seed/O6rRQe/640/480",
+      "id": 21
+    },
+    {
+      "albumId": 11,
+      "url": "https://loremflickr.com/640/480?lock=2078422624894976",
+      "id": 22
+    },
+    {
+      "albumId": 11,
+      "url": "https://picsum.photos/seed/Y3QCzgM/640/480",
+      "id": 23
+    },
+    {
+      "albumId": 11,
+      "url": "https://loremflickr.com/640/480?lock=8036010095017984",
+      "id": 24
+    },
+    {
+      "albumId": 11,
+      "url": "https://loremflickr.com/640/480?lock=7087854079442944",
+      "id": 25
+    },
+    {
+      "albumId": 11,
+      "url": "https://picsum.photos/seed/H39gRdZW02/640/480",
+      "id": 26
+    },
+    {
+      "albumId": 11,
+      "url": "https://loremflickr.com/640/480?lock=3751205622775808",
+      "id": 27
+    },
+    {
+      "albumId": 11,
+      "url": "https://loremflickr.com/640/480?lock=4857674688626688",
+      "id": 28
+    },
+    {
+      "albumId": 11,
+      "url": "https://loremflickr.com/640/480?lock=6762128130179072",
+      "id": 29
+    },
+    {
+      "albumId": 11,
+      "url": "https://picsum.photos/seed/ulJZiBSEGO/640/480",
+      "id": 30
+    },
+    {
+      "albumId": 11,
+      "url": "https://loremflickr.com/640/480?lock=5279534469349376",
+      "id": 31
+    },
+    {
+      "albumId": 11,
+      "url": "https://loremflickr.com/640/480?lock=8835952935960576",
+      "id": 32
+    },
+    {
+      "albumId": 11,
+      "url": "https://picsum.photos/seed/scSbvXfz/640/480",
+      "id": 33
+    },
+    {
+      "albumId": 11,
+      "url": "https://picsum.photos/seed/F1AqkZAWz/640/480",
+      "id": 34
+    },
+    {
+      "albumId": 11,
+      "url": "https://loremflickr.com/640/480?lock=8189791227084800",
+      "id": 35
+    },
+    {
+      "albumId": 11,
+      "url": "https://picsum.photos/seed/KxicBzLNRp/640/480",
+      "id": 36
+    }
+  ]
+}

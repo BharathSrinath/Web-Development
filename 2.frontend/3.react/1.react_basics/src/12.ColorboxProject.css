@@ -1,0 +1,15 @@
+.colorbox{
+    width: 20%;
+    height: 20%;
+    display: flex;
+}
+.colorboxgrid{
+    margin: 20px 0;
+    width: 800px;
+    height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+}

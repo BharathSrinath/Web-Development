@@ -1,0 +1,30 @@
+.NavBar{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 9vh;
+    background-color: lightgray;
+}
+
+.NavBar ul{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+.NavBar ul li{
+    font-size: 18px;
+    list-style-type: none;
+    font-weight: bold;
+}
+
+.NavBar ul li a{
+    text-decoration: none;
+    color: black;
+}
+.NavBar ul li a:hover {
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}

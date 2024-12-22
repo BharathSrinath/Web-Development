@@ -1,0 +1,1204 @@
+/* Different ways of writing CSS: */
+    /* 1. Normal native CSS: */
+    /* 2. SCSS */
+    /* 3. Inline CSS */
+    /* 4. Component libraries - Material UI, Base UI, Ant, Chakra, etc. */
+    /* 5. Styled Components */
+    /* 6. CSS Farmeworks - Tailwind, Bootstrap, etc. */
+
+/* 1. Normal native/External CSS:
+    Pros:
+        * Simple and Standardized: CSS is widely understood and supported across all web browsers.
+        * Separation of Concerns: Keeps your styles separate from your HTML and JavaScript.
+        * No Dependencies: No need for additional libraries or preprocessing tools/
+    Cons:
+        * Global Scope: All styles are applied globally, which can lead to conflicts and overrides unless you manage class names carefully.
+        * Limited by Features: Native CSS doesn't support variables, nesting, or advanced logic, making it less powerful for complex projects. */
+/* 2. SCSS (Sassy CSS): A preprocessor (A preprocessor, in programming and web development, is a tool that processes input code to produce output in a different form, making it easier to write, manage, and maintain.) that extends CSS with additional features like variables, nesting, mixins, and functions. SCSS files are compiled into regular CSS files.
+    Pros:
+        * Variables and Mixins: Allows for more dynamic and reusable styles.
+        * Nesting: Makes the CSS structure more readable and mirrors the HTML structure.
+        * Partial Files: Breaks CSS into smaller, manageable chunks that can be imported as needed.
+    Cons:
+        * Requires Compilation: Needs a build step to convert SCSS to CSS, which can add complexity.
+        * Learning Curve: Slightly more complex than plain CSS, especially for beginners.
+        * Overuse: Over-nesting or overusing features can lead to bloated CSS. */
+/* 3. Inline CSS:
+    Pros:
+        * Immediate and Specific: Styles are applied directly and only affect the specific element.
+        * No External Dependencies: No need for external files or classes.
+        * Easier for Dynamic Styles: Can be easily manipulated via JavaScript.
+    Cons:
+        * No Reusability: Styles cannot be reused across different elements.
+        * Hard to Maintain: Inline styles can clutter HTML and make maintenance difficult.
+        * Overrides Styles: Inline styles have the highest specificity, which can lead to unexpected behavior if not carefully managed. */
+/* 4. Component Libraries (e.g., Material UI, Base UI, Ant Design, Chakra UI):
+    Pros:
+        * Consistency: Ensures a consistent look and feel across the application.
+        * Productivity: Speeds up development by providing ready-to-use components.
+        * Customization: Components can be customized to match your branding.
+    Cons:
+        * Dependency on the Library: Ties your project to a specific library, which can be a challenge if you want to switch later.
+        * Learning Curve: Requires learning the library’s API and customization methods.
+        * Overhead: Including an entire library can add to the bundle size, affecting performance. */
+/* 5. Styled Components: A library for styling React components using tagged template literals. It allows you to write actual CSS in your JavaScript.
+    Pros:
+        * Scoped Styles: Styles are scoped to the component, preventing conflicts.
+        * Dynamic Styling: Can use props to dynamically adjust styles based on component state.
+        * Integration: Allows seamless integration with JavaScript logic.
+    Cons:
+        * Learning Curve: Can be challenging to grasp for those unfamiliar with tagged template literals.
+        * Performance: In some cases, the runtime generation of styles can impact performance.
+        * Overhead: Adds additional dependencies and can increase the bundle size. */
+/* 6. CSS Frameworks (e.g., Tailwind CSS, Bootstrap):
+    Pros:
+        * Rapid Development: Provides a wide range of utility classes and components to speed up development.
+        * Consistency: Helps maintain a consistent design system throughout the project.
+        * Responsive Design: Most frameworks are built with responsiveness in mind, making it easier to create mobile-friendly designs.
+    Cons:
+        * Overhead: Including the entire framework can add unnecessary code to your project if you're only using a small portion of it.
+        * Learning Curve: Requires learning the framework's class names and structure.
+        * Customization: Customizing the default styles can be difficult, especially if the framework's styles are too opinionated. */
+
+/* We will be dealing with External CSS in this file */
+    /* In the html you need to link this css file. All the stylings will be done in this page */
+    /* link rel = "stylesheet" href = filename.css */
+    /*  The rel attribute specifies the relationship between the current document and the linked resource. In this case, the value "stylesheet" indicates that the linked resource is a CSS file used for styling. */
+    /* Standard format in css is as follows */
+    /* selector { 
+    property: value; 
+    } */
+    /* You can have multiple selectors too like h1, h2 */
+
+/* colors */
+/* Majority of the time you wont be using the direct names of colors. We will be relying on RGB colors or hexadecimal colors */
+h1 {
+    color: rgb(0, 110, 255);
+    text-align: center;
+    font-weight: 400;
+    text-decoration: color #527AD6 underline wavy;
+    /* Here the color of the wavy underline is #527AD6 */
+    letter-spacing: 15px;
+    /* font-weight increases the boldness. But it is subject to the available fonts in browser. So every font-weight may not reflect the boldness in your browser  */
+    /* letter spacing increases the spaces between letters */
+    font-size: 80px;
+    /* using pixels in font-size is not recommended for responsive websites */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* How the font-family works is, if the user doesn't have the first, it will display the second; if not the second, it will try to display the third and goes on. */
+}
+
+h3 {
+    color: rgb(177, 87, 177);
+}
+
+p {
+    color: #000000;
+    /* background-color: #C8CBD0; */
+    line-height: 2;
+    /* It increase the space between lines just like line spacing option in word document */
+}
+
+/* Anchor tags have links and the text will be in blue color with an underline. You can customise them. But this will apply to all anchor tags. To customise them you can also use class, id, descendant selector which you will learn below */
+a {
+    color: black;
+}
+
+button {
+    color: white;
+    background-color: black;
+}
+
+/* As you can see by using a selctor you can style the entire selector in one go. But if you want to have different style format specifically for one button and one particular heading? This is where 'id' comes into picture. Assign an id for the element in html and use the same id as selector prefixed with hash in css to customise that */
+
+#searchYT,
+#searchGoog {
+    color: black;
+    background-color: white;
+}
+
+/* Classes are similar to id's. While classes are commonly used for styling multiple elements or grouping similar elements together, IDs are used to uniquely identify and target specific elements within an HTML document. */
+/* name of the class should be prefixed with a dot (.) */
+.makeitgreen {
+    color: green;
+}
+
+/* Descendant selector: They are those where you are selecting something that is nested inside or under some other thing. */
+/* Here, were are selecting all <a> that are nested inside <li> */
+/* Look carefully. When you use a ',' (comma) between elements, it means styling will be applied to all of them. When you use space, you are basically narrowing down a particular element.  */
+li a {
+/* Here only those anchor elements under the list elements will be styled as below  */
+    color: red;
+}
+
+/* Semantic markups which are used to differentiate different sections of a page can be used in conjunction with classes, IDs, and other attributes to customize everything with specificity. */
+
+/* Adjacent selector/combinator: In order to use them they should be next to each other  */
+/* So everywhere input and button elemenst are next to each other, color of the text will change to yellow */
+input+button {
+    color: yellow;
+}
+
+/* Direct child. */
+/* Here list element that comes immediately after the div will change its colors */
+/* I have inserted div from 80 to 85 in HTML file */
+div>li {
+/* Here, the child of li will not be affetcted by this styling */
+    color: purple;
+    font-weight: bold;
+}
+
+/* Attribute Selector: As the name says you will select an attribute and customise everything that contains those attribute */
+/* Look closely. There are no space between input and the paranthesis */
+input[type="text"] {
+    width: 300px;
+    color: red;
+}
+
+/* line 152 to 155 in html */
+/* In this example, you can also use 'Section.bold' to achieve the same output since we are dealing with class here */
+Section[class="bold"] {
+    color: firebrick;
+    font-weight: bold;
+}
+
+/* Pseudo classes: They are the keywords added to a selector that specifies a special state of the selected elements */
+/* hover: when you hover over a button now the color and the bg color will change based on the given input */
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+/* visited: you can change the properties of a link to display some other color if you have clicked once.  */
+button:visited {
+    color: violet;
+}
+
+/* In this example i have used id that is mentioned within button in html file. You can also use class. */
+#searchYT:hover,
+#searchGoog:hover {
+    color: white;
+    background-color: black;
+}
+
+/* Example for class */
+.buttontypes input[type=submit]:hover {
+    color: white;
+    background-color: black;
+}
+
+/* Example using anchor tags */
+section.resources a {
+    color: blue;
+}
+
+section.resources a:hover {
+    color: green;
+    font-weight: bolder;
+}
+
+/*  active: When you click it will change the color */
+section.resources a:active {
+    color: red;
+    font-weight: bolder;
+}
+
+/* nth of type: It is also a pseudo class You can select contents using a sequence like every other, every 3rd or 5th */
+/* Just for understanding, we will use tables from line 121 to 159 in html to change the color for every other */
+/* Here the nth-of-type property will provide automatically provide values to n from 0 until the end the immediate child of tablehead's length */
+.tablehead:nth-of-type(2n) {
+    /* If you use 2n+1 you can select odd numbers*/
+    color: blueviolet;
+}
+
+/* Pseudo elements: They allow you to style specific parts of an element. They create virtual elements within an element that can be styled independently */
+/* While pesudo clasess uses ':' (single colon), pseudo elements use '::' (double colon) */
+h3::first-letter {
+    /* Imagine the editorial in 'The Hindu' where the first letter is bold and capitalised. */
+    font-size: 30px;
+}
+
+::selection {
+    /* This will change the color when you select something in the web page */
+    background-color: #fcbf49;
+}
+
+p::before{
+    content: ">> ";
+    /* It will add ">>" before every paragraph element */
+    color: blue;
+}
+
+p::after{
+    content: ">> ";
+    /* It will add ">>" after every paragraph element */
+    color: blue;
+}
+
+/* Cascading Style Sheets */
+/* "Cascading" refers to how CSS applies styles to elements based on priority and specificity rules. The “cascade” determines which styles take precedence when multiple rules apply to the same element. This process considers three main factors: */
+    /* Specificity: Id's > Class, attributes and pseudo classes > Elements and pseudo elements. */
+    /* Importance: Rules marked with !important take priority. */
+    /* Source Order: When specificity and importance are equal, the last declared rule is applied. */
+
+#firstheader {
+    color: black;
+}
+/* h1 {
+    color: red !important;
+} Use "!important" as less as possibble. Not a best practice. */
+
+/* Inheritance: Lets say the you gave a color for body in html, all the text under the paragraph inisde body will inherit them. On the other hand not everything will inherit the color - buttons, borders, etc. To do that you have to specify color: inherit; */
+/* Again not a best practice. */
+/* Just remember that color and font are inherited for most elements while other properties are not */
+
+/* Box Model: Everything in a web page will be treated as a box by the browser. */
+/* +--------------------------+
+  |          Margin           |
+  |                           |
+  |  +---------------------+  |
+  |  |       Border        |  |
+  |  |                     |  |
+  |  |  +---------------+  |  |
+  |  |  |    Padding    |  |  |
+  |  |  |               |  |  |
+  |  |  |   +-------+   |  |  |
+  |  |  |   |Content|   |  |  |
+  |  |  |   |       |   |  |  |
+  |  |  |   +-------+   |  |  |
+  |  |  |               |  |  |
+  |  |  +---------------+  |  |
+  |  |                     |  |
+  |  +---------------------+  |
+  |                           |
+  +---------------------------+ */
+
+section.boxmodel1 p {
+    /* Refer line 348 to 374 for paragrah color and bg color*/
+    color: blue;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    width: 1000px;
+    height: 400px;
+    /* When there are more height than required, the remaining space will be filled with bg color. Default color is white hence you wont be able to differentiate */
+}
+
+section.boxmodel2 p {
+    color: red;
+    background-color: #fcbf49;
+    font-weight: bold;
+    font-size: 25px;
+    width: 1000px;
+    height: 300x;
+    border-color: blue;
+    border-width: 3px;
+    border-style: solid;
+}
+
+section.boxmodel3 p {
+    color: green;
+    background-color: lightblue;
+    font-weight: bold;
+    font-size: 30px;
+    width: 1000px;
+    height: 500px;
+    border-radius: 20px;
+    /* Happens at the corners of the border */
+    border: 4px dashed red;
+    /* Instead of using border widh, style and color separately, you can this format. But order cant change */
+    border-left-style: solid;
+    /* Even after mentioning as dashed above, you can specify left side as solid => Cascading rule will kick in */
+    padding: 20px;
+    /* Adds space between content and the border. You can apply individually to different sides too or use the format just like below - order: top right bottom left (like a clock) */
+    margin: 50px 10px 10px 10px; /* T, R, B, L*/
+    /* Adds space between different elements */
+    /* Best practice for margin is set to 0 while developing web page. Then add the sapces as and when necessary. */
+    box-sizing: border-box; /* When you add this property padding, border, margin and the content everything will be forced to fit within the mentioned width and height. That is, the total space available for the content will be dimensions (widhth and height) minus (padding, border and margin values) */
+}
+
+/* Float, Overflow and Clear */
+/* Float helps to wrap the text in the space left by an image */
+/* Overflow: If an image is overflowing from its container, you can go ahead reduce its size. But you can also use oveflow property that increase the size of the container to accomodate the oveflow */
+/* Clear: When your preceding content is overflowing where the top-left side of the web page is protruding down but the top-right has a content that stops at 30% (compared to the left side content), you can use clear property for the next container in your web page. Think of it like an imaginary horizontal line. */
+    /* To see the protrusion, comment out .overflow and .clear */
+
+.float, .overflow, .clear{
+    background-color: #83cfd5;
+}
+.float img, .clear img{
+    float: left;
+    /*  it essentially moves the element as far to the left as possible within its containing element, allowing content to flow around it on the right side. */
+    margin-right: 10px;
+}
+.overflow img{
+    float: right;
+    margin-left: 30px;   
+}
+.imgoverflow{         /* Image size was too big. That is why i am reducing it. */
+    height: 400px;
+}
+
+/* Right side of the middle paragraph (image) is protruding. This can be corrected either using overflow property for the middle paragraph or clear property for the last paragraph.  (just as below) */
+
+.overflow{
+    overflow: auto;
+}
+.clear{
+    clear: right; 
+}
+
+/* Inline and Blockline elements */
+/* There is a property called display property. By changing value of the property, you can change the character of the block -->
+/* They are of 3 types: Inline, Block and Block-inline */
+
+/* Inline: Width and height are ignored. Margin and padding push elements away horizontally but not vertically. Look at the below example. In the output both span content appear next to each other. */
+/* HTML code */
+/* <span class="cheetah">The cheetah is the fastest land animal.</span> */
+/* <span class="cheetah">It is capable of running at 80 to 98 km/h. </span> */
+span.cheetah1 {
+    font-size: 25px;
+    background-color: rgb(212, 52, 52);
+    border: 1px solid black;
+    margin: 20px;
+    display: block;       /* It will change the character of span element from inline to block. */
+}
+
+/* Block: They break the flow of the document. Width, height, margin and padding are respected on all sides. Look at the below example. In the output both h4 content appear one below each other and notice that the bg color is spanned throughtout the width. */
+/* HTML code */
+/* <h4>The cheetah lives in three main social groups </h4> */
+/* <h4>The cheetah occurs in a variety of habitats.</h4> */
+.cheetah2 {
+    font-size: 30px;
+    background-color: palegreen;
+    border: 1px solid black;
+    margin: 10px;
+    display: inline;
+    /* It will change the character of span element from  block to inline. */
+}
+
+/* inline-block: Behave like an inline element but width, height, margin and padding are respected. Look at the below example. */
+/* HTML code */
+/* <p class="tree">Mango tree</p> */
+/* <p class="tree">Banyan tree</p> */
+/* <p class="tree">Guava tree</p> */
+p.tree {
+    /* height: 200px; */
+    /* width: 200px; */
+    background-color: #527AD6;
+    border: 5px solid black;
+    text-align: center;
+    display: inline-block;
+    /* You can see that with inline block we were able to arrange them in a linear fashion. */
+    margin: 30px;
+}
+
+/* CSS units: There are two types - Absolute (pixel and inches) and Relative (percentages, em, rem, etc.) */
+    /* 1. em: It is relative to the font size of the parent.  Lets say that element 1 (parent) has a font size of 16px, then element 2 (child) will also have 16 px when its font size is set to be 1em. For 2em, it will be 32px and so on */
+        /* But with every other property (like width, padding, margin, etc.), 1em = computed font size of the element itself. When the element's font size is 2em, i.e., 20px (parents is 10px), then specifying padding = 0.25em will result in 5px (0.25 * element's fontsize)*/
+        /* The issue with em is while nesting multiple times (nest under a nest under a nest and goes on), font sizes can grow/shrink with multifold difference. This is called compounding. */
+    /* 2. rem: It is similar to em, but it's relative to the root element's (html) font size (16px in most browsers) */
+    /* 3. percentage: It is relative to the parent element. If parent's fontsize is 32px, mentioning 50% as the font-size to the child will give it a font-size of 16px. */
+        /* Unlike em and rem, % completely depends on parents fontsize including padding, margin, etc. */
+        /* Since they are completely dependednt only on parents, there is no compounding. */
+    /* 4a) vw (viewport width): The vw unit is relative to the width of the viewport (the visible area of the browser window). For example, 10vw represents 10% of the viewport width. This unit is helpful for creating designs that adapt to different screen sizes. */
+    /* 4b) vh (viewport height): The vh unit is similar to vw, but it's relative to the height of the viewport. 10vh is equivalent to 10% of the viewport height. */
+        /* We will stick with vh and vw as it can do the things same as vmax and vmin */
+    /* 5a) vmax (Viewport Maximum): vmax is the larger value between vh and vw. */
+    /* 5b) vmin (Viewport Minimum): vmin is the smaller value between vh and vw. */
+
+/* Transparency and Opacity */
+/* Transparency is how much the element has allowed the light to pass through. */
+    /* If it is 100% transparent you can see what exactly is on the other side */
+/* Opacity is how much the element has been blocked by the light. */
+/* Both ranges from 0 to 1 and higher the value, higher is the transparency and opaqueness  */
+/* They are inversely proportional to each other */
+
+#opacityandtransparency {
+    background-color: blue;
+    width: 500px;
+    height: 500px;
+}
+
+#opacity {
+    width: 50%;
+    height: 50%;
+    background-color: yellow;
+    opacity: 0.6;
+}
+
+#transparency {
+    width: 50%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Here 0.5 is the opacity/transparency property */
+    /* a stands for alpha */
+}
+
+/* Positions: It sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements.. */
+
+.positions {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(82, 122, 214);
+    border: 2px solid #000000;
+    margin: 10px;
+    display: inline-block;
+
+}
+
+#middle {
+    background-color: rgb(252, 191, 73);
+}
+
+/* This is not going to change anything. Static is the default. No matter what value you give top, bottom, etc. */
+
+#static #middle {
+    position: static;
+    top: 100px
+}
+
+/* This changes the position relative to itself. It will leave that position based on the below properties (top and left in this scenario) and occupy a new place. But the space it left is not occupied by other elements of the container. (Previously the box was in the middle). */
+
+#relative #middle {
+    position: relative;
+    top: 100px;
+    left: 30px;
+}
+
+/* Absolute position: Other elements will occupy the space left by the element whose position is set to be absolute. It positions itself based on the position of its root parent (html) when none of its parents are set to any positions except static. If any of its parents has been given a position (technically known as "positioned ancestor"), then it positions itself within the parent element */
+/* If you want that element to be within the container, you declare its immediate parent's position as relative. */
+
+/* So you will be using this property only with parent's position as relative */
+/* Setting the parent element's position to "relative" creates a new positioning context for the absolutely positioned child, which means the child's position is calculated relative to the boundaries of the positioned parent, not the root element. */
+/* This is how setting the parent's position to "relative" helps control the positioning of the absolutely positioned child within the parent element. */ 
+
+#absolute {
+    position: relative;
+}
+
+#middle {
+    position: absolute;
+    top: 50px;
+    /* Also notice that in the output it is not perfectly aligned with other 2 boxes because div have been given margin of 10 px. */
+    left: 50px;
+    /* If you have just given this without a parent, you will see that the box as moved to top of the web page*/
+}
+
+/* An element with position: fixed is positioned relative to the viewport, meaning it stays in the same position on the screen even as you scroll. It is detached from the normal document flow, and its position does not change regardless of the scrolling of the page. */
+/* Think of navigation bars and menu bars.  */
+
+#fixed #middle {
+    position: fixed;
+    top: 0;
+    /* Now you are going to see this box always at the top left corner of the page */
+    /* I have commented out the middle element in HTML so you wont see it in the webpage */
+    left: 0;
+}
+
+/* An element with position: sticky toggles between relative and fixed positioning, depending on the user's scroll position. It behaves like a relatively positioned element until the viewport scrolls to a specific point (usually defined by top, bottom, left, or right), at which point it becomes fixed and stays in that position until the containing block is out of view.  */
+
+
+#sticky #middle {
+    position: sticky;
+    bottom: 0;
+    /* This will make sticky to stick at the bottom and will move up when you scoll up until it hits the parent's top */
+}
+
+/* Animations  */
+
+.animations{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    background-color: red;
+    color: #000000;
+    animation-name: animation1;
+    animation-duration: 10s;
+    animation-delay: 0s; /* animation will start after n seconds of loading our web page*/
+    animation-iteration-count: infinite; /* How many times the animations should go on */
+    animation-direction: alternate-reverse; /* It represents the flow of animation. */
+        /* Normal: start-end
+        Reverse: end-start
+        Alternate: start-end-start
+        Alterante-reverse: end-start-end */
+    animation-fill-mode: forwards; /* forwards: element will retain the styles of the final keyframe. backwards: The element will take on the styles of the initial keyframe. They won't have any effect when the animation-iteration-count is infinite as the loop goes on for ever. To test how the fill-mode works, change iteration count to 1 */
+    animation-timing-function: ease-in-out; /* It controls the pace and progression of keyframes within an animation. */
+        /* ease: This is the default timing function. It starts slow, accelerates in the middle, and then slows down again toward the end. */
+        /* linear: This timing function creates a constant speed throughout the animation. */
+        /* ease-in: This timing function starts slow and accelerates as it progresses through the animation. ease-out does the exact opposite */
+        /* ease-in-out: Exactly same as ease. Starts slow, accelerates in the middle and decelerates at the end. Only difference is ease-in-out may have a slightly more pronounced acceleration and deceleration phase, making it appear more symmetrical. */
+        /* cubic-bezier(x1, y1, x2, y2): */
+            /* They can be uses as a value for animation/transition-timing-function property */
+            /* If x1 is close to 0, the animation accelerates quickly and if it is close to 1, animation accelerates slowly */
+            /* If x2 is close to 0, the animation decelerates quickly and if it is close to 1, animation decelerates slowly */
+            /* y1 and y2 are similar to x1 and x2 but with respect to y coordinate */
+            /* Example: Let's say that an element is moving from point A to point B with cubic-bezier(0.8, 0.6, 0.7, 0.9) */ 
+                /* x1 and y1 - Animation accelerates slowly for 80% (along x-axis) and 70% (along y-axis) of the total duration */
+                /* x2 and y2 - Animation decelerates slowly for 60% (along x-axis) and 90% (along y-axis) of the total duration  */
+            /* Deceleration starts to take place only after the completion of acceleration (at 80%). For the rest 20%, deceleration of 70% will kick-in */
+    /* Shorthand => animation: animation1 (name) 10s (duration) ease (timing-fucntion) 2s (delay) infinite (iteration-count) forwards (fill-mode) */
+    position: relative; /* If you want to change the position of the element using the keyframe, you have to use this. Because the default value is static. Here i have offeset 200px from top. 0 in the first and 200 in the last keyframe. */
+}
+
+@keyframes animation1{
+    /* from{
+        background-color: red;
+    }
+    to{
+        background-color: yellow;
+    } */
+    0%{
+        background-color: red;
+        font-size: 10px;
+        color: #000000;
+        top: 0;
+        left: 0;
+    }
+    25%{
+        background-color: green;
+        font-size: 15px;
+        color: #000000;
+        top: 50;
+        left: 50;
+    }
+    50%{
+        background-color: blue;
+        font-size: 20px;
+        color: #000000;
+        top: 100;
+        left: 100;
+    }
+    75%{
+        background-color: yellow;
+        font-size: 25px;
+        color: #000000;
+        top: 150;
+        left: 150;
+    }
+    100%{
+        background-color: black;
+        font-size: 30px;
+        color: white;                /* Key issue: If no text colors are mentioned from 0% to 75% you will see the transition to white text color from the first keyframe itself despite mentioning that the transition to white color should take place only at the 100% keyframe. This happens because there are no color mentioned in the previous keyframes and hence the transition property is choosing the nearest color. */
+        top: 200px;
+        left: 200px;
+    }
+}
+
+/* Transitions */
+
+.circle1 {
+    width: 300px;
+    height: 300px;
+    background-color: magenta;
+    transition: all 3s 0.5s;
+    display: inline-block;
+    /* Here i have mentioned all, so that transition takes place for every property in 3s (known as duration). Second property is time delay. After you hover over/focus on that (using tab), it will take 0.5 seconds for the transition to begin. It is not just hover/focus (it can be any property. Hover is just an example). */
+    /* You can specifically mention the properties in which you want the transition to occur rather than all */
+        /* Later you can customise them with values that they should result into as below */
+}
+
+/* Syntax1: */
+    /* transition-property: background-color, color, letter-spacing; */ 
+    /* transition-duration: 0.3s, 2s, 0.3s; */
+    /* transition-timing-function: ease-out, ease-in, ease-out; */
+    /* transition delay: 0.5s, 2s, 0.3s */
+/* Syntax2 */
+    /* transition: background-color 0.3s ease-out, color 2s ease-in, letter-spacing 0.3s ease-out; */
+/* Syntax3 */
+    /* transition: property-name duration timing-function delay; */
+
+.circle1:hover {
+    border-radius: 50%;
+    background-color: cyan;
+}
+
+.circle2 {
+    width: 300px;
+    height: 300px;
+    background-color: yellow;
+    transition: background-color 5s 1s, border-radius 2s;
+    display: inline-block;
+    /*Here we have specifically mentioned bg color and border radius. bg color transition (from yellow to red) will take 5 seconds with 1 second delay and border radius will shrink in just 2s compared to 3s of previous circle */
+}
+
+.circle2:hover {
+    border-radius: 50%;
+    background-color: red;
+}
+
+/* Here we have blocks of div which are customised as below. What we have done is those 4 blocks will offset 500px left in 3 seconds when you hover over it and will go back to the initial place when you move away the mouse pointer.  */
+
+.transitions div {
+    height: 100px;
+    width: 100px;
+    margin: 20px;
+    background-color: turquoise;
+    transition: margin-left 3s;
+    /* Here all sides have a margin of 20px. Now we want the left margin to be customised and to go through the transition */
+}
+
+.transitions:hover div {
+    margin-left: 500px;
+    /* The customisation happens where when you hover over the div, all of the elements under div will create a left margin of 500px which will give an illusion of them moving */
+}
+
+/* Above transition will be same on all. Here We have tried to customise every div element using transition timing function */
+    /* https://easings.net/ will provide different functions as per your needs. */
+
+.transitions div:nth-of-type(1) {
+    transition-timing-function: ease-in;
+}
+
+.transitions div:nth-of-type(2) {
+    transition-timing-function: ease-out;
+}
+
+.transitions div:nth-of-type(3) {
+    transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.transitions div:nth-of-type(4) {
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Transforms */
+
+.transform1 div {
+    background-color: #2a9d8f;
+    border: 5px solid #264653;
+    color: #000000;
+    padding: 0.7em;
+    width: 300px;
+    font-size: 1.8em;
+    text-align: center;
+    /* This will align the text to center within the element. */
+    margin: 20px auto;
+    /* 20 px is for the top and bottom. auto is for left and right. auto will place it in the center as it is equally dividing with respect to remaining space. */
+    font-family: Courier New;
+    font-weight: lighter;
+    transition: all 3s ease;
+}
+
+.transform2 div {
+    background-color: #2a9d8f;
+    border: 5px solid #264653;
+    color: #000000;
+    padding: 0.7em;
+    width: 300px;
+    font-size: 1.8em;
+    text-align: center;
+    margin: 20px auto;
+    font-family: Courier New;
+    font-weight: lighter;
+    transition: all 3s ease;
+}
+
+/* Giving background colors for all the div blocks */
+
+.transform1 div:nth-of-type(2n) {
+    background-color: rgb(166, 101, 101);
+}
+
+.transform1 div:nth-of-type(3n) {
+    background-color: rgb(149, 149, 106);
+}
+
+.transform2 div:nth-of-type(2n) {
+    background-color: rgb(166, 101, 101);
+}
+
+.transform2 div:nth-of-type(3n) {
+    background-color: rgb(149, 149, 106);
+}
+
+/* Lets look at some of the transform properties */
+
+.transform1 div:nth-of-type(1) {
+    transform: rotate(45deg);
+    /* It simply rotates along z-axis by default */
+}
+
+.transform1 div:nth-of-type(2) {
+    transform: scale(0.6);
+    /* Increase/decrease the size */
+}
+
+.transform1 div:nth-of-type(3) {
+    transform: translateX(200px);
+    /* move the element in x-axis */
+}
+
+.transform1 div:nth-of-type(4) {
+    transform: translate(-100px, 50px);
+    /* move the element in both axis */
+}
+
+/* The top 4 will happen once the web page is loaded */
+/* The bottom 4 will happen only when you hover the mouse */
+
+.transform2 div:nth-of-type(1):hover {
+    transform: skew(30deg);
+    /* It will tilt the element */
+}
+
+.transform2 div:nth-of-type(2):hover {
+    transform: skew(10deg, 5deg);
+}
+
+.transform2 div:nth-of-type(3):hover {
+    transform: rotate(-20deg) scale(3);
+}
+
+.transform2 div:nth-of-type(4):hover {
+    transform: translateX(-500px) rotate(0.5turn) scaleY(1.5);
+    /* scaleY will increase size vertically */
+}
+
+section.transform2 {
+    /* This will select the entire section and apply the styling */
+    transform: scale(0.7) translateX(500px);
+}
+
+/* Applying the above learning and creating a button */
+
+.firstbutton {
+    width: 500px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    background-color: #151b29;
+}
+
+.firstbutton button {
+    background: none;
+    color: #ffa260;
+    border: 2px solid;
+    padding: 1em 2em;
+    font-size: 1em;
+    transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.firstbutton button:hover {
+    border-color: #f1ff5c;
+    color: white;
+    box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+    /* box shadow Syntax: offset-x | offset-y | blur-radius | spread-radius | color */
+    /* Box-shadow can be used for many elements including texts. (not just buttons) */
+    /* Use minus (-) to move the shadows around the element */
+    transform: translateY(-0.25em);
+    cursor: pointer;
+    /* Will bring a hand with a pointer finger */
+}
+
+/* Difference between animations, transitions and transforms */
+    /* 1. CSS Transitions:  */
+        /* Transitions allow you to change property values smoothly over a period of time. They always need to be triggered, like on hover. Transitions can only move from an initial to a final state, with no intermediate steps.  */
+        /* They run forwards when triggered and in reverse when the trigger is removed.  */
+        /* Transitions are generally best for simple from-to movements */
+    /* 2. CSS Animations:  */
+        /* Unlike transitions, animations can animate HTML elements from an initial state to a final state, with intermediate steps in between. */
+        /* They consist of two steps: the CSS animation defined in stylesheets and a set of keyframes indicating the start and end states of the animation.  */
+        /* Animations can loop infinitely thanks to the animation-iteration-count property. They can be triggered but can also run automatically.  */
+        /* Animations are best for creating a complex series of movements */
+    /* 3. CSS Transforms: They change the shape and position of the affected content by modifying the space coordinates (x,y) */
+        
+/* Background */
+.silence {
+    width: 1000px;
+    height: 800px;
+    background-image: url("https://images.unsplash.com/photo-1604012165243-55a916281469?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=705&q=80");
+    background-size: cover; 
+    background-position: top; 
+    background-repeat: no-repeat;  /* (Images will not repeat) */
+    /* background-repeat: repeat-x;  (Reapeat only on x-axis) */
+    background-position: center center;  /* (It will center the image on both x-axis and y-axis) */
+    /* background-position: bottom center;  (Image will be centered at the bottom. all 4 directions possible) */
+    background-attachment: fixed;  /* (Can be fixed or scroll) */
+        /* fixed: Image will be fixed and any overlaying text will moveup/down when you scroll */
+        /* scroll: Image will move up/down just like any other object on the screen when you move you scroll */
+    /* background: url("https://images.unsplash.com/photo-1604012165243-55a916281469?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=705&q=80") center/cover; */
+        /* This is an alternative syntax to above. Just remember bg position should always come after bg size preceded with a slash */
+            /* Center indicates (background position) that the background image should be centered within the element. */
+            /* Cover specifies (background size) that the background image should be scaled and cropped to cover the entire element, which might result in some parts of the image being clipped to maintain the aspect ratio. */ 
+    margin: 0 auto;
+
+}
+
+.silence h1 {
+    font-size: 150px;
+    text-align: center;
+    text-shadow: black -6px 6px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: lighter;
+    color: white;
+}
+
+/* Flexbox: It allows us to distribute space dynamically across elements of an unknown size, hence the term flex */
+/* It is a 1-D layout method for laying out. That is, it focuses on arranging elements either in a horizontal row or a vertical column */
+/* It has 2 axis: Main axis (left to right for x-axis and top to bottom for y-axis) and Cross axis (top to bottom for x-axis and left to right for y-axis). But this can be changed with flex-direction property. When you change the property to column, you are in cross axis. */
+    /* flex direction => row, which is the default (left-right for x and top-bottom for y). */
+        /* This means that for row, main axis is horizontal and cross axis is vertical */
+    /* flex direction => row-reverse (right-left for x and bottom-top for y).  */
+    /* flex direction => column (top-bottom for x and left-right for y) */
+        /* This means that for column, cross axis is vertical and main axis is horizontal */
+    /* flex direction => column-reverse (bottom-top for x and righ-left for y) */
+/* Arranging elements within the flexbox. */
+    /* justify-content: center, flex-start, flex-end, space-between, space-around, space-evenly. */
+        /* If flex direction is row, it will center (taking it for an example) the content horizontally */
+        /* If flex direction is column, it will center (taking it for an example) the content vertically */
+    /* align-items: center, flex-start, flex-end, space-between, space-around, space-evenly. */
+        /* If flex direction is row, it will center (taking it for an example) the content vertically */
+        /* If flex direction is column, it will center (taking it for an example) the content horizontally */
+/* Two properties that are used in combination of above 2 */
+    /* align-self: */
+        /* It is exactly similar to align-items and justify-content in terms of its functionality.  */
+        /* Only difference is, it is applied to individual flex items rather than the entire flex container. */
+        /* It allows you to customize the alignment of specific items within the container while the others follow the alignment defined by align-items and justify-content. */
+    /* align-content: */
+        /* It is different from the above 3 properties. */
+        /* This property can be used when there are many elements and hence flex wrap property kicks in. flex-wrap can have 3 values: no-wrap (default), wrap and wrap-reverse */
+            /* When you dont wrap, flexbox will try to fit all the elements in a single line and hence it will overlfow */
+            /* When you wrap or wrap-reverse, elements will automatically move to the next line */
+        /*  It is applicable only when the flex container has multiple lines, which can happen when the flex-wrap property is set to wrap or wrap-reverse. */
+            /* flex-start: Lines are packed at the start of the container */
+            /* flex-end: Lines are packed at the end of the container. */
+            /* center: Lines are centered in the container. */
+            /* space-between: Lines are evenly distributed in the container, with equal space between them. */
+            /* space-around: Lines are evenly distributed in the container, with equal space around them. */
+            /* stretch: Default value. Lines stretch to take up the remaining space. */
+        /* If the flex container has only one line (no wrapping), the align-content property has no effect. */
+
+
+html, body {
+    height: 100%;
+}
+
+.flexbox {
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+}
+
+.flexbox h4 {
+    text-align: center;
+    /* They are  used to align text within an element, but it also has an interesting effect on inline elements*/
+    /*  When text-align: center; is applied to the parent element, it horizontally centers any inline or inline-block elements within it. */
+        /* Example: When you apply to the parent of a button, it not only centers the text inside button, but also centers the button itself (buttons are inline elements) */
+}
+
+.fbcontainer1 {
+    background-color: #fd5609;
+    width: 100%;
+    height: 100vh; /* 50 view port - Height will be 50% of the screen */
+    margin: 0 auto;
+    /* margin: 0; sets the margin on the top and bottom sides of the element to 0, ensuring there is no vertical spacing or margin. margin: auto allows the browser to automatically distribute the available horizontal space equally on both sides of the element. */
+    border: 5px solid #003049;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center; /*  aligns the content to the center of x axis */
+    align-items: center; /* aligns the content to the center of y axis */
+    /* When above both are used in combination, all contents will be aligned to the center */
+    /* align-items: baseline; */
+    /* When you have text in your elements, it will align the elements based on the baseline of the text - an imaginary line on which the text are arranged */
+        /* lets look at the word 'short': */
+            /* s,o and r will completely go under the baseline */
+            /* h and t will be exactly in the middle */
+    flex-wrap: wrap; 
+    /* To seet its effect remove it and reduce the screen size. You will see the contents overflowing out of the conatainer */
+}
+
+.fbcontainer1 div {
+    font-size: 3em;
+    font-weight: bolder;
+    margin: 5px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 300px; */
+        /* No matter how large the screen becomes, it will restrict its max-width to 300px */
+    flex-basis: 200px 100px ;
+        /* It is used to specify the initial size of a flex item */
+        /* It depends on flex-direction. When it is row, 200px refers to initial width and if it is column, it refers to initial height. */
+        /* You can also specify both values together. */
+            /* flex-basis: 200px 100px => Again when it is row, 200px refers to width while 100px refers to height and if it is column, 200px refers to height and 100px refers to width. */
+    /* Initial value refers to value that appears when the web-page is loaded  */
+    /* You can either use width/height property or flex-basis property. To put it simply, when the display is flex, it is better to use flexbasis. If not, you can stick with width/height property. */
+}
+
+.fbcontainer1 div:nth-of-type(2n) {
+    flex-grow: 1;
+    /* flex-shrink:2; */
+}
+.fbcontainer1 div:nth-of-type(2n+1) {
+    flex-grow: 5;
+}
+/* flex-grow distributes the space among the elements. */
+/* In the above example, all elements in odd position will get 5 times as much as free space available compared to the elements in even postion */
+    /* Mind you we are not talking about space before the existence of elements. You have defined their height and width. They exist in the container. Now they have empty space apart from the space that is already occupieb by them. So we are talking about the disribution of this empty space */
+/* Now the same applies to flex-shrink. You can specify both the shrink and grow values to an element */
+/* So flex-basis is used in tandem with flex-grow/shrink */
+/* Without flex-grow or flex-shrink, there is no practical difference between using width/height and flex-basis in a Flexbox layout. */
+
+.fbcontainer2 {
+    width: 80%;
+    font-size: 50px;
+    font-weight: 1000;
+    margin: 0 auto;
+    border: 5px solid black;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fbcontainer2 .sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6930c3;
+    flex: 1 2 300px;
+    /* short hand syntax using flex (flex-grow, flex-shrink, and flex-basis) */
+}
+
+.fbcontainer2 .centercontent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #80ffdb;
+    flex: 2 1 800px;
+}
+
+/* Here if you dont use the display: flex, you can't center them horizontally and vertically without loosing the backgorund color everywhere except where the text is located. */
+/* You can use the below code to do that */
+    /* .fbcontainer2 .sidebar {
+        align-self: center;
+        text-align: center;
+        background-color: #6930c3;
+        flex: 1 2 300px;
+    } */
+
+
+/* order values: lower the value, greater is the importance and it will appear first. */
+/* Ex: H E L L O (box 1 to 5) will change into LLEOH after the below code. */
+
+/* .fbcontainer1 #box1 {
+    order: 5;
+}
+
+.fbcontainer1 #box2 {
+    order: 3;
+}
+
+.fbcontainer1 #box3 {
+    order: 1;
+}
+
+.fbcontainer1 #box4 {
+    order: 2;
+}
+
+.fbcontainer1 #box5 {
+    order: 4;
+} */
+
+/* Media queries: Helps the browsers to adapt to different screen sizes */
+
+section.mediaqueries {
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgb(154, 179, 122);
+}
+
+.mediaqueries h2 {
+    font-size: 6em;
+    text-align: center;
+    color: red;
+}
+
+.mediaqueries ul, li {
+    font-size: 1.5em;
+    padding: 5px;
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* min-width means >= */
+/* max-width means <= */
+
+@media (min-width: 600px) and (max-width: 800px) {
+    .mediaqueries h3 {
+        color: purple;
+    }
+}
+
+@media (max-width: 1500px) {
+    .mediaqueries h4 {
+        color: yellow;
+    }
+}
+
+@media (max-width: 1000px) {
+    .mediaqueries h5 {
+        color: orange;
+    }
+}
+
+@media (max-width: 500px) {
+    .mediaqueries h6 {
+        color: red;
+    }
+}
+
+@media (min-width: 500px) {
+    .mediaqueries h1 {
+        color: orange;
+    }
+}
+
+@media (min-width: 1000px) {
+    .mediaqueries h1 {
+        color: yellow;
+    }
+}
+
+@media (min-width: 1500px) {
+    .mediaqueries h1 {
+        color: green;
+    }
+}
+
+@media (orientation: portrait) {
+    section.mediaqueries {
+        background-color: rgba(241, 118, 3, 0.774);
+    }
+}
+
+@media (max-width: 768px) {
+    .mediaqueries h1 {
+        font-size: 4em;
+    }
+    nav.mediaqueries ul {
+        /* This is the most imporatant part of this code. Once the screen size becomes < 768px, your nav bar at the botton (established using ul), will become vertical from horizontal due to flex-drection changing into column */
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .mediaqueries h1 {
+        font-size: 3em;
+    }
+}
+
+/* Visibility and Z-index */
+/* 'Visibility: none' will hide the element and will leave the white space; Display:none will remove the element and hence other elements will come and occupy that space. */
+/* Z-index: Z-axis in the graph is height (that is space above the ground). Z-index will decide which element can stack up on another. Child will be stacked on parent by default due to the order of the snippet where child comes only after the parent. But if you want to stack differently, specify Z-index value (top stack element should have the highest value)   */
+
+.zindex{
+    width: 600px;
+    height: 400px;
+    border: 2px solid black;
+}
+#redzindexbox{
+    width: 200px;
+    height: 120px;
+    background-color: red;
+    position: relative;
+    z-index: 100;
+}
+#greenzindexbox{
+    width: 200px;
+    height: 120px;
+    position: relative;
+    background-color: green;
+    top: -45px;
+    left: 40px;
+    /* As a second child, it will come after the first child. From that position it will offset with above values */
+}
+#bluezindexbox{
+    width: 50px;
+    height: 30px;
+    background-color: blue;
+    position: relative;
+}
+#yellowzindexbox{
+    width: 200px;
+    height: 120px;
+    background-color: yellow;
+    position: relative;
+}
+
+/* Grids */
+/* Flexbox vs Grids: */
+/* Grid is a 2D (rows and columns) but flexbox is 1D property (rows/columns) */
+/* Grid is best suited for complex, multi-dimensional layouts, while flex is great for simpler, one-dimensional layouts. */
+/* Flexbox shines when you need simplicity, better legacy (older) browser support, vertical alignment control, content reordering, or when working with nested layouts within a grid.  */
+
+.grids {
+    border: 2px solid black;
+    background-color: burlywood;
+}
+
+.understandinggrids1{
+    background-color: rgb(189, 41, 41);
+    display: grid;
+    grid-row-gap: 10px; /* Creates gap between rows*/
+    grid-column-gap: 10px;  /* Creates gap between columns*/
+    grid-template-columns: 200px 400px auto;  
+    /* We have 9 elements in html. We are specifying that First column should take the width of 200px, second column should take the width of 400px and 3rd column will take the remaining space. For a responsive design, leave it as auto. */
+    /* grid-template-rows: 100px 200px 300px auto;  */
+    /* We are creating 4 rows with these values. Since we dont have content for 4th row, if any specified value (say 400px) will create an empty 4th row with the height of 400px */ 
+}
+.understandinggrids2{
+    background-color: rgb(61, 175, 175);
+    display: grid;
+    grid-gap: 10px 20px; /* combines rows and columns gaps */
+    grid-template-columns: 1fr 2fr 3fr;
+    grid-template-rows: 1fr 2fr 3fr;
+    /* fractions (fr): If you have a grid container with 3 columns and you set the width of each column to 1fr, each column will take up one-third of the available space. */
+}
+.understandinggrids3{
+    background-color: rgb(127, 231, 124);
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: auto auto auto auto;   
+}
+
+#grids1{
+    /* grid-column: 1/3;  */
+        /* In a 3 X 3 setup, you will have 2 vertical lines and 2 horizontal lines. But you have to consider the outer edges too which makes 4 vertical and horizontal lines */
+        /* Now, 1/3 means starting from line 1 till line 3. This means that the single cell will occupy the space of 2 cells as the 3rd line end at cell 2.  */
+            /* If you give 1/2 it means nothing. Because you are saying to occupy the space between line 1 and line 2 which is what is already occupying */
+        /* If you want to avoid that confusion, you can simply use the below syntax */
+    grid-column: 1/span 2; 
+    /* Here the one cell will span for two cells . Very simple. */
+}
+
+/* Sample web page layout using grids */
+
+.web-layout-using-grids{
+    background-color: rgb(229, 255, 0);
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: 'navbar navbar navbar navbar' 'section section section aside' 'footer footer footer footer';
+    /* We are using 3 x 4 that is 3 rows and 4 columns*/
+    /* Here,in row 1, all 4 colummns will have navbar and in row 2, first 3 coulumns will have secition and next column will and finally in row 3, all 4 columns will have footer */
+        /* We have not defined what will be treated as navbar, section, aside and footer */
+    padding: 15px;
+}
+
+/* Now we are assigning grids to their respective position using a property called grid-area */
+
+.web-layout-using-grids #navbar-grids{
+    grid-area: navbar;
+}
+.web-layout-using-grids #aside-grids{
+    grid-area: aside;
+}
+.web-layout-using-grids #section-grids{
+    grid-area: section;
+}
+.web-layout-using-grids #footer-grids{
+    grid-area: footer;
+}

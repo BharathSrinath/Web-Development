@@ -1,0 +1,88 @@
+.ContactHeader{
+    text-align: center;
+    background-color: lightgray;
+    padding: 10px;
+}
+.Contact {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 45vh;
+    box-sizing: border-box;
+    background-color: lightgray;
+}
+.MyInfo, .ContactForm{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+}
+.MyInfo{
+    display: grid;
+    grid-template-rows: 80% 20%;
+}
+.MyInfo div div{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    width: 100%;
+}
+.MyInfo div img, .MyInfo div p{
+    margin: 2px 20px;
+}
+.MyInfo div img{
+    justify-self: end;
+}
+.ContactForm form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.ContactForm form div {
+    display: flex;
+    margin: 10px;
+    width: 90%;
+}
+.ContactForm form div div {
+    display: flex;
+    flex-direction: column;
+}
+.ContactForm form div div input{
+    margin: 5px;
+    height: 30px;
+    padding: 3px 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.ContactForm form div div textarea{
+    margin: 5px;
+    height: 30px;
+    padding: 3px 5px;
+    height: 100%;
+    border-radius: 5px;
+}
+#submitDiv {
+    display: flex;
+    justify-content:flex-end;
+}
+#submit{
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-right: 15px;
+    height: 30px;
+    width: 125px;
+}
+#submit:hover{
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+}
+.logo{
+    width: 30px;
+    height: 30px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}

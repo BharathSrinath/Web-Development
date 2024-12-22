@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Keeper</title>
+    <link rel="stylesheet" href="7.score-keeper.css">
+</head>
+
+<body>
+    <section class="image">
+        <img id="image"
+            src="https://images.unsplash.com/photo-1534158914592-062992fbe900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3784&q=80"
+            alt="">
+        <figcaption>Ping pong Score keeper</figcaption>
+    </section>
+    <section class="score">
+        <h1><span id="p1score">O</span> to <span id="p2score">O</span></h1>
+        <span>Use the butons below to keep the score</span>
+    </section>
+    <select name="maxpoints" id="maxpoints">
+        <option class="option" value="0" selected>Select Max Points</option>
+        <option class="option" value="1">1</option>
+        <option class="option" value="2">2</option>
+        <option class="option" value="3">3</option>
+        <option class="option" value="4">4</option>
+        <option class="option" value="5">5</option>
+        <option class="option" value="6">6</option>
+        <option class="option" value="7">7</option>
+        <option class="option" value="8">8</option>
+        <option class="option" value="9">9</option>
+        <option class="option" value="10">10</option>
+    </select>
+    <section id="btns">
+        <button class="btns" id="p1btn">Player 1</button>
+        <button class="btns" id="p2btn">Player 2</button>
+        <button class="btns" id="resetbtn">Reset</button>
+    </section>
+    <script src="7.score-keeper.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+/* Pricing Panel Project */
+
+body{
+    background-color: #739df7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.pricingpanel {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px 25px;
+    width: 70%;  
+    height: 90%;
+    color: #016ff9;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.subpricingpanel {
+    flex: 0 0 33.33;
+    height: 90%;
+   border: 1px solid #739df7;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+div.subpricingpanel:nth-child(2) {
+    border-left: none;
+    border-right: none;
+ }
+
+.pricingimage{
+    height: 500px;
+    width: 100%;
+}
+h2.productname{
+    color: grey;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+ul.features{
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    color: #016ff9;
+}
+
+.addfeatures{
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 15px 0;
+    border-top: 1px solid #e1f1ff;
+}
+
+.productprice{
+    text-align: center;
+    font-weight: bolder;
+    color: #016ff9;
+    font-size: 32px;
+    margin: 0.5em;
+}
+.pricingbutton{
+    border: 1px solid #597daa;
+    border-radius: 10px;
+    color: #016ff9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 15px;
+    text-decoration: none;
+    margin: 25px 0;
+    transition: background-color 200ms ease-in-out;
+} 
+
+.pricingbutton:hover, .pricingbutton:focus{ /*focus means lets say when you use tab*/
+    background-color: #4494f5;
+    color: white;      
+}
+
+@media (min-width: 900px){
+    .pricingpanel {
+      flex-direction: row;
+    }
+    .subpricingpanel{
+        border-right: 1px solid #e1f1ff;
+        padding: 25px 50px;
+    }
+    .subpricingpanel{
+        border-right: none;
+    }
+  }

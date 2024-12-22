@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button > svg {
+  margin-right: 5px;
+}
+/* We are using react-icons. react-icons library provides icons as SVGs wrapped in React components. Hence we can use the svg element to define the styling. */

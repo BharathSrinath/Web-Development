@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#navbar ul{
+    position: fixed;
+    top:0;
+    width: 100%;
+    background-color: maroon;
+    display: flex;
+    list-style: none;
+    justify-content: end;
+    align-items: center;
+    height: 70px;
+}
+#navbar ul li{
+margin: 0 20px;
+}
+#navbar ul li a{
+font-size: 30px;
+color: white;
+}
+#welcome-section{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(63, 63, 63);
+    justify-content: center;
+    align-items: center;
+
+}
+#welcome-section h1{
+    font-size: 75px;
+    color: white;
+}
+#welcome-section h3{
+    font-size: 30px;
+    color: white;
+    font-style: italic;
+}
+#project-head{
+    background-color: rgb(7, 7, 63);
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    padding: 30px 0 50px 0;
+}
+#projects{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgb(7, 7, 63);
+    width: 100%;
+    text-align: center;
+    padding-bottom: 100px;
+}
+.project-tile{
+width: 250px;
+height: 250px;
+padding: 20px;
+}   
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+.project-link{
+    /* background-color: rgb(92, 87, 87); */
+    text-decoration: none;
+    margin: 0 64px;
+    padding-top: 0;
+    align-self: center;    
+}
+.after-transform:hover{
+    transform: scale(1.5);
+    transition: all 1s; 
+}
+#profile{
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#profile-head h1{
+    font-size: 70px;
+}
+#profile-head h4{
+    font-size: 30px;
+    font-style: italic;
+}
+#profile-head{
+margin:50px;
+}
+#icons{
+    display: flex;
+}
+#icons a{
+    font-size: 25px;
+}
+#twitter, #github, #hashnode, #linkedin{
+    margin: 0 50px;
+}
+@media (max-width: 1000px){
+    #projects{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .project-link{
+        margin-bottom: 50px;
+    }
+    #navbar ul{
+        justify-content: center;
+    }
+}
+@media (max-width: 700px){
+    #profile, #profile-link-head, #icons{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

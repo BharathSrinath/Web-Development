@@ -1,0 +1,128 @@
+import RestaurantCard from "./RestaurantCard";
+import { useEffect, useState } from "react"; /* This is named export */
+import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../../utils/useOnlineStatus";
+
+// Filter the restaurant data according input type
+function filterData(searchText, restaurants) {
+  const resFilterData = restaurants.filter((restaurant) =>
+    restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase())
+  );
+  return resFilterData;
+}
+
+// Body Component for body section: It contain all restaurant cards
+const Body = () => {
+  // useState: To create a state variable, searchText, allRestaurants and filteredRestaurants is local state variable
+  const [searchText, setSearchText] = useState("");
+  const [allRestaurants, setAllRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  // use useEffect for one time call getRestaurants using empty dependency array
+  useEffect(() => {
+    getRestaurants();
+  }, []);
+
+  // async function getRestaurant to fetch Swiggy API data
+  async function getRestaurants() {
+    // handle the error using try... catch
+    try {
+      const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.89960&lng=80.22090&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      const json = await response.json();
+
+      // initialize checkJsonData() function to check Swiggy Restaurant data
+      function checkJsonData(jsonData) {
+        for (let i = 0; i < jsonData?.data?.cards.length; i++) {
+          // initialize checkData for Swiggy Restaurant data
+          let checkData =
+            json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants;
+
+          // if checkData is not undefined then return it
+          if (checkData !== undefined) {
+            return checkData;
+          }
+        }
+      }
+
+      // call the checkJsonData() function which return Swiggy Restaurant data
+      const resData = checkJsonData(json);
+
+      // update the state variable restaurants with Swiggy API data
+      setAllRestaurants(resData);
+      setFilteredRestaurants(resData);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // use searchData function and set condition if data is empty show error message
+  const searchData = (searchText, restaurants) => {
+    if (searchText !== "") {
+      const filteredData = filterData(searchText, restaurants);
+      setFilteredRestaurants(filteredData);
+      setErrorMessage("");
+      if (filteredData?.length === 0) {
+        setErrorMessage(`Sorry, we couldn't find any results for "${searchText}"`);
+      }
+    } else {
+      setErrorMessage("");
+      setFilteredRestaurants(restaurants);
+    }
+  };
+
+  const onlineStatus = useOnlineStatus();
+  console.log("Body: "+onlineStatus);
+  if(!onlineStatus) return <h1 className="onlineStatus">Looks like you are offline!</h1>;
+
+  // if allRestaurants is empty don't render restaurants cards
+  if (!allRestaurants) return null;
+
+  return (
+    <>
+      <div className="search-container p-3 my-3 text-center mt-24 w-2/3 m-auto">
+        <input
+          type="text"
+          className="p-2 m-2 w-56 rounded-md  bg-blue-50 text-center"
+          placeholder="Search you fav restaurant"
+          value={searchText}
+          // update the state variable searchText when we typing in input box
+          onChange={(e) => setSearchText(e.target.value)}
+        ></input>
+        <button
+          className="search-btn p-2 m-2 bg-blue-600 text-white rounded-md hover:font-semibold hover: shadow-lg"
+          onClick={() => {
+            // user click on button searchData function is called
+            searchData(searchText, allRestaurants);
+          }}
+        >
+          Search
+        </button>
+      </div>
+      {errorMessage && <div className="error-container">{errorMessage}</div>}
+
+      {/* if restaurants data is not fetched then display Shimmer UI after the fetched data display restaurants cards */}
+      {allRestaurants?.length === 0 ? (
+        <Shimmer />
+      ) : (
+        <div className="flex flex-wrap justify-center">
+          {/* We are mapping restaurants array and passing JSON array data to RestaurantCard component as props with unique key as restaurant.data.id */}
+          {filteredRestaurants.map((restaurant) => {
+            return (
+              <Link
+                to={"/restaurant/" + restaurant?.info?.id}
+                key={restaurant?.info?.id}
+              >
+                <RestaurantCard {...restaurant?.info} />
+              </Link>
+            );
+          })}
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Body;

@@ -1,0 +1,15 @@
+.MyResumeCert{
+    margin: 30px auto;
+
+}
+.certificates{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.certificate{
+    width:400px;
+    height: 250px;
+    border-radius: 10px;
+    border: 2px solid black;
+}

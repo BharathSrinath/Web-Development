@@ -1,0 +1,1713 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+
+<body>
+    <h1 class="display-5">1. Containers</h1> <!-- Display-1 to display-6 --> 
+    <!-- After checking, h1 to h6 are vastly different. So you can choose them based on your needs -->
+    <!-- Also,  here "<h1 class="display-5">" h1 will have any effect as class as higher precedence than an element -->
+    <!-- Everything should be enclosed in a container -->
+    <div class="container"> 
+        <!-- It sets a max-width at each responsive breakpoint -->
+        <h3 class="display-6"> 1a. Container</h3>
+        Bootstrap is maintained by a small team of developers on GitHub. We are actively looking to grow this team and
+        would love to hear from you if you are excited about CSS at scale, writing and maintaining vanilla JavaScript
+        plugins, and improving build tooling processes for frontend code.
+    </div>
+    <br>
+    <br>
+    <div class="container-fluid"> <!-- .container-fluid, which is width: 100% at all breakpoints. That is 100% of its parent -->
+        <h3 class="display-6">1b. Container-fluid</h3>
+        Bootstrap is maintained by a small team of developers on GitHub. We are actively looking to grow this team and
+        would love to hear from you if you are excited about CSS at scale, writing and maintaining vanilla JavaScript
+        plugins, and improving build tooling processes for frontend code.
+    </div>
+    <br>
+    <br>
+    <h1 class="display-5">2. Containers with breakpoints</h1>
+    <!-- These containers will maintain the width of the parent until they hit a breakpoint -->
+    <!-- Once they hit a breakpoint, they will stop expanding. -->
+    <div class="container-sm">
+        <!-- 100% wide until you hit a small breakpoint (540px) -->
+        <h3 class="display-6">2a. Container-sm</h3>
+        Bootstrap is maintained by a small team of developers on GitHub. We are actively looking to grow this team and
+        would love to hear from you if you are excited about CSS at scale, writing and maintaining vanilla JavaScript
+        plugins, and improving build tooling processes for frontend code.
+    </div>
+    <br>
+    <br>
+    <div class="container-md"> 
+        <!-- 100% wide until you hit a medium breakpoint (720px) -->
+        <h3 class="display-6">2b. Container-md</h3>
+        Bootstrap is maintained by a small team of developers on GitHub. We are actively looking to grow this team and
+        would love to hear from you if you are excited about CSS at scale, writing and maintaining vanilla JavaScript
+        plugins, and improving build tooling processes for frontend code.
+    </div>
+    <br>
+    <br>
+    <div class="container-lg"> 
+        <!-- 100% wide until you hit a large breakpoint (960px) -->
+        <h3 class="display-6">2c. Container-lg</h3>
+        Bootstrap is maintained by a small team of developers on GitHub. We are actively looking to grow this team and
+        would love to hear from you if you are excited about CSS at scale, writing and maintaining vanilla JavaScript
+        plugins, and improving build tooling processes for frontend code.
+    </div>
+    <br>
+    <br>
+    <div class="container-xl"> 
+        <!-- 100% wide until you hit a extra-large breakpoint (1140px) -->
+        <h3 class="display-6">2d. Container-xl</h3>
+        Bootstrap is maintained by a small team of developers on GitHub. We are actively looking to grow this team and
+        would love to hear from you if you are excited about CSS at scale, writing and maintaining vanilla JavaScript
+        plugins, and improving build tooling processes for frontend code.
+    </div>
+    <br>
+    <br>
+    <div class="container-xxl"> 
+        <!-- 100% wide until you hit a extra-extra-large breakpoint (1320px) -->
+        <h3 class="display-6">2e. Container-xxl</h3>
+        Bootstrap is maintained by a small team of developers on GitHub. We are actively looking to grow this team and
+        would love to hear from you if you are excited about CSS at scale, writing and maintaining vanilla JavaScript
+        plugins, and improving build tooling processes for frontend code.
+    </div>
+    <br>
+    <br>
+    <h1 class="display-5">2. Buttons</h1>
+    <!-- Syntax is "btn btn-color" -->
+    <!-- You can change the color too -->
+    <div class="container">
+        <h3 class="display-6">2a. Colored buttons</h3>
+        <Button type="button" class="btn btn-primary">Blue</Button>
+        <Button type="button" class="btn btn-secondary">Grey</Button>
+        <Button type="button" class="btn btn-success">Green</Button>
+        <Button type="button" class="btn btn-danger">Red</Button>
+        <Button type="button" class="btn btn-warning">Yellow</Button>
+        <Button type="button" class="btn btn-info">Light-Blue</Button>
+        <Button type="button" class="btn btn-dark">Black</Button>
+        <Button type="button" class="btn btn-link">Link</Button>
+        <br>
+        <br>
+        <!-- You can use them inside anchor tags and input tags too -->
+        <h3 class="display-6">2b. Buttons inside tags</h3>
+        <a href="#" class="btn btn-primary" role="button">Link</a>
+        <Button type="submit" class="btn btn-primary">Button</Button>
+        <input type="button" class="btn btn-primary" value="Input">
+        <input type="submit" class="btn btn-primary" value="Submit">
+        <input type="reset" class="btn btn-primary" value="Reset">
+        <br>
+        <br>
+        <!-- Outline buttons: Color for borders and texts. No bg color untill you hover over them -->
+        <h3 class="display-6">2c. Outline buttons</h3>
+        <button type="button" class="btn btn-outline-primary">Blue</button>
+        <button type="button" class="btn btn-outline-secondary">Grey</button>
+        <button type="button" class="btn btn-outline-success">Green</button>
+        <br>
+        <br>
+        <!-- Different button sizes -->
+        <h3 class="display-6">2d. Button sizes</h3>
+        <button type="button" class="btn btn-primary btn-lg">Large button</button>
+        <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+        <br>
+        <br>
+        <!-- Disabled state of buttons which can't be clicked -->
+        <h3 class="display-6">2e. Disabled buttons</h3>
+        <button type="button" class="btn btn-primary" disabled>Disabled button</button>
+        <button type="button" class="btn btn-outline-primary" disabled>Disabled button</button>
+        <br>
+        <br>
+        <!-- Link functionality caveat: Above method will not work when you define a button within an anchor tag. Above method will disable mouse to be clicked for button inside anchor tags but keyboard navigation can still click that. To be sure, we have to disable area itself. tabindex="-1" is used to indicate that an element should be programmatically focusable (just like hover funcion we have something called focus function) but should not be reachable via the keyboard's Tab key. -->
+        <h3 class="display-6">2f. Disabled buttons along with disabled area</h3>
+        <a href="#" class="btn btn-secondary disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
+        <!-- When you set aria-disabled="true" on an element, you are conveying to assistive technologies (such as screen readers) that the element is currently non-interactive or disabled. This helps users with disabilities understand that the element cannot be activated or interacted with at the moment. -->
+        <!-- Its default value is false. A blind person will not know that, the button has been disabled. So this helps to let them know -->
+        <br>
+        <br>
+        <!-- Block buttons: You need a separate class and then nest the normal buttons under that class -->
+        <h3 class="display-6">2g. Block buttons</h3>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="button">Button</button>
+            <button class="btn btn-danger" type="button">Button</button>
+        </div>
+        <br>
+        <br>
+        <!-- Customised block buttons -->
+        <h3 class="display-6">2h. Customised block buttons</h3>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-secondary" type="button">Button</button>
+            <button class="btn btn-warning" type="button">Button</button>
+        </div>
+        <br>
+        <br>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button class="btn btn-info me-md-2" type="button">Button</button>
+            <button class="btn btn-dark" type="button">Button</button>
+        </div>
+        <br>
+        <br>
+        <!-- Toggle states: At what state the user is in. Are they pressing the button or not. Once pressed how it would look and what it would tell from accessibilitypoint of view   -->
+        <!-- Toggle buttons -->
+        <h3 class="display-6">2i. Toggle buttons</h3>
+        <button type="button" class="btn btn-primary" data-bs-toggle="button">Toggle button</button>
+        <button type="button" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Active toggle
+            button</button>
+        <button type="button" class="btn btn-primary" disabled data-bs-toggle="button">Disabled toggle button</button>
+        <br>
+        <br>
+        <!-- Toggle links -->
+        <h3 class="display-6">2j. Toggle links</h3>
+        <a href="#" class="btn btn-primary" role="button" data-bs-toggle="button">Toggle link</a>
+        <a href="#" class="btn btn-primary active" role="button" data-bs-toggle="button" aria-pressed="true">Active
+            toggle link</a>
+        <a class="btn btn-primary disabled" aria-disabled="true" role="button" data-bs-toggle="button">Disabled toggle
+            link</a>
+    </div>
+    <br>
+    <br>
+    <h1 class="display-5">3. Button groups</h1>
+    <!-- What happens with button groups is that , you just next the buttons under parent with class called btn-group -->
+    <div class="container">
+        <h3 class="display-6">3a. Simple button groups</h3>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <!-- area-label is an accessibility feature that can be used to provide extensive information to the users. -->
+            <button type="button" class="btn btn-primary active">Left</button>
+            <!-- The first button is active here  -->
+            <button type="button" class="btn btn-danger">Middle</button>
+            <button type="button" class="btn btn-warning">Right</button>
+        </div>
+        <br>
+        <br>
+        <h3 class="display-6">3b. Outlined styles</h3>
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button type="button" class="btn btn-outline-primary">Left</button>
+            <button type="button" class="btn btn-outline-primary">Middle</button>
+            <button type="button" class="btn btn-outline-primary">Right</button>
+        </div>
+        <br>
+        <br>
+        <h3 class="display-6">3c. Checkbox button groups</h3>
+        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btncheck1">Checkbox 1</label>
+
+            <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btncheck2">Checkbox 2</label>
+
+            <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btncheck3">Checkbox 3</label>
+        </div>
+        <br>
+        <br>
+        <h3 class="display-6">3d. Radio button groups</h3>
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
+        </div>
+        <br>
+        <br>
+        <h3 class="display-6">3e. Button toolbar - 1</h3>
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group me-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-primary">1</button>
+                <button type="button" class="btn btn-primary">2</button>
+                <button type="button" class="btn btn-primary">3</button>
+                <button type="button" class="btn btn-primary">4</button>
+            </div>
+            <div class="btn-group me-2" role="group" aria-label="Second group">
+                <button type="button" class="btn btn-secondary">5</button>
+                <button type="button" class="btn btn-secondary">6</button>
+                <button type="button" class="btn btn-secondary">7</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Third group">
+                <button type="button" class="btn btn-info">8</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <h3 class="display-6">3f. Button toolbar - 2</h3>
+        <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group me-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-outline-secondary">1</button>
+                <button type="button" class="btn btn-outline-secondary">2</button>
+                <button type="button" class="btn btn-outline-secondary">3</button>
+                <button type="button" class="btn btn-outline-secondary">4</button>
+            </div>
+            <div class="input-group">
+                <div class="input-group-text" id="btnGroupAddon">@</div>
+                <input type="text" class="form-control" placeholder="Input group example"
+                    aria-label="Input group example" aria-describedby="btnGroupAddon">
+            </div>
+        </div>
+
+        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group" role="group" aria-label="First group">
+                <button type="button" class="btn btn-outline-secondary">1</button>
+                <button type="button" class="btn btn-outline-secondary">2</button>
+                <button type="button" class="btn btn-outline-secondary">3</button>
+                <button type="button" class="btn btn-outline-secondary">4</button>
+            </div>
+            <div class="input-group">
+                <div class="input-group-text" id="btnGroupAddon2">@</div>
+                <input type="text" class="form-control" placeholder="Input group example"
+                    aria-label="Input group example" aria-describedby="btnGroupAddon2">
+            </div>
+        </div>
+        <br>
+        <br>
+        <h3 class="display-6">3g. Sizing</h3>
+        <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+            <button type="button" class="btn btn-outline-primary">Left</button>
+            <button type="button" class="btn btn-outline-primary">Middle</button>
+            <button type="button" class="btn btn-outline-primary">Right</button>
+        </div>
+        <br>
+        <br>
+        <div class="btn-group" role="group" aria-label="Default button group">
+            <button type="button" class="btn btn-outline-primary">Left</button>
+            <button type="button" class="btn btn-outline-primary">Middle</button>
+            <button type="button" class="btn btn-outline-primary">Right</button>
+        </div>
+        <br>
+        <br>
+        <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+            <button type="button" class="btn btn-outline-primary">Left</button>
+            <button type="button" class="btn btn-outline-primary">Middle</button>
+            <button type="button" class="btn btn-outline-primary">Right</button>
+        </div>
+        <br>
+        <br>
+        <h3 class="display-6">3h. Nesting</h3>
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <button type="button" class="btn btn-primary">1</button>
+            <button type="button" class="btn btn-primary">2</button>
+
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Dropdown
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                    <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <br>
+        <h3 class="display-6">3i. Vertical variation - 1</h3>
+        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Button</button>
+        </div>
+        <br>
+        <br>
+        <h3 class="display-6">3j. Vertical variation - 2</h3>
+        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Button</button>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Dropdown
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                    <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                </ul>
+            </div>
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Button</button>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Dropdown
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                    <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                </ul>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Dropdown
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                    <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                </ul>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Dropdown
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                    <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <br>
+        <h3 class="display-6">3k. Vertical variation - 3</h3>
+
+        <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+            <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
+            <label class="btn btn-outline-danger" for="vbtn-radio1">Radio 1</label>
+            <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+            <label class="btn btn-outline-danger" for="vbtn-radio2">Radio 2</label>
+            <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
+            <label class="btn btn-outline-danger" for="vbtn-radio3">Radio 3</label>
+        </div>
+        <br>
+        <br>
+        <h1 class="display-5">4. Typography</h1>
+        <div class="container">
+            <!-- You can h1 to h6 to get the same heading as in html using bootstrap inside the class -->
+            <h3 class="display-6">4a. Leads</h3><!-- Leads: Increases the font size and font weight slightly -->
+            <p class="leads">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio ullam nesciunt, inventore
+                alias quidem, cupiditate neque quo nostrum iusto magni quibusdam itaque magnam incidunt nobis molestias,
+                maiores dicta nulla? Eligendi?Fuga libero possimus, consequatur cupiditate maiores, vero eum ducimus hic
+                odio, magni voluptatibus molestiae exercitationem pariatur perferendis tenetur quae ad nemo officiis vel
+                aspernatur. </p>
+            <br>
+            <br>
+            <h3 class="display-6">4b. Blockquote</h3>
+            <blockquote>Success is no accident. It is hard work, perseverance, learning, studying, sacrifice, and most
+                of all, love of what you are doing</blockquote>
+            <!-- Above is an example without using bootstrap blockquote and the following is with bootstrap  -->
+            <blockquote class="blockquote">
+                <p class="mb-0">Success is no accident. It is hard work, perseverance, learning, studying, sacrifice,
+                    and most of all, love of what you are doing
+                </p>
+                <!-- mb will adjust the bottom margin  -->
+                <footer class="blockquote-footer">Pele</footer>
+            </blockquote>
+            <br>
+            <br>
+            <h3 class="display-6">4c. Faded text</h3>
+            <h3>
+                Fancy display heading
+                <small class="text-body-secondary">With faded secondary text</small>
+            </h3>
+            <br>
+            <br>
+            <h3 class="display-6">4d. Inline text elements</h3>
+            <div>
+                <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+                <p><del>This line of text is meant to be treated as deleted text.</del></p>
+                <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+                <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+                <p><u>This line of text will render as underlined.</u></p>
+                <p><small>This line of text is meant to be treated as fine print.</small></p>
+                <p><strong>This line rendered as bold text.</strong></p>
+                <p><em>This line rendered as italicized text.</em></p>
+            </div>
+            <br>
+            <br>
+            <h3 class="display-6">4e. Text wrapping</h3>
+            <div class="badge bg-primary " style="width: 6rem;">
+                This text will not wrap.
+            </div>
+            <div class="badge bg-primary text-wrap" style="width: 6rem;">
+                This text will definitely wrap.
+            </div>
+            <br>
+            <br>
+            <h3 class="display-6">4f. Text alignment</h3>
+            <div>
+                <blockquote class="blockquote text-center">
+                    <p>Success is no accident. It is hard work, perseverance, learning, studying, sacrifice, and most of
+                        all, love of what you are doing
+                    </p>
+                    <!-- text center, text end can be used to align the text  -->
+                    <footer class="blockquote-footer">Pele</footer>
+                </blockquote>
+            </div>
+            <br>
+            <br>
+            <h3 class="display-6">4g. Lists</h3>
+            <ul class="list-unstyled">
+                <!-- No particular sytling here. Just a simple usntyled listing -->
+                <li>This is a list.</li>
+                <li>It appears completely unstyled.</li>
+                <li>Structurally, it's still a list.</li>
+                <li>However, this style only applies to immediate child elements.</li>
+                <li>Nested lists:
+                    <ul>
+                        <li>are unaffected by this style</li>
+                        <li>will still show a bullet</li>
+                        <li>and have appropriate left margin</li>
+                    </ul>
+                </li>
+                <li>This may still come in handy in some situations.</li>
+            </ul>
+            <br>
+            <br>
+            <h3 class="display-6">4h. Description list alignment</h3>
+            <dl class="row">
+                <dt class="col-sm-3">Description lists</dt>
+                <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+
+                <dt class="col-sm-3">Term</dt>
+                <dd class="col-sm-9">
+                    <p>Definition for the term.</p>
+                    <p>And some more placeholder definition text.</p>
+                </dd>
+
+                <dt class="col-sm-3">Another term</dt>
+                <dd class="col-sm-9">This definition is short, so no extra paragraphs or anything.</dd>
+
+                <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
+                <!-- When the screen size is reduced, the text will be truncated -->
+                <dd class="col-sm-9">This can be useful when space is tight. Adds an ellipsis at the end.</dd>
+
+                <dt class="col-sm-3">Nesting</dt>
+                <dd class="col-sm-9">
+                    <dl class="row">
+                        <dt class="col-sm-4">Nested definition list</dt>
+                        <dd class="col-sm-8">I heard you like definition lists. Let me put a definition list inside your
+                            definition list.</dd>
+                    </dl>
+                </dd>
+            </dl>
+        </div>
+        <br>
+        <br>
+        <h1 class="display-5">5. Colors</h1>
+        <div class="container">
+            <p class="text-primary">.text-primary</p>
+            <p class="text-primary-emphasis">.text-primary-emphasis</p>
+            <p class="text-secondary">.text-secondary</p>
+            <p class="text-secondary-emphasis">.text-secondary-emphasis</p>
+            <p class="text-success">.text-success</p>
+            <p class="text-success-emphasis">.text-success-emphasis</p>
+            <p class="text-danger">.text-danger</p>
+            <p class="text-danger-emphasis">.text-danger-emphasis</p>
+            <p class="text-warning bg-dark">.text-warning</p>
+            <p class="text-warning-emphasis">.text-warning-emphasis</p>
+            <p class="text-info bg-dark">.text-info</p>
+            <p class="text-info-emphasis">.text-info-emphasis</p>
+            <p class="text-light bg-dark">.text-light</p>
+            <p class="text-light-emphasis">.text-light-emphasis</p>
+            <p class="text-dark bg-white">.text-dark</p>
+            <p class="text-dark-emphasis">.text-dark-emphasis</p>
+            <p class="text-body">.text-body</p>
+            <p class="text-body-emphasis">.text-body-emphasis</p>
+            <p class="text-body-secondary">.text-body-secondary</p>
+            <p class="text-body-tertiary">.text-body-tertiary</p>
+            <p class="text-black bg-white">.text-black</p>
+            <p class="text-white bg-dark">.text-white</p>
+            <p class="text-black-50 bg-white">.text-black-50</p>
+            <p class="text-white-50 bg-dark">.text-white-50</p>
+        </div>
+        <br>
+        <br>
+        <h1 class="display-5">6. Backgound colors</h1>
+        <div class="container">
+            <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
+            <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">.bg-primary-subtle</div>
+            <div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
+            <div class="p-3 mb-2 bg-secondary-subtle text-emphasis-secondary">.bg-secondary-subtle</div>
+            <div class="p-3 mb-2 bg-success text-white">.bg-success</div>
+            <div class="p-3 mb-2 bg-success-subtle text-emphasis-success">.bg-success-subtle</div>
+            <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+            <div class="p-3 mb-2 bg-danger-subtle text-emphasis-danger">.bg-danger-subtle</div>
+            <div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
+            <div class="p-3 mb-2 bg-warning-subtle text-emphasis-warning">.bg-warning-subtle</div>
+            <div class="p-3 mb-2 bg-info text-dark">.bg-info</div>
+            <div class="p-3 mb-2 bg-info-subtle text-emphasis-info">.bg-info-subtle</div>
+            <div class="p-3 mb-2 bg-light text-dark">.bg-light</div>
+            <div class="p-3 mb-2 bg-light-subtle text-emphasis-light">.bg-light-subtle</div>
+            <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+            <div class="p-3 mb-2 bg-dark-subtle text-emphasis-dark">.bg-dark-subtle</div>
+            <p class="p-3 mb-2 bg-body-secondary">.bg-body-secondary</p>
+            <p class="p-3 mb-2 bg-body-tertiary">.bg-body-tertiary</p>
+            <div class="p-3 mb-2 bg-body text-body">.bg-body</div>
+            <div class="p-3 mb-2 bg-black text-white">.bg-black</div>
+            <div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
+            <div class="p-3 mb-2 bg-transparent text-body">.bg-transparent</div>
+        </div>
+        <br>
+        <br>
+        <h1 class="display-5">7. Backgound gradients</h1>
+        <!-- A background color refers to a single, solid color that is applied to the background of an element or a surface. On the other hand, a background gradient involves a transition or blending of colors from one hue to another, creating a gradual color progression.  -->
+        <!-- You can see that there is a very subtle differnece between the two.  -->
+        <div class="container">
+            <p class="bg-primary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita consequuntur
+                debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum officia
+                quibusdam quasi nobis molestiae.</p>
+            <p class="bg-primary bg-gradient">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita
+                consequuntur debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum
+                officia quibusdam quasi nobis molestiae.</p>
+            <p class="bg-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita
+                consequuntur debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum
+                officia quibusdam quasi nobis molestiae.</p>
+            <p class="bg-secondary bg-gradient">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
+                expedita consequuntur debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta
+                eos earum officia quibusdam quasi nobis molestiae.</p>
+            <p class="bg-success">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita consequuntur
+                debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum officia
+                quibusdam quasi nobis molestiae.</p>
+            <p class="bg-success bg-gradient">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita
+                consequuntur debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum
+                officia quibusdam quasi nobis molestiae.</p>
+            <p class="bg-danger">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita consequuntur
+                debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum officia
+                quibusdam quasi nobis molestiae.</p>
+            <p class="bg-danger bg-gradient">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita
+                consequuntur debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum
+                officia quibusdam quasi nobis molestiae.</p>
+            <p class="bg-warning">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita consequuntur
+                debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum officia
+                quibusdam quasi nobis molestiae.</p>
+            <p class="bg-warning bg-gradient">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita
+                consequuntur debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum
+                officia quibusdam quasi nobis molestiae.</p>
+            <p class="bg-info">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita consequuntur
+                debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum officia
+                quibusdam quasi nobis molestiae.</p>
+            <p class="bg-info bg-gradient">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita
+                consequuntur debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum
+                officia quibusdam quasi nobis molestiae.</p>
+            <p class="bg-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita consequuntur
+                debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum officia
+                quibusdam quasi nobis molestiae.</p>
+            <p class="bg-light bg-gradient">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita
+                consequuntur debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum
+                officia quibusdam quasi nobis molestiae.</p>
+            <p class="bg-dark">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita consequuntur
+                debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum officia
+                quibusdam quasi nobis molestiae.</p>
+            <p class="bg-dark bg-gradient">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita
+                consequuntur debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum
+                officia quibusdam quasi nobis molestiae.</p>
+            <p class="bg-black">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita consequuntur
+                debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum officia
+                quibusdam quasi nobis molestiae.</p>
+            <p class="bg-black bg-gradient">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, expedita
+                consequuntur debitis, vero nulla sapiente quos enim eaque aliquam corrupti dolore rerum dicta eos earum
+                officia quibusdam quasi nobis molestiae.</p>
+        </div>
+        <br>
+        <br>
+        <h1 class="display-5">8. Badges</h1>
+        <div class="container">
+            <h3 class="display-6">8a. Badges with headings</h3>
+            <h1>Example heading <span class="badge bg-secondary">New</span></h1>
+            <h2>Example heading <span class="badge bg-secondary">New</span></h2>
+            <h3>Example heading <span class="badge bg-secondary">New</span></h3>
+            <h4>Example heading <span class="badge bg-secondary">New</span></h4>
+            <h5>Example heading <span class="badge bg-secondary">New</span></h5>
+            <h6>Example heading <span class="badge bg-secondary">New</span></h6>
+            <br>
+            <br>
+            <h3 class="display-6">8b. Simple badges</h3>
+            <span class="badge text-bg-primary">Primary</span>
+            <span class="badge text-bg-secondary">Secondary</span>
+            <span class="badge text-bg-success">Success</span>
+            <span class="badge text-bg-danger">Danger</span>
+            <span class="badge text-bg-warning">Warning</span>
+            <span class="badge text-bg-info">Info</span>
+            <span class="badge text-bg-light">Light</span>
+            <span class="badge text-bg-dark">Dark</span>
+            <br>
+            <br>
+            <h3 class="display-6">8c. Pill badges</h3>
+            <span class="badge rounded-pill text-bg-primary">Primary</span>
+            <span class="badge rounded-pill text-bg-secondary">Secondary</span>
+            <span class="badge rounded-pill text-bg-success">Success</span>
+            <span class="badge rounded-pill text-bg-danger">Danger</span>
+            <span class="badge rounded-pill text-bg-warning">Warning</span>
+            <span class="badge rounded-pill text-bg-info">Info</span>
+            <span class="badge rounded-pill text-bg-light">Light</span>
+            <span class="badge rounded-pill text-bg-dark">Dark</span>
+            <br>
+            <br>
+            <h3 class="display-6">8d. Notifications in a button</h3>
+            <button type="button" class="btn btn-primary">
+                Notifications <span class="badge text-bg-danger">4</span>
+            </button>
+            <button type="button" class="btn btn-primary position-relative">
+                Inbox
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    99+
+                    <span class="visually-hidden">unread messages</span>
+                </span>
+            </button>
+        </div>
+        <br>
+        <br>
+        <h1 class="display-5">9. Alerts</h1>
+        <div class="container">
+            <h3 class="display-6">9a. Simple alerts</h3>
+            <div class="alert alert-primary" role="alert">
+                <h4></h4>
+                A simple primary alert—check it out!
+            </div>
+            <div class="alert alert-secondary" role="alert">
+                A simple secondary alert—check it out!
+            </div>
+            <div class="alert alert-success" role="alert">
+                A simple success alert—check it out!
+            </div>
+            <div class="alert alert-danger" role="alert">
+                A simple danger alert—check it out!
+            </div>
+            <div class="alert alert-warning" role="alert">
+                A simple warning alert—check it out!
+            </div>
+            <div class="alert alert-info" role="alert">
+                A simple info alert—check it out!
+            </div>
+            <div class="alert alert-light" role="alert">
+                A simple light alert—check it out!
+            </div>
+            <div class="alert alert-dark" role="alert">
+                A simple dark alert—check it out!
+            </div>
+            <br>
+            <br>
+            <h3 class="display-6">9b. Alerts with icons</h3>
+            <!-- Below part is used for icons -->
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="check-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                </symbol>
+                <symbol id="info-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                </symbol>
+                <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </symbol>
+            </svg>
+
+            <div class="alert alert-primary d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Info:">
+                    <use xlink:href="#info-fill" />
+                </svg>
+                <div>
+                    An example alert with an icon
+                </div>
+            </div>
+            <div class="alert alert-success d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:">
+                    <use xlink:href="#check-circle-fill" />
+                </svg>
+                <div>
+                    An example success alert with an icon
+                </div>
+            </div>
+            <div class="alert alert-warning d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Warning:">
+                    <use xlink:href="#exclamation-triangle-fill" />
+                </svg>
+                <div>
+                    An example warning alert with an icon
+                </div>
+            </div>
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:">
+                    <use xlink:href="#exclamation-triangle-fill" />
+                </svg>
+                <div>
+                    An example danger alert with an icon
+                </div>
+            </div>
+            <br>
+            <br>
+            <h3 class="display-6">9c. Dismissing alerts</h3>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <h3 class="display-6">9d. Alerts with additional elements</h3>
+            <!-- Additional elements can be headings, paragraphs and dividers -->
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Well done!</h4>
+                <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit
+                    longer so that you can see how spacing within an alert works with this kind of content.</p>
+                <hr>
+                <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+            </div>
+            <br>
+            <br>
+            <h1 class="display-5">10. Grids</h1>
+            <!-- Bootsrap grid supports six responsive breakpoints: xs (<576px), sm (≥576px), >=md (≥768px), >=lg (≥992px), >=xl (≥1200px), and >=xxl (≥1400px)) -->
+            <!-- There are 12 template columns available per row, ie., the entire row can be divided into maximum 12 parts and each part can be a column. If you use col-4, this column will occupy 4 out 12 parts  -->
+            <div class="container">
+                <h3 class="display-6">10a. Simple columns</h3>
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col bg-success border border-dark">
+                            Column
+                        </div>
+                        <div class="col bg-success border border-dark">
+                            Column
+                        </div>
+                        <div class="col bg-success border border-dark">
+                            Column
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <h3 class="display-6">10b. Auto-layout columns - Equal-width</h3>
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col bg-primary border border-dark">
+                            1 of 2
+                        </div>
+                        <div class="col bg-primary border border-dark">
+                            2 of 2
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col bg-primary border border-dark">
+                            1 of 3
+                        </div>
+                        <div class="col bg-primary border border-dark">
+                            2 of 3
+                        </div>
+                        <div class="col bg-primary border border-dark">
+                            3 of 3
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <h3 class="display-6">10c. Auto-layout columns - Setting one column width</h3>
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col bg-info border border-dark">
+                            1 of 3
+                        </div>
+                        <div class="col-6 bg-info border border-dark">
+                            2 of 3 (wider)
+                        </div>
+                        <div class="col bg-info border border-dark">
+                            3 of 3
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col bg-info border border-dark">
+                            1 of 3
+                        </div>
+                        <div class="col-5 bg-info border border-dark">
+                            2 of 3 (wider)
+                        </div>
+                        <div class="col bg-info border border-dark">
+                            3 of 3
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <h3 class="display-6">10d. Auto-layout columns - Variable width content</h3>
+                <!-- It will adjust depending on the contents of the cell -->
+                <div class="container text-center">
+                    <div class="row justify-content-md-center">
+                        <div class="col col-lg-2 bg-warning border border-dark">
+                            1 of 3
+                        </div>
+                        <div class="col-md-auto bg-warning border border-dark">
+                            Variable width content
+                        </div>
+                        <div class="col col-lg-2 bg-warning border border-dark">
+                            3 of 3
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col bg-warning border border-dark">
+                            1 of 3
+                        </div>
+                        <div class="col-md-auto bg-warning border border-dark">
+                            Variable width content
+                        </div>
+                        <div class="col col-lg-2 bg-warning border border-dark">
+                            3 of 3
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <h3 class="display-6">10e. Understanding breakpoints</h3>
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col bg-danger border border-dark">col</div>
+                        <div class="col bg-danger border border-dark">col</div>
+                        <div class="col bg-danger border border-dark">col</div>
+                        <div class="col bg-danger border border-dark">col</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8 bg-danger border border-dark">col-8</div>
+                        <div class="col-4 bg-danger border border-dark">col-4</div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <h3 class="display-6">10f. Stacks to horizontal layout after hitting a breakspoint</h3>
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-sm-8 bg-success border border-dark">col-sm-8</div>
+                        <div class="col-sm-4 bg-success border border-dark">col-sm-4</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm bg-success border border-dark">col-sm</div>
+                        <div class="col-sm bg-success border border-dark">col-sm</div>
+                        <div class="col-sm bg-success border border-dark">col-sm</div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <h3 class="display-6">10g. Mix and match</h3>
+                <div class="container text-center">
+                    <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+                    <div class="row">
+                        <div class="col-md-8 bg-info border border-dark">.col-md-8</div>
+                        <!-- This creates a column that occupies 8/12 columns on medium-sized screens and above md breakpoint. -->
+                        <div class="col-6 col-md-4 bg-info border border-dark">.col-6 .col-md-4</div>
+                        <!-- This creates a column that occupies 6/12 columns on all screen sizes and on medium-sized screens and above (md breakpoint), it occupies 4 out of 12 columns. -->
+                    </div>
+
+                    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+                    <div class="row">
+                        <div class="col-6 col-md-4 bg-info border border-dark">.col-6 .col-md-4</div>
+                        <div class="col-6 col-md-4 bg-info border border-dark">.col-6 .col-md-4</div>
+                        <div class="col-6 col-md-4 bg-info border border-dark">.col-6 .col-md-4</div>
+                    </div>
+
+                    <!-- Columns are always 50% wide, on mobile and desktop -->
+                    <div class="row">
+                        <div class="col-6 bg-info border border-dark">.col-6</div>
+                        <div class="col-6 bg-info border border-dark">.col-6</div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <h3 class="display-6">10h. Row columns</h3>
+                <!-- Here we will specify the number of coluns to be occuppied in the parent row itself -->
+                <div class="container text-center">
+                    <div class="row row-cols-2">
+                        <div class="col bg-danger border border-dark">Column</div>
+                        <div class="col bg-danger border border-dark">Column</div>
+                        <div class="col bg-danger border border-dark">Column</div>
+                        <div class="col bg-danger border border-dark">Column</div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="container text-center">
+                    <div class="row row-cols-3">
+                        <div class="col bg-success border border-dark">Column</div>
+                        <div class="col bg-success border border-dark">Column</div>
+                        <div class="col bg-success border border-dark">Column</div>
+                        <div class="col bg-success border border-dark">Column</div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="container text-center">
+                    <div class="row row-cols-auto">
+                        <!-- Auto will work based on the text present inside the cell -->
+                        <div class="col bg-warning border border-dark">Column column column</div>
+                        <div class="col bg-warning border border-dark">Column column column column</div>
+                        <div class="col bg-warning border border-dark">Column column</div>
+                        <div class="col bg-warning border border-dark">Column</div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="container text-center">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                        <div class="col bg-dark-subtle border border-dark">Column</div>
+                        <div class="col bg-dark-subtle border border-dark">Column</div>
+                        <div class="col bg-dark-subtle border border-dark">Column</div>
+                        <div class="col bg-dark-subtle border border-dark">Column</div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <h3 class="display-6">10i. Nesting </h3>
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-sm-3 bg-warning-subtle border border-dark">
+                            Level 1: .col-sm-3
+                        </div>
+                        <div class="col-sm-9 bg-warning-subtle border border-dark">
+                            <div class="row">
+                                <div class="col-8 col-sm-6 bg-warning-subtle border border-dark">
+                                    Level 2: .col-8 .col-sm-6
+                                </div>
+                                <div class="col-4 col-sm-6 bg-warning-subtle border border-dark">
+                                    Level 2: .col-4 .col-sm-6
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <h3 class="display-6">10j. Grid system with images</h3>
+                <div class="row">
+                    <div class="col-xl-4 col-md-4 border border-dark">
+                        <img class="img-fluid"
+                            src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YW5pbWFsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                            alt="">
+                    </div>
+                    <div class="col-xl-4 col-md-4 border border-dark">
+                        <img class="img-fluid"
+                            src="https://images.unsplash.com/photo-1591824438708-ce405f36ba3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YW5pbWFsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                            alt="">
+                    </div>
+                    <div class="col-xl-4 col-md-4 border border-dark">
+                        <img class="img-fluid"
+                            src="https://images.unsplash.com/photo-1497206365907-f5e630693df0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFuaW1hbHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+                            alt="">
+                    </div>
+                    <!-- grid system and the breakpoints can make the grid resposnsive. But to make a image responsive within the grid, ypu should use class="img-fluid" to make the image responsive -->
+                    <!-- The white space that you see between the images are known as gutters. You can rid of that by using class="row no-gutters"  -->
+                </div>
+            </div>
+            <br>
+            <br>
+            <h1 class="display-5">11. Vertical alignment</h1>
+            <div class="container">
+                <h3 class="display-6">11a. Vertical text alignment</h3>
+                <div>
+                    <span class="align-baseline">baseline</span>
+                    <span class="align-top">top</span>
+                    <span class="align-middle">middle</span>
+                    <span class="align-bottom">bottom</span>
+                    <span class="align-text-top">text-top</span>
+                    <span class="align-text-bottom">text-bottom</span>
+                </div>
+                <br>
+                <br>
+                <h3 class="display-6">11b. Vertical alignment in a table cell - 1</h3>
+                <div>
+                    <table style="height: 100px;">
+                        <tbody>
+                            <tr>
+                                <td class="align-baseline bg-danger-subtle border border-dark">baseline</td>
+                                <td class="align-top bg-danger-subtle border border-dark">top</td>
+                                <td class="align-middle bg-danger-subtle border border-dark">middle</td>
+                                <td class="align-bottom bg-danger-subtle border border-dark">bottom</td>
+                                <td class="align-text-top bg-danger-subtle border border-dark">text-top</td>
+                                <td class="align-text-bottom bg-danger-subtle border border-dark">text-bottom</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <br>
+                <h3 class="display-6">11b. Vertical alignment in a table cell - 2</h3>
+                <!-- This is an example how the cells will stretch and expand the height the columns/entire row to accomodate other contents. What if we don't them to to stretch? Look at the next row-->
+                <div class="row">
+                    <div class="col bg-primary border border-dark">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt vero libero ullam
+                        reprehenderit ab labore facere id quasi. Nulla delectus recusandae dignissimos labore?</div>
+                    <div class="col  bg-danger border border-dark">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt vero libero ullam
+                        reprehenderit ab labore facere id quasi. Nulla delectus recusandae dignissimos labore?Lorem
+                        ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, explicabo! Nostrum, assumenda!
+                        Ad unde doloremque accusamus corporis, id, quisquam nobis doloribus alias rem porro consequuntur
+                        fuga. Commodi explicabo dolorem sequi.lor Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Rem, odit minima. Consectetur commodi ipsum nulla qui, perspiciatis dignissimos quidem
+                        itaque a. Unde, ipsum! Facilis unde doloremque tempore, itaque nisi error.</div>
+                    <div class="col  bg-success border border-dark">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt vero libero ullam
+                        reprehenderit ab labore facere id quasi. Nulla delectus recusandae dignissimos labore?Lorem
+                        ipsum dolor, sit amet consectetur adipisicing elit. Culpa dolor nisi voluptatum temporibus ea
+                        veritatis unde odio, ipsa consectetur, magnam quos rerum cupiditate quisquam explicabo placeat
+                        sunt voluptate modi dolorum!</div>
+                    <div class="col  bg-warning border border-dark">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt vero libero ullam
+                        reprehenderit ab labore facere id quasi.</div>
+                </div>
+                <br>
+                <br>
+                <div class="row align-items-center">
+                    <div class="col bg-primary border border-dark">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt vero libero ullam
+                        reprehenderit ab labore facere id quasi. Nulla delectus recusandae dignissimos labore?</div>
+                    <div class="col  bg-danger border border-dark">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt vero libero ullam
+                        reprehenderit ab labore facere id quasi. Nulla delectus recusandae dignissimos labore?Lorem
+                        ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, explicabo! Nostrum, assumenda!
+                        Ad unde doloremque accusamus corporis, id, quisquam nobis doloribus alias rem porro consequuntur
+                        fuga. Commodi explicabo dolorem sequi.lor Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Rem, odit minima. Consectetur commodi ipsum nulla qui, perspiciatis dignissimos quidem
+                        itaque a. Unde, ipsum! Facilis unde doloremque tempore, itaque nisi error.</div>
+                    <div class="col  bg-success border border-dark">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt vero libero ullam
+                        reprehenderit ab labore facere id quasi. Nulla delectus recusandae dignissimos labore?Lorem
+                        ipsum dolor, sit amet consectetur adipisicing elit. Culpa dolor nisi voluptatum temporibus ea
+                        veritatis unde odio, ipsa consectetur, magnam quos rerum cupiditate quisquam explicabo placeat
+                        sunt voluptate modi dolorum!</div>
+                    <div class="col  bg-warning border border-dark">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt vero libero ullam
+                        reprehenderit ab labore facere id quasi.</div>
+                </div>
+                <br>
+                <br>
+                <div class="row align-items-end">
+                    <div class="col bg-primary border border-dark">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt vero libero ullam
+                        reprehenderit ab labore facere id quasi. Nulla delectus recusandae dignissimos labore?</div>
+                    <div class="col bg-danger border border-dark">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt vero libero ullam
+                        reprehenderit ab labore facere id quasi. Nulla delectus recusandae dignissimos labore?Lorem
+                        ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, explicabo! Nostrum, assumenda!
+                        Ad unde doloremque accusamus corporis, id, quisquam nobis doloribus alias rem porro consequuntur
+                        fuga. Commodi explicabo dolorem sequi.lor Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Rem, odit minima. Consectetur commodi ipsum nulla qui, perspiciatis dignissimos quidem
+                        itaque a. Unde, ipsum! Facilis unde doloremque tempore, itaque nisi error.</div>
+                    <div class="col bg-success border border-dark">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt vero libero ullam
+                        reprehenderit ab labore facere id quasi. Nulla delectus recusandae dignissimos labore?Lorem
+                        ipsum dolor, sit amet consectetur adipisicing elit. Culpa dolor nisi voluptatum temporibus ea
+                        veritatis unde odio, ipsa consectetur, magnam quos rerum cupiditate quisquam explicabo placeat
+                        sunt voluptate modi dolorum!</div>
+                    <div class="col bg-warning border border-dark">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt vero libero ullam
+                        reprehenderit ab labore facere id quasi. </div>
+                </div>
+                <br>
+                <br>
+                <!-- Rather than changing the row alignmnet, lets try changing each column alignments  -->
+                <div class="row align-items-center">
+                    <div class="col bg-primary border border-dark align-self-start">Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt
+                        vero libero ullam reprehenderit ab labore facere id quasi. Lorem ipsum dolor sit, amet
+                        consectetur adipisicing elit. Magnam, iusto atque! Voluptatem maiores perferendis cupiditate
+                        aliquid animi dolorum pariatur harum mollitia modi vitae autem, placeat enim eaque aliquam
+                        dignissimos temporibus?</div>
+                    <div class="col  bg-danger border border-dark align-self-center">Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt
+                        vero libero ullam reprehenderit ab labore facere id quasi. </div>
+                    <div class="col  bg-success border border-dark align-self-end">Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Repudiandae dolor ea facilis quidem, voluptate mollitia nesciunt
+                        vero libero ullam reprehenderit ab labore facere id quasi.</div>
+                </div>
+                <h3 class="display-6">11c. Horizontal alignment in a table cell</h3>
+                <div class="container text-center">
+                    <div class="row justify-content-start">
+                        <div class="col-4 bg-info border border-dark">
+                            One of two columns
+                        </div>
+                        <div class="col-4 bg-info border border-dark">
+                            One of two columns
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row justify-content-center">
+                        <div class="col-4 bg-info border border-dark">
+                            One of two columns
+                        </div>
+                        <div class="col-4 bg-info border border-dark">
+                            One of two columns
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row justify-content-end">
+                        <div class="col-4 bg-info border border-dark">
+                            One of two columns
+                        </div>
+                        <div class="col-4 bg-info border border-dark">
+                            One of two columns
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row justify-content-around">
+                        <div class="col-4 bg-info border border-dark">
+                            One of two columns
+                        </div>
+                        <div class="col-4 bg-info border border-dark">
+                            One of two columns
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row justify-content-between">
+                        <div class="col-4 bg-info border border-dark">
+                            One of two columns
+                        </div>
+                        <div class="col-4 bg-info border border-dark">
+                            One of two columns
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row justify-content-evenly">
+                        <div class="col-4 bg-info border border-dark">
+                            One of two columns
+                        </div>
+                        <div class="col-4 bg-info border border-dark">
+                            One of two columns
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+                <h3 class="display-6">11d. Column offset</h3>
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-md-4 bg-danger border border-dark">.col-md-4</div>
+                        <div class="col-md-4 offset-md-4 bg-danger border border-dark">.col-md-4 .offset-md-4</div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-3 offset-md-3 bg-danger border border-dark">.col-md-3 .offset-md-3</div>
+                        <div class="col-md-3 offset-md-3 bg-danger border border-dark">.col-md-3 .offset-md-3</div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 bg-danger border border-dark">.col-md-6 .offset-md-3</div>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+            <h1 class="display-5">12. Forms</h1>
+            <!-- form-label should be used in label element; form-control should be used in input element; form-text should be used in elements that are used to place; form-check should be used in lables and inputs when you want a checkbox -->
+            <div class="container">
+                <h3 class="display-6">12a. Overview</h3>
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <!-- aria-describedby is an accessibility tool where it is used to describe a particular part of the form -->
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <br>
+                <br>
+                <h3 class="display-6">12b. Disabled forms</h3>
+                <!-- Enclosing the entire form under fieldset disabled will disable the form -->
+                <form>
+                    <fieldset disabled>
+                        <!-- Enclosing the entire form under fieldset disabled will disable the form -->
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <!-- aria-describedby is an accessibility tool where it is used to describe a particular part of the form -->
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </fieldset>
+                    <br>
+                    <br>
+                    <h3 class="display-6">12c. Text areas inside forms</h3>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                            placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <br>
+                    <br>
+                    <h3 class="display-6">12d. Different sizes for elements</h3>
+                    <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg"
+                        aria-label=".form-control-lg example" disabled>
+                    <!-- While aria-describedby is used for providing additional information and on the other hand aria-labelledby is used for labeling elements. -->
+                    <input class="form-control" type="text" placeholder="Default input"
+                        aria-label="default input example" disabled>
+                    <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm"
+                        aria-label=".form-control-sm example" readonly>
+                    <!-- Readonly inputs cannot be modified but can still be focused and selected, while disabled inputs cannot be selected at all in the first place. -->
+                    <br>
+                    <br>
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control-plaintext" id="staticEmail" value="email@example.com"
+                                readonly>
+                        </div>
+                        <!-- Generally the readonly text cannot be selected. What can be focussed or selected is the box that cotains the text. But if you wwant the text to be selected use "form-control-plaintext" as a class instead of form-control. But this will remove the border line  -->
+                        <br>
+                        <br>
+                        <h3 class="display-6">12e. Visually hiding from users</h3>
+                        <fieldset class="row g-3">
+                            <!-- g-3 will determine the space between the elements when they are in "inline" -->
+                            <div class="col-auto">
+                                <label for="staticEmail2" class="visually-hidden">Email</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2"
+                                    value="email@example.com">
+                            </div>
+                            <!-- The class visually-hidden hides the text part (Email and Password in this scenario) but it exists within code for accessibility purpose -->
+                            <div class="col-auto">
+                                <label for="inputPassword2" class="visually-hidden">Password</label>
+                                <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <br>
+                        <h3 class="display-6">12f. File Input</h3>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Default file input example</label>
+                            <input class="form-control form-control-color" type="file" value="#563d7c" id="formFile">
+                            <!-- You can use form-control -color class and give value of the color to have colored box -->
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFileMultiple" class="form-label">Multiple files input example</label>
+                            <input class="form-control" type="file" id="formFileMultiple" multiple>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFileDisabled" class="form-label">Disabled file input example</label>
+                            <input class="form-control" type="file" id="formFileDisabled" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFileSm" class="form-label">Small file input example</label>
+                            <input class="form-control form-control-sm" id="formFileSm" type="file">
+                        </div>
+                        <div>
+                            <label for="formFileLg" class="form-label">Large file input example</label>
+                            <input class="form-control form-control-lg" id="formFileLg" type="file">
+                        </div>
+                        <br>
+                        <br>
+                        <h3 class="display-6">12g. Datalists</h3>
+                        <label for="exampleDataList" class="form-label">Datalist example</label>
+                        <input class="form-control" list="datalistOptions" id="exampleDataList"
+                            placeholder="Type to search...">
+                        <!-- You can use datalist to search and narrow down your results. As you type your results will be narrowed down -->
+                        <!-- List attribute is specifically used only with datalists -->
+                        <datalist id="datalistOptions">
+                            <option value="Chennai">
+                            <option value="Mumbai">
+                            <option value="Kolkatta">
+                            <option value="Bangalore">
+                            <option value="Delhi">
+                        </datalist>
+                        <br>
+                        <br>
+                        <h3 class="display-6">12h. Select options</h3>
+                        <select class="form-select" aria-label="Default select example">
+                            <!-- for selection element, you should use form-select class -->
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <!-- Customising sizes for select options -->
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <!-- Multiple attribute can be selected in one time too -->
+                        <select class="form-select" aria-label="multiple select example" multiple>
+                            <!-- If you want the user to select multiple values at once, you use 'multiple' -->
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <br>
+                        <br>
+                        <h3 class="display-6">12i. Checkbox</h3>
+                        <!-- Unchecked checkbox -->
+                        <div class="form-check">
+                            <!-- For check box you should use the class form-check in div and then nest the classes form-check-input in input element -->
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Default checkbox
+                            </label>
+                        </div>
+                        <!-- Checked by default -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Checked checkbox
+                            </label>
+                        </div>
+                        <!-- Indeterminate checkbox -->
+                        <!-- This cant be done with HTML. Possible only with JavaScript -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                            <label class="form-check-label" for="flexCheckIndeterminate">
+                                Indeterminate checkbox
+                            </label>
+                        </div>
+                        <!-- Disabled checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDisabled" disabled>
+                            <label class="form-check-label" for="flexCheckDisabled">
+                                Disabled checkbox
+                            </label>
+                        </div>
+                        <br>
+                        <br>
+                        <h3 class="display-6">12j. Radio buttons</h3>
+                        <!-- Unselected radio button -->
+                        <!-- Only difference checkbox and radio button is using type attribute within the input element  -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Default radio
+                            </label>
+                        </div>
+                        <!-- Selected radio button by default -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                                checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Default checked radio
+                            </label>
+                        </div>
+                        <br>
+                        <br>
+                        <h3 class="display-6">12k. Switches </h3>
+                        <!-- Switched off checkbox input -->
+                        <!-- Difference between checkbox, radio button on oneside and switch on the other is use of role attribute known as "Switch" -->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox
+                                input</label>
+                        </div>
+                        <!-- Switched on checkbox input -->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                                checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox
+                                input</label>
+                        </div>
+                        <br>
+                        <br>
+                        <h3 class="display-6">12l. Range </h3>
+                        <label for="customRange1" class="form-label">Example range</label>
+                        <!-- Use thee class "form-range" -->
+                        <input type="range" class="form-range" id="customRange1">
+                        <br>
+                        <br>
+                        <h3 class="display-6">12m. Input groups </h3>
+                        <!-- You were modifying individual inputs previously. Now you can group the inputs together. -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Recipient's username"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <span class="input-group-text" id="basic-addon2">@example.com</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="basic-url" class="form-label">Your vanity URL</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                                <input type="text" class="form-control" id="basic-url"
+                                    aria-describedby="basic-addon3 basic-addon4">
+                            </div>
+                            <div class="form-text" id="basic-addon4">Example help text goes outside the input group.
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$</span>
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                            <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">With textarea</span>
+                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                        </div>
+                        <br>
+                        <br>
+                        <h3 class="display-6">12n. Checkboxes and radios in input groups </h3>
+                        <div class="input-group mb-3">
+                            <div class="input-group-text">
+                                <input class="form-check-input mt-0" type="checkbox" value=""
+                                    aria-label="Checkbox for following text input">
+                            </div>
+                            <input type="text" class="form-control" aria-label="Text input with checkbox">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-text">
+                                <input class="form-check-input mt-0" type="radio" value=""
+                                    aria-label="Radio button for following text input">
+                            </div>
+                            <input type="text" class="form-control" aria-label="Text input with radio button">
+                        </div>
+                        <br>
+                        <br>
+                        <h3 class="display-6">12o. Multiple inputs </h3>
+                        <div class="input-group">
+                            <span class="input-group-text">First and last name</span>
+                            <input type="text" aria-label="First name" class="form-control">
+                            <input type="text" aria-label="Last name" class="form-control">
+                        </div>
+                        <h3 class="display-6">12p. Multiple add-ons </h3>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$</span>
+                            <span class="input-group-text">0.00</span>
+                            <input type="text" class="form-control"
+                                aria-label="Dollar amount (with dot and two decimal places)">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                aria-label="Dollar amount (with dot and two decimal places)">
+                            <span class="input-group-text">$</span>
+                            <span class="input-group-text">0.00</span>
+                        </div>
+                        <br>
+                        <br>
+                        <h3 class="display-6">12p. Button add-ons </h3>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary" type="button">Button</button>
+                            <button class="btn btn-outline-secondary" type="button">Button</button>
+                            <input type="text" class="form-control" placeholder=""
+                                aria-label="Example text with two button addons">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Recipient's username"
+                                aria-label="Recipient's username with two button addons">
+                            <button class="btn btn-outline-secondary" type="button">Button</button>
+                            <button class="btn btn-outline-secondary" type="button">Button</button>
+                        </div>
+                        <br>
+                        <br>
+                        <h3 class="display-6">12q. Buttons with dropdowns </h3>
+                        <div class="input-group">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action before</a></li>
+                                <li><a class="dropdown-item" href="#">Another action before</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                            </ul>
+                            <input type="text" class="form-control" aria-label="Text input with 2 dropdown buttons">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <br>
+                        <br>
+                        <h3 class="display-6">12r. Floating labels </h3>
+                        <!-- Unlike placeholder which disappears as soon you type, floating labels will minimize and move up -->
+                        <!-- Here we are the class "form-floating" -->
+                        <!-- You can do this other elements too: Textareas, Selects, Disabled, Input groups,  -->
+                        <div class="p-3">
+                            <!-- Dont asky why. Encapsulate floating classes under another div with class p-3 to provide padding for the floating input within input box. If not they will begin on the line of the box -->
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Email address</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="password" class="form-control" id="floatingPassword"
+                                    placeholder="Password">
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <h3 class="display-6">12s. Form grids </h3>
+                        <!-- Forms using table format -->
+                        <div class="row g-3">
+                            <!-- g-3 or gutter can alter the space between columns -->
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputPassword4" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="inputPassword4">
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress2" class="form-label">Address 2</label>
+                                <input type="text" class="form-control" id="inputAddress2"
+                                    placeholder="Apartment, studio, or floor">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputCity" class="form-label">City</label>
+                                <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputState" class="form-label">State</label>
+                                <select id="inputState" class="form-select">
+                                    <option selected>Choose...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="inputZip" class="form-label">Zip</label>
+                                <input type="text" class="form-control" id="inputZip">
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <label class="form-check-label" for="gridCheck">
+                                        Check me out
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Sign in</button>
+                            </div>
+                        </div>
+                        <h3 class="display-6">12t. Validaiton forms - Custom styles </h3>
+                        <!-- For custom Bootstrap form validation messages, you should add the "novalidate" boolean attribute to your <form>. This disables the browser default feedback tooltip -->
+                        <div class="row g-3 needs-validation" novalidate="">
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label">First name</label>
+                                <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Last name</label>
+                                <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustomUsername" class="form-label">Username</label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                    <input type="text" class="form-control" id="validationCustomUsername"
+                                        aria-describedby="inputGroupPrepend" required>
+                                    <div class="invalid-feedback">
+                                        Please choose a username.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationCustom03" class="form-label">City</label>
+                                <input type="text" class="form-control" id="validationCustom03" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid city.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">State</label>
+                                <select class="form-select" id="validationCustom04" required>
+                                    <option selected disabled value="">Choose...</option>
+                                    <option>...</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a valid state.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom05" class="form-label">Zip</label>
+                                <input type="text" class="form-control" id="validationCustom05" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                    <label class="form-check-label" for="invalidCheck">
+                                        Agree to terms and conditions
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree before submitting.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Submit form</button>
+                            </div>
+                        </div>
+                </form>
+                <br>
+                <br>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

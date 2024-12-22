@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Injected external css file -->
+    <link rel="stylesheet" href="index.css" />
+    <title>Namaste React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Injectd React and ReactDOM using CDN -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!-- Injected external js file -->
+    <script src="index.js"></script>
+  </body>
+</html>
+
+<!-- CDN (Content Delivery Network): -->
+<!-- The above links (similar to bootstrap) are called CDN's, a network of distributed servers that deliver content to users based on their geographical location. -->
+  <!-- By serving content from servers closer to the user, CDNs reduce the time it takes to load web pages and other content. -->
+  <!-- CDNs provide redundancy, so if one server goes down, another can take over, ensuring content is always available. -->
+  <!-- CDNs handle large amounts of traffic, which can be especially useful during high-demand periods. -->
+   <!-- Working of a CDN: -->
+      <!-- When we request a resource (e.g., the React script) from a CDN URL, our request first goes to a DNS server. -->
+      <!-- The DNS server then determines our location based on your IP address. -->
+      <!-- Based on your location, the DNS server directs your request to the nearest server in the CDN network.  -->
+      <!-- While original content, such as the React files, is created and managed by React developers in one central location, CDNs replicate and cache this content across multiple servers around the world. -->
+      <!-- These servers are called edge servers. When a user makes a request, the content is delivered from the closest edge server rather than the original location. -->
+      <!-- The CDN provider (like Cloudflare, Akamai, or Amazon CloudFront) periodically syncs content from the origin server (where the original React files are hosted) to all of its edge servers. -->
+<!-- In essence, when you include React via a CDN, you're pulling the React code from a remote server optimized for fast delivery, rather than hosting the library files locally on your own server. -->
+
+<!-- React without jsx -->
+ <!-- React components are essentially functions or classes that return React elements, which are objects representing the UI. These React elements can be created using the React.createElement method directly, without JSX. -->
+ <!-- With JSX: const element = <h1>Hello, world!</h1>; -->
+ <!-- Without JSX: const element = React.createElement('h1', null, 'Hello, world!'); -->
+
+<!-- What is crossorigin in script tag? -->
+  <!-- The crossorigin attribute in the <script> tag is used to handle Cross-Origin Resource Sharing (CORS) for scripts that are fetched from different origins (i.e., domains, protocols, or ports) than the one hosting the web page. -->
+  <!-- When you load a script from a different origin (like a CDN), the browser's default behavior may block the resource or restrict its access due to security policies. This is to prevent security risks such as data leakage or unauthorized access to sensitive information. The crossorigin attribute helps in managing these cross-origin requests. -->
+  <!-- So this allows the script to be used securely within your application without the browser blocking the resource. -->
+
+<!-- Difference between React and ReactDOM: -->
+ <!-- They both are objects -->
+  <!-- React is the core library for building user interfaces. It provides the tools to create components, manage state, and handle the logic of your application. -->
+  <!-- ReactDOM is specifically responsible for rendering React components to the DOM. It provides methods like ReactDOM.render() to connect React components with the browser's DOM. -->
+
+<!-- Difference between react.development.js and react.production.js files via CDN? -->
+<!-- While copying CDN, you might have looked other links in the name of react.production.js -->
+  <!-- react.development.js: This version includes helpful warnings and error messages for developers during development. It’s not optimized for performance. -->
+  <!-- react.production.js: This version is minified and optimized for performance, removing all development warnings and error checks. It should be used in production environments. -->
+
+<!-- What is async and defer? -->
+<!-- Both async and defer are attributes used in the <script> tag to control how scripts are loaded and executed in HTML. -->
+  <!-- async: -->
+    <!-- The script is fetched asynchronously and executed as soon as it is available, without  blocking the rendering of the rest of the page. -->
+    <!-- Scripts with async are not guaranteed to be executed in the order they appear in the document. -->
+  <!-- defer: -->
+    <!-- The script is fetched asynchronously but executed only after the HTML document has been fully parsed. -->
+    <!-- Scripts with defer are executed in the order they appear in the document. -->

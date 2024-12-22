@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products</title>
+</head>
+
+<body>
+    <h1><%= category%> Products!</h1>
+    <ul>
+        <% for(let product of products) { %>
+        <li><a href="/products/<%=product._id%>"><%= product.name %></a></li>
+        <% }%>
+    </ul>
+    <a href="/products/new">New Product</a>
+    <%if(category !== 'All') {%>
+    <a href="/products">All Products</a>
+    <% } %>
+    <!-- We do not want the above anchor tag in 'all products' page. Why do we want a link that will redirect us to the same page? -->
+
+</body>
+
+</html>
+
+<!-- Note -->
+<!-- In many databases, especially those using MongoDB, the default field name for the unique identifier is "_id". -->
+<!-- We do not need uuid that we have used for under express. Because mongodb automatically generates for us whenever we create a new product  -->

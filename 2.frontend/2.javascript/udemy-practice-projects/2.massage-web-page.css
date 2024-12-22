@@ -1,0 +1,38 @@
+/* Creating a simple HTML with images and a bit of styling to it using CSS */
+
+h2.massage {
+    Position: relative;
+    font-weight: bolder;
+    color: #101521;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: black -1px 1px;
+    font-size: 50px;
+    margin-left: 50px;
+    padding-top: 30px;
+    bottom: 1150px
+
+}
+#massage {
+    filter: blur(5px);
+    width: 1300px;
+    height: 1100px;
+
+}
+
+section.massage{
+    background-size: cover;
+    text-align: center; 
+    display: inline-block;
+    height: 1200px;
+}
+
+img.massage{
+    width: 30%;
+    padding: 5px;
+}
+
+figure.massage{
+    position: relative;
+    display: inline-block;
+    bottom: 1175px;
+}

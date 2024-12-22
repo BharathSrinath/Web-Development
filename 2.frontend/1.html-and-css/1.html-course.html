@@ -1,0 +1,736 @@
+<!-- Type ! and hit tab = Gives you the Boilerplate template  -->
+<!DOCTYPE html>
+<html lang="en">
+<!-- DOCTYPE declaration signals to the browser to render the page using the latest HTML standards available at the time. -->
+<!-- So if we don't include <!DOCTYPE html> at the beginning of your HTML document, the browser will not know which version of HTML you are using. -->
+<!-- This can lead to 'quirks mode' rendering in older browsers, where they attempt to emulate non-standard behavior to display pages made before web standards were established. --> 
+<!-- This can lead to Inconsistent CSS and JavaScript Behavior -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- The <meta> tag provides metadata, which is information about the webpage rather than visible content on the page. -->
+    <!-- charset: Specifies the character encoding used to display the webpage. -->
+    <!-- UTF-8: Unicode Transformation Format encoding can represent almost any character from any language, making it highly compatible with international text. It's the most widely used encoding for web pages, covering a vast array of symbols and characters. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- X-UA-Compatible: Specifies that the page should be rendered using the latest rendering engine available to the browser. IE=edge: Tells Internet Explorer to use the latest version of its rendering engine rather than falling back to older compatibility modes. This ensures the page looks as intended without outdated interpretations by older IE versions. This attribute specifically applies to Internet Explorer (IE) which is based trident engines. This setting does not affect modern browsers like Chrome, Firefox, Safari, or Edge based on Chromium.-->
+    <!-- tags (like name="description") provides search engines with information about the page, helping them better understand and rank it. -->
+    <!-- <meta> tags (like og:title and og:image for Open Graph) help control how links to the page appear on social media, influencing what titles, descriptions, or images are shown when someone shares the link.<meta> tags (like og:title and og:image for Open Graph) help control how links to the page appear on social media, influencing what titles, descriptions, or images are shown when someone shares the link. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- initial-scale=1.0 sets the initial zoom level when the page is first loaded. A value of 1.0 means the page loads at 100% zoom, -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">  Here we have added roboto font. Now you can make use of it in css file. The procedure is go to "https://fonts.google.com/" and choose and then click on embed and copy or download and include the link in the head of html" -->
+    <!-- Without a viewport meta tag, mobile browsers scale webpages to fit a typical desktop width (often 980px), making pages look smaller and harder to read on mobile screens. The viewport tag lets you control this behavior. -->
+    <!-- The width=device-width part tells the browser to set the viewport width equal to the device’s actual width, allowing the layout to adapt naturally to the device’s screen size. -->
+    <!-- While @media queries define the styles that respond to specific screen sizes, the viewport tag is a prerequisite for proper responsiveness on mobile. Without the viewport meta tag, even well-designed responsive layouts may display incorrectly because the browser may scale down the page as if it’s intended for a desktop screen size. -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>HTML</title>
+    <link rel="stylesheet" href="2.css-course.css">
+    <!-- rel: Relationship -->
+    <!-- href: Hypertext Reference -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
+    <link rel="stylesheet" href="pricingpanelproject.css">
+</head>
+<!-- In HTML, markup refers to the process of adding specific annotations or tags to a piece of text to provide structure and meaning to its content. These annotations or tags are known as markup elements. -->
+<!-- HTML - It is the "what"(content) of the web page -->
+<!-- CSS - It is about what or describes the what -->
+<!-- JS - It is the action that will be taken by the what -->
+
+<body>
+    <h3>1. Headers and Paragraphs</h3>
+    <!-- One head can have only one body -->
+    <!-- Shortcut for comments: ctrl + / -->
+    <h1 id="firstheader">You are a Champion</h1>
+    <h2>You are a Champion</h2>
+    <h3>You are a Champion</h3>
+    <h4>You are a Champion</h4>
+    <!-- When you don't close a tag, browser will assume that the tag continues for the entire paragraph -->
+    <h5>You are a Champion</h5>
+    <h6>You are a Champion</h6>
+    <p>There <b>comes a time in life</b> where you <i> have to be a man</i>.
+        Pull up your socks and <u>push harder</u>
+    </p>
+    <!-- P*n will give you n number of paragraphs -->
+    <!-- To have a dummy text you can use the command lorem*n where higher the value of n, greater is the size of the paragraph. It is used as a dummy text when you dont have actual content -->
+
+    <hr> <!-- Represents an Horizontal line -->
+
+    <h3>2. Anchor tag, Image tag and Video tag</h3>
+    <!-- Using Anchor tags you can place the links (other websites or even files in your system) in your website -->
+    <!-- target - "_blank" helps you to open the link in another tab -->
+    <!-- To link the file in your system, it should be in the same folder as the source code -->
+    <a href="https://www.youtube.com/" target="_blank">Click here</a>
+    <br>
+    <img src="https://as1.ftcdn.net/v2/jpg/03/02/22/86/1000_F_302228672_dxcV1RbwOehFgUEvkysugmwx8v9EoW7I.jpg"
+        alt="Image of person celebrating success" width="620px">
+    <br>
+    <!-- Image doesnt have a closing tag -->
+    <!-- alt is used to provide alternative text if the image doesnt appear due to broken url or due to loading issues or most importantly for accessibility purposes -->
+    <!-- Both href and src are known as attributes. They are like special instructions that you can add to the opening tags of HTML elements to modify their behavior or appearance. It has 2 parts - attribute name and its value-->
+
+    <video src="html-css-course-resources\1b-video-1.mp4" width="480px" controls autoplay muted loop></video>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/FojmZndalqY" title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+
+    <!-- Video doesnt have a closing tag -->
+    <!-- contorls attribute enables controls and autoplay automatically plays the video up on opening -->
+    <!-- An hyperlink redirects you to the other sites. iframe will bring the content of other websites into ours. -->
+    <!-- To link a youtube video, YT video => share => embed => copy and paste. -->
+    <!-- Not every site will allow to embed (Ex: Google) -->
+    <!-- clipboard-write: It is used when websites want to provide a convenient way for users to copy specific information associated with the embedded content. 
+        Example: If you're watching a YouTube video embedded on a webpage and the clipboard-write permission is granted, the video player may have a button or an option that allows you to copy the video's URL or share it through the clipboard. -->
+    <!-- Encrypted-media: They are video that can be watched only with decryption. Ex: Videos in OTT platforms where only subcribers can watch -->
+    <hr>
+
+    <h3>3. Breaks and Lists</h3>
+
+    <p>Neeya Naana Engira <span>Kelviyum Vendaam</span> <br>Yaar vina yaar vidai engira kevikku <span>badhilum
+            vendaam</span> <br>Konjam <span class="makeitgreen">Kaadhal</span> <br>Konjam <span
+            class="makeitgreen">oodal</span> <br>Avvaarae Sellattum <br>Nam vaazhkaiyin <span
+            class="makeitgreen">thedal</span> <br>
+    </p>
+    <hr>
+    <ul type="Square">
+        <div>
+            <li>Milk</li>
+            <ul>
+                <li>Curd</li>
+            </ul>
+            <li>Butter</li>
+            <li>Jam</li>
+        </div>
+    </ul>
+
+    <ol type="a">
+        <li>Milk</li>
+        <ol type="a">
+            <li>Juice</li>
+            <li>Detergent</li>
+        </ol>
+        <li>Bread</li>
+        <li>Butter</li>
+        <li>Jam</li>
+    </ol>
+
+    <!-- Description terms (dt) and their definitions (dd) are enclosed in description lists (dl) -->
+    <dl>
+        <dt>HTML:</dt>
+        <dd>HyperText Markup Language</dd>
+
+        <dt>CSS:</dt>
+        <dd>Cascading Style Sheets</dd>
+
+        <dt>JavaScript:</dt>
+        <dd>A scripting language used for web development</dd>
+    </dl>
+
+    <!-- Elements that don’t have any content by design are called void elements. When we need to use a void element, like <br>, <img>, <input>, <link>, <metatdata>, etc., we only use an opening tag. -->
+
+    <h3>4. Working with tables</h3>
+    <!-- Divide the table into head and body -->
+    <!-- Use 'th' to represent header and 'td' to represent data -->
+    <!-- There is nothing called 'tc' for column. -->
+    <!-- Rowspan: To spread into more rows; Colspan: more columns -->
+    <table>
+        <thead>
+            <!-- Here thead is just a semantic structure. It doesnt have any effect on displaying contents. But makes the code readable and can be helpful when you define styling in css -->
+            <tr class="tablehead">
+                <th rowspan="3">Class/Details</th>
+                <th rowspan="3">Name</th>
+                <th rowspan="3">Roll no</th>
+                <th colspan="2">Result</th>
+            </tr>
+            <tr class="tablehead">
+                <th>Grade</th>
+                <th>Badge</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="tablehead">
+                <th>Class I</th>
+                <td>Jack</td>
+                <td>1</td>
+                <td>A+</td>
+                <td>Achiever</td>
+            </tr>
+
+            <tr class="tablehead">
+                <th>Class II</th>
+                <td>Ron</td>
+                <td>2</td>
+                <td>B</td>
+                <td>Talented</td>
+            </tr>
+
+            <tr class="tablehead">
+                <th>Class III</th>
+                <td>Sam</td>
+                <td>3</td>
+                <td>C</td>
+                <td>Hard Worker</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h3>5. Subscript and Superscript</h3>
+    (a+b)<sup>2</sup> = a <sup>2</sup> + b <sup>2</sup> + 2ab <br>
+    H <sub>2</sub> + O <sub>2</sub> = H <sub>2</sub>0
+
+    <hr>
+
+    <h3>6. HTML Entities</h3>
+    <!--These are special characters that you cannot type in the keyboard or when you use them, you are possibly confusing the editor/browser (Ex: < symbol. Because, they are used in tags) -->
+    <!-- To overcome this, entities can be used. They start with '&' and end with ';' (Ex: &lt; represents '<'(less than)) -->
+    <!-- https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references -->
+    <section class="bold">
+        I have fever with temperature rising to 108&deg; Celsius <br>
+        I &hearts; my mom
+    </section>
+    <hr>
+
+    <h3>7. Semantic Markups</h3>
+    <!-- They add meaning to a piece of code. It doesnt add any features per se -->
+    <!-- Instead of using a generic <div> element to create a section or division, you can use semantic elements like <header>, <nav>, <main>, <article>, <section>, <aside>, <summary>, <details> and <footer>. They exactly function as div. At the same time they describe the purpose and content of their respective sections, making it easier for both developers and browsers to understand the structure of the page. -->
+    <!-- Main: The content of a <main> element should be unique to the document. Content that is repeated across a set of documents or document sections such as sidebars, navigation links, copyright information, site logos, and search forms shouldn't be included unless the search form is the main function of the page. -->
+    <!-- Nav: It's not necessary for all links to be contained in a <nav> element. <nav> is intended only for a major block of navigation links; typically the <footer> element often has a list of links that don't need to be in a <nav> element -->
+    <!-- Section: As mentioned above, <section> is a generic sectioning element, and should only be used if there isn't a more specific element to represent it -->
+    <!-- Article: Each <article> should be identified, typically by including a heading (<h1> - <h6> element) as a child of the <article> element. -->
+    <!-- Aside: It represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes. -->
+    <!-- Figure: Can be used for diagramatic representations -->
+
+    <hr>
+
+    <h3>8. Emmet shortcuts:</h3>
+    <!-- nav>ul>li*5>a[href=www.a.com]{Click Me} -->
+    <!-- The greater than symbol will create a child -->
+    <nav>
+        <h3>My favourite Youtube Channels</h3>
+        <ul>
+            <li><a href="https://www.youtube.com/@amitsengupta01">Amit Sengupta</a></li>
+            <li><a href="https://www.youtube.com/@DailyDoseOfInternet">Daily Dose Of Internet</a></li>
+            <li><a href="https://www.youtube.com/@mkbhd">Marques Brownlee</a></li>
+            <li><a href="https://www.youtube.com/@Mrwhosetheboss">Mrwhosetheboss</a></li>
+            <li><a href="https://www.youtube.com/@A2DChannel">A2D Channel</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <h3>9. Forms</h3>
+    <!-- They have 2 attributes. Action attribute specifies 'where' the data should be sent and Method attribute specifies which HTTP method should be used. -->
+    <!-- Placeholder attribute is used to provide a hint or example text inside an input field.  -->
+    <!-- Value attribute allows you to provide a starting value that can be edited or submitted by the user. -->
+    <!-- Label element is used to associate a text label with an input field or form element. The association take place with help of 'for' attribute in label element and 'id' attribute in input element. Those 2 needs to be exactly same. -->
+    <!-- There are two ways in which you can do the above -->
+
+    <h1 id="firstheader">Student Admission Form</h1>
+    <form action="backend.php">
+        <div>
+            <!-- Method 1 for label. This is the best practice -->
+            <!-- Here minlength and maxlength defines the total number of digits that needs to be entered -->
+            <label for="studentName">Name:</label>
+            <input type="text" name="studentName" value="Bharath" placeholder="Enter your name" id="studentName"
+                class="" minlength="5" maxlength="20">
+        </div>
+        <br>
+        <!-- Name attribute helps in identifying the input when the form is submitted to the server or when working with JavaScript. Simply put, it is a way to label or name the input field. -->
+        <div>
+            <!-- Method 2 for label. It uses no 'for' or 'id' attreibutes. But nests the entire input element within label element -->
+            <label>
+                Contact Number: <input type="number" name="contact" id="" placeholder="Enter your contact number">
+            </label>
+        </div>
+        <br>
+
+        <!-- required attribute at the end makes it compulsory for the user to enter the data -->
+
+        <div>
+            Email: <input type="email" name="email" id="" placeholder="Enter your email" required>
+        </div>
+        <br>
+        <!-- In radio buttons, name attribute should be same for every part -->
+        <div>
+            Gender: Male <input type="radio" name="gender" id="">
+            Female <input type="radio" name="gender" id="">
+        </div>
+        <br>
+
+        <div>
+            <label for="agree">Do you accept terms and conditions?</label>
+            <input type="checkbox" name="checkbox" id="agree" value="agree" required>
+        </div>
+        <br>
+
+        <!-- Here min defines that you have to be born on or after 1st jan, 2000 -->
+
+        <div>
+            DOB: <input type="date" name="dob" id="" min="2000-01-01">
+        </div>
+        <br>
+
+        <div>
+            Age: <input type="number" name="number" id="" min="18" max="60">
+        </div>
+        <br>
+
+        <div>
+            Upload your image <input type="file" name="file" id="" accept="image/*">
+        </div>
+        <!-- The asterisk * is a wildcard character that matches any characters that follow image/ -->
+        <br>
+
+        <!-- textarea is used to enter large amount of details like address, feedback etc. -->
+        <!-- Example: It would include image file types like "image/jpeg," "image/png," "image/gif," "image/bmp," and so on, as long as they start with "image/" in their MIME types. -->
+        <!-- If you want only jpeg, you can use image/jpeg -->
+
+        Residential Address: <br> <textarea name="address" id="" cols="30" rows="10"></textarea>
+
+        <br>
+        <!-- For a dropdown list box, it is a combination of select and options elements -->
+        <!-- Here the term selected is known as 'attribute value' and if used that will be the defualt selection of the drop down list in your web page -->
+
+        <select name="Role Model" id="">
+            <option value="" selected>Select your Role model</option>
+            <option value="APJ Abdul Kalam">APJ Abdul Kalam</option>
+            <option value="MSD">MSD</option>
+            <option value="Ratan Tata">Ratan Tata</option>
+        </select>
+        <br>
+        <div>
+
+            <!-- Here step defines the increment/decrement value -->
+            <!-- oninput is used to give a realtime change in value for the user based on their input -->
+            How much do you respect them?
+            <input type="range" min="0" max="100" step="5" name="rangevalue" oninput="rangeOutput.value = this.value">
+            <output id="rangeOutput"></output>
+            <div>
+                <br>
+                <!-- Different types of buttons -->
+                <!-- Buttons inside a form element will always behave like submit button unless specified otherwise -->
+                <button>Register</button> <!-- If you want the button to be customisable, then use <button> element -->
+                <br>
+                <br>
+                <section class="buttontypes">
+                    <!-- For a simple button, use this -->
+                    <input type="submit" value="Submit Form">
+                    <input type="reset" value="Reset Form">
+                    <input type="button" value="Submit2">
+                </section>
+
+                <!-- <button> vs <input type="button"> -->
+                <!-- <button> element is a standalone HTML button. It can contain any HTML content, such as text, images, or other inline elements, allowing for more customization. But <input type="button"> is an input element with a button type. The text displayed on the button is set by the value attribute, so it can only contain text, not additional HTML elements. -->
+            </div>
+    </form>
+
+    <hr>
+
+    <!-- Lets use the google and youtube search to understand the name attribute much better -->
+    <form action="https://www.youtube.com/results">
+        <input type="text" name="search_query">
+        <button id="searchYT">Search Youtube</button>
+    </form>
+    <br>
+    <form action="https://www.google.com/search">
+        <input type="text" name="q">
+        <button id="searchGoog">Search Google</button>
+    </form>
+    <!-- Youtube uses the name attribute = 'search_query' and google uses 'q' -->
+    <section class="resources">
+        <h2> Useful links for HTML and CSS:</h2>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML elements</a>
+        <br>
+        <br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">CSS properties</a>
+        <br>
+        <br>
+        <a href="https://htmlcolorcodes.com/">CSS colors</a>
+        <br>
+        <br>
+        <a href="https://coolors.co/palettes/trending">CSS trending colors</a>
+        <br>
+        <br>
+        <a href="https://easings.net/">CSS transitions easing functions</a>
+        <br>
+        <br>
+        <a href="https://unsplash.com/">Free high resolution images</a>
+        <br>
+        <br>
+    </section>
+
+    <hr>
+
+    <h2>10. Boxmodel</h2>
+    <section class="boxmodel1">
+        <p>The lion (Panthera leo) is a large cat of the genus Panthera native to Africa and India. It has a muscular,
+            broad-chested body; short, rounded head; round ears; and a hairy tuft at the end of its tail. It is sexually
+            dimorphic; adult male lions are larger than females and have a prominent mane. It is a social species,
+            forming groups called prides. A lion's pride consists of a few adult males, related females, and cubs.
+            Groups of female lions usually hunt together, preying mostly on large ungulates. The lion is an apex and
+            keystone predator; although some lions scavenge when opportunities occur and have been known to hunt humans,
+            lions typically do not actively seek out and prey on humans. </p>
+    </section>
+    <section class="boxmodel2">
+        <p>The lion inhabits grasslands, savannahs and shrublands. It is usually more diurnal than other wild cats, but
+            when persecuted, it adapts to being active at night and at twilight. During the Neolithic period, the lion
+            ranged throughout Africa and Eurasia from Southeast Europe to India, but it has been reduced to fragmented
+            populations in sub-Saharan Africa and one population in western India. It has been listed as Vulnerable on
+            the IUCN Red List since 1996 because populations in African countries have declined by about 43% since the
+            early 1990s. Lion populations are untenable outside designated protected areas. Although the cause of the
+            decline is not fully understood, habitat loss and conflicts with humans are the greatest causes for concern.
+        </p>
+    </section>
+    <section class="boxmodel3">
+        <p>One of the most widely recognised animal symbols in human culture, the lion has been extensively depicted in
+            sculptures and paintings, on national flags, and in contemporary films and literature. Lions have been kept
+            in menageries since the time of the Roman Empire and have been a key species sought for exhibition in
+            zoological gardens across the world since the late 18th century. Cultural depictions of lions were prominent
+            in Ancient Egypt, and depictions have occurred in virtually all ancient and medieval cultures in the lion's
+            historic and current range.</p>
+    </section>
+    <br>
+    <hr>
+    <br>
+
+    <h3>Float and Clear</h3>
+    <section>
+        <div>
+            <p class="float"><img
+                    src="https://plus.unsplash.com/premium_photo-1673306778968-5aab577a7365?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                    alt=""> On the beach, there is a weathered rock adorned with a mossy log. The rock, smoothed by the
+                constant ebb and flow of the tides, sits proudly amidst the sandy shoreline. Its surface, once jagged
+                and rough, has been gradually worn down, creating a sense of tranquility. Upon this rock, a mossy log
+                has found its resting place. The log, covered in a lush carpet of vibrant green moss, seems to harmonize
+                with the coastal environment. The moss cascades over the log's edges, forming delicate tendrils that
+                sway gently in the sea breeze. The rock and the mossy log create an intriguing contrast against the
+                sandy backdrop of the beach. The rock's muted tones of gray and beige provide a sturdy foundation, while
+                the log's mossy embrace adds a burst of color and life. As the waves crash against the shore, the rock
+                and its mossy companion stand as silent witnesses to the eternal dance between land and sea. Together,
+                they create a picturesque scene, inviting contemplation and serving as a reminder of the beautiful
+                interplay of nature's elements. Amidst the rhythmic lapping of the waves, the rock stands steadfast,
+                offering a place of refuge for creatures seeking solace from the ever-changing tides. The mossy log, a
+                testament to the passage of time, invites curious beachcombers to pause and marvel at its organic
+                beauty. Soft to the touch, the moss on the log invites fingertips to explore its velvety texture. Tiny,
+                delicate leaves interweave, creating a miniature forest atop the wooden surface. Moisture lingers in the
+                air, nourishing the moss and giving it a vibrant sheen. In the golden light of the sun, the mossy log
+                becomes a focal point of interest, captivating passersby with its whimsical charm. Seagulls perch
+                nearby, occasionally hopping onto the log, creating a harmonious balance between the avian world and the
+                moss-covered sanctuary. Over time, the mossy log and the rock have become inseparable, their destinies
+                entwined in a timeless dance. Together, they tell a tale of resilience, growth, and symbiosis, reminding
+                us of nature's ability to adapt and flourish in even the harshest environments. As day turns into night,
+                the rock and its mossy companion rest beneath a star-studded sky, serenaded by the soothing sound of the
+                ocean. In this tranquil moment, they serve as a gentle reminder of the beauty that can be found in the
+                simplest of natural wonders, inspiring us to appreciate the intricate details that grace our world.</p>
+        </div>
+        <div>
+            <p class="overflow"><img src="https://cdn.pixabay.com/photo/2016/11/07/01/47/champagne-1804699_1280.png"
+                    alt="" class="imgoverflow">In a well-lit room, there is a sturdy wooden bench positioned against one
+                of the walls. The bench, crafted with care, offers a place to rest and contemplate within the comforting
+                confines of the space. Its smooth surface bears the marks of time and use, adding character to its
+                presence.Adorning the walls are an array of pictures, creating a gallery-like ambiance. Each picture
+                tells its own story, capturing moments frozen in time. Some frames are ornate, exuding elegance, while
+                others are simple and understated, allowing the focus to remain on the art they hold. The pictures
+                themselves vary in style and subject matter. Landscapes transport the viewer to serene vistas, inviting
+                them to explore distant realms. Portraits reveal the essence of individuals, their expressions conveying
+                a myriad of emotions. Abstract art, with its bold strokes and vibrant colors, sparks intrigue and
+                invites interpretation. As one traverses the room, the bench beckons, offering a seat to appreciate the
+                artwork adorning the walls. It becomes a place of contemplation, where one can immerse themselves in the
+                visual stories presented before them. The interplay of light and shadow enhances the atmosphere, adding
+                depth and dimension to the room's ambiance. The room, with its bench and pictures on the wall, becomes a
+                haven for artistic expression and introspection. It invites visitors to pause, reflect, and connect with
+                the emotions and narratives conveyed by the carefully curated collection. It is a space where beauty and
+                inspiration intertwine, inviting individuals to find solace and inspiration in the captivating world of
+                art.</p>
+        </div>
+        <div>
+            <p class="clear"><img src="https://cdn.pixabay.com/photo/2016/08/18/11/50/butterfly-1602726_1280.png" alt=""
+                    class="imgoverflow">The butterfly, a delicate and enchanting creature, dances gracefully through the
+                air, captivating all who are fortunate enough to witness its flight. With its vibrant colors and
+                intricate patterns, the butterfly is a symbol of beauty and transformation. From its humble beginnings
+                as a caterpillar, the butterfly undergoes a remarkable metamorphosis, emerging from its chrysalis as a
+                winged marvel. Its wings, adorned with a kaleidoscope of hues, range from iridescent blues and radiant
+                oranges to soft pastels and striking blacks. Each species possesses its unique combination of colors and
+                patterns, making every butterfly a work of art. As the butterfly flutters from flower to flower, it
+                plays a vital role in pollination, aiding in the reproduction of plants. Its delicate legs and long
+                proboscis allow it to delicately land on blossoms, sipping nectar with precision and grace. In this
+                symbiotic dance between butterfly and plant, both species thrive and flourish. Butterflies are known for
+                their ephemeral lifespan, living only for a brief period. Yet, during their time on Earth, they bring
+                joy and wonder to the world. They serve as a gentle reminder to embrace change and embrace the fleeting
+                beauty that life offers. Throughout various cultures, the butterfly holds symbolic significance. It
+                represents transformation, rebirth, and the soul's journey. Its presence often evokes feelings of awe,
+                freedom, and a connection to the natural world. Observing a butterfly's flight can be a moment of
+                serenity and inspiration. It reminds us to appreciate the small wonders that surround us and to embrace
+                our own personal growth and transformation. The butterfly's delicate presence serves as a reminder to
+                live life with grace and to seek beauty in even the most fleeting moments.</p>
+        </div>
+    </section>
+
+    <h3>12. Inline and Blockline elements </h3>
+
+    <!-- Block Elements = They are displayed as blocks that start on a new line and take up the full available width. They stack vertically, one after another, creating distinct sections. By default, block elements have a display value of block. Ex: <div>, <p>, <h1> to <h6>, <ul>, and <li>. -->
+    <!-- Inline Elements = They are displayed inline within a line of text and do not create line breaks. They take up only as much space as necessary for their content. By default, inline elements have a display value of inline. Ex: <span>, <a>, <strong>, and <em>. -->
+    <!-- There is a property called display property. By changing value of the property, you can change the character of the block -->
+    <!-- Refer 274 in css file -->
+    <h3>cheetah</h3>
+    <br>
+    <span class="cheetah1">The cheetah is the fastest land animal.</span>
+    <span class="cheetah1">It is capable of running at 80 to 98 km/h. </span>
+
+    <h4 class="cheetah2"> The cheetah lives in three main social groups. </h4>
+    <h4 class="cheetah2"> The cheetah occurs in a variety of habitats.</h4>
+
+    <h2>Trees</h2>
+    <p class="tree">Coconut tree: I am the most common tree in India</p>
+    <p class="tree">Mango tree: Excuse me, what did you say?</p>
+    <p class="tree">Banyan tree: Laughing in the corner</p>
+
+    <hr>
+
+    <h3>13. Opacity and Transparency</h3>
+    <section id="opacityandtransparency">
+        <div id="opacity">
+            Opacity is the measure of impenetrability to electromagnetic or other kinds of radiation, especially visible
+            light. In radiative transfer, it describes the absorption and scattering of radiation in a medium, such as a
+            plasma, dielectric, shielding material, glass, etc.
+            <button>Submit</button>
+        </div>
+        <div id="transparency">
+            In the field of optics, transparency (also called pellucidity or diaphaneity) is the physical property of
+            allowing light to pass through the material without appreciable scattering of light.
+        </div>
+    </section>
+    <hr>
+
+    <h3>14. Positions</h3>
+    <section>
+        <section id="static">
+            <h4>Static</h4>
+            <div class="positions"></div>
+            <div class="positions" id="middle"></div>
+            <div class="positions"></div>
+        </section>
+        <section id="relative">
+            <h4>Relative</h4>
+            <div class="positions"></div>
+            <div class="positions" id="middle"></div>
+            <div class="positions"></div>
+        </section>
+        <section id="absolute">
+            <h4>Absolute</h4>
+            <div class="positions"></div>
+            <div class="positions" id="middle">I am here</div>
+            <div class="positions"></div>
+        </section>
+        <section id="fixed">
+            <h4>Fixed</h4>
+            <div class="positions"></div>
+            <!-- <div class= "positions" id= "middle">Nee pogum idamellam naanum varuvaen</div> -->
+            <!-- commenting out because it is disturrbing to th eyes -->
+            <div class="positions"></div>
+        </section>
+        <section id="sticky">
+            <h4>Sticky</h4>
+            <div class="positions"></div>
+            <div class="positions" id="middle">I am sticky</div>
+            <div class="positions"></div>
+        </section>
+    </section>
+
+    <hr>
+
+    <h3>15. Animations</h3>
+
+    <section class="animations">
+        <div>Lets learn animation</div>
+    </section>
+
+    <h3>16. Transitions</h3>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <section class="transitions">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+
+    <hr>
+
+    <h3>17. Transforms</h3>
+    <section class="transform1">
+        <div id="trans">Hey dude</div>
+        <div id="trans">You are doing a great job</div>
+        <div id="trans">Dont think too much</div>
+        <div id="trans">Just concentrate on the process</div>
+
+    </section>
+    <section class="transform2">
+        <div id="trans">Good things are coming</div>
+        <div id="trans">Put your effort without worrying about results</div>
+        <div id="trans">Your hardwork will pay off!</div>
+        <div id="trans">Keep loving this phase</div>
+    </section>
+
+    <hr>
+
+    <h4>18. Creating a button using transitions and transforms</h4>
+
+    <section class="firstbutton">
+        <button>Register</button>
+    </section>
+
+    <hr>
+
+    <h3>19. Background</h3>
+
+    <section class="silence">
+        <h1>Silence is the biggest strength</h1>
+    </section>
+
+    <hr>
+
+    <h3>20. Flexbox</h3>
+
+    <section class="flexbox">
+
+        <h4>Let's Play With Flexbox1</h4>
+        <section class="fbcontainer1">
+            <div id="box1" style="background-color: #80ffdb; height: 200px;">short</div>
+            <div id="box2" style="background-color: #64dfdf; height: 300px;">short</div>
+            <div id="box3" style="background-color: #48bfe3; height: 150px;">a bit</div>
+            <div id="box4" style="background-color: #5390d9; height: 250px;">a bit</div>
+            <div id="box5" style="background-color: #6930c3; height: 275px;">tallest</div>
+        </section>
+
+        <h4>Let's Play With Flexbox2</h4>
+
+        <section class="fbcontainer2">
+            <div class="sidebar">
+                <div id="ads">ads</div>
+            </div>
+            <div class="centercontent">
+                <div id="content">content</div>
+            </div>
+            <div class="sidebar">
+                <div id="ads">ads</div>
+            </div>
+        </section>
+
+    </section>
+
+    <hr>
+
+    <section class="mediaqueries">
+        <nav class="mediaqueries">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#Home">Learn More</a></li>
+                <li><a href="#Home">About</a></li>
+                <li><a href="#Home">Contact</a></li>
+                <li><a href="#signup">Sign Up</a></li>
+            </ul>
+        </nav>
+
+        <h1>21. Media Queries1</h1>
+        <h2>21. Media Queries2</h2>
+        <h3>21. Media Queries3</h3>
+        <h4>21. Media Queries4</h4>
+        <h5>21. Media Queries5</h5>
+        <h6>21. Media Queries6</h6>
+    </section>
+
+    <hr>
+
+    <h3>22. Visibility and Z-index</h3>
+    <section class="zindex">
+        <div class="zindexbox" id="redzindexbox"></div>
+        <div class="zindexbox" id="greenzindexbox"></div>
+        <div class="zindexbox" id="bluezindexbox"></div>
+        <div class="zindexbox" id="yellowzindexbox"></div>
+    </section>
+    <hr>
+
+    <h3>23. Grids</h3>
+    <!-- div.class{text-$}*n -->
+    <div class="understandinggrids1">
+        <div class="grids">Box-1</div>
+        <div class="grids">Box-2</div>
+        <div class="grids">Box-3</div>
+        <div class="grids">Box-4</div>
+        <div class="grids">Box-5</div>
+        <div class="grids">Box-6</div>
+        <div class="grids">Box-7</div>
+        <div class="grids">Box-8</div>
+        <div class="grids">Box-9</div>
+        <!-- <div class="grids">Box-10</div> -->
+    </div>
+
+    <br>
+
+    <div class="understandinggrids2">
+        <div class="grids">Box-1</div>
+        <div class="grids">Box-2</div>
+        <div class="grids">Box-3</div>
+        <div class="grids">Box-4</div>
+        <div class="grids">Box-5</div>
+        <div class="grids">Box-6</div>
+        <div class="grids">Box-7</div>
+        <div class="grids">Box-8</div>
+        <div class="grids">Box-9</div>
+        <!-- <div class="grids">Box-10</div> -->
+    </div>
+
+    <br>
+
+    <div class="understandinggrids3">
+        <div class="grids" id="grids1">Box-1</div>
+        <div class="grids">Box-2</div>
+        <div class="grids">Box-3</div>
+        <div class="grids">Box-4</div>
+        <div class="grids">Box-5</div>
+        <div class="grids">Box-6</div>
+        <div class="grids">Box-7</div>
+        <div class="grids">Box-8</div>
+        <div class="grids">Box-9</div>
+        <!-- <div class="grids">Box-10</div> -->
+    </div>
+
+    <br>
+
+    <div class="web-layout-using-grids">
+        <div class="grids" id="navbar-grids">
+            Home About Services
+        </div>
+        <div class="grids" id="aside-grids">
+            Hard work can lead to numerous benefits and accomplishments. It can enhance skills, knowledge, and expertise
+            in a particular area. It can also foster personal and professional development, instilling valuable
+            qualities such as discipline, dedication, and self-confidence. Additionally, hard work can create
+            opportunities, open doors, and increase the likelihood of achieving desired outcomes. However, it is
+            essential to note that hard work alone is not a guarantee of success.
+        </div>
+        <div class="grids" id="section-grids">
+            Hard work is the dedicated effort and perseverance one puts into achieving their goals. It is the act of
+            consistently exerting oneself to accomplish tasks and overcome challenges, often going beyond what is
+            required. Hard work is characterized by commitment, discipline, and a strong work ethic. One of the key
+            aspects of hard work is the willingness to put in the necessary time and energy to achieve success. It
+            involves setting clear goals, planning strategically, and consistently taking steps towards those
+            objectives. Hardworking individuals understand that achieving significant results requires sustained effort
+            over a period of time. Hard work is not only about working long hours; it also entails working smartly and
+            efficiently. It involves prioritizing tasks, managing time effectively, and focusing on activities that
+            yield the greatest outcomes. By being organized and proactive, individuals can optimize their productivity
+            and maximize the impact of their hard work. Moreover, hard work often requires perseverance and resilience
+            in the face of challenges and setbacks. It is the ability to remain determined and motivated, even when
+            faced with obstacles or failures. Hardworking individuals understand that setbacks are an inherent part of
+            the journey towards success and view them as opportunities for growth and learning.
+        </div>
+        <footer class="grids" id="footer-grids">
+            "<strong>Just Keep Swimming - Dorry</strong>"
+        </footer>
+    </div>
+    <hr>
+
+</body>
+
+</html>

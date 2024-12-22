@@ -1,0 +1,16 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+p, div, input, textarea, label, select, option, a{
+  font-size: 16px;
+}
+
+a:hover, button:hover, input[type="submit"]:hover{
+  cursor: pointer;
+}
+#header{
+  text-align: center;
+  margin: 30px 0;
+  font-size: 32px;
+}
