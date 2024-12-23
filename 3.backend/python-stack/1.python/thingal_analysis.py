@@ -4,7 +4,8 @@ import pandas as pd
 
 try:
 
-    db_connection_string = 'mysql+pymysql://bharathsrinath@localhost/thingal'
+    db_connection_string = 'mysql+pymysql://bharathsrinath:1234@localhost/thingal'
+
     engine = create_engine(db_connection_string)
 
     print("Connected to MySQL database")
